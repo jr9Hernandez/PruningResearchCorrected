@@ -110,7 +110,7 @@ import dk.itu.mario.res.ResourcesManager;
 		        		//********mthod for generate beauty screens many singles*******//
 		    			
 		    			if(typeTask==5)
-		    			{ 
+		    			{
 		    				int counterIts=0;
 		    				for(int i=0;i<5;i++)
 			    			{
