@@ -78,6 +78,7 @@ public class GraphBuilder
 	private double bestSymmetryV=9999999;
 	private double worstSymmetryV=0;
 	private double bestAverageX=0;
+	private int globalCenterXMass=8;
 	//private ArrayList <double[]> gul;
 	//private ArrayList <double[]> gur;
 	//private ArrayList <double[]> gll;
@@ -375,24 +376,17 @@ public class GraphBuilder
     	{
     	 for(int j=(height/3);j<height;j++)
     	 {     
-    		 /*
-    		 if(objElem.getIdElem()==1)
+    		 
+    		 if(objElem.getIdElem()==0)
     		 {
     			 
-    			 double widthZeroA=(double)(((Elements)finalList.get(0)).getWidth());
-    			 double widthZero= widthZeroA/2;
     			
-    			 if(widthZero!=(int)widthZero)
-    			 {
-    				 widthZero=widthZero+0.5; 
-    			 }
-    			
-    			 if(i>widthZero-1)
+    			 if(i>globalCenterXMass)
     			 {
     				 
     				 continue;
     			 }
-    		 }*/
+    		 }
     		 
     		 if(typeElem==objElemP.getOddsCannons() || typeElem==objElemP.getOddsTubes() || typeElem==objElemP.getTubesFlower())
     		 {    			
@@ -1457,7 +1451,7 @@ public class GraphBuilder
 		}
 		
 		xCenterMassGeneral=summatoryAreasXG/summatoryAreasG;
-		xCenterMassGeneral=8;
+		xCenterMassGeneral=globalCenterXMass;
         yCenterMassGeneral=summatoryAreasYG/summatoryAreasG;
         
         yCenterMassGeneral=9.0;
