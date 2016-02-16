@@ -487,7 +487,8 @@ public class BeautyCustomizedLevel extends Level{
 
 	  
 
-	        int floor = (height - (1 + random.nextInt(4)));
+	        //int floor = (height - (1 + random.nextInt(4)));
+	        int floor = 13;
 
 	        //runs from the specified x position to the length of the segment
 	        for (int x = xo; x < xo + length; x++)
