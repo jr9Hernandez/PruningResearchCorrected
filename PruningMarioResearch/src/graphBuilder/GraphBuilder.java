@@ -1457,7 +1457,7 @@ public class GraphBuilder
 		}
 		
 		xCenterMassGeneral=summatoryAreasXG/summatoryAreasG;
-		xCenterMassGeneral=8.5;
+		xCenterMassGeneral=8;
         yCenterMassGeneral=summatoryAreasYG/summatoryAreasG;
         
         yCenterMassGeneral=9.0;
