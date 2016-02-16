@@ -361,6 +361,253 @@ public class GraphBuilder
     	return Beststates;
     } 
 
+	public ArrayList  DepthSearchCenterFrame(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch)
+    {    
+    	
+    	countElements--;
+    	Elements objElem= (Elements)finalList.get(countElementsFinal-countElements-1);
+    	int idElem=objElem.getIdElem();
+    	int typeElem=objElem.getTypeElem(); 
+    	
+    	
+    	
+    	for(int i=maxLeft;i<=maxRight;i++)
+    	{
+    	 for(int j=(height/3);j<height;j++)
+    	 {     
+    		 /*
+    		 if(objElem.getIdElem()==1)
+    		 {
+    			 
+    			 double widthZeroA=(double)(((Elements)finalList.get(0)).getWidth());
+    			 double widthZero= widthZeroA/2;
+    			
+    			 if(widthZero!=(int)widthZero)
+    			 {
+    				 widthZero=widthZero+0.5; 
+    			 }
+    			
+    			 if(i>widthZero-1)
+    			 {
+    				 
+    				 continue;
+    			 }
+    		 }*/
+    		 
+    		 if(typeElem==objElemP.getOddsCannons() || typeElem==objElemP.getOddsTubes() || typeElem==objElemP.getTubesFlower())
+    		 {    			
+    			if(objConstraints.ConstraintsOverlaid(states, i, j, finalList,objElemP)==false)
+     		 	{
+     			 	
+    				//System.out.println("falseadoo");
+     			 	continue;
+     		 	}
+    			else if(objElem.getWidth()==1 && objConstraints.ConstraintsMinWidth(states, i, j, finalList,objElemP)==false)
+      			{
+      				continue;
+      			}
+    			else if(objConstraints.ConstraintsWidthMaxTileRelative(states, i, j, finalList, objElem.getWidth(),maxRight)==false)
+    			{ 
+    				
+    				continue;
+    			}
+    			else if(objConstraints.ConstraintsHeightMaxTileRelative(states, i, j, finalList, objElem.getHeigth(),maxRight)==false)
+    			{ 
+    				
+    				continue;
+    			}
+    			else if(objConstraints.ConstraintsFloorRelative(states, i, j, finalList,floorTileHeight,objElemP)==false)
+    			{ 
+    				
+    				continue;
+    			}
+    			else if(objConstraints.ConstraintsMinSpace(states, i, j, finalList,objElemP)==false)
+     		 	{
+     			 	
+    				//System.out.println("falseadoo");
+     			 	continue;
+     		 	}
+    		 }
+    		 else if( typeElem==objElemP.getOddsHillStraightFloat())
+    		 {
+    			 if(objConstraints.ConstraintsOverlaid(states, i, j, finalList,objElemP)==false)
+        		 	{
+        			 	
+       				//System.out.println("falseadoo");
+        			 	continue;
+        		 	}
+     			else if(objConstraints.ConstraintsWidthMaxTileRelative(states, i, j, finalList, objElem.getWidth(),maxRight)==false)
+      			{ 
+      				
+      				continue;
+      			}
+     			else if(objConstraints.ConstraintsHeightMaxTileRelative(states, i, j, finalList, objElem.getHeigth(),maxRight)==false)
+     			{ 
+     				
+     				continue;
+     			}
+     			 else if(objConstraints.ConstraintsFloorFloatingsHillsRelative(states, i, j, finalList,floorTileHeight,objElemP)==false)
+      			{ 
+      				
+      				continue;
+      			}
+     			 else if(objConstraints.ConstraintsMinSpaceHillFloat(states, i, j, finalList,objElemP,floorTileHeight)==false)
+       		 	{
+       			 	
+      				//System.out.println("falseadoo");
+       			 	continue;
+       		 	}
+     			 /*if(objConstraints.ConstraintsPosibleGoalJump(i, j)==false)
+     			 {
+     				 continue;
+     			 }*/   			 
+    		 }
+    		 else if(typeElem==objElemP.getBlockElement() || typeElem==objElemP.getCoins() || typeElem==objElemP.getBlockBlue() || typeElem==objElemP.getBlockWood() || typeElem==objElemP.getSmallTube() || typeElem==objElemP.getWood() )
+    		 {
+    			 if(objConstraints.ConstraintsOverlaid(states, i, j, finalList,objElemP)==false)
+       		 	{
+       			 	
+      				//System.out.println("falseadoo");
+       			 	continue;
+       		 	}
+    			else if(objConstraints.ConstraintsWidthMaxTileRelative(states, i, j, finalList, objElem.getWidth(),maxRight)==false)
+     			{ 
+     				
+     				continue;
+     			}
+    			else if(objConstraints.ConstraintsHeightMaxTileRelative(states, i, j, finalList, objElem.getHeigth(),maxRight)==false)
+    			{ 
+    				
+    				continue;
+    			}
+    			 else if(objConstraints.ConstraintsFloorFloatingsRelative(states, i, j, finalList,floorTileHeight,objElemP)==false)
+     			{ 
+     				
+     				continue;
+     			}
+    			 else if(objConstraints.ConstraintsMinSpaceFloat(states, i, j, finalList,objElemP,floorTileHeight)==false && (typeElem==objElemP.getBlockElement() || typeElem==objElemP.getBlockBlue() || typeElem==objElemP.getBlockWood() || typeElem==objElemP.getSmallTube() || typeElem==objElemP.getWood()))
+      		 	{
+      			 	
+     				//System.out.println("falseadoo");
+      			 	continue;
+      		 	}
+    			 else if(objConstraints.ConstraintsMinSpaceCoins(states, i, j, finalList,objElemP)==false && typeElem==objElemP.getCoins())
+        		 	{
+        			 	
+       				//System.out.println("falseadoo");
+        			 	continue;
+        		 	}
+    			 /*if(objConstraints.ConstraintsPosibleGoalJump(i, j)==false)
+    			 {
+    				 continue;
+    			 }*/
+    		 }
+    		 else if(typeElem==objElemP.getOddsJump())
+    		 {
+    			
+    			if(objConstraints.ConstraintsWidthMaxTileRelative(states, i, j, finalList, objElem.getWidth(),maxRight)==false)
+     			{ 
+     				
+     				continue;
+     			}
+    			 else if(objConstraints.ConstraintsFloorGapsRelative(i, j)==false)
+     			{ 
+     				
+     				continue;
+     			}
+    			 else if(objConstraints.ConstraintsMinSpace(states, i, j, finalList,objElemP)==false)
+      		 	{
+      			 	
+     				//System.out.println("falseadoo");
+      			 	continue;
+      		 	}
+    			
+    			 /*if(objConstraints.ConstraintsPosibleGoalJump(i, j)==false)
+    			 {
+    				 continue;
+    			 }*/
+    		 }
+    		 else if(typeElem==objElemP.getOddsHillStraight())
+    		 {
+    			 if(objConstraints.ConstraintsOverlaidHills(states, i, j, finalList, objElemP)==false)
+      		 	{      			 	
+     				//System.out.println("falseadoo");
+      			 	continue;
+      		 	}
+    			 else if(objConstraints.ConstraintsWidthMaxTileRelative(states, i, j, finalList, objElem.getWidth(),maxRight)==false)
+      			{ 
+      				
+      				continue;
+      			}
+    			 else if(objConstraints.ConstraintsHeightMaxTileRelative(states, i, j, finalList, objElem.getHeigth(),maxRight)==false)
+     			{ 
+     				
+     				continue;
+     			}
+    			 else if(objConstraints.ConstraintsFloorRelative(states, i, j, finalList,floorTileHeight,objElemP)==false)
+     			{ 
+     				
+     				continue;
+     			}
+    			 else if(objConstraints.ConstraintsMinSpaceHills(states, i, j, finalList,objElemP)==false)
+      		 	{
+      			 	
+     				//System.out.println("falseadoo");
+      			 	continue;
+      		 	}
+    		 }
+    		 else if(typeElem==objElemP.getEnemyRedKoopa() || typeElem==objElemP.getEnemyGreenKoopa() || typeElem==objElemP.getEnemyGoomba() || typeElem==objElemP.getEnemySpiky() || typeElem==objElemP.getEnemyFlower() || typeElem==objElemP.getEnemyArmoredTurtle() || typeElem==objElemP.getEnemyJumpFlower() || typeElem==objElemP.getEnemyCannonBall() || typeElem==objElemP.getEnemyChompFlower())
+    		 {
+     			if(objConstraints.ConstraintsOverlaidHills(states, i, j, finalList,objElemP)==false)
+     		 	{
+     			 	
+    				//System.out.println("falseadoo");
+     			 	continue;
+     		 	}
+    			else if(objConstraints.ConstraintsFloorEnemiesRelative(states, i, j, finalList,floorTileHeight,objElemP)==false)
+    			{ 
+    				
+    				continue;
+    			}
+    		 }
+    		 
+    		counterIDs=counterIDs+1;
+    		BlockNode objBlockNode2=new BlockNode(i,j,counterIDs,typeElem,idElem);
+    		states.add(objBlockNode2);
+    		
+    		
+
+    		if(countElements>0)
+    		{    			
+    			DepthSearchCenterFrame(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1);
+    		}
+    		else{
+    			//System.out.println("aca se debe calcular la formula");
+    			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft);
+    			 
+    		}
+    		//System.out.println("Aqui deberia eliminar del array");
+    		states.remove(states.size() - 1);
+    		 
+    	 }
+    	}
+    	//putting enemies
+    	if(globalControlSearch==0)
+    	{
+    	for(int i=0;i<numEnemies;i++)
+    	{
+    		countElements--;
+        	Elements objElemEnem= (Elements)finalList.get(countElementsFinal+i);
+        	int idElemEnem=objElemEnem.getIdElem();
+        	int typeElemEnem=objElemEnem.getTypeElem(); 
+        	
+        	counterIDs=counterIDs+1;
+    		BlockNode objBlockNode2=new BlockNode(RandomCoordenateGenerator(random,0,width-1),RandomCoordenateGenerator(random,0,floorTileHeight),counterIDs,typeElemEnem,idElemEnem);
+    		Beststates.add(objBlockNode2);
+    	}
+    	}
+    	return Beststates;
+    }
 
 	public ArrayList  relativePositionDepthSearch(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch)
     {    
@@ -991,6 +1238,45 @@ public class GraphBuilder
     	}
     	return Beststates;
     }
+ 
+    private void validateBestBranchDepthSearchCenterFrame(ArrayList states, ElementsToPlace objElemP,int height,int floor,int maxObjLeft) {
+		// TODO Auto-generated method stub
+    	
+    	//impresion de array actual
+    	
+    	Iterator<BlockNode> nombreIterator = states.iterator();
+        while(nombreIterator.hasNext()){
+        	BlockNode elemento = nombreIterator.next();
+        	//System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" )  / ");
+        }
+        
+        //here we will calculate the center of mass
+        centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
+        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
+        double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
+        
+        if(symmetryV<bestSymmetryV)
+        {
+        		bestSymmetryV=symmetryV;
+            	Beststates= new ArrayList<BlockNode>(states);
+            	//Beststates=FormattingElementsSingle(Beststates, maxObjLeft);
+            	bestAverageX=DistanceX;
+        	
+        }
+        else if(symmetryV==bestSymmetryV )
+        {
+        	   if(DistanceX>bestAverageX)
+        	   {
+        		bestSymmetryV=symmetryV;
+        		Beststates= new ArrayList<BlockNode>(states);
+        		Beststates=FormattingElementsSingle(Beststates, maxObjLeft);
+        		bestAverageX=DistanceX;
+        	   }
+        }
+    	
+        
+    			
+	}    
     
     private void validateBestBranch(ArrayList states, ElementsToPlace objElemP,int height,int floor,int maxObjLeft) {
 		// TODO Auto-generated method stub
@@ -1118,6 +1404,105 @@ public class GraphBuilder
 			}
 
 		return averageXDistance;
+	}
+	
+	public void centerOfMassDepthSearchCenterFrame(ArrayList states,ElementsToPlace objElemP,double height,int floor)
+	{
+		boolean flagPivotFloating=false;
+		double summatoryAreasXG=0;
+		double summatoryAreasYG=0;
+		double summatoryAreasG=0;
+		double widthElementG=0;
+		double heigthElementG=0;
+		double areaG;
+		double xG,yG;
+		
+		double summatoryAreasXC=0;
+		double summatoryAreasYC=0;
+		double summatoryAreasC=0;
+		double widthElementC=0;
+		double heigthElementC=0;
+		double areaC;
+		double xC,yC;
+		
+		//Center of mass of all objects
+		Iterator<BlockNode> itCenterMass = states.iterator();
+		while(itCenterMass.hasNext()){
+			BlockNode elemento = itCenterMass.next();
+			Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
+			if(elemento.getType()!=objElemP.getCoins() && elemento.getType()!=objElemP.getEnemyArmoredTurtle() && elemento.getType()!=objElemP.getEnemyCannonBall() && elemento.getType()!=objElemP.getEnemyChompFlower() && elemento.getType()!=objElemP.getEnemyFlower() && elemento.getType()!=objElemP.getEnemyGoomba() && elemento.getType()!=objElemP.getEnemyGreenKoopa() && elemento.getType()!=objElemP.getEnemyJumpFlower() && elemento.getType()!=objElemP.getEnemyRedKoopa() && elemento.getType()!=objElemP.getEnemySpiky())
+			{
+			int xInitial = elemento.getX();
+	        int yInitial= elemento.getY();
+	        widthElementG=element.getWidth();
+	        heigthElementG=element.getHeigth()+1;
+	        
+	        areaG=widthElementG*heigthElementG;
+	        xG=xInitial+(widthElementG/2);
+	        yG=yInitial-(heigthElementG/2);
+	        //System.out.println(elemento.getIdElement()+"x "+xG+"y "+yG);
+	        
+	        summatoryAreasG=summatoryAreasG+areaG;
+	        summatoryAreasXG=summatoryAreasXG+(areaG*(xG));
+	        summatoryAreasYG=summatoryAreasYG+(areaG*(yG));
+	        
+	        if(element.getIdElem()==0 && element.getTypeElem()==objElemP.getBlockElement() || element.getTypeElem()==objElemP.getOddsHillStraightFloat())
+	        {
+	        	flagPivotFloating=true;
+	        }
+	        
+			}
+	        
+	        		        
+		}
+		
+		xCenterMassGeneral=summatoryAreasXG/summatoryAreasG;
+		xCenterMassGeneral=8.5;
+        yCenterMassGeneral=summatoryAreasYG/summatoryAreasG;
+        
+        yCenterMassGeneral=9.0;
+        if(flagPivotFloating==true)
+        {
+        	yCenterMassGeneral=7.0;
+        }
+        //System.out.println("xCenterMassG "+xCenterMassGeneral);
+        //System.out.println("yCenterMassG "+yCenterMassGeneral);
+		
+		//center of mass of Coins
+		Iterator<BlockNode> itCenterMass2 = states.iterator();
+		while(itCenterMass2.hasNext()){
+			BlockNode elemento = itCenterMass2.next();
+			Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
+			if(elemento.getType()==objElemP.getCoins())
+			{
+			int xInitial = elemento.getX();
+	        int yInitial= elemento.getY();
+	        widthElementC=element.getWidth();
+	        heigthElementC=element.getHeigth()+1;
+	        
+	        areaC=widthElementC*heigthElementC;
+	        xC=xInitial+(widthElementC/2);
+	        yC=yInitial-(heigthElementC/2);
+	        //System.out.println(elemento.getIdElement()+"x "+xC+"y "+yC);
+	        
+	        summatoryAreasC=summatoryAreasC+areaC;
+	        summatoryAreasXC=summatoryAreasXC+(areaC*(xC));
+	        summatoryAreasYC=summatoryAreasYC+(areaC*(yC));
+			}
+	        
+	        		        
+		}
+		
+		/*System.out.println("summatoryAreasX "+summatoryAreasX);
+        System.out.println("summatoryAreasY "+summatoryAreasY);
+        System.out.println("summatoryAreas "+summatoryAreas);*/
+		
+		xCenterMassCoins=summatoryAreasXC/summatoryAreasC;
+        yCenterMassCoins=summatoryAreasYC/summatoryAreasC;
+        
+        yCenterMassCoins=floor/2;
+        //System.out.println("xCenterMassC "+xCenterMassCoins);
+        //System.out.println("yCenterMassC "+yCenterMassCoins);
 	}
     
 	public void centerOfMass(ArrayList states,ElementsToPlace objElemP,double height,int floor)
