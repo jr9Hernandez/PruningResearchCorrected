@@ -1269,7 +1269,7 @@ public class GraphBuilder
         	   {
         		bestSymmetryV=symmetryV;
         		Beststates= new ArrayList<BlockNode>(states);
-        		Beststates=FormattingElementsSingle(Beststates, maxObjLeft);
+        		//Beststates=FormattingElementsSingle(Beststates, maxObjLeft);
         		bestAverageX=DistanceX;
         	   }
         }
