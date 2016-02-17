@@ -81,8 +81,6 @@ public class GraphBuilder
 	private double bestAverageX=0;
 	private int globalCenterXMass=8;
 	private double partialSymmetry;
-	private double bestX;
-	private double bestY;
 	private ArrayList<Double> bestXs;
 	private ArrayList<Double> bestYs;
 	//private ArrayList <double[]> gul;
@@ -1537,9 +1535,7 @@ public class GraphBuilder
         
         //here we will calculate the center of mass
         centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
-        bestX=0;
-        bestY=0;
-        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins,bestX,bestY);
+        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         //double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
     	
         return symmetryV;
@@ -1559,9 +1555,7 @@ public class GraphBuilder
         
         //here we will calculate the center of mass
         centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
-        bestX=0;
-        bestY=0;
-        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins,bestX,bestY);
+        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         
         if(symmetryV<bestSymmetryV)
@@ -1600,9 +1594,7 @@ public class GraphBuilder
         
         //here we will calculate the center of mass
         centerOfMass(states,objElemP,height,floor);
-        bestX=0;
-        bestY=0;
-        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins,bestX,bestY);
+        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         
         if(symmetryV<bestSymmetryV)
@@ -1643,9 +1635,7 @@ public class GraphBuilder
         
         //here we will calculate the center of mass
         centerOfMass(states,objElemP,height,floor);
-        bestX=0;
-        bestY=0;
-        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins,bestX,bestY);
+        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         
       //creating object Branch
     	Branch objBranch=new Branch(symmetryV,new ArrayList<BlockNode>(states));
@@ -2489,7 +2479,7 @@ public class GraphBuilder
 		return symmetryValue;
 	}
 
-	public double symettry1(ArrayList states,ElementsToPlace objElemP, double xCenterMassGeneral, double yCenterMassGeneral, double xCenterMassCoins, double yCenterMassCoins, double bestX, double bestY)
+	public double symettry1(ArrayList states,ElementsToPlace objElemP, double xCenterMassGeneral, double yCenterMassGeneral, double xCenterMassCoins, double yCenterMassCoins)
 	{
 		//gul=new ArrayList<double[]>();
 		//gur=new ArrayList<double[]>();
