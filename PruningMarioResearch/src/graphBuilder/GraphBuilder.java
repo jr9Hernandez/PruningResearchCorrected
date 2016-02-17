@@ -612,21 +612,23 @@ public class GraphBuilder
     		states.add(objBlockNode2);
     		
     		
-
-    		if(countElements>0)
-    		{    		
-    			partialSymmetry=partialSymmetry(states,objElemP,height,floorTileHeight,localMaxObjLeft);
-    	    	if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry))
-    			 {
-    	    		states.remove(states.size() - 1);
-    				continue outerloop; 
-    			 }
+    		partialSymmetry=partialSymmetry(states,objElemP,height,floorTileHeight,localMaxObjLeft);
+    		boolean validationPruningM=false;
+	    	if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry)==true)
+			 {
+	    		validationPruningM=true;
+			 }
+	    	
+    		if(countElements>0 && validationPruningM==false)
+    		{    		    			
     	    	DepthSearchCenterFramePruning(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1);
     		}
     		else{
     			//System.out.println("aca se debe calcular la formula");
+    			if(countElements==0)
+    			{
     			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft);
-    			 
+    			}
     		}
     		//System.out.println("Aqui deberia eliminar del array");
     		states.remove(states.size() - 1);
