@@ -81,8 +81,8 @@ public class GraphBuilder
 	private double bestAverageX=0;
 	private int globalCenterXMass=8;
 	private double partialSymmetry;
-	private ArrayList<Double> bestXs;
-	private ArrayList<Double> bestYs;
+	private ArrayList<Double> bestXs=new ArrayList<Double>();
+	private ArrayList<Double> bestYs=new ArrayList<Double>();
 	//private ArrayList <double[]> gul;
 	//private ArrayList <double[]> gur;
 	//private ArrayList <double[]> gll;
