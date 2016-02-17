@@ -79,6 +79,9 @@ public class GraphBuilder
 	private double worstSymmetryV=0;
 	private double bestAverageX=0;
 	private int globalCenterXMass=8;
+	private double partialSymmetry;
+	private double bestX;
+	private double bestY;
 	//private ArrayList <double[]> gul;
 	//private ArrayList <double[]> gur;
 	//private ArrayList <double[]> gll;
@@ -362,25 +365,36 @@ public class GraphBuilder
     	return Beststates;
     } 
 
+    public boolean  validationPruningM(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry)
+    { 
+        System.out.println("PartialSymmetry is "+partialSymmetry);
+        double newPartialSymmetry=partialSymmetry;
+        
+        if(partialSymmetry>bestSymmetryV)
+        {
+        	return true;
+        }
+        else
+        {
+        	return false;
+        }
+    }    
+    
 	public ArrayList  DepthSearchCenterFramePruning(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch)
     {    
-    	
+		
     	countElements--;
     	Elements objElem= (Elements)finalList.get(countElementsFinal-countElements-1);
     	int idElem=objElem.getIdElem();
     	int typeElem=objElem.getTypeElem(); 
     	
-    	
-    	
+    	outerloop:
     	for(int i=maxLeft;i<=maxRight;i++)
     	{
     	 for(int j=(height/3);j<height;j++)
-    	 {     
-    		 
+    	 {         		    		 
     		 if(objElem.getIdElem()==0)
-    		 {
-    			 
-    			
+    		 {   			     			
     			 if(i>globalCenterXMass)
     			 {
     				 
@@ -572,7 +586,13 @@ public class GraphBuilder
     		
 
     		if(countElements>0)
-    		{    			
+    		{    		
+    			partialSymmetry=partialSymmetry(states,objElemP,height,floorTileHeight,localMaxObjLeft);
+    	    	if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry))
+    			 {
+    	    		states.remove(states.size() - 1);
+    				continue outerloop; 
+    			 }
     			DepthSearchCenterFrame(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1);
     		}
     		else{
@@ -1474,6 +1494,28 @@ public class GraphBuilder
     	return Beststates;
     }
  
+    private Double partialSymmetry(ArrayList states, ElementsToPlace objElemP,int height,int floor,int maxObjLeft) {
+		// TODO Auto-generated method stub
+    	
+    	//impresion de array actual
+    	
+    	Iterator<BlockNode> nombreIterator = states.iterator();
+        while(nombreIterator.hasNext()){
+        	BlockNode elemento = nombreIterator.next();
+        	//System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" )  / ");
+        }
+        
+        //here we will calculate the center of mass
+        centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
+        bestX=0;
+        bestY=0;
+        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins,bestX,bestY);
+        //double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
+    	
+        return symmetryV;
+    			
+	}     
+    
     private void validateBestBranchDepthSearchCenterFrame(ArrayList states, ElementsToPlace objElemP,int height,int floor,int maxObjLeft) {
 		// TODO Auto-generated method stub
     	
@@ -1487,7 +1529,9 @@ public class GraphBuilder
         
         //here we will calculate the center of mass
         centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
-        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
+        bestX=0;
+        bestY=0;
+        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins,bestX,bestY);
         double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         
         if(symmetryV<bestSymmetryV)
@@ -1526,7 +1570,9 @@ public class GraphBuilder
         
         //here we will calculate the center of mass
         centerOfMass(states,objElemP,height,floor);
-        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
+        bestX=0;
+        bestY=0;
+        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins,bestX,bestY);
         double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         
         if(symmetryV<bestSymmetryV)
@@ -1567,7 +1613,9 @@ public class GraphBuilder
         
         //here we will calculate the center of mass
         centerOfMass(states,objElemP,height,floor);
-        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
+        bestX=0;
+        bestY=0;
+        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins,bestX,bestY);
         
       //creating object Branch
     	Branch objBranch=new Branch(symmetryV,new ArrayList<BlockNode>(states));
@@ -2411,7 +2459,7 @@ public class GraphBuilder
 		return symmetryValue;
 	}
 
-	public double symettry1(ArrayList states,ElementsToPlace objElemP, double xCenterMassGeneral, double yCenterMassGeneral, double xCenterMassCoins, double yCenterMassCoins)
+	public double symettry1(ArrayList states,ElementsToPlace objElemP, double xCenterMassGeneral, double yCenterMassGeneral, double xCenterMassCoins, double yCenterMassCoins, double bestX, double bestY)
 	{
 		//gul=new ArrayList<double[]>();
 		//gur=new ArrayList<double[]>();
@@ -2476,6 +2524,15 @@ public class GraphBuilder
 	        		gulAG[3]=heigthElement;
 	        		gulATG[3]=gulATG[3]+gulAG[3];
 	        		//gul.add(gulA);
+	        		
+	        		if(gulATG[0]>bestX)
+	        		{
+	        			bestX=gulATG[0];
+	        		}
+	        		if(gulATG[1]>bestY)
+	        		{
+	        			bestY=gulATG[1];
+	        		}
 	        	}
 	        	
 	        	//block low left
@@ -2492,6 +2549,15 @@ public class GraphBuilder
 	        		gllAG[3]=heigthElement;
 	        		gllATG[3]=gllATG[3]+gllAG[3];
 	        		//gll.add(gllA);
+	        		
+	        		if(gulATG[0]>bestX)
+	        		{
+	        			bestX=gulATG[0];
+	        		}
+	        		if(gulATG[1]>bestY)
+	        		{
+	        			bestY=gulATG[1];
+	        		}
 	        	}
 	        	else
 	        	{
@@ -2509,6 +2575,14 @@ public class GraphBuilder
 	        		gulAG[3]=yCenterMassGeneral-(yInitial-heigthElement);
 	        		gulATG[3]=gulATG[3]+gulAG[3];
 	        		//gul.add(gulA);
+	        		if(gulATG[0]>bestX)
+	        		{
+	        			bestX=gulATG[0];
+	        		}
+	        		if(gulATG[1]>bestY)
+	        		{
+	        			bestY=gulATG[1];
+	        		}
 	        	
 	        		//second block of the element (low left)
 	        		y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -2521,6 +2595,14 @@ public class GraphBuilder
 	        		gllAG[3]=(yInitial-yCenterMassGeneral);
 	        		gllATG[3]=gllATG[3]+gllAG[3];
 	        		//gll.add(gllA);
+	        		if(gulATG[0]>bestX)
+	        		{
+	        			bestX=gulATG[0];
+	        		}
+	        		if(gulATG[1]>bestY)
+	        		{
+	        			bestY=gulATG[1];
+	        		}
 	        	}
 	        }
 	        else if(xInitial>=xCenterMassGeneral )
@@ -2540,6 +2622,14 @@ public class GraphBuilder
 	        		gurAG[3]=heigthElement;
 	        		gurATG[3]=gurATG[3]+gurAG[3];
 	        		//gur.add(gurA);
+	        		if(gulATG[0]>bestX)
+	        		{
+	        			bestX=gulATG[0];
+	        		}
+	        		if(gulATG[1]>bestY)
+	        		{
+	        			bestY=gulATG[1];
+	        		}
 	        	}
 	        	//block low right
 	        	else if(yInitial-heigthElement>=yCenterMassGeneral)
@@ -2555,6 +2645,14 @@ public class GraphBuilder
 	        		glrAG[3]=heigthElement;
 	        		glrATG[3]=glrATG[3]+glrAG[3];
 	        		//glr.add(glrA);
+	        		if(gulATG[0]>bestX)
+	        		{
+	        			bestX=gulATG[0];
+	        		}
+	        		if(gulATG[1]>bestY)
+	        		{
+	        			bestY=gulATG[1];
+	        		}
 	        	}
 	        	else
 	        	{
@@ -2572,6 +2670,14 @@ public class GraphBuilder
 	        		gurAG[3]=yCenterMassGeneral-(yInitial-heigthElement);
 	        		gurATG[3]=gurATG[3]+gurAG[3];
 	        		//gur.add(gulA);
+	        		if(gulATG[0]>bestX)
+	        		{
+	        			bestX=gulATG[0];
+	        		}
+	        		if(gulATG[1]>bestY)
+	        		{
+	        			bestY=gulATG[1];
+	        		}
 		        	
 	        		//second block of the element  (low right)
 	        		y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -2584,6 +2690,14 @@ public class GraphBuilder
 	        		glrAG[3]=yInitial-yCenterMassGeneral;
 	        		glrATG[3]=glrATG[3]+glrAG[3];
 	        		//glr.add(gllA);
+	        		if(gulATG[0]>bestX)
+	        		{
+	        			bestX=gulATG[0];
+	        		}
+	        		if(gulATG[1]>bestY)
+	        		{
+	        			bestY=gulATG[1];
+	        		}
 	        	}
 	        	
 	        }
@@ -2604,6 +2718,14 @@ public class GraphBuilder
 			        gulAG[3]=heigthElement;
 			        gulATG[3]=gulATG[3]+gulAG[3];
 			        //gul.add(gurA);
+			        if(gulATG[0]>bestX)
+	        		{
+	        			bestX=gulATG[0];
+	        		}
+	        		if(gulATG[1]>bestY)
+	        		{
+	        			bestY=gulATG[1];
+	        		}
 			        
 			        //second block of the element (up right)
 			        x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -2616,6 +2738,14 @@ public class GraphBuilder
 			        gurAG[3]=heigthElement;
 			        gurATG[3]=gurATG[3]+gurAG[3];
 			        //gur.add(gurA);
+			        if(gulATG[0]>bestX)
+	        		{
+	        			bestX=gulATG[0];
+	        		}
+	        		if(gulATG[1]>bestY)
+	        		{
+	        			bestY=gulATG[1];
+	        		}
 	        		
 	        	}
 	        	else if(yInitial-heigthElement>=yCenterMassGeneral)
@@ -2633,6 +2763,14 @@ public class GraphBuilder
 			        gllAG[3]=heigthElement;
 			        gllATG[3]=gllATG[3]+gllAG[3];
 			        //gll.add(gurA);
+			        if(gulATG[0]>bestX)
+	        		{
+	        			bestX=gulATG[0];
+	        		}
+	        		if(gulATG[1]>bestY)
+	        		{
+	        			bestY=gulATG[1];
+	        		}
 			        
 			        //second block of the element (low right)
 			        x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -2645,6 +2783,14 @@ public class GraphBuilder
 			        glrAG[3]=heigthElement;
 			        glrATG[3]=glrATG[3]+glrAG[3];
 			        //gur.add(gurA);
+			        if(gulATG[0]>bestX)
+	        		{
+	        			bestX=gulATG[0];
+	        		}
+	        		if(gulATG[1]>bestY)
+	        		{
+	        			bestY=gulATG[1];
+	        		}
 	        	}
 	        	else
 	        	{
@@ -2662,6 +2808,15 @@ public class GraphBuilder
 			        gulAG[3]=yCenterMassGeneral-(yInitial-heigthElement);
 			        gulATG[3]=gulATG[3]+gulAG[3];
 			        
+			        if(gulATG[0]>bestX)
+	        		{
+	        			bestX=gulATG[0];
+	        		}
+	        		if(gulATG[1]>bestY)
+	        		{
+	        			bestY=gulATG[1];
+	        		}
+			        
 	        		//second block of the element (up right)
 	        		x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
 	        		y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
@@ -2674,6 +2829,15 @@ public class GraphBuilder
 			        gurATG[2]=gurATG[2]+gurAG[2];
 			        gurAG[3]=yCenterMassGeneral-(yInitial-heigthElement);
 			        gurATG[3]=gurATG[3]+gurAG[3];
+			        
+			        if(gulATG[0]>bestX)
+	        		{
+	        			bestX=gulATG[0];
+	        		}
+	        		if(gulATG[1]>bestY)
+	        		{
+	        			bestY=gulATG[1];
+	        		}
 	        		
 	        		//first block of the element (low left)
 	        		x=(xInitial+(xCenterMassGeneral-xInitial)/2);
@@ -2687,6 +2851,15 @@ public class GraphBuilder
 			        gllATG[2]=gllATG[2]+gllAG[2];
 			        gllAG[3]=yInitial-yCenterMassGeneral;
 			        gllATG[3]=gllATG[3]+gllAG[3];
+			        
+			        if(gulATG[0]>bestX)
+	        		{
+	        			bestX=gulATG[0];
+	        		}
+	        		if(gulATG[1]>bestY)
+	        		{
+	        			bestY=gulATG[1];
+	        		}
 			        
 	        		//second block of the element (low right)
 	        		x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
