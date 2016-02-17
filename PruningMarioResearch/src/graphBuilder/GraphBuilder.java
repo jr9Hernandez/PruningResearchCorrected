@@ -375,12 +375,12 @@ public class GraphBuilder
         System.out.println("PartialSymmetry is "+partialSymmetry);
         
         double newPartialSymmetry=partialSymmetry;
-        double nextFirstElement=countElementsFinal-countElements-1;
         
         for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
         {
         	Elements objElem= (Elements)finalList.get(i);
         	double areaElement=objElem.getHeigth()*objElem.getWidth();
+        	
         	int firstIndex=bestXSize-1;
         	int secondIdex=bestXSize-2;
         	int thirdIndex=bestXSize-3;
@@ -392,7 +392,7 @@ public class GraphBuilder
         	}
         	else if(bestXs.get(thirdIndex)==null)
         	{
-        		thirdIndex=firstIndex;
+        		thirdIndex=secondIdex;
         	}
         	partialSymmetry=partialSymmetry-(areaElement+bestXs.get(firstIndex)+bestXs.get(secondIdex)+bestXs.get(thirdIndex)+bestYs.get(firstIndex)+bestYs.get(secondIdex)+bestYs.get(thirdIndex));
         }
