@@ -623,7 +623,7 @@ public class GraphBuilder
     	    		states.remove(states.size() - 1);
     				continue outerloop; 
     			 }
-    			DepthSearchCenterFrame(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1);
+    	    	DepthSearchCenterFramePruning(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1);
     		}
     		else{
     			//System.out.println("aca se debe calcular la formula");
