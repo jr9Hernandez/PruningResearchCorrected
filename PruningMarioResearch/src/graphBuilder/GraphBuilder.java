@@ -619,7 +619,7 @@ public class GraphBuilder
     		{
     			if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry)==true)
     			{
-	    		
+    				System.out.println("cambiaso");
     				validationPruningM=true;
     			}
     		}

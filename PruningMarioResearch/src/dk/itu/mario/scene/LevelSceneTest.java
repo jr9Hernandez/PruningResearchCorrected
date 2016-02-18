@@ -112,7 +112,7 @@ import dk.itu.mario.res.ResourcesManager;
 		    			if(typeTask==5)
 		    			{
 		    				int counterIts=0;
-		    				for(int i=0;i<5;i++)
+		    				for(int i=0;i<1;i++)
 			    			{
 		    				ArrayList objectsOfSpecificType=new ArrayList<SingleElement>();	
 		    				Long newSeed=new Random().nextLong();
