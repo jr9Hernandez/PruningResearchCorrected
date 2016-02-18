@@ -369,6 +369,7 @@ public class GraphBuilder
 
     public boolean  validationPruningM(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry)
     { 
+    	countElements=countElements-1;
     	Collections.sort(bestXs,Collections.reverseOrder());
     	Collections.sort(bestYs,Collections.reverseOrder());
     	
