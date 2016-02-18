@@ -82,8 +82,8 @@ public class GraphBuilder
 	private int globalCenterXMass=8;
 	private double partialSymmetry;
 	private boolean firstBranchPercorred=false;
-	private ArrayList<Double> bestXs=new ArrayList<Double>();
-	private ArrayList<Double> bestYs=new ArrayList<Double>();
+	private ArrayList<Double> bestXs;
+	private ArrayList<Double> bestYs;
 	//private ArrayList <double[]> gul;
 	//private ArrayList <double[]> gur;
 	//private ArrayList <double[]> gll;
@@ -373,29 +373,33 @@ public class GraphBuilder
     	Collections.sort(bestYs);
     	int bestXSize=bestXs.size();
     	int bestYSize=bestYs.size();
-        System.out.println("PartialSymmetry is "+partialSymmetry);
+    	
+    	int firstIndex=bestXSize-1;
+    	int secondIdex=bestXSize-2;
+    	int thirdIndex=bestXSize-3;
+    	
+    	System.out.println("bestXSize "+bestXSize);
+    	System.out.println("bestYSize "+bestYSize);
+    	
+    	if(secondIdex<0)
+    	{
+    		secondIdex=firstIndex;
+    		thirdIndex=firstIndex;
+    	}
+    	else if(thirdIndex<0)
+    	{
+    		thirdIndex=secondIdex;
+    	}        
         
         double newPartialSymmetry=partialSymmetry;
-        
+        System.out.println("bestSymmetry "+bestSymmetryV);
         for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
-        {
+        {   System.out.println("PartialSymmetry is "+partialSymmetry);
         	Elements objElem= (Elements)finalList.get(i);
         	double areaElement=objElem.getHeigth()*objElem.getWidth();
         	
-        	int firstIndex=bestXSize-1;
-        	int secondIdex=bestXSize-2;
-        	int thirdIndex=bestXSize-3;
-        	
-        	if(secondIdex<0)
-        	{
-        		secondIdex=firstIndex;
-        		thirdIndex=firstIndex;
-        	}
-        	else if(thirdIndex<0)
-        	{
-        		thirdIndex=secondIdex;
-        	}
-        	partialSymmetry=partialSymmetry-(areaElement+bestXs.get(firstIndex)+bestXs.get(secondIdex)+bestXs.get(thirdIndex)+bestYs.get(firstIndex)+bestYs.get(secondIdex)+bestYs.get(thirdIndex));
+
+        	partialSymmetry=partialSymmetry-(areaElement+bestXs.get(0)+bestXs.get(0)+bestXs.get(0)+bestYs.get(0)+bestYs.get(0)+bestYs.get(0));
         }
         
         if(partialSymmetry>bestSymmetryV)
@@ -1532,6 +1536,8 @@ public class GraphBuilder
     private Double partialSymmetry(ArrayList states, ElementsToPlace objElemP,int height,int floor,int maxObjLeft) {
 		// TODO Auto-generated method stub
     	
+    	bestXs=new ArrayList<Double>();
+    	bestYs=new ArrayList<Double>();
     	//impresion de array actual
     	
     	Iterator<BlockNode> nombreIterator = states.iterator();
