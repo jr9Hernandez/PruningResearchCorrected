@@ -615,11 +615,14 @@ public class GraphBuilder
     		
     		partialSymmetry=partialSymmetry(states,objElemP,height,floorTileHeight,localMaxObjLeft);
     		boolean validationPruningM=false;
-	    	if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry)==true && firstBranchPercorred==true)
-			 {
-	    		validationPruningM=true;
-			 }
-	    	
+    		if(firstBranchPercorred==true)
+    		{
+    			if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry)==true)
+    			{
+	    		
+    				validationPruningM=true;
+    			}
+    		}
     		if(countElements>0 && validationPruningM==false)
     		{    		    			
     	    	DepthSearchCenterFramePruning(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1);
