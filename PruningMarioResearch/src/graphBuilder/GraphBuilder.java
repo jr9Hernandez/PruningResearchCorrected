@@ -386,12 +386,12 @@ public class GraphBuilder
         	int secondIdex=bestXSize-2;
         	int thirdIndex=bestXSize-3;
         	
-        	if(bestXs.get(secondIdex)==null)
+        	if(secondIdex<0)
         	{
         		secondIdex=firstIndex;
         		thirdIndex=firstIndex;
         	}
-        	else if(bestXs.get(thirdIndex)==null)
+        	else if(thirdIndex<0)
         	{
         		thirdIndex=secondIdex;
         	}
