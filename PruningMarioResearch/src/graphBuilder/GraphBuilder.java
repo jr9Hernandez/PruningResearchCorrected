@@ -1536,8 +1536,7 @@ public class GraphBuilder
     private Double partialSymmetry(ArrayList states, ElementsToPlace objElemP,int height,int floor,int maxObjLeft) {
 		// TODO Auto-generated method stub
     	
-    	bestXs=new ArrayList<Double>();
-    	bestYs=new ArrayList<Double>();
+    	
     	//impresion de array actual
     	
     	Iterator<BlockNode> nombreIterator = states.iterator();
@@ -2494,6 +2493,8 @@ public class GraphBuilder
 
 	public double symettry1(ArrayList states,ElementsToPlace objElemP, double xCenterMassGeneral, double yCenterMassGeneral, double xCenterMassCoins, double yCenterMassCoins)
 	{
+		bestXs=new ArrayList<Double>();
+    	bestYs=new ArrayList<Double>();
 		//gul=new ArrayList<double[]>();
 		//gur=new ArrayList<double[]>();
 		//gll=new ArrayList<double[]>();
