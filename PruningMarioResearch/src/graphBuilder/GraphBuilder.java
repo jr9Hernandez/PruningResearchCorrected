@@ -81,6 +81,7 @@ public class GraphBuilder
 	private double bestAverageX=0;
 	private int globalCenterXMass=8;
 	private double partialSymmetry;
+	private boolean firstBranchPercorred=false;
 	private ArrayList<Double> bestXs=new ArrayList<Double>();
 	private ArrayList<Double> bestYs=new ArrayList<Double>();
 	//private ArrayList <double[]> gul;
@@ -614,7 +615,7 @@ public class GraphBuilder
     		
     		partialSymmetry=partialSymmetry(states,objElemP,height,floorTileHeight,localMaxObjLeft);
     		boolean validationPruningM=false;
-	    	if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry)==true)
+	    	if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry)==true && firstBranchPercorred==true)
 			 {
 	    		validationPruningM=true;
 			 }
@@ -627,6 +628,7 @@ public class GraphBuilder
     			//System.out.println("aca se debe calcular la formula");
     			if(countElements==0)
     			{
+    			firstBranchPercorred=true;
     			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft);
     			}
     		}
