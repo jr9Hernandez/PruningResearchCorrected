@@ -369,37 +369,65 @@ public class GraphBuilder
 
     public boolean  validationPruningM(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry)
     { 
-    	Collections.sort(bestXs);
-    	Collections.sort(bestYs);
-    	int bestXSize=bestXs.size();
-    	int bestYSize=bestYs.size();
+    	Collections.sort(bestXs,Collections.reverseOrder());
+    	Collections.sort(bestYs,Collections.reverseOrder());
     	
-    	int firstIndex=bestXSize-1;
-    	int secondIdex=bestXSize-2;
-    	int thirdIndex=bestXSize-3;
-    	
-    	System.out.println("bestXSize "+bestXSize);
-    	System.out.println("bestYSize "+bestYSize);
-    	
-    	if(secondIdex<0)
-    	{
-    		secondIdex=firstIndex;
-    		thirdIndex=firstIndex;
-    	}
-    	else if(thirdIndex<0)
-    	{
-    		thirdIndex=secondIdex;
-    	}        
-        
-        double newPartialSymmetry=partialSymmetry;
         System.out.println("bestSymmetry "+bestSymmetryV);
+        int sizebestXs=bestXs.size();
+        int sizebestYs=bestYs.size();
+        
+        int indexCounterX=0;
+        int indexCounterY=0;
+        
+        double firstX=bestXs.get(0);
+    	double secondX=bestXs.get(0);
+    	double thirdX=bestXs.get(0);
+    	
+    	double firstY=bestYs.get(0);
+    	double secondY=bestYs.get(0);
+    	double thirdY=bestYs.get(0);
+        
         for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
-        {   System.out.println("PartialSymmetry is "+partialSymmetry);
+        {   
         	Elements objElem= (Elements)finalList.get(i);
         	double areaElement=objElem.getHeigth()*objElem.getWidth();
         	
-
-        	partialSymmetry=partialSymmetry-(areaElement+bestXs.get(0)+bestXs.get(0)+bestXs.get(0)+bestYs.get(0)+bestYs.get(0)+bestYs.get(0));
+        	
+        	if(indexCounterX<=sizebestXs-1)
+        	{
+        		firstX=bestXs.get(indexCounterX);
+        	}
+        	indexCounterX+=indexCounterX+1;
+        	
+        	if(indexCounterX<=sizebestXs-1)
+        	{
+        		secondX=bestXs.get(indexCounterX);
+        	}
+        	indexCounterX+=indexCounterX+1;
+        	
+        	if(indexCounterX<=sizebestXs-1)
+        	{
+        		thirdX=bestXs.get(indexCounterX);
+        	}
+        	
+        	if(indexCounterY<=sizebestYs-1)
+        	{
+        		firstY=bestYs.get(indexCounterY);
+        	}
+        	indexCounterY+=indexCounterY+1;
+        	
+        	if(indexCounterY<=sizebestYs-1)
+        	{
+        		secondY=bestYs.get(indexCounterY);
+        	}
+        	indexCounterY+=indexCounterY+1;
+        	
+        	if(indexCounterY<=sizebestYs-1)
+        	{
+        		thirdY=bestYs.get(indexCounterY);
+        	}
+        	
+        	partialSymmetry=partialSymmetry-(areaElement+firstX+secondX+thirdY+firstY+secondY+thirdY);
         }
         
         if(partialSymmetry>bestSymmetryV)
