@@ -398,35 +398,37 @@ public class GraphBuilder
         	{
         		firstX=bestXs.get(indexCounterX);
         	}
-        	indexCounterX+=indexCounterX+1;
+        	indexCounterX=indexCounterX+1;
         	
         	if(indexCounterX<=sizebestXs-1)
         	{
         		secondX=bestXs.get(indexCounterX);
         	}
-        	indexCounterX+=indexCounterX+1;
+        	indexCounterX=indexCounterX+1;
         	
         	if(indexCounterX<=sizebestXs-1)
         	{
         		thirdX=bestXs.get(indexCounterX);
         	}
+        	indexCounterX=indexCounterX+1;
         	
         	if(indexCounterY<=sizebestYs-1)
         	{
         		firstY=bestYs.get(indexCounterY);
         	}
-        	indexCounterY+=indexCounterY+1;
+        	indexCounterY=indexCounterY+1;
         	
         	if(indexCounterY<=sizebestYs-1)
         	{
         		secondY=bestYs.get(indexCounterY);
         	}
-        	indexCounterY+=indexCounterY+1;
+        	indexCounterY=indexCounterY+1;
         	
         	if(indexCounterY<=sizebestYs-1)
         	{
         		thirdY=bestYs.get(indexCounterY);
         	}
+        	indexCounterY=indexCounterY+1;
         	
         	partialSymmetry=partialSymmetry-(areaElement+firstX+secondX+thirdY+firstY+secondY+thirdY);
         }
