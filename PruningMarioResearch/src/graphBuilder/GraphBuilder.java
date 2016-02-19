@@ -464,11 +464,11 @@ public class GraphBuilder
     		{
     			if(bestXs.get(i)<globalCenterXMass)
     			{
-    				quadrant2X++;
+    				quadrant1X++;
     			}
     			else
     			{
-    				quadrant1X++;
+    				quadrant2X++;
     			}
     		}
     		
