@@ -454,6 +454,9 @@ public class GraphBuilder
     	
     	int quadrant1X=0;
     	int quadrant2X=0;
+    	
+    	int quadrant1Y=0;
+    	int quadrant2Y=0;
     	if(countElements!=countElementsFinal-1)
     	{
     		
@@ -461,13 +464,25 @@ public class GraphBuilder
     		{
     			if(bestXs.get(i)<globalCenterXMass)
     			{
+    				quadrant2X++;
+    			}
+    			else
+    			{
+    				quadrant1X++;
+    			}
+    		}
+    		
+    		/*for(int i=0;i<bestYs.size();i++)
+    		{
+    			if(bestYs.get(i)<yCenterMassGeneral)
+    			{
     				quadrant1X++;
     			}
     			else
     			{
     				quadrant2X++;
     			}
-    		}
+    		}*/
     		
     	}
     	
