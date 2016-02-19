@@ -457,10 +457,6 @@ public class GraphBuilder
     	if(countElements!=countElementsFinal-1)
     	{
     		
-    		BlockNode stateLast=(BlockNode)states.get(states.size()-1);
-    		int xCoordenate=stateLast.getX();
-    		int yCoordenate=stateLast.getY();
-    		
     		for(int i=0;i<bestXs.size();i++)
     		{
     			if(bestXs.get(i)<globalCenterXMass)
