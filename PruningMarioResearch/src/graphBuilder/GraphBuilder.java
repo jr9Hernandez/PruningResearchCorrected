@@ -480,7 +480,7 @@ public class GraphBuilder
     	 int indexN=i;
     	 for(int j=(height/3);j<height;j++)
     	 {        
-    		 if(quadrant2X>quadrant1X)
+    		 if(quadrant1X>quadrant1X)
     		 {
     			indexN= (maxRight-i);
     		 }
