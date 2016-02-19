@@ -452,7 +452,30 @@ public class GraphBuilder
     	int idElem=objElem.getIdElem();
     	int typeElem=objElem.getTypeElem(); 
     	
-    	outerloop:
+    	int quadrant1X=0;
+    	int quadrant2X=0;
+    	if(countElements!=countElementsFinal)
+    	{
+    		
+    		BlockNode stateLast=(BlockNode)states.get(states.size()-1);
+    		int xCoordenate=stateLast.getX();
+    		int yCoordenate=stateLast.getY();
+    		
+    		for(int i=0;i<bestXs.size();i++)
+    		{
+    			if(bestXs.get(i)<globalCenterXMass)
+    			{
+    				quadrant1X++;
+    			}
+    			else
+    			{
+    				quadrant2X++;
+    			}
+    		}
+    		
+    	}
+    	if(quadrant2X>quadrant1X)
+    	{
     	for(int i=maxLeft;i<=maxRight;i++)
     	{
     	 for(int j=(height/3);j<height;j++)
@@ -674,6 +697,232 @@ public class GraphBuilder
     		states.remove(states.size() - 1);
     		 
     	 }
+    	}
+    	}
+    	else
+    	{
+        	for(int i=maxRight;i<=maxLeft;i--)
+        	{
+        	 for(int j=(height/3);j<height;j++)
+        	 {         		    		 
+        		 if(objElem.getIdElem()==0)
+        		 {   			     			
+        			 if(i>globalCenterXMass)
+        			 {
+        				 
+        				 continue;
+        			 }
+        		 }
+        		 
+        		 if(typeElem==objElemP.getOddsCannons() || typeElem==objElemP.getOddsTubes() || typeElem==objElemP.getTubesFlower())
+        		 {    			
+        			if(objConstraints.ConstraintsOverlaid(states, i, j, finalList,objElemP)==false)
+         		 	{
+         			 	
+        				//System.out.println("falseadoo");
+         			 	continue;
+         		 	}
+        			else if(objElem.getWidth()==1 && objConstraints.ConstraintsMinWidth(states, i, j, finalList,objElemP)==false)
+          			{
+          				continue;
+          			}
+        			else if(objConstraints.ConstraintsWidthMaxTileRelative(states, i, j, finalList, objElem.getWidth(),maxRight)==false)
+        			{ 
+        				
+        				continue;
+        			}
+        			else if(objConstraints.ConstraintsHeightMaxTileRelative(states, i, j, finalList, objElem.getHeigth(),maxRight)==false)
+        			{ 
+        				
+        				continue;
+        			}
+        			else if(objConstraints.ConstraintsFloorRelative(states, i, j, finalList,floorTileHeight,objElemP)==false)
+        			{ 
+        				
+        				continue;
+        			}
+        			else if(objConstraints.ConstraintsMinSpace(states, i, j, finalList,objElemP)==false)
+         		 	{
+         			 	
+        				//System.out.println("falseadoo");
+         			 	continue;
+         		 	}
+        		 }
+        		 else if( typeElem==objElemP.getOddsHillStraightFloat())
+        		 {
+        			 if(objConstraints.ConstraintsOverlaid(states, i, j, finalList,objElemP)==false)
+            		 	{
+            			 	
+           				//System.out.println("falseadoo");
+            			 	continue;
+            		 	}
+         			else if(objConstraints.ConstraintsWidthMaxTileRelative(states, i, j, finalList, objElem.getWidth(),maxRight)==false)
+          			{ 
+          				
+          				continue;
+          			}
+         			else if(objConstraints.ConstraintsHeightMaxTileRelative(states, i, j, finalList, objElem.getHeigth(),maxRight)==false)
+         			{ 
+         				
+         				continue;
+         			}
+         			 else if(objConstraints.ConstraintsFloorFloatingsHillsRelative(states, i, j, finalList,floorTileHeight,objElemP)==false)
+          			{ 
+          				
+          				continue;
+          			}
+         			 else if(objConstraints.ConstraintsMinSpaceHillFloat(states, i, j, finalList,objElemP,floorTileHeight)==false)
+           		 	{
+           			 	
+          				//System.out.println("falseadoo");
+           			 	continue;
+           		 	}
+         			 /*if(objConstraints.ConstraintsPosibleGoalJump(i, j)==false)
+         			 {
+         				 continue;
+         			 }*/   			 
+        		 }
+        		 else if(typeElem==objElemP.getBlockElement() || typeElem==objElemP.getCoins() || typeElem==objElemP.getBlockBlue() || typeElem==objElemP.getBlockWood() || typeElem==objElemP.getSmallTube() || typeElem==objElemP.getWood() )
+        		 {
+        			 if(objConstraints.ConstraintsOverlaid(states, i, j, finalList,objElemP)==false)
+           		 	{
+           			 	
+          				//System.out.println("falseadoo");
+           			 	continue;
+           		 	}
+        			else if(objConstraints.ConstraintsWidthMaxTileRelative(states, i, j, finalList, objElem.getWidth(),maxRight)==false)
+         			{ 
+         				
+         				continue;
+         			}
+        			else if(objConstraints.ConstraintsHeightMaxTileRelative(states, i, j, finalList, objElem.getHeigth(),maxRight)==false)
+        			{ 
+        				
+        				continue;
+        			}
+        			 else if(objConstraints.ConstraintsFloorFloatingsRelative(states, i, j, finalList,floorTileHeight,objElemP)==false)
+         			{ 
+         				
+         				continue;
+         			}
+        			 else if(objConstraints.ConstraintsMinSpaceFloat(states, i, j, finalList,objElemP,floorTileHeight)==false && (typeElem==objElemP.getBlockElement() || typeElem==objElemP.getBlockBlue() || typeElem==objElemP.getBlockWood() || typeElem==objElemP.getSmallTube() || typeElem==objElemP.getWood()))
+          		 	{
+          			 	
+         				//System.out.println("falseadoo");
+          			 	continue;
+          		 	}
+        			 else if(objConstraints.ConstraintsMinSpaceCoins(states, i, j, finalList,objElemP)==false && typeElem==objElemP.getCoins())
+            		 	{
+            			 	
+           				//System.out.println("falseadoo");
+            			 	continue;
+            		 	}
+        			 /*if(objConstraints.ConstraintsPosibleGoalJump(i, j)==false)
+        			 {
+        				 continue;
+        			 }*/
+        		 }
+        		 else if(typeElem==objElemP.getOddsJump())
+        		 {
+        			
+        			if(objConstraints.ConstraintsWidthMaxTileRelative(states, i, j, finalList, objElem.getWidth(),maxRight)==false)
+         			{ 
+         				
+         				continue;
+         			}
+        			 else if(objConstraints.ConstraintsFloorGapsRelative(i, j)==false)
+         			{ 
+         				
+         				continue;
+         			}
+        			 else if(objConstraints.ConstraintsMinSpace(states, i, j, finalList,objElemP)==false)
+          		 	{
+          			 	
+         				//System.out.println("falseadoo");
+          			 	continue;
+          		 	}
+        			
+        			 /*if(objConstraints.ConstraintsPosibleGoalJump(i, j)==false)
+        			 {
+        				 continue;
+        			 }*/
+        		 }
+        		 else if(typeElem==objElemP.getOddsHillStraight())
+        		 {
+        			 if(objConstraints.ConstraintsOverlaidHills(states, i, j, finalList, objElemP)==false)
+          		 	{      			 	
+         				//System.out.println("falseadoo");
+          			 	continue;
+          		 	}
+        			 else if(objConstraints.ConstraintsWidthMaxTileRelative(states, i, j, finalList, objElem.getWidth(),maxRight)==false)
+          			{ 
+          				
+          				continue;
+          			}
+        			 else if(objConstraints.ConstraintsHeightMaxTileRelative(states, i, j, finalList, objElem.getHeigth(),maxRight)==false)
+         			{ 
+         				
+         				continue;
+         			}
+        			 else if(objConstraints.ConstraintsFloorRelative(states, i, j, finalList,floorTileHeight,objElemP)==false)
+         			{ 
+         				
+         				continue;
+         			}
+        			 else if(objConstraints.ConstraintsMinSpaceHills(states, i, j, finalList,objElemP)==false)
+          		 	{
+          			 	
+         				//System.out.println("falseadoo");
+          			 	continue;
+          		 	}
+        		 }
+        		 else if(typeElem==objElemP.getEnemyRedKoopa() || typeElem==objElemP.getEnemyGreenKoopa() || typeElem==objElemP.getEnemyGoomba() || typeElem==objElemP.getEnemySpiky() || typeElem==objElemP.getEnemyFlower() || typeElem==objElemP.getEnemyArmoredTurtle() || typeElem==objElemP.getEnemyJumpFlower() || typeElem==objElemP.getEnemyCannonBall() || typeElem==objElemP.getEnemyChompFlower())
+        		 {
+         			if(objConstraints.ConstraintsOverlaidHills(states, i, j, finalList,objElemP)==false)
+         		 	{
+         			 	
+        				//System.out.println("falseadoo");
+         			 	continue;
+         		 	}
+        			else if(objConstraints.ConstraintsFloorEnemiesRelative(states, i, j, finalList,floorTileHeight,objElemP)==false)
+        			{ 
+        				
+        				continue;
+        			}
+        		 }
+        		 
+        		counterIDs=counterIDs+1;
+        		BlockNode objBlockNode2=new BlockNode(i,j,counterIDs,typeElem,idElem);
+        		states.add(objBlockNode2);
+        		
+        		
+        		partialSymmetry=partialSymmetry(states,objElemP,height,floorTileHeight,localMaxObjLeft);
+        		boolean validationPruningM=false;
+        		if(firstBranchPercorred==true)
+        		{
+        			if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry)==true)
+        			{
+        				System.out.println("cambiaso");
+        				validationPruningM=true;
+        			}
+        		}
+        		if(countElements>0 && validationPruningM==false)
+        		{    		    			
+        	    	DepthSearchCenterFramePruning(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1);
+        		}
+        		else{
+        			//System.out.println("aca se debe calcular la formula");
+        			if(countElements==0)
+        			{
+        			firstBranchPercorred=true;
+        			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft);
+        			}
+        		}
+        		//System.out.println("Aqui deberia eliminar del array");
+        		states.remove(states.size() - 1);
+        		 
+        	 }
+        	}
     	}
     	//putting enemies
     	if(globalControlSearch==0)
