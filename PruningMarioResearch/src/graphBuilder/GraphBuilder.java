@@ -451,7 +451,7 @@ public class GraphBuilder
     	Elements objElem= (Elements)finalList.get(countElementsFinal-countElements-1);
     	int idElem=objElem.getIdElem();
     	int typeElem=objElem.getTypeElem(); 
-    	
+    	/*
     	int quadrant1X=0;
     	int quadrant2X=0;
     	
@@ -485,7 +485,7 @@ public class GraphBuilder
     			}
     		}
     		
-    	}
+    	}*/
     	
     	for(int i=maxLeft;i<=maxRight;i++)
     	{
