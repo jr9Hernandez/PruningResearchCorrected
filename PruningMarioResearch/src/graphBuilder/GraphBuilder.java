@@ -460,7 +460,7 @@ public class GraphBuilder
         	}
         	indexCounterY=indexCounterY+1;
         	
-        	partialSymmetry=partialSymmetry-((counterElements*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
+        	partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         }
         System.out.println("partialSymmetry "+partialSymmetry);
         if(partialSymmetry>bestSymmetryV)
