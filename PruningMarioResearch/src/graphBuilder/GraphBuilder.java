@@ -391,7 +391,7 @@ public class GraphBuilder
         for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
         {   
         	Elements objElem= (Elements)finalList.get(i);
-        	double areaElement=objElem.getHeigth()*objElem.getWidth();
+        	double areaElement=(objElem.getHeigth()+1)*objElem.getWidth();
         	
         	
         	if(indexCounterX<=sizebestXs-1)
