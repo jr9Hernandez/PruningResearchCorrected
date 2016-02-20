@@ -383,13 +383,13 @@ public class GraphBuilder
         int indexCounterX=0;
         int indexCounterY=0;
         
-        double firstX=0;
-    	double secondX=0;
-    	double thirdX=0;
+        double firstX=bestXs.get(0);
+    	double secondX=bestXs.get(0);
+    	double thirdX=bestXs.get(0);
     	
-    	double firstY=0;
-    	double secondY=0;
-    	double thirdY=0;
+    	double firstY=bestYs.get(0);
+    	double secondY=bestYs.get(0);
+    	double thirdY=bestYs.get(0);
         
         for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
         {   
@@ -444,6 +444,7 @@ public class GraphBuilder
         	{
         		secondY=bestYs.get(indexCounterY);
         	}
+        	
         	else
         	{
         		secondY=0;
@@ -454,6 +455,7 @@ public class GraphBuilder
         	{
         		thirdY=bestYs.get(indexCounterY);
         	}
+        	
         	else
         	{
         		thirdY=0;
