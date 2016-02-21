@@ -383,16 +383,18 @@ public class GraphBuilder
         int indexCounterX=0;
         int indexCounterY=0;
         
-        double firstX=bestXs.get(0);
-    	double secondX=bestXs.get(0);
-    	double thirdX=bestXs.get(0);
-    	
-    	double firstY=bestYs.get(0);
-    	double secondY=bestYs.get(0);
-    	double thirdY=bestYs.get(0);
+        
         
         for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
         {   
+        	double firstX=0;
+        	double secondX=0;
+        	double thirdX=0;
+        	
+        	double firstY=0;
+        	double secondY=0;
+        	double thirdY=0;
+        	
         	Elements objElem= (Elements)finalList.get(i);
         	double areaElement=(objElem.getHeigth()+1)*objElem.getWidth();
         	int counterElements=0;
@@ -402,20 +404,12 @@ public class GraphBuilder
         		firstX=bestXs.get(indexCounterX);
         		counterElements=counterElements+1;
         	}
-        	else
-        	{
-        		firstX=0;
-        	}
         	indexCounterX=indexCounterX+1;
         	
         	if(indexCounterX<=sizebestXs-1)
         	{
         		secondX=bestXs.get(indexCounterX);
         		counterElements=counterElements+1;
-        	}
-        	else
-        	{
-        		secondX=0;
         	}
         	indexCounterX=indexCounterX+1;
         	
@@ -424,41 +418,23 @@ public class GraphBuilder
         		thirdX=bestXs.get(indexCounterX);
         		counterElements=counterElements+1;
         	}
-        	else
-        	{
-        		thirdX=0;
-        	}
         	indexCounterX=indexCounterX+1;
         	
         	if(indexCounterY<=sizebestYs-1)
         	{
         		firstY=bestYs.get(indexCounterY);
         	}
-        	else
-        	{
-        		firstY=0;
-        	}
         	indexCounterY=indexCounterY+1;
         	
         	if(indexCounterY<=sizebestYs-1)
         	{
         		secondY=bestYs.get(indexCounterY);
-        	}
-        	
-        	else
-        	{
-        		secondY=0;
-        	}
+        	}        	
         	indexCounterY=indexCounterY+1;
         	
         	if(indexCounterY<=sizebestYs-1)
         	{
         		thirdY=bestYs.get(indexCounterY);
-        	}
-        	
-        	else
-        	{
-        		thirdY=0;
         	}
         	indexCounterY=indexCounterY+1;
         	
