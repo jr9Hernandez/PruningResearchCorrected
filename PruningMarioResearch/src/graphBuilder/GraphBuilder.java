@@ -2670,8 +2670,8 @@ public class GraphBuilder
 	        		gllATG[3]=gllATG[3]+gllAG[3];
 	        		//gll.add(gllA);
 	        		
-	        		bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+	        		bestXs.add(gllAG[0]);
+	        		bestYs.add(gllAG[1]);
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
@@ -2712,8 +2712,8 @@ public class GraphBuilder
 	        		//gll.add(gllA);
 	        		
 	        		
-	        		bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+	        		bestXs.add(gllAG[0]);
+	        		bestYs.add(gllAG[1]);
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
@@ -2737,8 +2737,8 @@ public class GraphBuilder
 	        		gurATG[3]=gurATG[3]+gurAG[3];
 	        		//gur.add(gurA);
 	        		
-	        		bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+	        		bestXs.add(gurAG[0]);
+	        		bestYs.add(gurAG[1]);
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
@@ -2758,8 +2758,8 @@ public class GraphBuilder
 	        		glrATG[3]=glrATG[3]+glrAG[3];
 	        		//glr.add(glrA);
 	        		
-	        		bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+	        		bestXs.add(glrAG[0]);
+	        		bestYs.add(glrAG[1]);
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
@@ -2781,8 +2781,8 @@ public class GraphBuilder
 	        		gurATG[3]=gurATG[3]+gurAG[3];
 	        		//gur.add(gulA);
 	        		
-	        		bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+	        		bestXs.add(gurAG[0]);
+	        		bestYs.add(gurAG[1]);
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
@@ -2800,8 +2800,8 @@ public class GraphBuilder
 	        		//glr.add(gllA);
 	        		
 	        		
-	        		bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+	        		bestXs.add(glrAG[0]);
+	        		bestYs.add(glrAG[1]);
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
@@ -2844,8 +2844,8 @@ public class GraphBuilder
 			        gurATG[3]=gurATG[3]+gurAG[3];
 			        //gur.add(gurA);
 			        
-			        bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+			        bestXs.add(gurAG[0]);
+	        		bestYs.add(gurAG[1]);
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
@@ -2868,8 +2868,8 @@ public class GraphBuilder
 			        gllATG[3]=gllATG[3]+gllAG[3];
 			        //gll.add(gurA);
 			        
-			        bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+			        bestXs.add(gllAG[0]);
+	        		bestYs.add(gllAG[1]);
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
@@ -2886,8 +2886,8 @@ public class GraphBuilder
 			        glrATG[3]=glrATG[3]+glrAG[3];
 			        //gur.add(gurA);
 			        
-			        bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+			        bestXs.add(glrAG[0]);
+	        		bestYs.add(glrAG[1]);
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
@@ -2927,8 +2927,8 @@ public class GraphBuilder
 			        gurAG[3]=yCenterMassGeneral-(yInitial-heigthElement);
 			        gurATG[3]=gurATG[3]+gurAG[3];
 			        
-			        bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+			        bestXs.add(gurAG[0]);
+	        		bestYs.add(gurAG[1]);
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
@@ -2946,8 +2946,8 @@ public class GraphBuilder
 			        gllAG[3]=yInitial-yCenterMassGeneral;
 			        gllATG[3]=gllATG[3]+gllAG[3];
 			        
-			        bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+			        bestXs.add(gllAG[0]);
+	        		bestYs.add(gllAG[1]);
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
@@ -2965,8 +2965,8 @@ public class GraphBuilder
 			        glrAG[3]=yInitial-yCenterMassGeneral;
 			        glrATG[3]=glrATG[3]+glrAG[3];
 			        
-			        bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+			        bestXs.add(glrAG[0]);
+	        		bestYs.add(glrAG[1]);
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
