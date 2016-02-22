@@ -307,6 +307,9 @@ public class BeautyCustomizedLevel extends Level{
 	    	//Beststates=objGrapB.DepthSearchCenterFrame(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
 	    	Beststates=objGrapB.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
 	    	
+	    	double bestSYmmetry=objGrapB.bestSymmetryV;
+	    	System.out.println("bestSym "+bestSYmmetry);
+	    	
 	    	long stopTime = System.currentTimeMillis();
 	        long elapsedTime = stopTime - startTime;
 	        System.out.println("Time "+elapsedTime);

@@ -76,7 +76,7 @@ public class GraphBuilder
 	private double xCenterMassCoins;
 	private double yCenterMassCoins;
 	private double symmetryV;
-	private double bestSymmetryV=9999999;
+	public double bestSymmetryV=9999999;
 	private double worstSymmetryV=0;
 	private double bestAverageX=0;
 	private int globalCenterXMass=8;
