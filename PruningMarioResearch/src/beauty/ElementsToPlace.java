@@ -7,7 +7,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Random;
 
-public class ElementsToPlace {
+public class ElementsToPlace { 
     //lastcom
 	Random random;
 	private int SizeOdds = 0;
