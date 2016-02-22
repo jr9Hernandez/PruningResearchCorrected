@@ -480,10 +480,10 @@ public class GraphBuilder
     				quadrant2X++;
     			}
     		}
-    		/*
+    		
     		for(int i=0;i<bestYs.size();i++)
     		{
-    			if(bestYs.get(i)<yCenterMassGeneral)
+    			if(YsQuadrant.get(i)<yCenterMassGeneral)
     			{
     				quadrant1Y++;
     			}
@@ -491,7 +491,7 @@ public class GraphBuilder
     			{
     				quadrant2Y++;
     			}
-    		}*/
+    		}
     		
     	}
     	
@@ -501,16 +501,16 @@ public class GraphBuilder
     	 for(int j=(height/3);j<height;j++)
     	 {       
     		 int indeyN=j;
-    		 /*
+    		 
     		 if(quadrant1X>quadrant2X)
     		 {
     			indexN= (maxRight-i);
-    		 }*/
-    		 /*
+    		 }
+    		 
     		 if(quadrant1Y>quadrant2Y)
     		 {
     			 indeyN=(height-j-1)+(height/3);
-    		 }*/
+    		 }
     		 if(objElem.getIdElem()==0)
     		 {   			     			
     			 if(indexN>globalCenterXMass)
