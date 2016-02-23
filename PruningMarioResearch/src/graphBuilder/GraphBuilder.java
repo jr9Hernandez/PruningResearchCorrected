@@ -244,7 +244,7 @@ public class GraphBuilder
     {    
     	
     	if(countElements==countElementsFinal)
-    	{
+    	{ 
     		countElements--;
     		counterIDs=counterIDs+1;
     		Elements objElem= (Elements)finalList.get(0);
