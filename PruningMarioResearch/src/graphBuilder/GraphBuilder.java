@@ -588,19 +588,28 @@ public class GraphBuilder
     	
     	for(int i=maxLeft;i<=maxRight;i++)
     	{
-    	 for(int j=(height/3);j<height;j++)
-    	 {     
-    		 
-    		 if(objElem.getIdElem()==0)
-    		 {
-    			 
-    			
-    			 if(i>globalCenterXMass)
-    			 {
-    				 
-    				 continue;
-    			 }
-    		 }
+       	 int indexN=i;
+       	 for(int j=(height/3);j<height;j++)
+       	 {       
+       		 int indeyN=j;
+       		 
+       		 if(quadrant1X>quadrant2X)
+       		 {
+       			indexN= (maxRight-i);
+       		 }
+       		 
+       		 if(quadrant1Y>quadrant2Y)
+       		 {
+       			 indeyN=(height-j-1)+(height/3);
+       		 }
+       		 if(objElem.getIdElem()==0)
+       		 {   			     			
+       			 if(indexN>globalCenterXMass)
+       			 {
+       				 
+       				 continue;
+       			 }
+       		 }
     		 
     		 if(typeElem==objElemP.getOddsCannons() || typeElem==objElemP.getOddsTubes() || typeElem==objElemP.getTubesFlower())
     		 {    			
