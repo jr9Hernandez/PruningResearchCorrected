@@ -551,7 +551,40 @@ public class GraphBuilder
     	int idElem=objElem.getIdElem();
     	int typeElem=objElem.getTypeElem(); 
     	
+    	int quadrant1X=0;
+    	int quadrant2X=0;
     	
+    	int quadrant1Y=0;
+    	int quadrant2Y=0;
+    	if(countElements!=countElementsFinal-1)
+    	{
+    		
+    		for(int i=0;i<XsQuadrant.size();i++)
+    		{
+    			
+    			if(XsQuadrant.get(i)<globalCenterXMass)
+    			{
+    				quadrant1X++;
+    			}
+    			else
+    			{
+    				quadrant2X++;
+    			}
+    		}
+    		
+    		for(int i=0;i<bestYs.size();i++)
+    		{
+    			if(YsQuadrant.get(i)<yCenterMassGeneral)
+    			{
+    				quadrant1Y++;
+    			}
+    			else
+    			{
+    				quadrant2Y++;
+    			}
+    		}
+    		
+    	}
     	
     	for(int i=maxLeft;i<=maxRight;i++)
     	{
