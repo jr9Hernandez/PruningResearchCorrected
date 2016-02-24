@@ -751,20 +751,31 @@ public class GraphBuilder
     		states.add(objBlockNode2);
     		
     		partialSymmetry=partialSymmetry(states,objElemP,height,floorTileHeight,localMaxObjLeft,false);
+    		boolean validationSymmetryFuture=false;
     		
     		ArrayList<BlockNode> statesCopy= new ArrayList<BlockNode>();
-    		statesCopy=(ArrayList<BlockNode>)states.clone(); 
+    		statesCopy=(ArrayList<BlockNode>)states.clone();
     		
-    		validationSymmetryFuture(countElements, countElementsFinal, statesCopy,finalList, objElemP, random,partialSymmetry,floorTileHeight,height);
-    		    		
-
-    		if(countElements>0)
+    		if(firstBranchPercorred==true)
+    		{
+    			if(validationSymmetryFuture(countElements, countElementsFinal, statesCopy,finalList, objElemP, random,partialSymmetry,floorTileHeight,height)==true);
+    			{
+    				System.out.println("cambiaso2");
+    				validationSymmetryFuture=true;
+    			}
+    		} 
+    		    		    		    		
+    		if(countElements>0 && validationSymmetryFuture==false)
     		{    			
     			DepthSearchCenterFrame(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1);
     		}
     		else{
+    			if(countElements==0)
+    			{
+    			firstBranchPercorred=true;
     			//System.out.println("aca se debe calcular la formula");
     			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft);
+    			}
     			 
     		}
     		//System.out.println("Aqui deberia eliminar del array");
