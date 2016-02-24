@@ -613,32 +613,32 @@ public class GraphBuilder
     		 
     		 if(typeElem==objElemP.getOddsCannons() || typeElem==objElemP.getOddsTubes() || typeElem==objElemP.getTubesFlower())
     		 {    			
-    			if(objConstraints.ConstraintsOverlaid(states, i, j, finalList,objElemP)==false)
+    			if(objConstraints.ConstraintsOverlaid(states, indexN, indeyN, finalList,objElemP)==false)
      		 	{
      			 	
     				//System.out.println("falseadoo");
      			 	continue;
      		 	}
-    			else if(objElem.getWidth()==1 && objConstraints.ConstraintsMinWidth(states, i, j, finalList,objElemP)==false)
+    			else if(objElem.getWidth()==1 && objConstraints.ConstraintsMinWidth(states, indexN, indeyN, finalList,objElemP)==false)
       			{
       				continue;
       			}
-    			else if(objConstraints.ConstraintsWidthMaxTileRelative(states, i, j, finalList, objElem.getWidth(),maxRight)==false)
+    			else if(objConstraints.ConstraintsWidthMaxTileRelative(states, indexN, indeyN, finalList, objElem.getWidth(),maxRight)==false)
     			{ 
     				
     				continue;
     			}
-    			else if(objConstraints.ConstraintsHeightMaxTileRelative(states, i, j, finalList, objElem.getHeigth(),maxRight)==false)
+    			else if(objConstraints.ConstraintsHeightMaxTileRelative(states, indexN, indeyN, finalList, objElem.getHeigth(),maxRight)==false)
     			{ 
     				
     				continue;
     			}
-    			else if(objConstraints.ConstraintsFloorRelative(states, i, j, finalList,floorTileHeight,objElemP)==false)
+    			else if(objConstraints.ConstraintsFloorRelative(states, indexN, indeyN, finalList,floorTileHeight,objElemP)==false)
     			{ 
     				
     				continue;
     			}
-    			else if(objConstraints.ConstraintsMinSpace(states, i, j, finalList,objElemP)==false)
+    			else if(objConstraints.ConstraintsMinSpace(states, indexN, indeyN, finalList,objElemP)==false)
      		 	{
      			 	
     				//System.out.println("falseadoo");
@@ -647,28 +647,28 @@ public class GraphBuilder
     		 }
     		 else if( typeElem==objElemP.getOddsHillStraightFloat())
     		 {
-    			 if(objConstraints.ConstraintsOverlaid(states, i, j, finalList,objElemP)==false)
+    			 if(objConstraints.ConstraintsOverlaid(states, indexN, indeyN, finalList,objElemP)==false)
         		 	{
         			 	
        				//System.out.println("falseadoo");
         			 	continue;
         		 	}
-     			else if(objConstraints.ConstraintsWidthMaxTileRelative(states, i, j, finalList, objElem.getWidth(),maxRight)==false)
+     			else if(objConstraints.ConstraintsWidthMaxTileRelative(states, indexN, indeyN, finalList, objElem.getWidth(),maxRight)==false)
       			{ 
       				
       				continue;
       			}
-     			else if(objConstraints.ConstraintsHeightMaxTileRelative(states, i, j, finalList, objElem.getHeigth(),maxRight)==false)
+     			else if(objConstraints.ConstraintsHeightMaxTileRelative(states, indexN, indeyN, finalList, objElem.getHeigth(),maxRight)==false)
      			{ 
      				
      				continue;
      			}
-     			 else if(objConstraints.ConstraintsFloorFloatingsHillsRelative(states, i, j, finalList,floorTileHeight,objElemP)==false)
+     			 else if(objConstraints.ConstraintsFloorFloatingsHillsRelative(states, indexN, indeyN, finalList,floorTileHeight,objElemP)==false)
       			{ 
       				
       				continue;
       			}
-     			 else if(objConstraints.ConstraintsMinSpaceHillFloat(states, i, j, finalList,objElemP,floorTileHeight)==false)
+     			 else if(objConstraints.ConstraintsMinSpaceHillFloat(states, indexN, indeyN, finalList,objElemP,floorTileHeight)==false)
        		 	{
        			 	
       				//System.out.println("falseadoo");
@@ -681,34 +681,34 @@ public class GraphBuilder
     		 }
     		 else if(typeElem==objElemP.getBlockElement() || typeElem==objElemP.getCoins() || typeElem==objElemP.getBlockBlue() || typeElem==objElemP.getBlockWood() || typeElem==objElemP.getSmallTube() || typeElem==objElemP.getWood() )
     		 {
-    			 if(objConstraints.ConstraintsOverlaid(states, i, j, finalList,objElemP)==false)
+    			 if(objConstraints.ConstraintsOverlaid(states, indexN, indeyN, finalList,objElemP)==false)
        		 	{
        			 	
       				//System.out.println("falseadoo");
        			 	continue;
        		 	}
-    			else if(objConstraints.ConstraintsWidthMaxTileRelative(states, i, j, finalList, objElem.getWidth(),maxRight)==false)
+    			else if(objConstraints.ConstraintsWidthMaxTileRelative(states, indexN, indeyN, finalList, objElem.getWidth(),maxRight)==false)
      			{ 
      				
      				continue;
      			}
-    			else if(objConstraints.ConstraintsHeightMaxTileRelative(states, i, j, finalList, objElem.getHeigth(),maxRight)==false)
+    			else if(objConstraints.ConstraintsHeightMaxTileRelative(states, indexN, indeyN, finalList, objElem.getHeigth(),maxRight)==false)
     			{ 
     				
     				continue;
     			}
-    			 else if(objConstraints.ConstraintsFloorFloatingsRelative(states, i, j, finalList,floorTileHeight,objElemP)==false)
+    			 else if(objConstraints.ConstraintsFloorFloatingsRelative(states, indexN, indeyN, finalList,floorTileHeight,objElemP)==false)
      			{ 
      				
      				continue;
      			}
-    			 else if(objConstraints.ConstraintsMinSpaceFloat(states, i, j, finalList,objElemP,floorTileHeight)==false && (typeElem==objElemP.getBlockElement() || typeElem==objElemP.getBlockBlue() || typeElem==objElemP.getBlockWood() || typeElem==objElemP.getSmallTube() || typeElem==objElemP.getWood()))
+    			 else if(objConstraints.ConstraintsMinSpaceFloat(states, indexN, indeyN, finalList,objElemP,floorTileHeight)==false && (typeElem==objElemP.getBlockElement() || typeElem==objElemP.getBlockBlue() || typeElem==objElemP.getBlockWood() || typeElem==objElemP.getSmallTube() || typeElem==objElemP.getWood()))
       		 	{
       			 	
      				//System.out.println("falseadoo");
       			 	continue;
       		 	}
-    			 else if(objConstraints.ConstraintsMinSpaceCoins(states, i, j, finalList,objElemP)==false && typeElem==objElemP.getCoins())
+    			 else if(objConstraints.ConstraintsMinSpaceCoins(states, indexN, indeyN, finalList,objElemP)==false && typeElem==objElemP.getCoins())
         		 	{
         			 	
        				//System.out.println("falseadoo");
@@ -722,17 +722,17 @@ public class GraphBuilder
     		 else if(typeElem==objElemP.getOddsJump())
     		 {
     			
-    			if(objConstraints.ConstraintsWidthMaxTileRelative(states, i, j, finalList, objElem.getWidth(),maxRight)==false)
+    			if(objConstraints.ConstraintsWidthMaxTileRelative(states, indexN, indeyN, finalList, objElem.getWidth(),maxRight)==false)
      			{ 
      				
      				continue;
      			}
-    			 else if(objConstraints.ConstraintsFloorGapsRelative(i, j)==false)
+    			 else if(objConstraints.ConstraintsFloorGapsRelative(indexN, indeyN)==false)
      			{ 
      				
      				continue;
      			}
-    			 else if(objConstraints.ConstraintsMinSpace(states, i, j, finalList,objElemP)==false)
+    			 else if(objConstraints.ConstraintsMinSpace(states, indexN, indeyN, finalList,objElemP)==false)
       		 	{
       			 	
      				//System.out.println("falseadoo");
@@ -746,27 +746,27 @@ public class GraphBuilder
     		 }
     		 else if(typeElem==objElemP.getOddsHillStraight())
     		 {
-    			 if(objConstraints.ConstraintsOverlaidHills(states, i, j, finalList, objElemP)==false)
+    			 if(objConstraints.ConstraintsOverlaidHills(states, indexN, indeyN, finalList, objElemP)==false)
       		 	{      			 	
      				//System.out.println("falseadoo");
       			 	continue;
       		 	}
-    			 else if(objConstraints.ConstraintsWidthMaxTileRelative(states, i, j, finalList, objElem.getWidth(),maxRight)==false)
+    			 else if(objConstraints.ConstraintsWidthMaxTileRelative(states, indexN, indeyN, finalList, objElem.getWidth(),maxRight)==false)
       			{ 
       				
       				continue;
       			}
-    			 else if(objConstraints.ConstraintsHeightMaxTileRelative(states, i, j, finalList, objElem.getHeigth(),maxRight)==false)
+    			 else if(objConstraints.ConstraintsHeightMaxTileRelative(states, indexN, indeyN, finalList, objElem.getHeigth(),maxRight)==false)
      			{ 
      				
      				continue;
      			}
-    			 else if(objConstraints.ConstraintsFloorRelative(states, i, j, finalList,floorTileHeight,objElemP)==false)
+    			 else if(objConstraints.ConstraintsFloorRelative(states, indexN, indeyN, finalList,floorTileHeight,objElemP)==false)
      			{ 
      				
      				continue;
      			}
-    			 else if(objConstraints.ConstraintsMinSpaceHills(states, i, j, finalList,objElemP)==false)
+    			 else if(objConstraints.ConstraintsMinSpaceHills(states, indexN, indeyN, finalList,objElemP)==false)
       		 	{
       			 	
      				//System.out.println("falseadoo");
@@ -775,13 +775,13 @@ public class GraphBuilder
     		 }
     		 else if(typeElem==objElemP.getEnemyRedKoopa() || typeElem==objElemP.getEnemyGreenKoopa() || typeElem==objElemP.getEnemyGoomba() || typeElem==objElemP.getEnemySpiky() || typeElem==objElemP.getEnemyFlower() || typeElem==objElemP.getEnemyArmoredTurtle() || typeElem==objElemP.getEnemyJumpFlower() || typeElem==objElemP.getEnemyCannonBall() || typeElem==objElemP.getEnemyChompFlower())
     		 {
-     			if(objConstraints.ConstraintsOverlaidHills(states, i, j, finalList,objElemP)==false)
+     			if(objConstraints.ConstraintsOverlaidHills(states, indexN, indeyN, finalList,objElemP)==false)
      		 	{
      			 	
     				//System.out.println("falseadoo");
      			 	continue;
      		 	}
-    			else if(objConstraints.ConstraintsFloorEnemiesRelative(states, i, j, finalList,floorTileHeight,objElemP)==false)
+    			else if(objConstraints.ConstraintsFloorEnemiesRelative(states, indexN, indeyN, finalList,floorTileHeight,objElemP)==false)
     			{ 
     				
     				continue;
@@ -789,7 +789,7 @@ public class GraphBuilder
     		 }
     		 
     		counterIDs=counterIDs+1;
-    		BlockNode objBlockNode2=new BlockNode(i,j,counterIDs,typeElem,idElem);
+    		BlockNode objBlockNode2=new BlockNode(indexN,indeyN,counterIDs,typeElem,idElem);
     		states.add(objBlockNode2);
     		
     		partialSymmetry=partialSymmetry(states,objElemP,height,floorTileHeight,localMaxObjLeft,false);
