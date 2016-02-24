@@ -81,6 +81,10 @@ public class GraphBuilder
 	private double bestAverageX=0;
 	private int globalCenterXMass=8;
 	private double partialSymmetry;
+	private double partialHeightWidthQ1;
+	private double partialHeightWidthQ2;
+	private double partialHeightWidthQ3;
+	private double partialHeightWidthQ4;
 	private boolean firstBranchPercorred=false;
 	private ArrayList<Double> bestXs;
 	private ArrayList<Double> bestYs;
@@ -383,7 +387,13 @@ public class GraphBuilder
         int indexCounterX=0;
         int indexCounterY=0;
         
+        double totalArea=0;
         
+        for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
+        {
+        	Elements objElem= (Elements)finalList.get(i);
+        	totalArea=totalArea+(objElem.getHeigth()+1)+objElem.getWidth();
+        }
         
         for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
         {   
@@ -2890,6 +2900,12 @@ public class GraphBuilder
 
 	public double symettry1(ArrayList states,ElementsToPlace objElemP, double xCenterMassGeneral, double yCenterMassGeneral, double xCenterMassCoins, double yCenterMassCoins, boolean futureSymmetry)
 	{
+		
+		partialHeightWidthQ1=0;
+		partialHeightWidthQ2=0;
+		partialHeightWidthQ3=0;
+		partialHeightWidthQ4=0;
+		
 		bestXs=new ArrayList<Double>();
     	bestYs=new ArrayList<Double>();
     	
@@ -2964,6 +2980,8 @@ public class GraphBuilder
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
+	        		
+	        		partialHeightWidthQ1=partialHeightWidthQ1+(gulAG[3]+gulAG[2]);
 	        	}
 	        	
 	        	//block low left
@@ -2986,6 +3004,9 @@ public class GraphBuilder
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
+	        		
+	        		partialHeightWidthQ3=partialHeightWidthQ3+(gllAG[3]+gllAG[2]);
+
 	        	}
 	        	else
 	        	{
@@ -3009,6 +3030,8 @@ public class GraphBuilder
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
+	        		
+	        		partialHeightWidthQ1=partialHeightWidthQ1+(gulAG[3]+gulAG[2]);
 	        	
 	        		//second block of the element (low left)
 	        		y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -3028,6 +3051,8 @@ public class GraphBuilder
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
+	        		
+	        		partialHeightWidthQ3=partialHeightWidthQ3+(gllAG[3]+gllAG[2]);
 	        	}
 	        }
 	        else if(xInitial>=xCenterMassGeneral )
@@ -3053,6 +3078,8 @@ public class GraphBuilder
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
+	        		
+	        		partialHeightWidthQ2=partialHeightWidthQ2+(gurAG[3]+gurAG[2]);
 	        	}
 	        	//block low right
 	        	else if(yInitial-heigthElement>=yCenterMassGeneral)
@@ -3074,6 +3101,8 @@ public class GraphBuilder
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
+	        		
+	        		partialHeightWidthQ4=partialHeightWidthQ4+(glrAG[3]+glrAG[2]);
 	        	}
 	        	else
 	        	{
@@ -3097,6 +3126,8 @@ public class GraphBuilder
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
+	        		
+	        		partialHeightWidthQ2=partialHeightWidthQ2+(gurAG[3]+gurAG[2]);
 		        	
 	        		//second block of the element  (low right)
 	        		y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -3116,6 +3147,8 @@ public class GraphBuilder
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
+	        		
+	        		partialHeightWidthQ4=partialHeightWidthQ4+(glrAG[3]+glrAG[2]);
 	        	}
 	        	
 	        }
@@ -3142,6 +3175,8 @@ public class GraphBuilder
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
+	        		
+	        		partialHeightWidthQ1=partialHeightWidthQ1+(gulAG[3]+gulAG[2]);
 			        
 			        //second block of the element (up right)
 			        x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -3161,6 +3196,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
+	        		partialHeightWidthQ2=partialHeightWidthQ2+(gurAG[3]+gurAG[2]);
 	        		
 	        	}
 	        	else if(yInitial-heigthElement>=yCenterMassGeneral)
@@ -3184,6 +3220,8 @@ public class GraphBuilder
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
+	        		
+	        		partialHeightWidthQ3=partialHeightWidthQ3+(gllAG[3]+gllAG[2]);
 			        
 			        //second block of the element (low right)
 			        x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -3202,6 +3240,8 @@ public class GraphBuilder
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
+	        		
+	        		partialHeightWidthQ4=partialHeightWidthQ4+(glrAG[3]+glrAG[2]);
 	        	}
 	        	else
 	        	{
@@ -3224,6 +3264,8 @@ public class GraphBuilder
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
+	        		
+	        		partialHeightWidthQ1=partialHeightWidthQ1+(gulAG[3]+gulAG[2]);
 			        
 	        		//second block of the element (up right)
 	        		x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -3244,6 +3286,8 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
+	        		partialHeightWidthQ2=partialHeightWidthQ2+(gulAG[3]+gulAG[2]);
+	        		
 	        		//first block of the element (low left)
 	        		x=(xInitial+(xCenterMassGeneral-xInitial)/2);
 	        		y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -3262,6 +3306,8 @@ public class GraphBuilder
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
+	        		
+	        		partialHeightWidthQ3=partialHeightWidthQ3+(gllAG[3]+gllAG[2]);
 			        
 	        		//second block of the element (low right)
 	        		x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -3281,6 +3327,8 @@ public class GraphBuilder
 	        		
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
+	        		
+	        		partialHeightWidthQ4=partialHeightWidthQ4+(glrAG[3]+glrAG[2]);
 	        	}
 	        }
 	        
