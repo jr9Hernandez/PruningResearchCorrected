@@ -6,13 +6,11 @@ public class Utilities {
 	
 	public double [] DistributionsQuadrants(double totalArea, double partialHeightWidthQ1, double partialHeightWidthQ2, double partialHeightWidthQ3, double partialHeightWidthQ4){
 		
-		boolean firstIsmin=false;
-		boolean secondIsmin=false;
-		boolean thirdIsmin=false;
-		boolean fourthIsmin=false;
+		double valuetoDistribute;
 		
 		double min=100000000;
-		double counterMins;
+		double secondmin=100000000;
+		double counterMins=0;
 		double [] distributions=new double[4];
 		distributions[0]=partialHeightWidthQ1;
 		distributions[1]=partialHeightWidthQ2;
@@ -30,31 +28,51 @@ public class Utilities {
 			}
 			for(int i=0;i<4;i++)
 			{
+				if (distributions[i]<secondmin && distributions[i]>min)
+				{
+					secondmin=distributions[i];
+				}
+			}
+			
+			for(int i=0;i<4;i++)
+			{
+				
 				if (distributions[i]==min)
 				{
 					counterMins=counterMins++;
-					if(i==0)
+					
+				}
+			}
+			
+			if((totalArea/counterMins)> secondmin && secondmin!=100000000)
+			{
+				for(int i=0;i<4;i++)
+				{
+					if(distributions[i]==min)
 					{
-						firstIsmin=true;
+						distributions[i]=distributions[i]+(secondmin-distributions[i]);
+						totalArea=totalArea-(secondmin-distributions[i]);
 					}
-					if(i==1)
+				}	
+				
+			}
+			else
+			{
+				valuetoDistribute=totalArea/counterMins;
+				for(int i=0;i<4;i++)
+				{
+					if(distributions[i]==min)
 					{
-						secondIsmin=true;
-					}
-					if(i==2)
-					{
-						thirdIsmin=true;
-					}
-					if(i==3)
-					{
-						fourthIsmin=true;
+						distributions[i]=valuetoDistribute;
+						totalArea=totalArea-valuetoDistribute;
 					}
 				}
 			}
 			
 			
+			
 		}
 		
-		return 0;
+		return distributions;
 	} 
 }
