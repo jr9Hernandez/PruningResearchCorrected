@@ -428,8 +428,20 @@ public class GraphBuilder
         	indexCounterY=indexCounterY+1;
         	
         	counterIDsCopy=counterIDsCopy+1;
+        	
+        	
         	int xPosition=(int)(firstX-(partialHeightWidth[i]/2));
         	int yPosition=(int)(firstY+(partialHeightWidth[i]/2));
+        	
+        	if(firstX>globalCenterXMass)
+        	{
+        		xPosition=xPosition+1;
+        	}
+        	if(firstY>yCenterMassGeneral)
+        	{
+        		yPosition=yPosition+1;
+        	}
+        	
     		BlockNode objBlockNode2=new BlockNode(xPosition,yPosition,counterIDsCopy,1,1);
     		statesCopy.add(objBlockNode2);   		
     
