@@ -52,6 +52,7 @@ import org.jgrapht.traverse.GraphIterator;
 import beauty.ConstraintsPlacement;
 import beauty.Elements;
 import beauty.ElementsToPlace;
+import beauty.Utilities;
 import dk.itu.mario.level.Level;
 
 
@@ -81,10 +82,7 @@ public class GraphBuilder
 	private double bestAverageX=0;
 	private int globalCenterXMass=8;
 	private double partialSymmetry;
-	private double partialHeightWidthQ1;
-	private double partialHeightWidthQ2;
-	private double partialHeightWidthQ3;
-	private double partialHeightWidthQ4;
+	private double [] partialHeightWidth;
 	private boolean firstBranchPercorred=false;
 	private ArrayList<Double> bestXs;
 	private ArrayList<Double> bestYs;
@@ -376,6 +374,7 @@ public class GraphBuilder
     
     public boolean  validationSymmetryFuture(   int countElements, int countElementsFinal,ArrayList statesCopy, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry,int floorTileHeight,int height)
     { 
+    	int counterIDsCopy=counterIDs;
     	countElements=countElements-1;
     	Collections.sort(bestXs,Collections.reverseOrder());
     	Collections.sort(bestYs,Collections.reverseOrder());
@@ -389,14 +388,19 @@ public class GraphBuilder
         
         double totalArea=0;
         
+    	Utilities objUtilities=new Utilities();
+    	double [] distributions=objUtilities.DistributionsQuadrants(totalArea, partialHeightWidth[0], partialHeightWidth[1], partialHeightWidth[2], partialHeightWidth[3]);
+
+        
         for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
         {
         	Elements objElem= (Elements)finalList.get(i);
         	totalArea=totalArea+(objElem.getHeigth()+1)+objElem.getWidth();
         }
         
-        for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
+        for(int i=0;i<4;i++)
         {   
+        	
         	double firstX=0;
         	double secondX=0;
         	double thirdX=0;
@@ -423,13 +427,16 @@ public class GraphBuilder
         	       	
         	indexCounterY=indexCounterY+1;
         	
-        	counterIDs=counterIDs+1;
-        	//pendiente x y y de aca
-    		BlockNode objBlockNode2=new BlockNode(0,0,counterIDs,objElem.getTypeElem(),objElem.getIdElem());
-    		statesCopy.add(objBlockNode2);
-        	
-    		partialSymmetry(statesCopy,objElemP,height,floorTileHeight,localMaxObjLeft,true);
+        	counterIDsCopy=counterIDsCopy+1;
+        	int xPosition=(int)(firstX-(partialHeightWidth[i]/2));
+        	int yPosition=(int)(firstY+(partialHeightWidth[i]/2));
+    		BlockNode objBlockNode2=new BlockNode(xPosition,yPosition,counterIDsCopy,1,1);
+    		statesCopy.add(objBlockNode2);   		
+    
         }
+        partialSymmetry=partialSymmetry(statesCopy,objElemP,height,floorTileHeight,localMaxObjLeft,true);
+        
+        
         
         if(partialSymmetry>bestSymmetryV)
         {
@@ -2901,10 +2908,10 @@ public class GraphBuilder
 	public double symettry1(ArrayList states,ElementsToPlace objElemP, double xCenterMassGeneral, double yCenterMassGeneral, double xCenterMassCoins, double yCenterMassCoins, boolean futureSymmetry)
 	{
 		
-		partialHeightWidthQ1=0;
-		partialHeightWidthQ2=0;
-		partialHeightWidthQ3=0;
-		partialHeightWidthQ4=0;
+		partialHeightWidth[0]=0;
+		partialHeightWidth[1]=0;
+		partialHeightWidth[2]=0;
+		partialHeightWidth[3]=0;
 		
 		bestXs=new ArrayList<Double>();
     	bestYs=new ArrayList<Double>();
@@ -2946,6 +2953,8 @@ public class GraphBuilder
 		double heigthElement=0;
 		double x,y;
 		
+		int counterQuadrants=0;
+		
 		//Symmetry General
 		Iterator<BlockNode> itSymmetry1 = states.iterator();
 		while(itSymmetry1.hasNext()){
@@ -2955,8 +2964,17 @@ public class GraphBuilder
 			{
 			int xInitial = elemento.getX();
 	        int yInitial= elemento.getY();
-	        widthElement=element.getWidth();
-	        heigthElement=element.getHeigth()+1;
+	        if(futureSymmetry==false)
+	        {
+	        	widthElement=element.getWidth();
+	        	heigthElement=element.getHeigth()+1;
+	        }
+	        else
+	        {
+	        	widthElement=partialHeightWidth[counterQuadrants];
+	        	widthElement=partialHeightWidth[counterQuadrants];
+	        	counterQuadrants++;
+	        }
 	        
 	        if((xInitial+widthElement)<=xCenterMassGeneral )
 	        {
@@ -2981,7 +2999,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ1=partialHeightWidthQ1+(gulAG[3]+gulAG[2]);
+	        		partialHeightWidth[0]=partialHeightWidth[0]+(gulAG[3]+gulAG[2]);
 	        	}
 	        	
 	        	//block low left
@@ -3005,7 +3023,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ3=partialHeightWidthQ3+(gllAG[3]+gllAG[2]);
+	        		partialHeightWidth[2]=partialHeightWidth[2]+(gllAG[3]+gllAG[2]);
 
 	        	}
 	        	else
@@ -3031,7 +3049,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ1=partialHeightWidthQ1+(gulAG[3]+gulAG[2]);
+	        		partialHeightWidth[0]=partialHeightWidth[0]+(gulAG[3]+gulAG[2]);
 	        	
 	        		//second block of the element (low left)
 	        		y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -3052,7 +3070,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ3=partialHeightWidthQ3+(gllAG[3]+gllAG[2]);
+	        		partialHeightWidth[2]=partialHeightWidth[2]+(gllAG[3]+gllAG[2]);
 	        	}
 	        }
 	        else if(xInitial>=xCenterMassGeneral )
@@ -3079,7 +3097,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ2=partialHeightWidthQ2+(gurAG[3]+gurAG[2]);
+	        		partialHeightWidth[1]=partialHeightWidth[1]+(gurAG[3]+gurAG[2]);
 	        	}
 	        	//block low right
 	        	else if(yInitial-heigthElement>=yCenterMassGeneral)
@@ -3102,7 +3120,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ4=partialHeightWidthQ4+(glrAG[3]+glrAG[2]);
+	        		partialHeightWidth[3]=partialHeightWidth[3]+(glrAG[3]+glrAG[2]);
 	        	}
 	        	else
 	        	{
@@ -3127,7 +3145,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ2=partialHeightWidthQ2+(gurAG[3]+gurAG[2]);
+	        		partialHeightWidth[1]=partialHeightWidth[1]+(gurAG[3]+gurAG[2]);
 		        	
 	        		//second block of the element  (low right)
 	        		y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -3148,7 +3166,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ4=partialHeightWidthQ4+(glrAG[3]+glrAG[2]);
+	        		partialHeightWidth[3]=partialHeightWidth[3]+(glrAG[3]+glrAG[2]);
 	        	}
 	        	
 	        }
@@ -3176,7 +3194,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ1=partialHeightWidthQ1+(gulAG[3]+gulAG[2]);
+	        		partialHeightWidth[0]=partialHeightWidth[0]+(gulAG[3]+gulAG[2]);
 			        
 			        //second block of the element (up right)
 			        x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -3196,7 +3214,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ2=partialHeightWidthQ2+(gurAG[3]+gurAG[2]);
+	        		partialHeightWidth[1]=partialHeightWidth[1]+(gurAG[3]+gurAG[2]);
 	        		
 	        	}
 	        	else if(yInitial-heigthElement>=yCenterMassGeneral)
@@ -3221,7 +3239,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ3=partialHeightWidthQ3+(gllAG[3]+gllAG[2]);
+	        		partialHeightWidth[2]=partialHeightWidth[2]+(gllAG[3]+gllAG[2]);
 			        
 			        //second block of the element (low right)
 			        x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -3241,7 +3259,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ4=partialHeightWidthQ4+(glrAG[3]+glrAG[2]);
+	        		partialHeightWidth[3]=partialHeightWidth[3]+(glrAG[3]+glrAG[2]);
 	        	}
 	        	else
 	        	{
@@ -3265,7 +3283,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ1=partialHeightWidthQ1+(gulAG[3]+gulAG[2]);
+	        		partialHeightWidth[0]=partialHeightWidth[0]+(gulAG[3]+gulAG[2]);
 			        
 	        		//second block of the element (up right)
 	        		x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -3286,7 +3304,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ2=partialHeightWidthQ2+(gulAG[3]+gulAG[2]);
+	        		partialHeightWidth[1]=partialHeightWidth[1]+(gulAG[3]+gulAG[2]);
 	        		
 	        		//first block of the element (low left)
 	        		x=(xInitial+(xCenterMassGeneral-xInitial)/2);
@@ -3307,7 +3325,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ3=partialHeightWidthQ3+(gllAG[3]+gllAG[2]);
+	        		partialHeightWidth[2]=partialHeightWidth[2]+(gllAG[3]+gllAG[2]);
 			        
 	        		//second block of the element (low right)
 	        		x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -3328,7 +3346,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialHeightWidthQ4=partialHeightWidthQ4+(glrAG[3]+glrAG[2]);
+	        		partialHeightWidth[3]=partialHeightWidth[3]+(glrAG[3]+glrAG[2]);
 	        	}
 	        }
 	        
