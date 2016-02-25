@@ -3037,7 +3037,7 @@ public class GraphBuilder
 	        else
 	        {
 	        	widthElement=partialHeightWidth[counterQuadrants];
-	        	widthElement=partialHeightWidth[counterQuadrants];
+	        	heigthElement=partialHeightWidth[counterQuadrants];
 	        	counterQuadrants++;
 	        }
 	        
