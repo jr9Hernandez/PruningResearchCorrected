@@ -811,7 +811,7 @@ public class GraphBuilder
     		    		    		    		
     		if(countElements>0 && validationSymmetryFuture==false)
     		{    			
-    			DepthSearchCenterFrame(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1);
+    			DepthSearchPruningAlt(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1);
     		}
     		else{
     			if(countElements==0)
