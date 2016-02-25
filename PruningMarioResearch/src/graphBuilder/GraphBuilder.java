@@ -444,7 +444,7 @@ public class GraphBuilder
         		yPosition=yPosition+1;
         	}
         	
-    		BlockNode objBlockNode2=new BlockNode(xPosition,yPosition,counterIDsCopy,1,1);
+    		BlockNode objBlockNode2=new BlockNode(xPosition,yPosition,counterIDsCopy,-1,1);
     		statesCopy.add(objBlockNode2);   		
     
         }
@@ -3031,7 +3031,7 @@ public class GraphBuilder
 			{
 			int xInitial = elemento.getX();
 	        int yInitial= elemento.getY();
-	        if(futureSymmetry==false)
+	        if(elemento.getType()!=-1)
 	        {
 	        	widthElement=element.getWidth();
 	        	heigthElement=element.getHeigth()+1;
