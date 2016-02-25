@@ -82,13 +82,15 @@ public class GraphBuilder
 	private double bestAverageX=0;
 	private int globalCenterXMass=8;
 	private double partialSymmetry;
-	private double [] partialHeightWidth;
+	private double [] partialHeightWidth=new double [4];
 	private boolean firstBranchPercorred=false;
 	private ArrayList<Double> bestXs;
 	private ArrayList<Double> bestYs;
 	
 	private ArrayList<Double> XsQuadrant;
 	private ArrayList<Double> YsQuadrant;
+	
+	double [] distributions;
 	//private ArrayList <double[]> gul;
 	//private ArrayList <double[]> gur;
 	//private ArrayList <double[]> gll;
@@ -395,7 +397,7 @@ public class GraphBuilder
         }
         
     	Utilities objUtilities=new Utilities();
-    	double [] distributions=objUtilities.DistributionsQuadrants(totalArea, partialHeightWidth[0], partialHeightWidth[1], partialHeightWidth[2], partialHeightWidth[3]);
+    	distributions=objUtilities.DistributionsQuadrants(totalArea, partialHeightWidth[0], partialHeightWidth[1], partialHeightWidth[2], partialHeightWidth[3]);
 
         
         for(int i=0;i<4;i++)
@@ -3036,8 +3038,8 @@ public class GraphBuilder
 	        }
 	        else
 	        {
-	        	widthElement=partialHeightWidth[counterQuadrants];
-	        	heigthElement=partialHeightWidth[counterQuadrants];
+	        	widthElement=distributions[counterQuadrants]/2;
+	        	heigthElement=distributions[counterQuadrants]/2;
 	        	counterQuadrants++;
 	        }
 	        
