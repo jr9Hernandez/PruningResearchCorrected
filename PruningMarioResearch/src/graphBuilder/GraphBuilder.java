@@ -388,15 +388,15 @@ public class GraphBuilder
         
         double totalArea=0;
         
-    	Utilities objUtilities=new Utilities();
-    	double [] distributions=objUtilities.DistributionsQuadrants(totalArea, partialHeightWidth[0], partialHeightWidth[1], partialHeightWidth[2], partialHeightWidth[3]);
-
-        
         for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
         {
         	Elements objElem= (Elements)finalList.get(i);
         	totalArea=totalArea+(objElem.getHeigth()+1)+objElem.getWidth();
         }
+        
+    	Utilities objUtilities=new Utilities();
+    	double [] distributions=objUtilities.DistributionsQuadrants(totalArea, partialHeightWidth[0], partialHeightWidth[1], partialHeightWidth[2], partialHeightWidth[3]);
+
         
         for(int i=0;i<4;i++)
         {   

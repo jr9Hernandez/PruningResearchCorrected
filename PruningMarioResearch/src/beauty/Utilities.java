@@ -11,7 +11,13 @@ public class Utilities {
 		double min=100000000;
 		double secondmin=100000000;
 		double counterMins=0;
+		double [] distributionsOriginals=new double[4];
 		double [] distributions=new double[4];
+		distributionsOriginals[0]=partialHeightWidthQ1;
+		distributionsOriginals[1]=partialHeightWidthQ2;
+		distributionsOriginals[2]=partialHeightWidthQ3;
+		distributionsOriginals[3]=partialHeightWidthQ4;
+		
 		distributions[0]=partialHeightWidthQ1;
 		distributions[1]=partialHeightWidthQ2;
 		distributions[2]=partialHeightWidthQ3;
@@ -50,8 +56,9 @@ public class Utilities {
 				{
 					if(distributions[i]==min)
 					{
-						distributions[i]=distributions[i]+(secondmin-distributions[i]);
-						totalArea=totalArea-(secondmin-distributions[i]);
+						double toSubstract=secondmin-distributions[i];
+						distributions[i]=distributions[i]+(toSubstract);
+						totalArea=totalArea-toSubstract;
 					}
 				}	
 				
@@ -72,7 +79,11 @@ public class Utilities {
 			
 			
 		}
+		for(int i=0;i<4;i++)
+		{
+			distributionsOriginals[i]=distributionsOriginals[i]-(distributions[i]-distributionsOriginals[0]);
+		}
 		
-		return distributions;
+		return distributionsOriginals;
 	} 
 }
