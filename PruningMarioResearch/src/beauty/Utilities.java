@@ -8,8 +8,7 @@ public class Utilities {
 		
 		double valuetoDistribute;
 		
-		double min=100000000;
-		double secondmin=100000000;
+		
 		double counterMins=0;
 		double [] distributionsOriginals=new double[4];
 		double [] distributions=new double[4];
@@ -25,6 +24,8 @@ public class Utilities {
 		
 		while(totalArea>0)
 		{
+			double min=100000000;
+			double secondmin=100000000;
 			for(int i=0;i<4;i++)
 			{
 				if (distributions[i]<min)
