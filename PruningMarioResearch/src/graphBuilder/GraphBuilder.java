@@ -378,6 +378,8 @@ public class GraphBuilder
     
     public boolean  validationSymmetryFuture(   int countElements, int countElementsFinal,ArrayList statesCopy, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry,int floorTileHeight,int height)
     { 
+    	boolean QuadrantEmpty=false;
+    	
     	int counterIDsCopy=counterIDs;
     	countElements=countElements-1;
     	Collections.sort(bestXs,Collections.reverseOrder());
@@ -436,7 +438,10 @@ public class GraphBuilder
         	
         	counterIDsCopy=counterIDsCopy+1;
         	
-        	
+        	if(distributionsWidth[i]!=0 && distributionsHeight[i]!=0)
+        	{
+        		QuadrantEmpty=true;
+        	}
         	int xPosition=(int)(firstX-(distributionsWidth[i]/2));
         	int yPosition=(int)(firstY+(distributionsHeight[i]/2));
         	
@@ -449,8 +454,11 @@ public class GraphBuilder
         		yPosition=yPosition+1;
         	}
         	
+        	if(QuadrantEmpty==false)
+        	{
     		BlockNode objBlockNode2=new BlockNode(xPosition,yPosition,counterIDsCopy,-1,1);
-    		statesCopy.add(objBlockNode2);   		
+    		statesCopy.add(objBlockNode2);
+        	}
     
         }
         partialSymmetry=partialSymmetry(statesCopy,objElemP,height,floorTileHeight,localMaxObjLeft,true);
