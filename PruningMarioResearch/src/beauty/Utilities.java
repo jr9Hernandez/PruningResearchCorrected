@@ -9,7 +9,7 @@ public class Utilities {
 		double valuetoDistribute;
 		
 		
-		double counterMins=0;
+		
 		double [] distributionsOriginals=new double[4];
 		double [] distributions=new double[4];
 		distributionsOriginals[0]=partialHeightWidthQ1;
@@ -26,6 +26,7 @@ public class Utilities {
 		{
 			double min=100000000;
 			double secondmin=100000000;
+			double counterMins=0;
 			for(int i=0;i<4;i++)
 			{
 				if (distributions[i]<min)
