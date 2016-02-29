@@ -428,37 +428,60 @@ public class GraphBuilder
         			firstX=bestXs.get(indexCounterX);
         			counterElements=counterElements+1;
         		}
-        		indexCounterX=indexCounterX+1;
+        		//indexCounterX=indexCounterX+1;
         	       	       	
         		if(indexCounterY<=sizebestYs-1)
         		{
         			firstY=bestYs.get(indexCounterY);
         		}
         	       	
-        		indexCounterY=indexCounterY+1;
+        		//indexCounterY=indexCounterY+1;
         	
         		counterIDsCopy=counterIDsCopy+1;
+        		double xMedium;
+        		double yMedium;
+        		int xPosition;
+        		int yPosition;
         	
-        		int xPosition=(int)(firstX-(distributionsWidth[i]/2));
-        		int yPosition=(int)(firstY+(distributionsHeight[i]/2));
+        		if(i==0 || i==2)
+        		{
+        			xMedium=globalCenterXMass-firstX;
+        			xPosition=(int)(xMedium-(distributionsWidth[i]/2));
+        		}
+        		else
+        		{
+        			xMedium=globalCenterXMass+firstX;
+        			xPosition=(int)(xMedium-(distributionsWidth[i]/2));
+        		}
+        		
+        		if(i==0 || i==1)
+        		{
+        			yMedium=yCenterMassGeneral-firstY;
+        			yPosition=(int)(yMedium+(distributionsHeight[i]/2));
+        		}
+        		else
+        		{
+        			yMedium=yCenterMassGeneral+firstY;
+        			yPosition=(int)(yMedium+(distributionsHeight[i]/2));
+        		}
         	
-        		if(firstX>globalCenterXMass)
+        		if(xMedium>globalCenterXMass)
         		{
         			xPosition=xPosition+1;
         		}
-        		if(firstY>yCenterMassGeneral)
+        		if(yMedium>yCenterMassGeneral)
         		{
         			yPosition=yPosition+1;
         		}
         		
-        		if(xPosition<0)
+        		/*if(xPosition<0)
         		{
         			xPosition=xPosition+1;
         		}
         		if(yPosition<0)
         		{
         			yPosition=yPosition+1;
-        		}
+        		}*/
         	        	
         		BlockNode objBlockNode2=new BlockNode(xPosition,yPosition,counterIDsCopy,-1,1);
         		statesCopy.add(objBlockNode2);
