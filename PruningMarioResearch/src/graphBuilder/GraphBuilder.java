@@ -438,7 +438,7 @@ public class GraphBuilder
         	
         	counterIDsCopy=counterIDsCopy+1;
         	
-        	if(distributionsWidth[i]!=0 && distributionsHeight[i]!=0)
+        	if(distributionsWidth[i]==0 && distributionsHeight[i]==0)
         	{
         		QuadrantEmpty=true;
         	}
