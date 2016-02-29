@@ -430,31 +430,31 @@ public class GraphBuilder
         		counterIDsCopy=counterIDsCopy+1;
         		double xMedium;
         		double yMedium;
-        		int xPosition;
-        		int yPosition;
+        		double xPosition;
+        		double yPosition;
         	
         		if(i==0 || i==2)
         		{
         			xMedium=globalCenterXMass-firstX;
-        			xPosition=(int)(xMedium-(distributionsWidth[i]/2));
+        			xPosition=(xMedium-(distributionsWidth[i]/2));
         		}
         		else
         		{
         			xMedium=globalCenterXMass+firstX;
-        			xPosition=(int)(xMedium-(distributionsWidth[i]/2));
-        			xPosition=xPosition+1;
+        			xPosition=(xMedium-(distributionsWidth[i]/2));
+        			
         		}
         		
         		if(i==0 || i==1)
         		{
         			yMedium=yCenterMassGeneral-firstY;
-        			yPosition=(int)(yMedium+(distributionsHeight[i]/2));
+        			yPosition=(yMedium+(distributionsHeight[i]/2));
         		}
         		else
         		{
         			yMedium=yCenterMassGeneral+firstY;
-        			yPosition=(int)(yMedium+(distributionsHeight[i]/2));
-        			yPosition=yPosition+1;
+        			yPosition=(yMedium+(distributionsHeight[i]/2));
+        			
         		}
         		
         		/*if(xPosition<0)
