@@ -22,7 +22,7 @@ public class Utilities {
 		distributions[2]=partialHeightWidthQ3;
 		distributions[3]=partialHeightWidthQ4;
 		
-		while(totalArea>0)
+		while(totalArea>0.1)
 		{
 			double min=100000000;
 			double secondmin=100000000;
