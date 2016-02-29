@@ -409,58 +409,53 @@ public class GraphBuilder
         
         for(int i=0;i<4;i++)
         {   
+        	if(distributionsWidth[i]!=0 && distributionsHeight[i]!=0)
+        	{
+        		double firstX=0;
+        		double secondX=0;
+        		double thirdX=0;
         	
-        	double firstX=0;
-        	double secondX=0;
-        	double thirdX=0;
+        		double firstY=0;
+        		double secondY=0;
+        		double thirdY=0;
         	
-        	double firstY=0;
-        	double secondY=0;
-        	double thirdY=0;
-        	
-        	Elements objElem= (Elements)finalList.get(i);
+        		Elements objElem= (Elements)finalList.get(i);
   
-        	int counterElements=0;
+        		int counterElements=0;
         	
-        	if(indexCounterX<=sizebestXs-1)
-        	{
-        		firstX=bestXs.get(indexCounterX);
-        		counterElements=counterElements+1;
-        	}
-        	indexCounterX=indexCounterX+1;
+        		if(indexCounterX<=sizebestXs-1)
+        		{
+        			firstX=bestXs.get(indexCounterX);
+        			counterElements=counterElements+1;
+        		}
+        		indexCounterX=indexCounterX+1;
         	       	       	
-        	if(indexCounterY<=sizebestYs-1)
-        	{
-        		firstY=bestYs.get(indexCounterY);
-        	}
+        		if(indexCounterY<=sizebestYs-1)
+        		{
+        			firstY=bestYs.get(indexCounterY);
+        		}
         	       	
-        	indexCounterY=indexCounterY+1;
+        		indexCounterY=indexCounterY+1;
         	
-        	counterIDsCopy=counterIDsCopy+1;
+        		counterIDsCopy=counterIDsCopy+1;
         	
-        	if(distributionsWidth[i]==0 && distributionsHeight[i]==0)
-        	{
-        		QuadrantEmpty=true;
-        	}
-        	int xPosition=(int)(firstX-(distributionsWidth[i]/2));
-        	int yPosition=(int)(firstY+(distributionsHeight[i]/2));
+        		int xPosition=(int)(firstX-(distributionsWidth[i]/2));
+        		int yPosition=(int)(firstY+(distributionsHeight[i]/2));
         	
-        	if(firstX>globalCenterXMass)
-        	{
-        		xPosition=xPosition+1;
-        	}
-        	if(firstY>yCenterMassGeneral)
-        	{
-        		yPosition=yPosition+1;
-        	}
-        	
-        	if(QuadrantEmpty==false)
-        	{
-    		BlockNode objBlockNode2=new BlockNode(xPosition,yPosition,counterIDsCopy,-1,1);
-    		statesCopy.add(objBlockNode2);
+        		if(firstX>globalCenterXMass)
+        		{
+        			xPosition=xPosition+1;
+        		}
+        		if(firstY>yCenterMassGeneral)
+        		{
+        			yPosition=yPosition+1;
+        		}
+        	        	
+        		BlockNode objBlockNode2=new BlockNode(xPosition,yPosition,counterIDsCopy,-1,1);
+        		statesCopy.add(objBlockNode2);
         	}
     
-        }
+        	}
         partialSymmetry=partialSymmetry(statesCopy,objElemP,height,floorTileHeight,localMaxObjLeft,true);
         
         
