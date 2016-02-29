@@ -4,10 +4,17 @@ public class BlockNode {
 
 	private int typeElement;
 	private int id;
-	private int x;
-	private int y;
+	private double x;
+	private double y;
 	private int idElement;
 	public BlockNode(int x,int y, int id, int idElementToPlace, int idElement){
+		this.x=x;
+		this.y=y;
+		this.id=id;
+		this.typeElement=idElementToPlace;
+		this.idElement=idElement;
+	};
+	public BlockNode(double x,double y, int id, int idElementToPlace, int idElement){
 		this.x=x;
 		this.y=y;
 		this.id=id;
@@ -22,7 +29,7 @@ public class BlockNode {
 		this.typeElement=obj2.typeElement;
 		this.idElement=obj2.idElement;
 	}
-	public void setX(int x)
+	public void setX(double x)
 	{
 		this.x=x;
 	}
@@ -30,11 +37,11 @@ public class BlockNode {
 	{
 		this.y=y;
 	}
-	public int getX()
+	public double getX()
 	{
 		return x;
 	}
-	public int getY()
+	public double getY()
 	{
 		return y;
 	}

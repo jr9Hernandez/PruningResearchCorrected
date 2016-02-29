@@ -2199,8 +2199,8 @@ public class GraphBuilder
 			BlockNode elemento = itSymmetry1.next();
 			Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
 			
-			int xInitial = elemento.getX();
-	        int yInitial= elemento.getY();
+			double xInitial = elemento.getX();
+	        double yInitial= elemento.getY();
 	        widthElement=element.getWidth();
 	        heigthElement=element.getHeigth()+1;
 	        
@@ -2211,8 +2211,8 @@ public class GraphBuilder
 	        	BlockNode elementoN = itPlaces.next();
 				Elements elementN=(Elements)objElemP.getFinalList().get(elementoN.getIdElement());
 				
-				int xInitialN = elementoN.getX();
-		        int yInitialN= elementoN.getY();
+				double xInitialN = elementoN.getX();
+		        double yInitialN= elementoN.getY();
 		        widthElementN=elementN.getWidth();
 		        heigthElementN=elementN.getHeigth()+1;
 		        int xMidN=(int)((xInitialN+widthElementN)/2);
@@ -2251,8 +2251,8 @@ public class GraphBuilder
 			Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
 			if(elemento.getType()!=objElemP.getCoins() && elemento.getType()!=objElemP.getEnemyArmoredTurtle() && elemento.getType()!=objElemP.getEnemyCannonBall() && elemento.getType()!=objElemP.getEnemyChompFlower() && elemento.getType()!=objElemP.getEnemyFlower() && elemento.getType()!=objElemP.getEnemyGoomba() && elemento.getType()!=objElemP.getEnemyGreenKoopa() && elemento.getType()!=objElemP.getEnemyJumpFlower() && elemento.getType()!=objElemP.getEnemyRedKoopa() && elemento.getType()!=objElemP.getEnemySpiky())
 			{
-			int xInitial = elemento.getX();
-	        int yInitial= elemento.getY();
+			double xInitial = elemento.getX();
+	        double yInitial= elemento.getY();
 	        widthElementG=element.getWidth();
 	        heigthElementG=element.getHeigth()+1;
 	        
@@ -2294,8 +2294,8 @@ public class GraphBuilder
 			Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
 			if(elemento.getType()==objElemP.getCoins())
 			{
-			int xInitial = elemento.getX();
-	        int yInitial= elemento.getY();
+			double xInitial = elemento.getX();
+	        double yInitial= elemento.getY();
 	        widthElementC=element.getWidth();
 	        heigthElementC=element.getHeigth()+1;
 	        
@@ -2350,8 +2350,8 @@ public class GraphBuilder
 			Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
 			if(elemento.getType()!=objElemP.getCoins() && elemento.getType()!=objElemP.getEnemyArmoredTurtle() && elemento.getType()!=objElemP.getEnemyCannonBall() && elemento.getType()!=objElemP.getEnemyChompFlower() && elemento.getType()!=objElemP.getEnemyFlower() && elemento.getType()!=objElemP.getEnemyGoomba() && elemento.getType()!=objElemP.getEnemyGreenKoopa() && elemento.getType()!=objElemP.getEnemyJumpFlower() && elemento.getType()!=objElemP.getEnemyRedKoopa() && elemento.getType()!=objElemP.getEnemySpiky())
 			{
-			int xInitial = elemento.getX();
-	        int yInitial= elemento.getY();
+			double xInitial = elemento.getX();
+	        double yInitial= elemento.getY();
 	        widthElementG=element.getWidth();
 	        heigthElementG=element.getHeigth()+1;
 	        
@@ -2392,8 +2392,8 @@ public class GraphBuilder
 			Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
 			if(elemento.getType()==objElemP.getCoins())
 			{
-			int xInitial = elemento.getX();
-	        int yInitial= elemento.getY();
+			double xInitial = elemento.getX();
+	        double yInitial= elemento.getY();
 	        widthElementC=element.getWidth();
 	        heigthElementC=element.getHeigth()+1;
 	        
@@ -2466,8 +2466,8 @@ public class GraphBuilder
 			Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
 			if(elemento.getType()!=objElemP.getCoins() && elemento.getType()!=objElemP.getEnemyArmoredTurtle() && elemento.getType()!=objElemP.getEnemyCannonBall() && elemento.getType()!=objElemP.getEnemyChompFlower() && elemento.getType()!=objElemP.getEnemyFlower() && elemento.getType()!=objElemP.getEnemyGoomba() && elemento.getType()!=objElemP.getEnemyGreenKoopa() && elemento.getType()!=objElemP.getEnemyJumpFlower() && elemento.getType()!=objElemP.getEnemyRedKoopa() && elemento.getType()!=objElemP.getEnemySpiky())
 			{
-			int xInitial = elemento.getX();
-	        int yInitial= elemento.getY();
+			double xInitial = elemento.getX();
+	        double yInitial= elemento.getY();
 	        widthElement=element.getWidth();
 	        heigthElement=element.getHeigth()+1;
 	        
@@ -2732,8 +2732,8 @@ public class GraphBuilder
 			Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
 			if(elemento.getType()==objElemP.getCoins() )
 			{
-			int xInitial = elemento.getX();
-	        int yInitial= elemento.getY();
+			double xInitial = elemento.getX();
+	        double yInitial= elemento.getY();
 	        widthElement=element.getWidth();
 	        heigthElement=element.getHeigth()+1;
 	        
@@ -3057,8 +3057,8 @@ public class GraphBuilder
 			Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
 			if(elemento.getType()!=objElemP.getCoins() && elemento.getType()!=objElemP.getEnemyArmoredTurtle() && elemento.getType()!=objElemP.getEnemyCannonBall() && elemento.getType()!=objElemP.getEnemyChompFlower() && elemento.getType()!=objElemP.getEnemyFlower() && elemento.getType()!=objElemP.getEnemyGoomba() && elemento.getType()!=objElemP.getEnemyGreenKoopa() && elemento.getType()!=objElemP.getEnemyJumpFlower() && elemento.getType()!=objElemP.getEnemyRedKoopa() && elemento.getType()!=objElemP.getEnemySpiky())
 			{
-			int xInitial = elemento.getX();
-	        int yInitial= elemento.getY();
+			double xInitial = elemento.getX();
+	        double yInitial= elemento.getY();
 	        if(elemento.getType()!=-1)
 	        {
 	        	widthElement=element.getWidth();
@@ -3483,8 +3483,8 @@ public class GraphBuilder
 			Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
 			if(elemento.getType()==objElemP.getCoins() )
 			{
-			int xInitial = elemento.getX();
-	        int yInitial= elemento.getY();
+			double xInitial = elemento.getX();
+	        double yInitial= elemento.getY();
 	        widthElement=element.getWidth();
 	        heigthElement=element.getHeigth()+1;
 	        

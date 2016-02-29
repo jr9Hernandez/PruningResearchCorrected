@@ -26,8 +26,8 @@ public class ConstraintsPlacement {
 			Elements element=(Elements)finalListElements.get(e);
 			BlockNode state=(BlockNode)states.get(e);
 			
-			int xElement = state.getX();
-	        int floor= state.getY();
+			int xElement = (int)state.getX();
+	        int floor= (int)state.getY();
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
 	        int xElemMax=xElement+(widthElement-1);
@@ -75,8 +75,8 @@ public class ConstraintsPlacement {
 			Elements element=(Elements)finalListElements.get(e);
 			BlockNode state=(BlockNode)states.get(e);
 			
-			int xElement = state.getX();
-	        int floor= state.getY();
+			int xElement = (int)state.getX();
+	        int floor= (int)state.getY();
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
 	        int xElemMax=xElement+(widthElement-1);
@@ -133,8 +133,8 @@ public class ConstraintsPlacement {
 			Elements element=(Elements)finalListElements.get(e);
 			BlockNode state=(BlockNode)states.get(e);
 			
-			int xElement = state.getX();
-	        int floor= state.getY();
+			int xElement = (int)state.getX();
+	        int floor= (int)state.getY();
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
 	        int xElemMax=xElement+(widthElement-1);
@@ -190,8 +190,8 @@ public class ConstraintsPlacement {
 			Elements element=(Elements)finalListElements.get(e);
 			BlockNode state=(BlockNode)states.get(e);
 			
-			int xElement = state.getX();
-	        int floor= state.getY();
+			int xElement = (int)state.getX();
+	        int floor= (int)state.getY();
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
 	        int xElemMax=xElement+(widthElement-1);
@@ -247,8 +247,8 @@ public class ConstraintsPlacement {
 			Elements element=(Elements)finalListElements.get(e);
 			BlockNode state=(BlockNode)states.get(e);
 			
-			int xElement = state.getX();
-	        int floor= state.getY();
+			int xElement = (int)state.getX();
+	        int floor= (int)state.getY();
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
 	        int xElemMax=xElement+(widthElement-1);
@@ -398,8 +398,8 @@ public class ConstraintsPlacement {
 			Elements element=(Elements)finalListElements.get(e);
 			BlockNode state=(BlockNode)states.get(e);
 			
-			int xElement = state.getX();
-	        int floor= state.getY();
+			int xElement = (int)state.getX();
+	        int floor= (int)state.getY();
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
 	        
@@ -439,8 +439,8 @@ public class ConstraintsPlacement {
 			Elements element=(Elements)finalListElements.get(e);
 			BlockNode state=(BlockNode)states.get(e);
 			
-			int xElement = state.getX();
-	        int floor= state.getY();
+			int xElement = (int)state.getX();
+	        int floor= (int)state.getY();
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
 	        
@@ -483,8 +483,8 @@ public class ConstraintsPlacement {
 			Elements element=(Elements)finalListElements.get(e);
 			BlockNode state=(BlockNode)states.get(e);
 			
-			int xElement = state.getX();
-	        int floor= state.getY();
+			int xElement = (int)state.getX();
+	        int floor= (int)state.getY();
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
 	        
@@ -545,8 +545,8 @@ public class ConstraintsPlacement {
 					Elements element=(Elements)finalListElements.get(e);
 					BlockNode state=(BlockNode)states.get(e);
 					
-					int xElement = state.getX();
-			        int floor= state.getY();
+					int xElement = (int)state.getX();
+			        int floor= (int)state.getY();
 			        int widthElement=element.getWidth();
 			        int heigthElement=element.getHeigth();
 			        
@@ -615,8 +615,8 @@ public class ConstraintsPlacement {
 			Elements element=(Elements)finalListElements.get(e);
 			BlockNode state=(BlockNode)states.get(e);
 			
-			int xElement = state.getX();
-	        int floor= state.getY();
+			int xElement = (int)state.getX();
+	        int floor= (int)state.getY();
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
 	        
@@ -684,8 +684,8 @@ public class ConstraintsPlacement {
 			Elements element=(Elements)finalListElements.get(e);
 			BlockNode state=(BlockNode)states.get(e);
 			
-			int xElement = state.getX();
-	        int floor= state.getY();
+			int xElement = (int)state.getX();
+	        int floor= (int)state.getY();
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
 	        
@@ -733,8 +733,8 @@ public class ConstraintsPlacement {
 					Elements element=(Elements)finalListElements.get(e);
 					BlockNode state=(BlockNode)states.get(e);
 					
-					int xElement = state.getX();
-			        int floor= state.getY();
+					int xElement = (int)state.getX();
+			        int floor= (int)state.getY();
 			        int widthElement=element.getWidth();
 			        int heigthElement=element.getHeigth();
 			        
@@ -766,8 +766,8 @@ public class ConstraintsPlacement {
 				Elements element=(Elements)finalListElements.get(e);
 				BlockNode state=(BlockNode)states.get(e);
 				
-				int xElement = state.getX();
-		        int floor= state.getY();
+				int xElement = (int)state.getX();
+		        int floor= (int)state.getY();
 		        int widthElement=element.getWidth();
 		        int heigthElement=element.getHeigth();
 		        
@@ -835,8 +835,8 @@ public class ConstraintsPlacement {
 			Elements element=(Elements)finalListElements.get(e);
 			BlockNode state=(BlockNode)states.get(e);
 			
-			int xElement = state.getX();
-	        int floor= state.getY();
+			int xElement = (int)state.getX();
+	        int floor= (int)state.getY();
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
 	        

@@ -766,8 +766,8 @@ public class BeautyCustomizedLevel extends Level{
 	    }*/
 	    private Level buildEnemies(BlockNode elemento,Level mLevel)
 	    {
-	    	int xEnemy = initialStraight+elemento.getX();
-	        int floor= elemento.getY();
+	    	int xEnemy = (int)(initialStraight+elemento.getX());
+	        int floor= (int)elemento.getY();
 	        Elements element=(Elements)objElem.getFinalList().get(elemento.getIdElement());
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
@@ -814,8 +814,8 @@ public class BeautyCustomizedLevel extends Level{
 	    
 	    private Level buildHillsFloat(BlockNode elemento,Level mLevel,ArrayList states,ArrayList finalListElements)
 	    {
-	    	int xCoin = initialStraight+elemento.getX();
-	        int floor= elemento.getY();
+	    	int xCoin = (int)(initialStraight+elemento.getX());
+	        int floor= (int)elemento.getY();
 	        Elements element=(Elements)objElem.getFinalList().get(elemento.getIdElement());
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
@@ -838,8 +838,8 @@ public class BeautyCustomizedLevel extends Level{
 	    
 	    private Level buildHills(BlockNode elemento,Level mLevel,ArrayList states,ArrayList finalListElements)
 	    {
-	    	int xJump = initialStraight+elemento.getX();
-	        int floor= elemento.getY();
+	    	int xJump = (int)(initialStraight+elemento.getX());
+	        int floor= (int)elemento.getY();
 	        Elements element=(Elements)objElem.getFinalList().get(elemento.getIdElement());
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
@@ -857,8 +857,8 @@ public class BeautyCustomizedLevel extends Level{
 				Elements elementR=(Elements)finalListElements.get(e);
 				BlockNode stateR=(BlockNode)states.get(e);
 				
-				int xElementR = initialStraight+stateR.getX();
-		        int floorR= stateR.getY();
+				int xElementR = (int)(initialStraight+stateR.getX());
+		        int floorR= (int)stateR.getY();
 		        int widthElementR=elementR.getWidth();
 		        int heigthElementR=elementR.getHeigth();
 		        int typeR=elementR.getTypeElem();
@@ -933,8 +933,8 @@ public class BeautyCustomizedLevel extends Level{
 	    {
 	    	int typeStairs=1;
 	    	//System.out.println("xJump "+elemento.getX()+" "+elemento.getY());
-	    	int xJump = initialStraight+elemento.getX();
-	        int floor= elemento.getY();
+	    	int xJump = (int)(initialStraight+elemento.getX());
+	        int floor= (int)elemento.getY();
 	        Elements element=(Elements)objElem.getFinalList().get(elemento.getIdElement());
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
@@ -949,8 +949,8 @@ public class BeautyCustomizedLevel extends Level{
 	        	Elements elementR=(Elements)finalListElements.get(e);
 				BlockNode stateR=(BlockNode)states.get(e);
 				
-				int xElementR = initialStraight+stateR.getX();
-		        int floorR= stateR.getY();
+				int xElementR = (int)(initialStraight+stateR.getX());
+		        int floorR= (int)stateR.getY();
 		        int widthElementR=elementR.getWidth();
 		        int heigthElementR=elementR.getHeigth();
 		        int typeR=elementR.getTypeElem();
@@ -1013,8 +1013,8 @@ public class BeautyCustomizedLevel extends Level{
 	    
 	    private Level buildCoins(BlockNode elemento,Level mLevel)
 	    {
-	    	int xCoin = initialStraight+elemento.getX();
-	        int floor= elemento.getY();
+	    	int xCoin = (int)(initialStraight+elemento.getX());
+	        int floor= (int)elemento.getY();
 	        Elements element=(Elements)objElem.getFinalList().get(elemento.getIdElement());
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
@@ -1037,8 +1037,8 @@ public class BeautyCustomizedLevel extends Level{
 	    private Level buildCannons(BlockNode elemento, Level mLevel)
 	    {
 	        
-	        int xCannon = initialStraight+elemento.getX();
-	        int floor= elemento.getY();
+	        int xCannon = (int)(initialStraight+elemento.getX());
+	        int floor= (int)elemento.getY();
 	        Elements element=(Elements)objElem.getFinalList().get(elemento.getIdElement());
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
@@ -1072,8 +1072,8 @@ public class BeautyCustomizedLevel extends Level{
 	    
 	    private Level buildTubesFlower(BlockNode elemento,Level mLevel)
 	    {
-	    	int xTube = initialStraight+elemento.getX();
-	        int floor= elemento.getY();
+	    	int xTube = (int)(initialStraight+elemento.getX());
+	        int floor= (int)elemento.getY();
 	        Elements element=(Elements)objElem.getFinalList().get(elemento.getIdElement());
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
@@ -1106,8 +1106,8 @@ public class BeautyCustomizedLevel extends Level{
 	    
 	    private Level buildTubes(BlockNode elemento,Level mLevel)
 	    {
-	    	int xTube = initialStraight+elemento.getX();
-	        int floor= elemento.getY();
+	    	int xTube = (int)(initialStraight+elemento.getX());
+	        int floor= (int)elemento.getY();
 	        Elements element=(Elements)objElem.getFinalList().get(elemento.getIdElement());
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
@@ -1139,8 +1139,8 @@ public class BeautyCustomizedLevel extends Level{
 	    private Level buildBlocksElement(BlockNode elemento, Level mLevel)
 	    {
 	        
-	        int xBlock = initialStraight+elemento.getX();
-	        int floor= elemento.getY();
+	        int xBlock = (int)(initialStraight+elemento.getX());
+	        int floor= (int)elemento.getY();
 	        Elements element=(Elements)objElem.getFinalList().get(elemento.getIdElement());
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
@@ -1243,8 +1243,8 @@ public class BeautyCustomizedLevel extends Level{
 	    private Level buildBlockBlue(BlockNode elemento, Level mLevel)
 	    {
 	        
-	        int xBlock = initialStraight+elemento.getX();
-	        int floor= elemento.getY();
+	        int xBlock = (int)(initialStraight+elemento.getX());
+	        int floor= (int)elemento.getY();
 	        Elements element=(Elements)objElem.getFinalList().get(elemento.getIdElement());
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
@@ -1264,8 +1264,8 @@ public class BeautyCustomizedLevel extends Level{
 	    private Level buildBlockWood(BlockNode elemento, Level mLevel,  ArrayList states,ArrayList finalListElements)
 	    {
 	        
-	        int xBlock = initialStraight+elemento.getX();
-	        int floor= elemento.getY();
+	        int xBlock = (int)(initialStraight+elemento.getX());
+	        int floor= (int)elemento.getY();
 	        Elements element=(Elements)objElem.getFinalList().get(elemento.getIdElement());
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
@@ -1286,8 +1286,8 @@ public class BeautyCustomizedLevel extends Level{
 	    private Level buildWood(BlockNode elemento, Level mLevel)
 	    {
 	        
-	        int xBlock = initialStraight+elemento.getX();
-	        int floor= elemento.getY();
+	        int xBlock = (int)(initialStraight+elemento.getX());
+	        int floor= (int)elemento.getY();
 	        Elements element=(Elements)objElem.getFinalList().get(elemento.getIdElement());
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
@@ -1310,8 +1310,8 @@ public class BeautyCustomizedLevel extends Level{
 	    private Level buildSmallTube(BlockNode elemento, Level mLevel)
 	    {
 	        
-	        int xBlock = initialStraight+elemento.getX();
-	        int floor= elemento.getY();
+	        int xBlock = (int)(initialStraight+elemento.getX());
+	        int floor= (int)elemento.getY();
 	        Elements element=(Elements)objElem.getFinalList().get(elemento.getIdElement());
 	        int widthElement=element.getWidth();
 	        int heigthElement=element.getHeigth();
@@ -1434,8 +1434,8 @@ public class BeautyCustomizedLevel extends Level{
 	                		Elements element=(Elements)finalListElements.get(i);
 	            			BlockNode state=(BlockNode)states.get(i);
 	            			
-	            			int xElement = initialStraight+state.getX();
-	            	        int floorC= state.getY()+1;
+	            			int xElement = (int)(initialStraight+state.getX());
+	            	        int floorC= (int)state.getY()+1;
 	            	        int widthElement=element.getWidth();
 	            	        int heigthElement=element.getHeigth()+2;
 	            	        
@@ -1538,8 +1538,8 @@ public class BeautyCustomizedLevel extends Level{
 	                		Elements element=(Elements)finalListElements.get(i);
 	            			BlockNode state=(BlockNode)states.get(i);
 	            			
-	            			int xElement = initialStraight+state.getX();
-	            	        int floorC= state.getY()+1;
+	            			int xElement = (int)(initialStraight+state.getX());
+	            	        int floorC= (int)state.getY()+1;
 	            	        int widthElement=element.getWidth();
 	            	        int heigthElement=element.getHeigth()+2;
 	            	        
@@ -1641,8 +1641,8 @@ public class BeautyCustomizedLevel extends Level{
 	                		Elements element=(Elements)finalListElements.get(i);
 	            			BlockNode state=(BlockNode)states.get(i);
 	            			
-	            			int xElement = initialStraight+state.getX();
-	            	        int floorC= state.getY()+1;
+	            			int xElement = (int)(initialStraight+state.getX());
+	            	        int floorC= (int)state.getY()+1;
 	            	        int widthElement=element.getWidth();
 	            	        int heigthElement=element.getHeigth()+2;
 	            	        
