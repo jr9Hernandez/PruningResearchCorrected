@@ -378,7 +378,6 @@ public class GraphBuilder
     
     public boolean  validationSymmetryFuture(   int countElements, int countElementsFinal,ArrayList statesCopy, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry,int floorTileHeight,int height)
     { 
-    	boolean QuadrantEmpty=false;
     	
     	int counterIDsCopy=counterIDs;
     	countElements=countElements-1;
