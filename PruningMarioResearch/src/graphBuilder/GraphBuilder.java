@@ -3083,6 +3083,10 @@ public class GraphBuilder
 	        }
 	        else
 	        {
+	        	while(distributionsWidth[counterQuadrants]==0 && distributionsHeight[counterQuadrants]==0)
+	        	{
+	        		counterQuadrants++;
+	        	}
 	        	widthElement=distributionsWidth[counterQuadrants];
 	        	heigthElement=distributionsHeight[counterQuadrants];
 	        	counterQuadrants++;
