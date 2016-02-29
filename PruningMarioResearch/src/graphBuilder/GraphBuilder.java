@@ -411,21 +411,12 @@ public class GraphBuilder
         	if(distributionsWidth[i]!=0 && distributionsHeight[i]!=0)
         	{
         		double firstX=0;
-        		double secondX=0;
-        		double thirdX=0;
         	
         		double firstY=0;
-        		double secondY=0;
-        		double thirdY=0;
-        	
-        		Elements objElem= (Elements)finalList.get(i);
-  
-        		int counterElements=0;
         	
         		if(indexCounterX<=sizebestXs-1)
         		{
         			firstX=bestXs.get(indexCounterX);
-        			counterElements=counterElements+1;
         		}
         		//indexCounterX=indexCounterX+1;
         	       	       	
@@ -451,6 +442,7 @@ public class GraphBuilder
         		{
         			xMedium=globalCenterXMass+firstX;
         			xPosition=(int)(xMedium-(distributionsWidth[i]/2));
+        			xPosition=xPosition+1;
         		}
         		
         		if(i==0 || i==1)
@@ -462,14 +454,6 @@ public class GraphBuilder
         		{
         			yMedium=yCenterMassGeneral+firstY;
         			yPosition=(int)(yMedium+(distributionsHeight[i]/2));
-        		}
-        	
-        		if(xMedium>globalCenterXMass)
-        		{
-        			xPosition=xPosition+1;
-        		}
-        		if(yMedium>yCenterMassGeneral)
-        		{
         			yPosition=yPosition+1;
         		}
         		
