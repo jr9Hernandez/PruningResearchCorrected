@@ -72,7 +72,7 @@ public class Utilities {
 				{
 					if(distributions[i]==min)
 					{
-						distributions[i]=valuetoDistribute;
+						distributions[i]=distributions[i]+valuetoDistribute;
 						totalArea=totalArea-valuetoDistribute;
 					}
 				}
