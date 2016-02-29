@@ -83,7 +83,7 @@ public class Utilities {
 		}
 		for(int i=0;i<4;i++)
 		{
-			distributionsOriginals[i]=distributionsOriginals[i]-(distributions[i]-distributionsOriginals[0]);
+			distributionsOriginals[i]=(distributions[i]-distributionsOriginals[i]);
 		}
 		
 		return distributionsOriginals;
