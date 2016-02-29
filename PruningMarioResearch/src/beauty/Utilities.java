@@ -46,7 +46,7 @@ public class Utilities {
 				
 				if (distributions[i]==min)
 				{
-					counterMins=counterMins++;
+					counterMins=counterMins+1;
 					
 				}
 			}
