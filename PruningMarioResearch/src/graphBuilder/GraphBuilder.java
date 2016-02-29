@@ -450,6 +450,15 @@ public class GraphBuilder
         		{
         			yPosition=yPosition+1;
         		}
+        		
+        		if(xPosition<0)
+        		{
+        			xPosition=xPosition+1;
+        		}
+        		if(yPosition<0)
+        		{
+        			yPosition=yPosition+1;
+        		}
         	        	
         		BlockNode objBlockNode2=new BlockNode(xPosition,yPosition,counterIDsCopy,-1,1);
         		statesCopy.add(objBlockNode2);
