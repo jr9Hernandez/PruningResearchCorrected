@@ -825,7 +825,7 @@ public class GraphBuilder
     		
     		if(firstBranchPercorred==true)
     		{
-    			if(validationSymmetryFuture(countElements, countElementsFinal, statesCopy,finalList, objElemP, random,partialSymmetry,floorTileHeight,height)==true);
+    			if(validationSymmetryFuture(countElements, countElementsFinal, statesCopy,finalList, objElemP, random,partialSymmetry,floorTileHeight,height)==true)
     			{
     				System.out.println("cambiaso2");
     				validationSymmetryFuture=true;
