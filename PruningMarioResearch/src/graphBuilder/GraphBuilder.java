@@ -408,7 +408,7 @@ public class GraphBuilder
         
         for(int i=0;i<4;i++)
         {   
-        	if(distributionsWidth[i]!=0 && distributionsHeight[i]!=0)
+        	if(distributionsWidth[i]!=0 || distributionsHeight[i]!=0)
         	{
         		double firstX=0;
         	
