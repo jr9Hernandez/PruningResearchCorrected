@@ -84,6 +84,8 @@ public class GraphBuilder
 	private double partialSymmetry;
 	private double [] partialHeight=new double [4];
 	private double [] partialWidth=new double [4];
+	private double [] partialXSummatory=new double[4];
+	private double [] partialYSummatory=new double[4];
 	private boolean firstBranchPercorred=false;
 	private ArrayList<Double> bestXs;
 	private ArrayList<Double> bestYs;
@@ -381,8 +383,8 @@ public class GraphBuilder
     	
     	int counterIDsCopy=counterIDs;
     	countElements=countElements-1;
-    	Collections.sort(bestXs,Collections.reverseOrder());
-    	Collections.sort(bestYs,Collections.reverseOrder());
+    	//Collections.sort(bestXs,Collections.reverseOrder());
+    	//Collections.sort(bestYs,Collections.reverseOrder());
     	
         System.out.println("bestSymmetry "+bestSymmetryV);
         int sizebestXs=bestXs.size();
@@ -410,11 +412,11 @@ public class GraphBuilder
         {   
         	if(distributionsWidth[i]!=0 || distributionsHeight[i]!=0)
         	{
-        		double firstX=0;
+        		double firstX=objUtilities.bestXYSummatory(partialXSummatory);
         	
-        		double firstY=0;
+        		double firstY=objUtilities.bestXYSummatory(partialYSummatory);
         	
-        		if(indexCounterX<=sizebestXs-1)
+        		/*if(indexCounterX<=sizebestXs-1)
         		{
         			firstX=bestXs.get(indexCounterX);
         		}
@@ -423,7 +425,7 @@ public class GraphBuilder
         		if(indexCounterY<=sizebestYs-1)
         		{
         			firstY=bestYs.get(indexCounterY);
-        		}
+        		}*/
         	       	
         		//indexCounterY=indexCounterY+1;
         	
@@ -3008,6 +3010,16 @@ public class GraphBuilder
 		partialWidth[2]=0;
 		partialWidth[3]=0;
 		
+		partialXSummatory[0]=0;
+		partialXSummatory[1]=0;
+		partialXSummatory[2]=0;
+		partialXSummatory[3]=0;
+		
+		partialYSummatory[0]=0;
+		partialYSummatory[1]=0;
+		partialYSummatory[2]=0;
+		partialYSummatory[3]=0;
+		
 		bestXs=new ArrayList<Double>();
     	bestYs=new ArrayList<Double>();
     	
@@ -3100,6 +3112,9 @@ public class GraphBuilder
 	        		
 	        		partialWidth[0]=partialWidth[0]+(gulAG[2]);
 	        		partialHeight[0]=partialHeight[0]+(gulAG[3]);
+	        		
+	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
+	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
 	        	}
 	        	
 	        	//block low left
@@ -3125,6 +3140,9 @@ public class GraphBuilder
 	        		
 	        		partialWidth[2]=partialWidth[2]+(gllAG[2]);
 	        		partialHeight[2]=partialHeight[2]+(gllAG[3]);
+	        		
+	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
+	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
 
 	        	}
 	        	else
@@ -3152,6 +3170,9 @@ public class GraphBuilder
 	        		
 	        		partialWidth[0]=partialWidth[0]+(gulAG[2]);
 	        		partialHeight[0]=partialHeight[0]+(gulAG[3]);
+	        		
+	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
+	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
 	        	
 	        		//second block of the element (low left)
 	        		y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -3174,6 +3195,9 @@ public class GraphBuilder
 	        		
 	        		partialWidth[2]=partialWidth[2]+(gllAG[2]);
 	        		partialHeight[2]=partialHeight[2]+(gllAG[3]);
+	        		
+	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
+	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
 	        	}
 	        }
 	        else if(xInitial>=xCenterMassGeneral )
@@ -3202,6 +3226,9 @@ public class GraphBuilder
 	        		
 	        		partialWidth[1]=partialWidth[1]+(gurAG[2]);
 	        		partialHeight[1]=partialHeight[1]+(gurAG[3]);
+	        		
+	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
+	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
 	        	}
 	        	//block low right
 	        	else if(yInitial-heigthElement>=yCenterMassGeneral)
@@ -3226,6 +3253,9 @@ public class GraphBuilder
 	        		
 	        		partialWidth[3]=partialWidth[3]+(glrAG[2]);
 	        		partialHeight[3]=partialHeight[3]+(glrAG[3]);
+	        		
+	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
+	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
 	        	}
 	        	else
 	        	{
@@ -3252,6 +3282,9 @@ public class GraphBuilder
 	        		
 	        		partialWidth[1]=partialWidth[1]+(gurAG[2]);
 	        		partialHeight[1]=partialHeight[1]+(gurAG[3]);
+	        		
+	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
+	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
 		        	
 	        		//second block of the element  (low right)
 	        		y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -3274,6 +3307,9 @@ public class GraphBuilder
 	        		
 	        		partialWidth[3]=partialWidth[3]+(glrAG[2]);
 	        		partialHeight[3]=partialHeight[3]+(glrAG[3]);
+	        		
+	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
+	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
 	        	}
 	        	
 	        }
@@ -3303,6 +3339,9 @@ public class GraphBuilder
 	        		
 	        		partialWidth[0]=partialWidth[0]+(gulAG[2]);
 	        		partialHeight[0]=partialHeight[0]+(gulAG[3]);
+	        		
+	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
+	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
 			        
 			        //second block of the element (up right)
 			        x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -3324,6 +3363,9 @@ public class GraphBuilder
 	        		
 	        		partialWidth[1]=partialWidth[1]+(gurAG[2]);
 	        		partialHeight[1]=partialHeight[1]+(gurAG[3]);
+	        		
+	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
+	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
 	        		
 	        	}
 	        	else if(yInitial-heigthElement>=yCenterMassGeneral)
@@ -3350,6 +3392,9 @@ public class GraphBuilder
 	        		
 	        		partialWidth[2]=partialWidth[2]+(gllAG[2]);
 	        		partialHeight[2]=partialHeight[2]+(gllAG[3]);
+	        		
+	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
+	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
 			        
 			        //second block of the element (low right)
 			        x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -3371,6 +3416,9 @@ public class GraphBuilder
 	        		
 	        		partialWidth[3]=partialWidth[3]+(glrAG[2]);
 	        		partialHeight[3]=partialHeight[3]+(glrAG[3]);
+	        		
+	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
+	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
 	        	}
 	        	else
 	        	{
@@ -3396,6 +3444,9 @@ public class GraphBuilder
 	        		
 	        		partialWidth[0]=partialWidth[0]+(gulAG[2]);
 	        		partialHeight[0]=partialHeight[0]+(gulAG[3]);
+	        		
+	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
+	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
 			        
 	        		//second block of the element (up right)
 	        		x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -3419,6 +3470,9 @@ public class GraphBuilder
 	        		partialWidth[1]=partialWidth[1]+(gurAG[2]);
 	        		partialHeight[1]=partialHeight[1]+(gurAG[3]);
 	        		
+	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
+	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
+	        		
 	        		//first block of the element (low left)
 	        		x=(xInitial+(xCenterMassGeneral-xInitial)/2);
 	        		y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -3440,6 +3494,9 @@ public class GraphBuilder
 	        		
 	        		partialWidth[2]=partialWidth[2]+(gllAG[2]);
 	        		partialHeight[2]=partialHeight[2]+(gllAG[3]);
+	        		
+	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
+	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
 			        
 	        		//second block of the element (low right)
 	        		x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -3462,6 +3519,9 @@ public class GraphBuilder
 	        		
 	        		partialWidth[3]=partialWidth[3]+(glrAG[2]);
 	        		partialHeight[3]=partialHeight[3]+(glrAG[3]);
+	        		
+	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
+	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
 	        	}
 	        }
 	        

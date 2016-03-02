@@ -88,4 +88,17 @@ public class Utilities {
 		
 		return distributionsOriginals;
 	} 
+	
+	public double bestXYSummatory(double [] partialXY)
+	{
+		double min=10000000;
+		for(int i=0;i<4;i++)
+		{
+			if(partialXY[i]<min)
+			{
+				min=partialXY[i];
+			}
+		}
+		return min;
+	}
 }
