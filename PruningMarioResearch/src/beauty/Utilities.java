@@ -91,14 +91,14 @@ public class Utilities {
 	
 	public double bestXYSummatory(double [] partialXY)
 	{
-		double min=10000000;
+		double max=0;
 		for(int i=0;i<4;i++)
 		{
-			if(partialXY[i]<min)
+			if(partialXY[i]>max)
 			{
-				min=partialXY[i];
+				max=partialXY[i];
 			}
 		}
-		return min;
+		return max;
 	}
 }
