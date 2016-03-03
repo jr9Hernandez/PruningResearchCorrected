@@ -249,7 +249,7 @@ public class GraphBuilder
     }*/
     
     public ArrayList  relativeTransPositionDepthSearch(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, TreeSet currentState, Hashtable hTable)
-    {    
+    {   
     	
     	if(countElements==countElementsFinal)
     	{ 
