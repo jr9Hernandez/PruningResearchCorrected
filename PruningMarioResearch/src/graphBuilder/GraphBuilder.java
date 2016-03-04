@@ -2053,7 +2053,7 @@ public class GraphBuilder
         
         //here we will calculate the center of mass
         centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
-        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
+        symmetryV=symettry1Areas(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         //double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
     	
         return symmetryV;
@@ -2073,7 +2073,7 @@ public class GraphBuilder
         
         //here we will calculate the center of mass
         centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
-        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
+        symmetryV=symettry1Areas(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         
         if(symmetryV<bestSymmetryV)
@@ -2112,7 +2112,7 @@ public class GraphBuilder
         
         //here we will calculate the center of mass
         centerOfMass(states,objElemP,height,floor);
-        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
+        symmetryV=symettry1Areas(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         
         if(symmetryV<bestSymmetryV)
@@ -2153,7 +2153,7 @@ public class GraphBuilder
         
         //here we will calculate the center of mass
         centerOfMass(states,objElemP,height,floor);
-        symmetryV=symettry1(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
+        symmetryV=symettry1Areas(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         
       //creating object Branch
     	Branch objBranch=new Branch(symmetryV,new ArrayList<BlockNode>(states));
