@@ -563,7 +563,7 @@ public class GraphBuilder
         	}
         	else
         	{
-        		firstY=partialYSummatory[1];
+        		firstY=partialYSummatory[3];
         	}
         	
         	if(partialYSummatory[2]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
@@ -572,7 +572,7 @@ public class GraphBuilder
         	}
         	else
         	{
-        		secondY=partialYSummatory[1];
+        		secondY=partialYSummatory[2];
         	}
         	if(partialYSummatory[1]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
         	{
