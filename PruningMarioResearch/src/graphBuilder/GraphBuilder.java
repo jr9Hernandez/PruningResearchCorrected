@@ -2542,6 +2542,11 @@ public class GraphBuilder
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
+	        		
+	        		//new symmetry with areas
+	        		gulAG[2]=gulAG[2]*gulAG[3];
+	        		gulAG[3]=0;
+	        		
 	        	}
 	        	
 	        	//block low left
@@ -2570,6 +2575,10 @@ public class GraphBuilder
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
+	        		
+	        		//new symmetry with areas
+	        		gllAG[2]=gllAG[2]*gllAG[3];
+	        		gllAG[3]=0;
 
 	        	}
 	        	else
@@ -2600,6 +2609,10 @@ public class GraphBuilder
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
+	        		
+	        		//new symmetry with areas
+	        		gulAG[2]=gulAG[2]*gulAG[3];
+	        		gulAG[3]=0;
 	        	
 	        		//second block of the element (low left)
 	        		y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -2625,6 +2638,10 @@ public class GraphBuilder
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
+	        		
+	        		//new symmetry with areas
+	        		gllAG[2]=gllAG[2]*gllAG[3];
+	        		gllAG[3]=0;
 	        	}
 	        }
 	        else if(xInitial>=xCenterMassGeneral )
@@ -2656,6 +2673,10 @@ public class GraphBuilder
 	        		
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
+	        		
+	        		//new symmetry with areas
+	        		gurAG[2]=gurAG[2]*gurAG[3];
+	        		gurAG[3]=0;
 	        	}
 	        	//block low right
 	        	else if(yInitial-heigthElement>=yCenterMassGeneral)
@@ -2683,6 +2704,10 @@ public class GraphBuilder
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
+	        		
+	        		//new symmetry with areas
+	        		glrAG[2]=glrAG[2]*glrAG[3];
+	        		glrAG[3]=0;
 	        	}
 	        	else
 	        	{
@@ -2712,6 +2737,10 @@ public class GraphBuilder
 	        		
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
+	        		
+	        		//new symmetry with areas
+	        		gurAG[2]=gurAG[2]*gurAG[3];
+	        		gurAG[3]=0;
 		        	
 	        		//second block of the element  (low right)
 	        		y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -2737,6 +2766,10 @@ public class GraphBuilder
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
+	        		
+	        		//new symmetry with areas
+	        		glrAG[2]=glrAG[2]*glrAG[3];
+	        		glrAG[3]=0;
 	        	}
 	        	
 	        }
@@ -2769,6 +2802,10 @@ public class GraphBuilder
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
+	        		
+	        		//new symmetry with areas
+	        		gulAG[2]=gulAG[2]*gulAG[3];
+	        		gulAG[3]=0;
 			        
 			        //second block of the element (up right)
 			        x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -2793,6 +2830,10 @@ public class GraphBuilder
 	        		
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
+	        		
+	        		//new symmetry with areas
+	        		gurAG[2]=gurAG[2]*gurAG[3];
+	        		gurAG[3]=0;
 	        		
 	        	}
 	        	else if(yInitial-heigthElement>=yCenterMassGeneral)
@@ -2822,6 +2863,10 @@ public class GraphBuilder
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
+	        		
+	        		//new symmetry with areas
+	        		gllAG[2]=gllAG[2]*gllAG[3];
+	        		gllAG[3]=0;
 			        
 			        //second block of the element (low right)
 			        x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -2846,6 +2891,10 @@ public class GraphBuilder
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
+	        		
+	        		//new symmetry with areas
+	        		glrAG[2]=glrAG[2]*glrAG[3];
+	        		glrAG[3]=0;
 	        	}
 	        	else
 	        	{
@@ -2874,6 +2923,10 @@ public class GraphBuilder
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
+	        		
+	        		//new symmetry with areas
+	        		gulAG[2]=gulAG[2]*gulAG[3];
+	        		gulAG[3]=0;
 			        
 	        		//second block of the element (up right)
 	        		x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -2900,6 +2953,10 @@ public class GraphBuilder
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
 	        		
+	        		//new symmetry with areas
+	        		gurAG[2]=gurAG[2]*gurAG[3];
+	        		gurAG[3]=0;
+	        		
 	        		//first block of the element (low left)
 	        		x=(xInitial+(xCenterMassGeneral-xInitial)/2);
 	        		y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -2924,6 +2981,10 @@ public class GraphBuilder
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
+	        		
+	        		//new symmetry with areas
+	        		gllAG[2]=gllAG[2]*gllAG[3];
+	        		gllAG[3]=0;
 			        
 	        		//second block of the element (low right)
 	        		x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -2949,6 +3010,10 @@ public class GraphBuilder
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
+	        		
+	        		//new symmetry with areas
+	        		glrAG[2]=glrAG[2]*glrAG[3];
+	        		glrAG[3]=0;
 	        	}
 	        }
 	        
