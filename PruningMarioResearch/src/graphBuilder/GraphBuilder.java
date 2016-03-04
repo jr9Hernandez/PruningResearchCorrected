@@ -489,8 +489,20 @@ public class GraphBuilder
         }
     } 
 
-    public boolean  validationPruningM(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry)
+    public boolean  validationPruningM(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
     { 
+    	double tamBottomFromCenter=floorTileHeight-yCenterMassGeneral;
+    	double tamTopFromCenter=yCenterMassGeneral-ruleThirds;
+    	double maxTamFromCenter=0;
+    	if(tamBottomFromCenter>tamTopFromCenter)
+    	{
+    		maxTamFromCenter=tamBottomFromCenter;
+    	}
+    	else
+    	{
+    		maxTamFromCenter=tamTopFromCenter;
+    	}
+    	
     	countElements=countElements-1;
     	Collections.sort(bestXs,Collections.reverseOrder());
     	Collections.sort(bestYs,Collections.reverseOrder());
@@ -545,30 +557,30 @@ public class GraphBuilder
         		thirdX=partialXSummatory[1];
         	}
         	
-        	if(partialYSummatory[3]>(yCenterMassGeneral)-((objElem.getHeigth()+1)/2))
+        	if(partialYSummatory[3]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
         	{
-        		firstY=yCenterMassGeneral;     		
+        		firstY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2);     		
         	}
         	else
         	{
-        		firstY=yCenterMassGeneral;
+        		firstY=partialYSummatory[1];
         	}
         	
-        	if(partialYSummatory[2]>(yCenterMassGeneral)-((objElem.getHeigth()+1)/2))
+        	if(partialYSummatory[2]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
         	{
-        		secondY=yCenterMassGeneral;     		
+        		secondY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2);     		
         	}
         	else
         	{
-        		secondY=yCenterMassGeneral;
+        		secondY=partialYSummatory[1];
         	}
-        	if(partialYSummatory[1]>(yCenterMassGeneral)-((objElem.getHeigth()+1)/2))
+        	if(partialYSummatory[1]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
         	{
-        		thirdY=yCenterMassGeneral;     		
+        		thirdY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2);     		
         	}
         	else
         	{
-        		thirdY=yCenterMassGeneral;
+        		thirdY=partialYSummatory[1];
         	}
         	
         	partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
@@ -928,10 +940,12 @@ public class GraphBuilder
     		
     	}
     	
+    	int ruleThirds=(height/3);
+    	
     	for(int i=maxLeft;i<=maxRight;i++)
     	{
     	 int indexN=i;
-    	 for(int j=(height/3);j<height;j++)
+    	 for(int j=ruleThirds;j<height;j++)
     	 {       
     		 int indeyN=j;
     		 
@@ -1139,7 +1153,7 @@ public class GraphBuilder
     		boolean validationPruningM=false;
     		if(firstBranchPercorred==true)
     		{
-    			if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry)==true)
+    			if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
     			{
     				System.out.println("cambiaso");
     				validationPruningM=true;
