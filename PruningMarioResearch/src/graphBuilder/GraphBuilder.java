@@ -1,5 +1,5 @@
 /* ==========================================
- * JGraphT : a free Java graph-theory library
+ * JGraphT : a free Java graph-theory library 
  * ==========================================
  *
  * Project Info:  http://jgrapht.sourceforge.net/
