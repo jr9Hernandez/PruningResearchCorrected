@@ -514,7 +514,7 @@ public class GraphBuilder
         	double thirdY=0;
         	
         	Elements objElem= (Elements)finalList.get(i);
-        	double areaElement=(objElem.getHeigth()+1)+objElem.getWidth();
+        	double areaElement=(objElem.getHeigth()+1)*objElem.getWidth();
         	int counterElements=0;
         	
         	if(indexCounterX<=sizebestXs-1)
