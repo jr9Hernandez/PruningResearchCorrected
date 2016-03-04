@@ -101,4 +101,16 @@ public class Utilities {
 		}
 		return max;
 	}
+	public double sortXYSummatory(double [] partialXY)
+	{
+		double max=0;
+		for(int i=0;i<4;i++)
+		{
+			if(partialXY[i]>max)
+			{
+				max=partialXY[i];
+			}
+		}
+		return max;
+	}
 }

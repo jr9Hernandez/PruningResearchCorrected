@@ -38,6 +38,7 @@ package graphBuilder;
 
 import java.net.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -80,7 +81,7 @@ public class GraphBuilder
 	public double bestSymmetryV=9999999;
 	private double worstSymmetryV=0;
 	private double bestAverageX=0;
-	private int globalCenterXMass=8;
+	private double globalCenterXMass=7.5;
 	private double partialSymmetry;
 	private double [] partialHeight=new double [4];
 	private double [] partialWidth=new double [4];
@@ -501,7 +502,8 @@ public class GraphBuilder
         int indexCounterX=0;
         int indexCounterY=0;
         
-        
+        Arrays.sort(partialXSummatory);
+        Arrays.sort(partialYSummatory);
         
         for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
         {   
@@ -517,44 +519,57 @@ public class GraphBuilder
         	double areaElement=(objElem.getHeigth()+1)*objElem.getWidth();
         	int counterElements=0;
         	
-        	if(indexCounterX<=sizebestXs-1)
+        	if(partialXSummatory[3]>(globalCenterXMass)-(objElem.getWidth()/2))
         	{
-        		firstX=bestXs.get(indexCounterX);
-        		counterElements=counterElements+1;
+        		firstX=(globalCenterXMass)-(objElem.getWidth()/2);     		
         	}
-        	indexCounterX=indexCounterX+1;
-        	
-        	if(indexCounterX<=sizebestXs-1)
+        	else
         	{
-        		secondX=bestXs.get(indexCounterX);
-        		counterElements=counterElements+1;
+        		firstX=partialXSummatory[3];
         	}
-        	indexCounterX=indexCounterX+1;
         	
-        	if(indexCounterX<=sizebestXs-1)
+        	if(partialXSummatory[2]>(globalCenterXMass)-(objElem.getWidth()/2))
         	{
-        		thirdX=bestXs.get(indexCounterX);
-        		counterElements=counterElements+1;
+        		secondX=(globalCenterXMass)-(objElem.getWidth()/2);     		
         	}
-        	indexCounterX=indexCounterX+1;
-        	
-        	if(indexCounterY<=sizebestYs-1)
+        	else
         	{
-        		firstY=bestYs.get(indexCounterY);
+        		secondX=partialXSummatory[2];
         	}
-        	indexCounterY=indexCounterY+1;
-        	
-        	if(indexCounterY<=sizebestYs-1)
+        	if(partialXSummatory[1]>(globalCenterXMass)-(objElem.getWidth()/2))
         	{
-        		secondY=bestYs.get(indexCounterY);
-        	}        	
-        	indexCounterY=indexCounterY+1;
-        	
-        	if(indexCounterY<=sizebestYs-1)
-        	{
-        		thirdY=bestYs.get(indexCounterY);
+        		thirdX=(globalCenterXMass)-(objElem.getWidth()/2);     		
         	}
-        	indexCounterY=indexCounterY+1;
+        	else
+        	{
+        		thirdX=partialXSummatory[1];
+        	}
+        	
+        	if(partialYSummatory[3]>(yCenterMassGeneral)-((objElem.getHeigth()+1)/2))
+        	{
+        		firstY=yCenterMassGeneral;     		
+        	}
+        	else
+        	{
+        		firstY=yCenterMassGeneral;
+        	}
+        	
+        	if(partialYSummatory[2]>(yCenterMassGeneral)-((objElem.getHeigth()+1)/2))
+        	{
+        		secondY=yCenterMassGeneral;     		
+        	}
+        	else
+        	{
+        		secondY=yCenterMassGeneral;
+        	}
+        	if(partialYSummatory[1]>(yCenterMassGeneral)-((objElem.getHeigth()+1)/2))
+        	{
+        		thirdY=yCenterMassGeneral;     		
+        	}
+        	else
+        	{
+        		thirdY=yCenterMassGeneral;
+        	}
         	
         	partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         }
