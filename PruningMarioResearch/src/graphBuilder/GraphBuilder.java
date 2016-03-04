@@ -2526,9 +2526,9 @@ public class GraphBuilder
 	        		gulAG[1]=Math.abs(y-yCenterMassGeneral);
 	        		gulATG[1]=gulATG[1]+gulAG[1];
 	        		gulAG[2]=widthElement;
-	        		gulATG[2]=gulATG[2]+gulAG[2];
+	        		
 	        		gulAG[3]=heigthElement;
-	        		gulATG[3]=gulATG[3]+gulAG[3];
+	        		
 	        		//gul.add(gulA);
 	        		
 	        		bestXs.add(gulAG[0]);
@@ -2544,8 +2544,11 @@ public class GraphBuilder
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
 	        		
 	        		//new symmetry with areas
+	        		
 	        		gulAG[2]=gulAG[2]*gulAG[3];
 	        		gulAG[3]=0;
+	        		gulATG[2]=gulATG[2]+gulAG[2];
+	        		gulATG[3]=gulATG[3]+gulAG[3];
 	        		
 	        	}
 	        	
@@ -2559,9 +2562,9 @@ public class GraphBuilder
 	        		gllAG[1]=Math.abs(y-yCenterMassGeneral);
 	        		gllATG[1]=gllATG[1]+gllAG[1];
 	        		gllAG[2]=widthElement;
-	        		gllATG[2]=gllATG[2]+gllAG[2];
+	        		
 	        		gllAG[3]=heigthElement;
-	        		gllATG[3]=gllATG[3]+gllAG[3];
+	        		
 	        		//gll.add(gllA);
 	        		
 	        		bestXs.add(gllAG[0]);
@@ -2579,6 +2582,8 @@ public class GraphBuilder
 	        		//new symmetry with areas
 	        		gllAG[2]=gllAG[2]*gllAG[3];
 	        		gllAG[3]=0;
+	        		gllATG[2]=gllATG[2]+gllAG[2];
+	        		gllATG[3]=gllATG[3]+gllAG[3];
 
 	        	}
 	        	else
@@ -2593,9 +2598,9 @@ public class GraphBuilder
 	        		gulAG[1]=Math.abs(y-yCenterMassGeneral);
 	        		gulATG[1]=gulATG[1]+gulAG[1];
 	        		gulAG[2]=widthElement;
-	        		gulATG[2]=gulATG[2]+gulAG[2];
+	        		
 	        		gulAG[3]=yCenterMassGeneral-(yInitial-heigthElement);
-	        		gulATG[3]=gulATG[3]+gulAG[3];
+	        		
 	        		//gul.add(gulA);
 	        		
 	        		bestXs.add(gulAG[0]);
@@ -2613,6 +2618,8 @@ public class GraphBuilder
 	        		//new symmetry with areas
 	        		gulAG[2]=gulAG[2]*gulAG[3];
 	        		gulAG[3]=0;
+	        		gulATG[2]=gulATG[2]+gulAG[2];
+	        		gulATG[3]=gulATG[3]+gulAG[3];
 	        	
 	        		//second block of the element (low left)
 	        		y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -2621,9 +2628,9 @@ public class GraphBuilder
 	        		gllAG[1]=Math.abs(y-yCenterMassGeneral);
 	        		gllATG[1]=gllATG[1]+gllAG[1];
 	        		gllAG[2]=widthElement;
-	        		gllATG[2]=gllATG[2]+gllAG[2];
+	        		
 	        		gllAG[3]=(yInitial-yCenterMassGeneral);
-	        		gllATG[3]=gllATG[3]+gllAG[3];
+	        		
 	        		//gll.add(gllA);
 	        		
 	        		
@@ -2642,6 +2649,8 @@ public class GraphBuilder
 	        		//new symmetry with areas
 	        		gllAG[2]=gllAG[2]*gllAG[3];
 	        		gllAG[3]=0;
+	        		gllATG[2]=gllATG[2]+gllAG[2];
+	        		gllATG[3]=gllATG[3]+gllAG[3];
 	        	}
 	        }
 	        else if(xInitial>=xCenterMassGeneral )
@@ -2657,9 +2666,9 @@ public class GraphBuilder
 	        		gurAG[1]=Math.abs(y-yCenterMassGeneral);
 	        		gurATG[1]=gurATG[1]+gurAG[1];
 	        		gurAG[2]=widthElement;
-	        		gurATG[2]=gurATG[2]+gurAG[2];
+	        		
 	        		gurAG[3]=heigthElement;
-	        		gurATG[3]=gurATG[3]+gurAG[3];
+	        		
 	        		//gur.add(gurA);
 	        		
 	        		bestXs.add(gurAG[0]);
@@ -2677,6 +2686,8 @@ public class GraphBuilder
 	        		//new symmetry with areas
 	        		gurAG[2]=gurAG[2]*gurAG[3];
 	        		gurAG[3]=0;
+	        		gurATG[2]=gurATG[2]+gurAG[2];
+	        		gurATG[3]=gurATG[3]+gurAG[3];
 	        	}
 	        	//block low right
 	        	else if(yInitial-heigthElement>=yCenterMassGeneral)
@@ -2688,9 +2699,9 @@ public class GraphBuilder
 	        		glrAG[1]=Math.abs(y-yCenterMassGeneral);
 	        		glrATG[1]=glrATG[1]+glrAG[1];
 	        		glrAG[2]=widthElement;
-	        		glrATG[2]=glrATG[2]+glrAG[2];
+	        		
 	        		glrAG[3]=heigthElement;
-	        		glrATG[3]=glrATG[3]+glrAG[3];
+	        		
 	        		//glr.add(glrA);
 	        		
 	        		bestXs.add(glrAG[0]);
@@ -2708,6 +2719,8 @@ public class GraphBuilder
 	        		//new symmetry with areas
 	        		glrAG[2]=glrAG[2]*glrAG[3];
 	        		glrAG[3]=0;
+	        		glrATG[2]=glrATG[2]+glrAG[2];
+	        		glrATG[3]=glrATG[3]+glrAG[3];
 	        	}
 	        	else
 	        	{
@@ -2721,9 +2734,9 @@ public class GraphBuilder
 	        		gurAG[1]=Math.abs(y-yCenterMassGeneral);
 	        		gurATG[1]=gurATG[1]+gurAG[1];
 	        		gurAG[2]=widthElement;
-	        		gurATG[2]=gurATG[2]+gurAG[2];
+	        		
 	        		gurAG[3]=yCenterMassGeneral-(yInitial-heigthElement);
-	        		gurATG[3]=gurATG[3]+gurAG[3];
+	        		
 	        		//gur.add(gulA);
 	        		
 	        		bestXs.add(gurAG[0]);
@@ -2741,6 +2754,8 @@ public class GraphBuilder
 	        		//new symmetry with areas
 	        		gurAG[2]=gurAG[2]*gurAG[3];
 	        		gurAG[3]=0;
+	        		gurATG[2]=gurATG[2]+gurAG[2];
+	        		gurATG[3]=gurATG[3]+gurAG[3];
 		        	
 	        		//second block of the element  (low right)
 	        		y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -2749,9 +2764,9 @@ public class GraphBuilder
 	        		glrAG[1]=Math.abs(y-yCenterMassGeneral);
 	        		glrATG[1]=glrATG[1]+glrAG[1];
 	        		glrAG[2]=widthElement;
-	        		glrATG[2]=glrATG[2]+glrAG[2];
+	        		
 	        		glrAG[3]=yInitial-yCenterMassGeneral;
-	        		glrATG[3]=glrATG[3]+glrAG[3];
+	        		
 	        		//glr.add(gllA);
 	        		
 	        		
@@ -2770,6 +2785,8 @@ public class GraphBuilder
 	        		//new symmetry with areas
 	        		glrAG[2]=glrAG[2]*glrAG[3];
 	        		glrAG[3]=0;
+	        		glrATG[2]=glrATG[2]+glrAG[2];
+	        		glrATG[3]=glrATG[3]+glrAG[3];
 	        	}
 	        	
 	        }
@@ -2786,9 +2803,9 @@ public class GraphBuilder
 			        gulAG[1]=Math.abs(y-yCenterMassGeneral);
 			        gulATG[1]=gulATG[1]+gulAG[1];
 			        gulAG[2]=xCenterMassGeneral-xInitial;
-			        gulATG[2]=gulATG[2]+gulAG[2];
+			        
 			        gulAG[3]=heigthElement;
-			        gulATG[3]=gulATG[3]+gulAG[3];
+			        
 			        //gul.add(gurA);
 			        
 			        bestXs.add(gulAG[0]);
@@ -2806,6 +2823,8 @@ public class GraphBuilder
 	        		//new symmetry with areas
 	        		gulAG[2]=gulAG[2]*gulAG[3];
 	        		gulAG[3]=0;
+	        		gulATG[2]=gulATG[2]+gulAG[2];
+	        		gulATG[3]=gulATG[3]+gulAG[3];
 			        
 			        //second block of the element (up right)
 			        x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -2814,9 +2833,9 @@ public class GraphBuilder
 			        gurAG[1]=Math.abs(y-yCenterMassGeneral);
 			        gurATG[1]=gurATG[1]+gurAG[1];
 			        gurAG[2]=(xInitial+widthElement)-xCenterMassGeneral;
-			        gurATG[2]=gurATG[2]+gurAG[2];
+			        
 			        gurAG[3]=heigthElement;
-			        gurATG[3]=gurATG[3]+gurAG[3];
+			        
 			        //gur.add(gurA);
 			        
 			        bestXs.add(gurAG[0]);
@@ -2834,6 +2853,8 @@ public class GraphBuilder
 	        		//new symmetry with areas
 	        		gurAG[2]=gurAG[2]*gurAG[3];
 	        		gurAG[3]=0;
+	        		gurATG[2]=gurATG[2]+gurAG[2];
+	        		gurATG[3]=gurATG[3]+gurAG[3];
 	        		
 	        	}
 	        	else if(yInitial-heigthElement>=yCenterMassGeneral)
@@ -2847,9 +2868,9 @@ public class GraphBuilder
 			        gllAG[1]=Math.abs(y-yCenterMassGeneral);
 			        gllATG[1]=gllATG[1]+gllAG[1];
 			        gllAG[2]=(xCenterMassGeneral-xInitial);
-			        gllATG[2]=gllATG[2]+gllAG[2];
+			        
 			        gllAG[3]=heigthElement;
-			        gllATG[3]=gllATG[3]+gllAG[3];
+			        
 			        //gll.add(gurA);
 			        
 			        bestXs.add(gllAG[0]);
@@ -2867,6 +2888,8 @@ public class GraphBuilder
 	        		//new symmetry with areas
 	        		gllAG[2]=gllAG[2]*gllAG[3];
 	        		gllAG[3]=0;
+	        		gllATG[2]=gllATG[2]+gllAG[2];
+	        		gllATG[3]=gllATG[3]+gllAG[3];
 			        
 			        //second block of the element (low right)
 			        x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -2875,9 +2898,9 @@ public class GraphBuilder
 			        glrAG[1]=Math.abs(y-yCenterMassGeneral);
 			        glrATG[1]=glrATG[1]+glrAG[1];
 			        glrAG[2]=(xInitial+widthElement)-xCenterMassGeneral;
-			        glrATG[2]=glrATG[2]+glrAG[2];
+			        
 			        glrAG[3]=heigthElement;
-			        glrATG[3]=glrATG[3]+glrAG[3];
+			        
 			        //gur.add(gurA);
 			        
 			        bestXs.add(glrAG[0]);
@@ -2895,6 +2918,8 @@ public class GraphBuilder
 	        		//new symmetry with areas
 	        		glrAG[2]=glrAG[2]*glrAG[3];
 	        		glrAG[3]=0;
+	        		glrATG[2]=glrATG[2]+glrAG[2];
+	        		glrATG[3]=glrATG[3]+glrAG[3];
 	        	}
 	        	else
 	        	{
@@ -2908,9 +2933,9 @@ public class GraphBuilder
 			        gulAG[1]=Math.abs(y-yCenterMassGeneral);
 			        gulATG[1]=gulATG[1]+gulAG[1];
 			        gulAG[2]=xCenterMassGeneral-xInitial;
-			        gulATG[2]=gulATG[2]+gulAG[2];
+			        
 			        gulAG[3]=yCenterMassGeneral-(yInitial-heigthElement);
-			        gulATG[3]=gulATG[3]+gulAG[3];
+			        
 			        
 			        bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
@@ -2927,6 +2952,8 @@ public class GraphBuilder
 	        		//new symmetry with areas
 	        		gulAG[2]=gulAG[2]*gulAG[3];
 	        		gulAG[3]=0;
+	        		gulATG[2]=gulATG[2]+gulAG[2];
+	        		gulATG[3]=gulATG[3]+gulAG[3];
 			        
 	        		//second block of the element (up right)
 	        		x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -2937,9 +2964,9 @@ public class GraphBuilder
 			        gurAG[1]=Math.abs(y-yCenterMassGeneral);
 			        gurATG[1]=gurATG[1]+gurAG[1];
 			        gurAG[2]=(xInitial+widthElement)-xCenterMassGeneral;
-			        gurATG[2]=gurATG[2]+gurAG[2];
+			        
 			        gurAG[3]=yCenterMassGeneral-(yInitial-heigthElement);
-			        gurATG[3]=gurATG[3]+gurAG[3];
+			        
 			        
 			        bestXs.add(gurAG[0]);
 	        		bestYs.add(gurAG[1]);
@@ -2956,6 +2983,8 @@ public class GraphBuilder
 	        		//new symmetry with areas
 	        		gurAG[2]=gurAG[2]*gurAG[3];
 	        		gurAG[3]=0;
+	        		gurATG[2]=gurATG[2]+gurAG[2];
+	        		gurATG[3]=gurATG[3]+gurAG[3];
 	        		
 	        		//first block of the element (low left)
 	        		x=(xInitial+(xCenterMassGeneral-xInitial)/2);
@@ -2966,9 +2995,9 @@ public class GraphBuilder
 			        gllAG[1]=Math.abs(y-yCenterMassGeneral);
 			        gllATG[1]=gllATG[1]+gllAG[1];
 			        gllAG[2]=(xCenterMassGeneral-xInitial);
-			        gllATG[2]=gllATG[2]+gllAG[2];
+			        
 			        gllAG[3]=yInitial-yCenterMassGeneral;
-			        gllATG[3]=gllATG[3]+gllAG[3];
+			        
 			        
 			        bestXs.add(gllAG[0]);
 	        		bestYs.add(gllAG[1]);
@@ -2985,6 +3014,8 @@ public class GraphBuilder
 	        		//new symmetry with areas
 	        		gllAG[2]=gllAG[2]*gllAG[3];
 	        		gllAG[3]=0;
+	        		gllATG[2]=gllATG[2]+gllAG[2];
+	        		gllATG[3]=gllATG[3]+gllAG[3];
 			        
 	        		//second block of the element (low right)
 	        		x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -2995,9 +3026,9 @@ public class GraphBuilder
 			        glrAG[1]=Math.abs(y-yCenterMassGeneral);
 			        glrATG[1]=glrATG[1]+glrAG[1];
 			        glrAG[2]=(xInitial+widthElement)-xCenterMassGeneral;
-			        glrATG[2]=glrATG[2]+glrAG[2];
+			        
 			        glrAG[3]=yInitial-yCenterMassGeneral;
-			        glrATG[3]=glrATG[3]+glrAG[3];
+			        
 			        
 			        bestXs.add(glrAG[0]);
 	        		bestYs.add(glrAG[1]);
@@ -3014,6 +3045,8 @@ public class GraphBuilder
 	        		//new symmetry with areas
 	        		glrAG[2]=glrAG[2]*glrAG[3];
 	        		glrAG[3]=0;
+	        		glrATG[2]=glrATG[2]+glrAG[2];
+	        		glrATG[3]=glrATG[3]+glrAG[3];
 	        	}
 	        }
 	        
