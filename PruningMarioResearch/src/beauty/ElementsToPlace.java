@@ -3,6 +3,7 @@ package beauty;
 import graphBuilder.BlockNode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Random;
@@ -313,6 +314,7 @@ public class ElementsToPlace {
         	}
         }
         subAListElements=objSingleElement.sortElementsbyAreas(subAListElements);
+        Collections.reverse(subAListElements);
         subAListElements=objSingleElement.sortElementsbyType(subAListElements);
         int counterPartial=0;
         for(int i=0;i<finalList.size();i++)
