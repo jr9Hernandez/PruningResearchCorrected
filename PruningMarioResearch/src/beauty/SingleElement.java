@@ -26,21 +26,22 @@ public class SingleElement {
 		this.width=width;
 		this.typeElement=typeElement;
 	}
-	public ArrayList sortElementsbyType(ArrayList<Elements> bestElement)
+	public ArrayList sortElementsbyBigType(ArrayList<Elements> bestElement)
 	{
 		Collections.sort(bestElement, new Comparator<Elements>() {
 	        public int compare(Elements object1, Elements object2) {
-	            return Integer.compare(object1.getTypeElem(), object2.getTypeElem());
+	            return Integer.compare(object1.getBigType(), object2.getBigType());
 	        }
 	    });
 	
 		return bestElement;
 	}
+	
 	public ArrayList sortElementsbyArea(ArrayList<Elements> bestElement)
 	{
 		Collections.sort(bestElement, new Comparator<Elements>() {
 	        public int compare(Elements object1, Elements object2) {
-	            return Integer.compare(object1.getTypeElem(), object2.getTypeElem());
+	            return Integer.compare(object1.getWidth()*(object1.getHeigth()+1), object2.getWidth()*(object2.getHeigth()+1));
 	        }
 	    });
 	

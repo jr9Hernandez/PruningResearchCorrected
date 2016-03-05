@@ -102,6 +102,7 @@ public class ElementsToPlace {
         {
             ArrayList listObjects=new ArrayList<SingleElement> ();
             int typeElementSelected=0;
+            int bigTypeElementSelected=0;
             SingleElement item = new SingleElement(0,0,"0");
             
         	do
@@ -118,6 +119,7 @@ public class ElementsToPlace {
         		int index = randomGenerator.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=ODDS_HILL_STRAIGHT;
+            	bigTypeElementSelected=1;
             	odds[ODDS_HILL_STRAIGHT] = odds[ODDS_HILL_STRAIGHT]+1;
         		}       		
         		
@@ -132,6 +134,7 @@ public class ElementsToPlace {
         		int index = randomGenerator.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=ODDS_TUBES;
+            	bigTypeElementSelected=1;
             	odds[ODDS_TUBES] = odds[ODDS_TUBES]+1;
         		} 
         	}
@@ -145,6 +148,7 @@ public class ElementsToPlace {
         		int index = randomGenerator.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=ODDS_JUMP;
+            	bigTypeElementSelected=0;
             	odds[ODDS_JUMP] = odds[ODDS_JUMP]+1;
         		} 
         	}
@@ -159,6 +163,7 @@ public class ElementsToPlace {
         		int index = randomGenerator.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=ODDS_CANNONS;
+            	bigTypeElementSelected=1;
             	odds[ODDS_CANNONS] = odds[ODDS_CANNONS]+1;
         		} 
         	}
@@ -172,6 +177,7 @@ public class ElementsToPlace {
         		int index = randomGenerator.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=BLOCK_ELEMENT;
+            	bigTypeElementSelected=2;
             	odds[BLOCK_ELEMENT] = odds[BLOCK_ELEMENT]+1;
         		} 
         	}
@@ -185,6 +191,7 @@ public class ElementsToPlace {
         		int index = randomGenerator.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=ODDS_TUBES_FLOWER;
+            	bigTypeElementSelected=1;
             	odds[ODDS_TUBES_FLOWER] = odds[ODDS_TUBES_FLOWER]+1;
         		} 
         	}
@@ -198,6 +205,7 @@ public class ElementsToPlace {
         		int index = randomGenerator.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=ODDS_HILL_STRAIGHT_FLOAT;
+            	bigTypeElementSelected=2;
             	odds[ODDS_HILL_STRAIGHT_FLOAT] = odds[ODDS_HILL_STRAIGHT_FLOAT]+1;
         		} 
         	}
@@ -214,6 +222,7 @@ public class ElementsToPlace {
         				int index = randomGenerator.nextInt(listObjects.size());
         				item = (SingleElement) listObjects.get(index);
         				typeElementSelected=WOOD;
+        				bigTypeElementSelected=2;
         				odds[WOOD] = odds[WOOD]+1;
         			} 
         		}
@@ -226,6 +235,7 @@ public class ElementsToPlace {
             		int index = randomGenerator.nextInt(listObjects.size());
             		item = (SingleElement) listObjects.get(index);
                 	typeElementSelected=SMALL_TUBE;
+                	bigTypeElementSelected=2;
                 	odds[SMALL_TUBE] = odds[SMALL_TUBE]+1;
             		} 
         		}
@@ -241,6 +251,7 @@ public class ElementsToPlace {
         		int index = randomGenerator.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=BLOCK_WOOD;
+            	bigTypeElementSelected=2;
             	odds[BLOCK_WOOD] = odds[BLOCK_WOOD]+1;
         		} 
         	}
@@ -251,6 +262,7 @@ public class ElementsToPlace {
         	objElement = new Elements();
     		objElement.setIdElem(i);
     		objElement.setTypeElem(typeElementSelected);
+    		objElement.setTypeElem(bigTypeElementSelected);
         	if(typeElementSelected==ODDS_HILL_STRAIGHT_FLOAT)
         	{
         		objElement.setHeigth(1);
@@ -302,7 +314,8 @@ public class ElementsToPlace {
     		
         }
         SingleElement objSingleElement= new SingleElement(0, 0, "");
-        finalList=objSingleElement.sortElementsbyType(finalList);
+        finalList=objSingleElement.sortElementsbyArea(finalList);
+        finalList=objSingleElement.sortElementsbyBigType(finalList);
 		for(int i=0;i<finalList.size();i++)
 		{
 			finalList.get(i).setIdElem(i);
