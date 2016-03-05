@@ -303,6 +303,8 @@ public class ElementsToPlace {
         }
         SingleElement objSingleElement= new SingleElement(0, 0, "");
         finalList=objSingleElement.sortElementsbyType(finalList);
+        for(int i=0;i<)
+        
 		for(int i=0;i<finalList.size();i++)
 		{
 			finalList.get(i).setIdElem(i);
