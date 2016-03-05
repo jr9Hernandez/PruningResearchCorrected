@@ -83,8 +83,7 @@ public class GraphBuilder
 	private double bestAverageX=0;
 	private double globalCenterXMass=7.5;
 	private double partialSymmetry;
-	private double [] partialHeight=new double [4];
-	private double [] partialWidth=new double [4];
+	private double [] partialWidthHeight=new double [4];
 	private double [] partialXSummatory=new double[4];
 	private double [] partialYSummatory=new double[4];
 	private boolean firstBranchPercorred=false;
@@ -94,8 +93,8 @@ public class GraphBuilder
 	private ArrayList<Double> XsQuadrant;
 	private ArrayList<Double> YsQuadrant;
 	
-	double [] distributionsWidth;
-	double [] distributionsHeight;
+	double [] distributions;
+
 	//private ArrayList <double[]> gul;
 	//private ArrayList <double[]> gur;
 	//private ArrayList <double[]> gll;
@@ -379,7 +378,7 @@ public class GraphBuilder
     	return Beststates;
     } 
     
-    public boolean  validationSymmetryFuture(   int countElements, int countElementsFinal,ArrayList statesCopy, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry,int floorTileHeight,int height)
+    public boolean  validationSymmetryFuture(   int countElements, int countElementsFinal,ArrayList statesCopy, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry,int floorTileHeight,int height, int ruleThirds)
     { 
     	
     	int counterIDsCopy=counterIDs;
@@ -388,30 +387,28 @@ public class GraphBuilder
     	//Collections.sort(bestYs,Collections.reverseOrder());
     	
         System.out.println("bestSymmetry "+bestSymmetryV);
-        int sizebestXs=bestXs.size();
-        int sizebestYs=bestYs.size();
+        //int sizebestXs=bestXs.size();
+        //int sizebestYs=bestYs.size();
         
-        int indexCounterX=0;
-        int indexCounterY=0;
+        //int indexCounterX=0;
+        //int indexCounterY=0;
         
-        double totalAreaWidth=0;
-        double totalAreaHeight=0;
+        double totalArea=0;
         
         for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
         {
         	Elements objElem= (Elements)finalList.get(i);
-        	totalAreaWidth=totalAreaWidth+objElem.getWidth();
-        	totalAreaHeight=totalAreaHeight+(objElem.getHeigth()+1);
+        	totalArea=totalArea+objElem.getWidth()*(objElem.getHeigth()+1);
         }
         
     	Utilities objUtilities=new Utilities();
-    	distributionsHeight=objUtilities.DistributionsQuadrants(totalAreaHeight, partialHeight[0], partialHeight[1], partialHeight[2], partialHeight[3]);
-    	distributionsWidth=objUtilities.DistributionsQuadrants(totalAreaWidth, partialWidth[0], partialWidth[1], partialWidth[2], partialWidth[3]);
+    	distributions=objUtilities.DistributionsQuadrants(totalArea, partialWidthHeight[0], partialWidthHeight[1], partialWidthHeight[2], partialWidthHeight[3]);
+  
 
         
         for(int i=0;i<4;i++)
         {   
-        	if(distributionsWidth[i]!=0 || distributionsHeight[i]!=0)
+        	if(distributions[i]!=0 )
         	{
         		double firstX=objUtilities.bestXYSummatory(partialXSummatory);
         	
@@ -436,27 +433,41 @@ public class GraphBuilder
         		double xPosition;
         		double yPosition;
         	
+        		if(firstX>(globalCenterXMass)-(Math.sqrt(distributions[i])/2))
+            	{
+            		firstX=(globalCenterXMass)-(Math.sqrt(distributions[i])/2);     		
+            	}
+        		if(firstY>(yCenterMassGeneral)-(Math.sqrt(distributions[i])/2))
+            	{
+        			firstY=(yCenterMassGeneral)-(Math.sqrt(distributions[i])/2);     		
+            	}
+        		
         		if(i==0 || i==2)
         		{
+        			
+                	
         			xMedium=globalCenterXMass-firstX;
-        			xPosition=(xMedium-(distributionsWidth[i]/2));
+        			xPosition=(xMedium-(Math.sqrt(distributions[i])/2));
+        			
         		}
         		else
         		{
         			xMedium=globalCenterXMass+firstX;
-        			xPosition=(xMedium-(distributionsWidth[i]/2));
+        			xPosition=(xMedium-(Math.sqrt(distributions[i])/2));
         			
         		}
         		
         		if(i==0 || i==1)
         		{
         			yMedium=yCenterMassGeneral-firstY;
-        			yPosition=(yMedium+(distributionsHeight[i]/2));
+        			yPosition=(yMedium+(Math.sqrt(distributions[i])/2));
+        			
         		}
         		else
         		{
         			yMedium=yCenterMassGeneral+firstY;
-        			yPosition=(yMedium+(distributionsHeight[i]/2));
+        			yPosition=(yMedium+(Math.sqrt(distributions[i])/2));
+        			
         			
         		}
         		
@@ -646,7 +657,7 @@ public class GraphBuilder
     		}
     		
     	}
-    	
+    	int ruleThirds=(height/3);
     	for(int i=maxLeft;i<=maxRight;i++)
     	{
        	 int indexN=i;
@@ -656,7 +667,7 @@ public class GraphBuilder
        		 
        		 if(quadrant1X>quadrant2X)
        		 {
-       			indexN= (maxRight-i);
+       			indexN= (maxRight-i+1);
        		 }
        		 
        		 if(quadrant1Y>quadrant2Y)
@@ -861,7 +872,7 @@ public class GraphBuilder
     		
     		if(firstBranchPercorred==true)
     		{
-    			if(validationSymmetryFuture(countElements, countElementsFinal, statesCopy,finalList, objElemP, random,partialSymmetry,floorTileHeight,height)==true)
+    			if(validationSymmetryFuture(countElements, countElementsFinal, statesCopy,finalList, objElemP, random,partialSymmetry,floorTileHeight,height,ruleThirds)==true)
     			{
     				System.out.println("cambiaso2");
     				validationSymmetryFuture=true;
@@ -2463,15 +2474,10 @@ public class GraphBuilder
 	public double symettry1Areas(ArrayList states,ElementsToPlace objElemP, double xCenterMassGeneral, double yCenterMassGeneral, double xCenterMassCoins, double yCenterMassCoins)
 	{
 		
-		partialHeight[0]=0;
-		partialHeight[1]=0;
-		partialHeight[2]=0;
-		partialHeight[3]=0;
-		
-		partialWidth[0]=0;
-		partialWidth[1]=0;
-		partialWidth[2]=0;
-		partialWidth[3]=0;
+		partialWidthHeight[0]=0;
+		partialWidthHeight[1]=0;
+		partialWidthHeight[2]=0;
+		partialWidthHeight[3]=0;
 		
 		partialXSummatory[0]=0;
 		partialXSummatory[1]=0;
@@ -2541,12 +2547,12 @@ public class GraphBuilder
 	        }
 	        else
 	        {
-	        	while(distributionsWidth[counterQuadrants]==0 && distributionsHeight[counterQuadrants]==0)
+	        	while(distributions[counterQuadrants]==0)
 	        	{
 	        		counterQuadrants++;
 	        	}
-	        	widthElement=distributionsWidth[counterQuadrants];
-	        	heigthElement=distributionsHeight[counterQuadrants];
+	        	widthElement=Math.sqrt(distributions[counterQuadrants]);
+	        	heigthElement=Math.sqrt(distributions[counterQuadrants]);
 	        	counterQuadrants++;
 	        }
 	        
@@ -2573,8 +2579,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[0]=partialWidth[0]+(gulAG[2]);
-	        		partialHeight[0]=partialHeight[0]+(gulAG[3]);
+	        		partialWidthHeight[0]=partialWidthHeight[0]+(gulAG[2]*gulAG[3]);
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
@@ -2609,8 +2614,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[2]=partialWidth[2]+(gllAG[2]);
-	        		partialHeight[2]=partialHeight[2]+(gllAG[3]);
+	        		partialWidthHeight[2]=partialWidthHeight[2]+(gllAG[2]*gllAG[3]);
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
@@ -2645,8 +2649,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[0]=partialWidth[0]+(gulAG[2]);
-	        		partialHeight[0]=partialHeight[0]+(gulAG[3]);
+	        		partialWidthHeight[0]=partialWidthHeight[0]+(gulAG[2]*gulAG[3]);
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
@@ -2676,8 +2679,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[2]=partialWidth[2]+(gllAG[2]);
-	        		partialHeight[2]=partialHeight[2]+(gllAG[3]);
+	        		partialWidthHeight[2]=partialWidthHeight[2]+(gllAG[2]*gllAG[3]);
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
@@ -2713,8 +2715,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[1]=partialWidth[1]+(gurAG[2]);
-	        		partialHeight[1]=partialHeight[1]+(gurAG[3]);
+	        		partialWidthHeight[1]=partialWidthHeight[1]+(gurAG[2]*gurAG[3]);
 	        		
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
@@ -2746,8 +2747,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[3]=partialWidth[3]+(glrAG[2]);
-	        		partialHeight[3]=partialHeight[3]+(glrAG[3]);
+	        		partialWidthHeight[3]=partialWidthHeight[3]+(glrAG[2]*glrAG[3]);
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
@@ -2781,8 +2781,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[1]=partialWidth[1]+(gurAG[2]);
-	        		partialHeight[1]=partialHeight[1]+(gurAG[3]);
+	        		partialWidthHeight[1]=partialWidthHeight[1]+(gurAG[2]*gurAG[3]);
 	        		
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
@@ -2812,8 +2811,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[3]=partialWidth[3]+(glrAG[2]);
-	        		partialHeight[3]=partialHeight[3]+(glrAG[3]);
+	        		partialWidthHeight[3]=partialWidthHeight[3]+(glrAG[2]*glrAG[3]);
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
@@ -2850,8 +2848,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[0]=partialWidth[0]+(gulAG[2]);
-	        		partialHeight[0]=partialHeight[0]+(gulAG[3]);
+	        		partialWidthHeight[0]=partialWidthHeight[0]+(gulAG[2]*gulAG[3]);
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
@@ -2880,8 +2877,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[1]=partialWidth[1]+(gurAG[2]);
-	        		partialHeight[1]=partialHeight[1]+(gurAG[3]);
+	        		partialWidthHeight[1]=partialWidthHeight[1]+(gurAG[2]*gurAG[3]);
 	        		
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
@@ -2915,8 +2911,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[2]=partialWidth[2]+(gllAG[2]);
-	        		partialHeight[2]=partialHeight[2]+(gllAG[3]);
+	        		partialWidthHeight[2]=partialWidthHeight[2]+(gllAG[2]*gllAG[3]);
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
@@ -2945,8 +2940,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[3]=partialWidth[3]+(glrAG[2]);
-	        		partialHeight[3]=partialHeight[3]+(glrAG[3]);
+	        		partialWidthHeight[3]=partialWidthHeight[3]+(glrAG[2]*glrAG[3]);
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
@@ -2979,8 +2973,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[0]=partialWidth[0]+(gulAG[2]);
-	        		partialHeight[0]=partialHeight[0]+(gulAG[3]);
+	        		partialWidthHeight[0]=partialWidthHeight[0]+(gulAG[2]*gulAG[3]);
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
@@ -3010,8 +3003,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[1]=partialWidth[1]+(gurAG[2]);
-	        		partialHeight[1]=partialHeight[1]+(gurAG[3]);
+	        		partialWidthHeight[1]=partialWidthHeight[1]+(gurAG[2]*gurAG[3]);
 	        		
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
@@ -3041,8 +3033,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[2]=partialWidth[2]+(gllAG[2]);
-	        		partialHeight[2]=partialHeight[2]+(gllAG[3]);
+	        		partialWidthHeight[2]=partialWidthHeight[2]+(gllAG[2]*gllAG[3]);
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
@@ -3072,8 +3063,7 @@ public class GraphBuilder
 	        		XsQuadrant.add(x);
 	        		YsQuadrant.add(y);
 	        		
-	        		partialWidth[3]=partialWidth[3]+(glrAG[2]);
-	        		partialHeight[3]=partialHeight[3]+(glrAG[3]);
+	        		partialWidthHeight[3]=partialWidthHeight[3]+(glrAG[2]*glrAG[3]);
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
@@ -3366,7 +3356,7 @@ public class GraphBuilder
 		symmetryValue=symmetryValueGeneral+symmetryValueCoins;
 		return symmetryValue;
 	}
-
+/*
 	public double symettry1(ArrayList states,ElementsToPlace objElemP, double xCenterMassGeneral, double yCenterMassGeneral, double xCenterMassCoins, double yCenterMassCoins)
 	{
 		
@@ -4174,7 +4164,7 @@ public class GraphBuilder
 		
 		symmetryValue=symmetryValueGeneral+symmetryValueCoins;
 		return symmetryValue;
-	}
+	}*/
 	
 	public double SubstractionSymmetries(double [] Arr1, double [] Arr2)
 	{double summatory=0;
