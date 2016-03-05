@@ -36,6 +36,16 @@ public class SingleElement {
 	
 		return bestElement;
 	}
+	public ArrayList sortElementsbyAreas(ArrayList<Elements> bestElement)
+	{
+		Collections.sort(bestElement, new Comparator<Elements>() {
+	        public int compare(Elements object1, Elements object2) {
+	            return Integer.compare(object1.getWidth()*(object1.getHeigth()+1), object2.getWidth()*(object2.getHeigth()+1));
+	        }
+	    });
+	
+		return bestElement;
+	}
 	public int getHeigth() {
 		return heigth;
 	}

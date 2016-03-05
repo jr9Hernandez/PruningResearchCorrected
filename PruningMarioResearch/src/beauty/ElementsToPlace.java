@@ -303,7 +303,26 @@ public class ElementsToPlace {
         }
         SingleElement objSingleElement= new SingleElement(0, 0, "");
         finalList=objSingleElement.sortElementsbyType(finalList);
-        for(int i=0;i<)
+        
+        ArrayList subAListElements=new ArrayList<Elements>();
+        for(int i=0;i<finalList.size();i++)
+        {
+        	if((finalList.get(i)).getTypeElem()>ODDS_HILL_STRAIGHT)
+        	{
+        		subAListElements.add(finalList.get(i));
+        	}
+        }
+        subAListElements=objSingleElement.sortElementsbyAreas(subAListElements);
+        subAListElements=objSingleElement.sortElementsbyType(subAListElements);
+        int counterPartial=0;
+        for(int i=0;i<finalList.size();i++)
+        {
+        	if((finalList.get(i)).getTypeElem()>ODDS_HILL_STRAIGHT)
+        	{        		
+        		finalList.set(i, (Elements)subAListElements.get(counterPartial));
+        		counterPartial=counterPartial+1;
+        	}
+        }
         
 		for(int i=0;i<finalList.size();i++)
 		{
