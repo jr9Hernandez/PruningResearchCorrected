@@ -6,6 +6,7 @@ public class Elements {
 	private int typeElem;
 	private int width;
 	private int heigth;
+	private int bigType; //corresponds if the element is a gap, a terrain or a floating object. 0,1,2 in this order.
 	
 	public Elements()
 	{
@@ -18,6 +19,7 @@ public class Elements {
 		objNewElement.typeElem=objReceived.typeElem;
 		objNewElement.width=objReceived.width;
 		objNewElement.heigth=objReceived.heigth;
+		objNewElement.bigType=objReceived.bigType;
 		return objNewElement;
 	}
 
@@ -51,6 +53,14 @@ public class Elements {
 
 	public void setHeigth(int heigth) {
 		this.heigth = heigth;
+	}
+	
+	public int getBigType() {
+		return bigType;
+	}
+
+	public void setBigType(int bigType) {
+		this.bigType = bigType;
 	}
 	
 	
