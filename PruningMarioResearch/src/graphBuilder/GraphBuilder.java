@@ -504,32 +504,39 @@ public class GraphBuilder
     	}
     	
     	countElements=countElements-1;
-    	Collections.sort(bestXs,Collections.reverseOrder());
-    	Collections.sort(bestYs,Collections.reverseOrder());
+    	//Collections.sort(bestXs,Collections.reverseOrder());
+    	//Collections.sort(bestYs,Collections.reverseOrder());
     	
         System.out.println("bestSymmetry "+bestSymmetryV);
-        int sizebestXs=bestXs.size();
-        int sizebestYs=bestYs.size();
+        //int sizebestXs=bestXs.size();
+        //int sizebestYs=bestYs.size();
         
-        int indexCounterX=0;
-        int indexCounterY=0;
+        //int indexCounterX=0;
+        //int indexCounterY=0;
         
         Arrays.sort(partialXSummatory);
         Arrays.sort(partialYSummatory);
         
+        double firstX;
+    	double secondX;
+    	double thirdX;
+    	
+    	double firstY;
+    	double secondY;
+    	double thirdY;
+        
         for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
         {   
-        	double firstX=0;
-        	double secondX=0;
-        	double thirdX=0;
-        	
-        	double firstY=0;
-        	double secondY=0;
-        	double thirdY=0;
+        	firstX=0;
+        	secondX=0;
+        	thirdX=0;
+        	firstY=0;
+        	secondY=0;
+        	thirdY=0;
         	
         	Elements objElem= (Elements)finalList.get(i);
         	double areaElement=(objElem.getHeigth()+1)*objElem.getWidth();
-        	int counterElements=0;
+        	//int counterElements=0;
         	
         	if(partialXSummatory[3]>(globalCenterXMass)-(objElem.getWidth()/2))
         	{
