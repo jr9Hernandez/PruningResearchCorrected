@@ -951,12 +951,12 @@ public class GraphBuilder
     		 
     		 if(quadrant1X>quadrant2X)
     		 {
-    			indexN= (maxRight-i);
+    			indexN= (maxRight-i+1);
     		 }
     		 
     		 if(quadrant1Y>quadrant2Y)
     		 {
-    			 indeyN=(height-j-1)+(height/3);
+    			 indeyN=(height-j-1)+ruleThirds;
     		 }
     		 if(objElem.getIdElem()==0)
     		 {   			     			
