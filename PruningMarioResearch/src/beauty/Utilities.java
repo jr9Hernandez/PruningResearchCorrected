@@ -89,19 +89,17 @@ public class Utilities {
 		return distributionsOriginals;
 	} 
 	
-	public int bestXYSummatory(double [] partialXY)
+	public double bestXYSummatory(double [] partialXY)
 	{
 		double max=0;
-		int maxindex=0;
 		for(int i=0;i<4;i++)
 		{
 			if(partialXY[i]>max)
 			{
 				max=partialXY[i];
-				maxindex=i;
 			}
 		}
-		return maxindex;
+		return max;
 	}
 	public double sortXYSummatory(double [] partialXY)
 	{
