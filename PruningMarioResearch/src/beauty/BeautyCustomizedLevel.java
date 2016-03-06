@@ -304,9 +304,9 @@ public class BeautyCustomizedLevel extends Level{
 	    	//Beststates=objGrapB.basicDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem);
 	    	//Beststates=objGrapB.relativePositionDepthSearch(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,-mediumStraight+2,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
 	    	//Beststates=objGrapB.relativeTransPositionDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem,-mediumStraight+1,mediumStraight-1,floorTileHeight,0,0,currentState,hTable);
-	    	//Beststates=objGrapB.DepthSearchCenterFrame(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-1,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
-	    	//Beststates=objGrapB.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-1,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
-	    	Beststates=objGrapB.DepthSearchPruningAlt(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-1,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
+	    	//Beststates=objGrapB.DepthSearchCenterFrame(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
+	    	//Beststates=objGrapB.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
+	    	Beststates=objGrapB.DepthSearchPruningAlt(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
 	    	
 	    	double bestSYmmetry=objGrapB.bestSymmetryV;
 	    	System.out.println("bestSym "+bestSYmmetry);

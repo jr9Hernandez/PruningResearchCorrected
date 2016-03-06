@@ -380,6 +380,9 @@ public class GraphBuilder
     
     public boolean  validationSymmetryFuture(   int countElements, int countElementsFinal,ArrayList statesCopy, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry,int floorTileHeight,int height, int ruleThirds)
     { 
+    	System.out.println("iterationnn");
+    	ArrayList<BlockNode> statesCopytemp= new ArrayList<BlockNode>();
+    	statesCopytemp=(ArrayList<BlockNode> )statesCopy.clone();
     	
     	double tamBottomFromCenter=floorTileHeight-yCenterMassGeneral;
     	double tamTopFromCenter=yCenterMassGeneral-ruleThirds;
@@ -412,7 +415,7 @@ public class GraphBuilder
         	Elements objElem= (Elements)finalList.get(i);
         	totalArea=totalArea+(objElem.getWidth()*(objElem.getHeigth()+1));
         }
-        
+        System.out.println("totalArea "+totalArea);
     	Utilities objUtilities=new Utilities();
     	distributions=objUtilities.DistributionsQuadrants(totalArea, partialWidthHeight[0], partialWidthHeight[1], partialWidthHeight[2], partialWidthHeight[3]);
   
@@ -425,6 +428,9 @@ public class GraphBuilder
         		double firstX=objUtilities.bestXYSummatory(partialXSummatory);
         	
         		double firstY=objUtilities.bestXYSummatory(partialYSummatory);
+        		
+        		firstX=firstX-partialXSummatory[i];
+        		firstY=firstY-partialYSummatory[i];
         	
         		/*if(indexCounterX<=sizebestXs-1)
         		{
@@ -499,7 +505,39 @@ public class GraphBuilder
         	}
         partialSymmetry=partialSymmetry(statesCopy,objElemP,height,floorTileHeight,localMaxObjLeft,true);
         
+        int k=0;
+        int counter=0;
+        /*
+        Iterator<BlockNode> nombreIterator = statesCopytemp.iterator();
+        while(nombreIterator.hasNext()){
+        	BlockNode elemento = nombreIterator.next();
+        	Elements objElem= (Elements)finalList.get(elemento.getIdElement());
+        	System.out.println("before "+"X "+elemento.getX()+" Y "+elemento.getY()+" W "+objElem.getWidth()+" H "+objElem.getHeigth());  
+        	counter++;
+        }
         
+        Iterator<BlockNode> nombreIterator2 = statesCopy.iterator();
+        System.out.println("sizestatesCopy "+statesCopy.size());
+        int p=0;
+        while(nombreIterator2.hasNext()){
+        	k++;
+        	
+        	BlockNode elemento = nombreIterator2.next();
+        	if(k>counter)
+        	{
+        	if(distributions[p]==0 && distributions[p]==0)
+        	{
+        		p=p+1;
+        	}
+        	double width=distributions[p];
+        	double heigth=distributions[p];
+        	System.out.println("after "+p+" X "+elemento.getX()+" Y "+elemento.getY()+" "+distributions[p]+" "+distributions[p]);   
+        	p++;
+        	}
+        	
+        }
+        System.out.println("bestSymmetry "+bestSymmetryV);
+        System.out.println("partialSymmetry "+partialSymmetry);*/
         
         if(partialSymmetry>bestSymmetryV)
         {
@@ -670,6 +708,8 @@ public class GraphBuilder
     		
     	}
     	int ruleThirds=(height/3);
+    	System.out.println("maxLeft "+maxLeft);
+    	System.out.println("maxRight "+maxRight);
     	for(int i=maxLeft;i<=maxRight;i++)
     	{
        	 int indexN=i;
@@ -971,6 +1011,7 @@ public class GraphBuilder
     	}
     	
     	int ruleThirds=(height/3);
+    	
     	
     	for(int i=maxLeft;i<=maxRight;i++)
     	{
@@ -2567,6 +2608,7 @@ public class GraphBuilder
 	        	heigthElement=Math.sqrt(distributions[counterQuadrants]);
 	        	counterQuadrants++;
 	        }
+	        //System.out.println("stateforsymm X "+xInitial+" Y "+yInitial+" widthElement "+widthElement+" heigthElement "+heigthElement);
 	        
 	        if((xInitial+widthElement)<=xCenterMassGeneral )
 	        {
