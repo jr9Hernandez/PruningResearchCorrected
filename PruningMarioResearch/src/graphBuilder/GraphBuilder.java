@@ -398,7 +398,7 @@ public class GraphBuilder
     	//Collections.sort(bestXs,Collections.reverseOrder());
     	//Collections.sort(bestYs,Collections.reverseOrder());
     	
-        System.out.println("bestSymmetry "+bestSymmetryV);
+        //System.out.println("bestSymmetry "+bestSymmetryV);
         //int sizebestXs=bestXs.size();
         //int sizebestYs=bestYs.size();
         
@@ -449,7 +449,7 @@ public class GraphBuilder
             	{
             		firstX=(globalCenterXMass)-(Math.sqrt(distributions[i])/2);     		
             	}
-        		if(firstY>(yCenterMassGeneral)-(Math.sqrt(distributions[i])/2))
+        		if(firstY>(maxTamFromCenter)-(Math.sqrt(distributions[i])/2))
             	{
         			firstY=(maxTamFromCenter)-(Math.sqrt(distributions[i])/2);     		
             	}
@@ -530,7 +530,7 @@ public class GraphBuilder
     	//Collections.sort(bestXs,Collections.reverseOrder());
     	//Collections.sort(bestYs,Collections.reverseOrder());
     	
-        System.out.println("bestSymmetry "+bestSymmetryV);
+        //System.out.println("bestSymmetry "+bestSymmetryV);
         //int sizebestXs=bestXs.size();
         //int sizebestYs=bestYs.size();
         
@@ -615,7 +615,7 @@ public class GraphBuilder
         	
         	partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         }
-        System.out.println("partialSymmetry "+partialSymmetry);
+        //System.out.println("partialSymmetry "+partialSymmetry);
         if(partialSymmetry>bestSymmetryV)
         {
         	
@@ -1185,7 +1185,7 @@ public class GraphBuilder
     		{
     			if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
     			{
-    				System.out.println("cambiaso");
+    				//System.out.println("cambiaso");
     				validationPruningM=true;
     			}
     		}
