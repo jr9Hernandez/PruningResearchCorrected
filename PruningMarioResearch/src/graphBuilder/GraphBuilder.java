@@ -381,6 +381,18 @@ public class GraphBuilder
     public boolean  validationSymmetryFuture(   int countElements, int countElementsFinal,ArrayList statesCopy, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry,int floorTileHeight,int height, int ruleThirds)
     { 
     	
+    	double tamBottomFromCenter=floorTileHeight-yCenterMassGeneral;
+    	double tamTopFromCenter=yCenterMassGeneral-ruleThirds;
+    	double maxTamFromCenter=0;
+    	if(tamBottomFromCenter>tamTopFromCenter)
+    	{
+    		maxTamFromCenter=tamBottomFromCenter;
+    	}
+    	else
+    	{
+    		maxTamFromCenter=tamTopFromCenter;
+    	}
+    	
     	int counterIDsCopy=counterIDs;
     	countElements=countElements-1;
     	//Collections.sort(bestXs,Collections.reverseOrder());
@@ -398,7 +410,7 @@ public class GraphBuilder
         for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
         {
         	Elements objElem= (Elements)finalList.get(i);
-        	totalArea=totalArea+objElem.getWidth()*(objElem.getHeigth()+1);
+        	totalArea=totalArea+(objElem.getWidth()*(objElem.getHeigth()+1));
         }
         
     	Utilities objUtilities=new Utilities();
@@ -439,7 +451,7 @@ public class GraphBuilder
             	}
         		if(firstY>(yCenterMassGeneral)-(Math.sqrt(distributions[i])/2))
             	{
-        			firstY=(yCenterMassGeneral)-(Math.sqrt(distributions[i])/2);     		
+        			firstY=(maxTamFromCenter)-(Math.sqrt(distributions[i])/2);     		
             	}
         		
         		if(i==0 || i==2)
