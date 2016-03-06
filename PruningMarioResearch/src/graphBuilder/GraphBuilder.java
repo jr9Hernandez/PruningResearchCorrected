@@ -425,10 +425,11 @@ public class GraphBuilder
         {   
         	if(distributions[i]!=0 )
         	{
-        		double firstX=objUtilities.bestXYSummatory(partialXSummatory);
-        	
-        		double firstY=objUtilities.bestXYSummatory(partialYSummatory);
-        		
+            	int indexfirstX=objUtilities.bestXYSummatory(partialXSummatory);
+           		int indexfirstY=objUtilities.bestXYSummatory(partialYSummatory);
+           		double firstX=partialXSummatory[indexfirstX]+(Math.sqrt(distributions[indexfirstX])/2);
+           		double firstY=partialYSummatory[indexfirstY]+(Math.sqrt(distributions[indexfirstY])/2);
+                     		
         		firstX=firstX-partialXSummatory[i];
         		firstY=firstY-partialYSummatory[i];
         	

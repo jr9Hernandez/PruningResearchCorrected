@@ -3,11 +3,12 @@ package beauty;
 import graphBuilder.BlockNode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Random;
 
-public class ElementsToPlace {
+public class ElementsToPlace { 
     //lastcom
 	Random random;
 	private int SizeOdds = 0;
@@ -97,12 +98,7 @@ public class ElementsToPlace {
         
 
         //generation of number of objects
-        int numberInScreen =7;
-        int tañon=0;
-        int tañon2=0;
-        int tañon3=0;
-        int tañon4=0;
-        int choncho=0;
+        int numberInScreen =5+random.nextInt(1);
         for(int i=0;i<numberInScreen;i++)
         {
             ArrayList listObjects=new ArrayList<SingleElement> ();
@@ -112,34 +108,7 @@ public class ElementsToPlace {
         	do
         	{
         	int typeElement =random.nextInt(16);
-        	if(i==0)
-        	{
-        		typeElement=9;
-        	}
-        	else if(i==1)
-        	{
-        		typeElement=9;
-        	}
-        	else if(i==2)
-        	{
-        		typeElement=9;
-        	}
-        	else if(i==3)
-        	{
-        		typeElement=9;
-        	}
-        	else if(i==4)
-        	{
-        		typeElement=9;
-        	}
-        	else if(i==5)
-        	{
-        		typeElement=9;
-        	}
-        	else
-        	{
-        		typeElement=9;
-        	}
+        	
         	if(typeElement<3)
         	{
         		if(hsObjectsScreen.containsKey("Mountain"))
@@ -286,109 +255,12 @@ public class ElementsToPlace {
         	if(typeElementSelected==ODDS_HILL_STRAIGHT_FLOAT)
         	{
         		objElement.setHeigth(1);
-        		objElement.setWidth(3); 
+        		objElement.setWidth(4); 
         	}
         	else if(typeElementSelected==ODDS_JUMP)
         	{
-        		if(tañon4==0)
-        		{
         		objElement.setHeigth(GenerateHeight(objElement.getTypeElem(),floorTileHeight));
-        		objElement.setWidth(4); 
-        		}
-        		else if(tañon4==1)
-        		{
-        		objElement.setHeigth(GenerateHeight(objElement.getTypeElem(),floorTileHeight));
-            	objElement.setWidth(3); 	
-        		}
-        		tañon4++;
-        	}
-        	else if(typeElementSelected==ODDS_TUBES)
-        	{
-        		if(tañon==0)
-        		{
-        		objElement.setHeigth(1);
-        		objElement.setWidth(2); }
-        		else if(tañon==1)
-        		{
-        			objElement.setHeigth(1);
-            		objElement.setWidth(2); 
-        		}
-        		else if(tañon==2)
-        		{
-        			objElement.setHeigth(2);
-            		objElement.setWidth(2); 
-        		}
-        		tañon++;
-        	}
-        	else if(typeElementSelected==ODDS_TUBES_FLOWER)
-        	{
-        		if(tañon3==0)
-        		{
-        		objElement.setHeigth(2);
-        		objElement.setWidth(2); }
-        		else if(tañon3==1)
-        		{
-        			objElement.setHeigth(3);
-            		objElement.setWidth(2); 
-        		}
-        		else if(tañon3==2)
-        		{
-        			objElement.setHeigth(3);
-            		objElement.setWidth(2); 
-        		}
-        		tañon3++;
-        	}
-        	else if(typeElementSelected==ODDS_CANNONS)
-        	{
-        		if(tañon2==0)
-        		{
-        		objElement.setHeigth(2);
-        		objElement.setWidth(1); }
-        		else if(tañon2==1)
-        		{
-        			objElement.setHeigth(0);
-            		objElement.setWidth(1); 
-        		}
-        		else if(tañon2==2)
-        		{
-        			objElement.setHeigth(0);
-            		objElement.setWidth(1); 
-        		}
-        		tañon2++;
-        	}
-        	else if(typeElementSelected==BLOCK_ELEMENT)
-        	{
-        		if(choncho==1)
-    			{
-        			objElement.setHeigth(0);
-        			objElement.setWidth(3);}
-    			else if(choncho==0)
-    			{
-    				objElement.setHeigth(0);
-            		objElement.setWidth(3);
-    			}
-    			else if(choncho==2)
-    			{
-    				objElement.setHeigth(0);
-            		objElement.setWidth(3);
-    			}
-    			else if(choncho==3)
-    			{
-    				objElement.setHeigth(0);
-            		objElement.setWidth(3);
-    			}
-    			else if(choncho==4)
-    			{
-    				objElement.setHeigth(0);
-            		objElement.setWidth(1);
-    			}
-    			else if(choncho==5)
-    			{
-    				objElement.setHeigth(0);
-            		objElement.setWidth(3);
-    			}
-    			
-    			choncho=choncho+1;
+        		objElement.setWidth(item.getWidth()); 
         	}
         	else if(typeElementSelected==ODDS_HILL_STRAIGHT)
         	{
@@ -432,6 +304,28 @@ public class ElementsToPlace {
         }
         SingleElement objSingleElement= new SingleElement(0, 0, "");
         finalList=objSingleElement.sortElementsbyType(finalList);
+        
+        ArrayList subAListElements=new ArrayList<Elements>();
+        for(int i=0;i<finalList.size();i++)
+        {
+        	if((finalList.get(i)).getTypeElem()>ODDS_HILL_STRAIGHT)
+        	{
+        		subAListElements.add(finalList.get(i));
+        	}
+        }
+        subAListElements=objSingleElement.sortElementsbyAreas(subAListElements);
+        Collections.reverse(subAListElements);
+        subAListElements=objSingleElement.sortElementsbyType(subAListElements);
+        int counterPartial=0;
+        for(int i=0;i<finalList.size();i++)
+        {
+        	if((finalList.get(i)).getTypeElem()>ODDS_HILL_STRAIGHT)
+        	{        		
+        		finalList.set(i, (Elements)subAListElements.get(counterPartial));
+        		counterPartial=counterPartial+1;
+        	}
+        }
+        
 		for(int i=0;i<finalList.size();i++)
 		{
 			finalList.get(i).setIdElem(i);
