@@ -387,14 +387,14 @@ public class GraphBuilder
     	double tamBottomFromCenter=floorTileHeight-yCenterMassGeneral;
     	double tamTopFromCenter=yCenterMassGeneral-ruleThirds;
     	double maxTamFromCenter=0;
-    	if(tamBottomFromCenter>tamTopFromCenter)
+    	/*if(tamBottomFromCenter>tamTopFromCenter)
     	{
     		maxTamFromCenter=tamBottomFromCenter;
     	}
     	else
     	{
     		maxTamFromCenter=tamTopFromCenter;
-    	}
+    	}*/
     	
     	int counterIDsCopy=counterIDs;
     	countElements=countElements-1;
@@ -456,10 +456,7 @@ public class GraphBuilder
             	{
             		firstX=(globalCenterXMass)-(Math.sqrt(distributions[i])/2);     		
             	}
-        		if(firstY>(maxTamFromCenter)-(Math.sqrt(distributions[i])/2))
-            	{
-        			firstY=(maxTamFromCenter)-(Math.sqrt(distributions[i])/2);     		
-            	}
+        		
         		
         		if(i==0 || i==2)
         		{
@@ -478,12 +475,24 @@ public class GraphBuilder
         		
         		if(i==0 || i==1)
         		{
+        			maxTamFromCenter=tamTopFromCenter;
+        			if(firstY>(maxTamFromCenter)-(Math.sqrt(distributions[i])/2))
+                	{
+            			firstY=(maxTamFromCenter)-(Math.sqrt(distributions[i])/2);     		
+                	}
+        			
         			yMedium=yCenterMassGeneral-firstY;
         			yPosition=(yMedium+(Math.sqrt(distributions[i])/2));
         			
         		}
         		else
         		{
+        			maxTamFromCenter=tamBottomFromCenter;
+        			if(firstY>(maxTamFromCenter)-(Math.sqrt(distributions[i])/2))
+                	{
+            			firstY=(maxTamFromCenter)-(Math.sqrt(distributions[i])/2);     		
+                	}
+        			
         			yMedium=yCenterMassGeneral+firstY;
         			yPosition=(yMedium+(Math.sqrt(distributions[i])/2));
         			
