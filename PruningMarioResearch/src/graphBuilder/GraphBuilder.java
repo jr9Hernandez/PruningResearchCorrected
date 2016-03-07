@@ -420,13 +420,12 @@ public class GraphBuilder
     	distributions=objUtilities.DistributionsQuadrants(totalArea, partialWidthHeight[0], partialWidthHeight[1], partialWidthHeight[2], partialWidthHeight[3]);
   
 
-        
+    	int indexfirstX=objUtilities.bestXYSummatory(partialXSummatory);
+   		int indexfirstY=objUtilities.bestXYSummatory(partialYSummatory);
         for(int i=0;i<4;i++)
         {   
         	if(distributions[i]!=0 )
         	{
-            	int indexfirstX=objUtilities.bestXYSummatory(partialXSummatory);
-           		int indexfirstY=objUtilities.bestXYSummatory(partialYSummatory);
            		double firstX=partialXSummatory[indexfirstX]+(Math.sqrt(distributions[indexfirstX])/2);
            		double firstY=partialYSummatory[indexfirstY]+(Math.sqrt(distributions[indexfirstY])/2);
                      		
