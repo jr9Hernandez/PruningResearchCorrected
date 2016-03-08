@@ -294,6 +294,20 @@ public class BeautyCustomizedLevel extends Level{
 			//Creating array with states
 			ArrayList<BlockNode> states = new ArrayList<BlockNode>();
 			//Building the graph in a deph way
+	    	/*GraphBuilder objGrapB= new GraphBuilder(1);
+	    	int numElements=objElem.getNumberObjects();
+	    	int numEnemies=objElem.getNumberObjectsEnemies();
+	    	int globalControlSearch=0;*/
+	    	
+	    	//long startTime = System.currentTimeMillis();
+	    	
+	    	//Beststates=objGrapB.basicDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem);
+	    	//Beststates=objGrapB.relativePositionDepthSearch(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,-mediumStraight+2,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
+	    	//Beststates=objGrapB.relativeTransPositionDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem,-mediumStraight+1,mediumStraight-1,floorTileHeight,0,0,currentState,hTable);
+	    	
+	    	//Method without pruning	    	
+	    	System.out.println("Without pruning");
+			
 	    	GraphBuilder objGrapB= new GraphBuilder(1);
 	    	int numElements=objElem.getNumberObjects();
 	    	int numEnemies=objElem.getNumberObjectsEnemies();
@@ -301,22 +315,42 @@ public class BeautyCustomizedLevel extends Level{
 	    	
 	    	long startTime = System.currentTimeMillis();
 	    	
-	    	//Beststates=objGrapB.basicDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem);
-	    	//Beststates=objGrapB.relativePositionDepthSearch(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,-mediumStraight+2,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
-	    	//Beststates=objGrapB.relativeTransPositionDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem,-mediumStraight+1,mediumStraight-1,floorTileHeight,0,0,currentState,hTable);
-	    	//Beststates=objGrapB.DepthSearchCenterFrame(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
-	    	Beststates=objGrapB.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
-	    	//Beststates=objGrapB.DepthSearchPruningAlt(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
-	    	
-	    	double bestSYmmetry=objGrapB.bestSymmetryV;
-	    	System.out.println("bestSym "+bestSYmmetry);
+	    	Beststates=objGrapB.DepthSearchCenterFrame(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
 	    	
 	    	long stopTime = System.currentTimeMillis();
 	        long elapsedTime = stopTime - startTime;
+	        System.out.println("Time "+elapsedTime);	    	
+	        
+	        double bestSYmmetry=objGrapB.bestSymmetryV;
+	    	System.out.println("bestSym "+bestSYmmetry);
+	    	
+	    	System.out.print( "CounterStates "+objGrapB.getCounterIDs() );
+	    	
+	    	//Method with pruning A	        
+	    	System.out.println("With pruning");
+	    	
+	    	objGrapB= new GraphBuilder(1);
+	    	numElements=objElem.getNumberObjects();
+	    	numEnemies=objElem.getNumberObjectsEnemies();
+	    	globalControlSearch=0;
+	    	
+	    	startTime = System.currentTimeMillis();
+	    	
+	    	Beststates=objGrapB.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
+	    	
+	    	stopTime = System.currentTimeMillis();
+	        elapsedTime = stopTime - startTime;
 	        System.out.println("Time "+elapsedTime);
 	    	
-	    	System.out.print( "CounterStates"+objGrapB.getCounterIDs() );
+	    	bestSYmmetry=objGrapB.bestSymmetryV;
+	    	System.out.println("bestSym "+bestSYmmetry);
+	    	
+	    	System.out.print( "CounterStates + pruning"+objGrapB.getCounterIDs() );
 	        
+	    	
+	    	//Beststates=objGrapB.DepthSearchPruningAlt(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
+
+	    	
 	        //imprimiendo los estados visitados
 	        /*
 	        Iterator<BlockNode> nombreIterator = states.iterator();
