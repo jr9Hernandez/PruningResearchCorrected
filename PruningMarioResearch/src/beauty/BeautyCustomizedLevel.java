@@ -37,7 +37,7 @@ import dk.itu.mario.engine.sprites.Enemy;
 
 
 public class BeautyCustomizedLevel extends Level{
-
+		
 		//Array have the kind of eleements of a tile
 		private int[] odds;
 		ElementsToPlace objElem;

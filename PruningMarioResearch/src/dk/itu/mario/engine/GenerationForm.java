@@ -25,7 +25,7 @@ public class GenerationForm {
 	static JFrame frame;
 	static ArrayList metrics;
 	public static void main(String[] args)
-     {			
+     { 			
 			/*---------------------to load and print------------------------*/
 			/*Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 			Timer timer = new Timer();
