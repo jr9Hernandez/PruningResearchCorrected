@@ -248,7 +248,7 @@ public class ElementsToPlace {
 
         	} while (listObjects.isEmpty());
         	
-        	System.out.println("finalmenteseleccionado "+item.getTypeElement()+" "+item.getHeigth()+" "+item.getWidth());
+        	//System.out.println("finalmenteseleccionado "+item.getTypeElement()+" "+item.getHeigth()+" "+item.getWidth());
         	objElement = new Elements();
     		objElement.setIdElem(i);
     		objElement.setTypeElem(typeElementSelected);
@@ -298,7 +298,7 @@ public class ElementsToPlace {
         	}   		
     		
     		finalList.add(objElement);
-    		System.out.println("finalList1 "+finalList.get(i).getTypeElem() + " "+finalList.get(i).getHeigth() +" "+finalList.get(i).getWidth());
+    		//System.out.println("finalList1 "+finalList.get(i).getTypeElem() + " "+finalList.get(i).getHeigth() +" "+finalList.get(i).getWidth());
     		
     		
         }
@@ -329,7 +329,7 @@ public class ElementsToPlace {
 		for(int i=0;i<finalList.size();i++)
 		{
 			finalList.get(i).setIdElem(i);
-			System.out.println("tipin" + finalList.get(i).getTypeElem()+ " "+finalList.get(i).getHeigth() +" "+finalList.get(i).getWidth());
+			//System.out.println("tipin" + finalList.get(i).getTypeElem()+ " "+finalList.get(i).getHeigth() +" "+finalList.get(i).getWidth());
 		}
         
         
