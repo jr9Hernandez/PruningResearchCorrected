@@ -122,7 +122,7 @@ import dk.itu.mario.res.ResourcesManager;
 		    				Iterator<SingleElement> nombreIterator = objectsOfSpecificType.iterator();
 			    	        while(nombreIterator.hasNext()){
 			    	        	SingleElement elemento = nombreIterator.next();
-			    	        	System.out.println(elemento.getTypeElement());
+			    	        	//System.out.println(elemento.getTypeElement());
 			    	        }
 			    	        
 			    	        hsObjectsScreen = new Hashtable();

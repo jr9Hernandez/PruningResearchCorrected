@@ -444,7 +444,7 @@ public class RandomLevelModified extends Level{
 		        int quant = random.nextInt(3);
 		        if(x + quant > length)
 		        	quant = length - x;
-		        System.out.println(quant);
+		        //System.out.println(quant);
 		        byte block;     
 		           
 		        if(random.nextBoolean())
@@ -942,7 +942,7 @@ public class RandomLevelModified extends Level{
 	    public void additionElementToList(String type,int heigth, int width)
 	    {
 	    	SingleElement objSingleElement=new SingleElement(heigth-1,width,type);
-	    	System.out.println("SIngleElement "+objSingleElement.getHeigth()+" "+objSingleElement.getWidth()+" "+objSingleElement.getTypeElement());
+	    	//System.out.println("SIngleElement "+objSingleElement.getHeigth()+" "+objSingleElement.getWidth()+" "+objSingleElement.getTypeElement());
 			objectsOfSpecificType.add(objSingleElement);
 	    }
 
