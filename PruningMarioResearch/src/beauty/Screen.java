@@ -38,7 +38,7 @@ public class Screen {
 			fos = new FileOutputStream(nome);
 			DataOutputStream dos = new DataOutputStream(fos);
 			tela.save(dos);
-			System.out.println("\n\tFase salva com sucesso");
+			//System.out.println("\n\tFase salva com sucesso");
 		} catch (FileNotFoundException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();

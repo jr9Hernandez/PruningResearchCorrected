@@ -1369,7 +1369,7 @@ public class BeautyCustomizedLevel extends Level{
 	    private boolean addEnemyLine(int x0, int x1, int y)
 	    {
 	    	boolean enemyAdded=false;
-	    	System.out.println("difficulty "+difficulty);
+	    	//System.out.println("difficulty "+difficulty);
 	        for (int x = x0; x < x1; x++)
 	        {
 	            if (random.nextInt(35) < difficulty + 1)
@@ -1394,7 +1394,7 @@ public class BeautyCustomizedLevel extends Level{
 	    private boolean addEnemyLineMountains(int x0, int x1, int y)
 	    {
 	    	boolean enemyAddedBefore=false;
-	    	System.out.println("difficulty "+difficulty);
+	    	//System.out.println("difficulty "+difficulty);
 	        for (int x = x0; x < x1; x++)
 	        {
 	            if (random.nextInt(20) < difficulty + 1)
@@ -1419,7 +1419,7 @@ public class BeautyCustomizedLevel extends Level{
 	    
 	    private void addEnemyLineBlocks(int x0, int x1, int y)
 	    {
-	    	System.out.println("difficulty "+difficulty);
+	    	//System.out.println("difficulty "+difficulty);
 	        for (int x = x0; x < x1; x++)
 	        {
 	            if (random.nextInt(15) < difficulty + 1)

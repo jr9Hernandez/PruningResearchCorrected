@@ -158,7 +158,7 @@ public class Level implements LevelInterface
     
     public void save(DataOutputStream dos) throws IOException
     {//method increased from Reis and Lelis
-    	System.out.println("ayayayayyyyyyyyy");
+    	//System.out.println("ayayayayyyyyyyyy");
         dos.writeLong(Level.FILE_HEADER);
         dos.write((byte) 0);
 
@@ -167,7 +167,7 @@ public class Level implements LevelInterface
 
         dos.writeInt(xExit);
         dos.writeInt(yExit);
-        System.out.println("comadre");
+        //System.out.println("comadre");
         int Willian; // Apenas para marcar o ponto onde estou editando
         
         for (int i = 0; i < width; i++)
@@ -179,7 +179,7 @@ public class Level implements LevelInterface
         
         dos.writeInt(tam_spritePrimitivo);
         
-        System.out.println("Tamanho salvo: " + tam_spritePrimitivo);
+        //System.out.println("Tamanho salvo: " + tam_spritePrimitivo);
  
 
         for (int i = 0; i < tam_spritePrimitivo; i++)
@@ -189,8 +189,8 @@ public class Level implements LevelInterface
             dos.writeInt(spritePrimitivo[i].getType());
             dos.writeInt(spritePrimitivo[i].getWinged());
             
-            System.out.println("\tx: " + spritePrimitivo[i].getX() + " y: " + spritePrimitivo[i].getY() + 
-            		" type: " + spritePrimitivo[i].getType() + " alado: " + spritePrimitivo[i].getWinged());
+           // System.out.println("\tx: " + spritePrimitivo[i].getX() + " y: " + spritePrimitivo[i].getY() + 
+            //		" type: " + spritePrimitivo[i].getType() + " alado: " + spritePrimitivo[i].getWinged());
             
         }
         
