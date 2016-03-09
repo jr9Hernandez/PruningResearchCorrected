@@ -14,7 +14,7 @@ public class ConstraintsPlacement {
 	public ConstraintsPlacement(Level level)
 	{
 		this.level=level;
-		System.out.println("Height "+level.getHeight()+" Weight "+level.getWidth()+ " tamoffloor "+ level.getMap()[11][11]);
+		//System.out.println("Height "+level.getHeight()+" Weight "+level.getWidth()+ " tamoffloor "+ level.getMap()[11][11]);
 	}
 	
 	public boolean ConstraintsMinSpaceCoins(ArrayList states, int x, int y, ArrayList finalListElements,ElementsToPlace objElemP)

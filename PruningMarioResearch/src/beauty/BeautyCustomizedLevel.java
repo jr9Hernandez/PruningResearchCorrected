@@ -306,7 +306,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	//Beststates=objGrapB.relativeTransPositionDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem,-mediumStraight+1,mediumStraight-1,floorTileHeight,0,0,currentState,hTable);
 	    	
 	    	//Method without pruning	    	
-	    	System.out.println("Without pruning");
+	    	//System.out.println("Without pruning");
 			
 	    	GraphBuilder objGrapB= new GraphBuilder(1);
 	    	int numElements=objElem.getNumberObjects();
@@ -319,15 +319,17 @@ public class BeautyCustomizedLevel extends Level{
 	    	
 	    	long stopTime = System.currentTimeMillis();
 	        long elapsedTime = stopTime - startTime;
-	        System.out.println("Time "+elapsedTime);	    	
+	        //System.out.println("Time "+elapsedTime);	    	
 	        
 	        double bestSYmmetry=objGrapB.bestSymmetryV;
-	    	System.out.println("bestSym "+bestSYmmetry);
+	    	//System.out.println("bestSym "+bestSYmmetry);
 	    	
-	    	System.out.println( "CounterStates "+objGrapB.getCounterIDs() );
+	    	//System.out.println( "CounterStates "+objGrapB.getCounterIDs() );
+	    	
+	    	System.out.print(bestSYmmetry+","+objGrapB.getCounterIDs()+","+elapsedTime+",");
 	    	
 	    	//Method with pruning A	        
-	    	System.out.println("With pruning");
+	    	//System.out.println("With pruning");
 	    	
 	    	objGrapB= new GraphBuilder(1);
 	    	//numElements=objElem.getNumberObjects();
@@ -340,14 +342,14 @@ public class BeautyCustomizedLevel extends Level{
 	    	
 	    	stopTime = System.currentTimeMillis();
 	        elapsedTime = stopTime - startTime;
-	        System.out.println("Time "+elapsedTime);
+	        //System.out.println("Time "+elapsedTime);
 	    	
 	    	bestSYmmetry=objGrapB.bestSymmetryV;
-	    	System.out.println("bestSym "+bestSYmmetry);
+	    	//System.out.println("bestSym "+bestSYmmetry);
 	    	
-	    	System.out.println( "CounterStates "+objGrapB.getCounterIDs() );
+	    	//System.out.println( "CounterStates "+objGrapB.getCounterIDs() );
 	        
-	    	
+	    	System.out.println(bestSYmmetry+","+objGrapB.getCounterIDs()+","+elapsedTime);
 	    	
 	    	//Beststates=objGrapB.DepthSearchPruningAlt(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
 
