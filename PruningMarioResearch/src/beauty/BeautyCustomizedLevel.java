@@ -347,6 +347,8 @@ public class BeautyCustomizedLevel extends Level{
 	    	
 	    	System.out.println( "CounterStates "+objGrapB.getCounterIDs() );
 	        
+	    	//finish program to avoid problems with GUI in the cluster.
+	    	System.exit(0);
 	    	
 	    	//Beststates=objGrapB.DepthSearchPruningAlt(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
 
