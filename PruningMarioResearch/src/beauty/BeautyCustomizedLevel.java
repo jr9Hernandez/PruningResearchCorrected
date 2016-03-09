@@ -371,6 +371,7 @@ public class BeautyCustomizedLevel extends Level{
 	        */
 	        
 	        //Here we will put the elements on the tile
+	    	/*
 	        try {
 	        Level levelScreen=PaintElements(Beststates,this);
 	        Screen objScreen=new Screen();
@@ -389,7 +390,7 @@ public class BeautyCustomizedLevel extends Level{
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 		}
 	
 		private void CreatingBeautyContentTopK() { 
