@@ -361,14 +361,14 @@ public class BeautyCustomizedLevel extends Level{
 	        }*/
 	        
 	        //here we are painting as the best branch founded
-	        
+	        /*
 	        System.out.println("nene "+Beststates.size());
 	        Iterator<BlockNode> nombreIterator = Beststates.iterator();
 	        while(nombreIterator.hasNext()){
 	        	BlockNode elemento = nombreIterator.next();
 	        	System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" ) - "+elemento.getType()+" "+elemento.getIdElement()+ " / ");
 	        }
-	        
+	        */
 	        
 	        //Here we will put the elements on the tile
 	        try {
@@ -414,7 +414,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	Branch objBranch=new Branch();
 	    	//bestBranches=objBranch.sortBranches(bestBranches);
 	    	
-	    	System.out.print( "CounterStates"+objGrapB.getCounterIDs() );
+	    	//System.out.print( "CounterStates"+objGrapB.getCounterIDs() );
 	        
 	        //imprimiendo los estados visitados
 	        /*
@@ -425,12 +425,12 @@ public class BeautyCustomizedLevel extends Level{
 	        }*/
 	        
 	        //here we are painting as the best branches foundeded
-	        
+	        /*
 	        Iterator<Branch> nombreIterator = bestBranches.iterator();
 	        while(nombreIterator.hasNext()){
 	        	Branch elemento = nombreIterator.next();
 	        	System.out.print(elemento.getHeuristicValue()+ " / ");
-	        }
+	        }*/
 	        
 	        
 	        //Here we will put the elements on the tile
