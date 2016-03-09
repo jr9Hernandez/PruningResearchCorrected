@@ -112,7 +112,7 @@ import dk.itu.mario.res.ResourcesManager;
 		    			if(typeTask==5)
 		    			{
 		    				int counterIts=0;
-		    				for(int i=0;i<1;i++)
+		    				for(int i=0;i<50;i++)
 			    			{
 		    				ArrayList objectsOfSpecificType=new ArrayList<SingleElement>();	
 		    				Long newSeed=new Random().nextLong();
@@ -160,7 +160,9 @@ import dk.itu.mario.res.ResourcesManager;
 		    			
 		    			}
 		    			
-
+		    			//finish program to avoid problems with GUI in the cluster.
+		    	    	System.exit(0);
+		    	    	
 		        		//********mthod for load and print beauty screens*******//
 		    			
 		        		//currentLevel = new LoadBeautyLevel(20, 15, levelSeed, levelDifficulty,levelType,nameFile);
