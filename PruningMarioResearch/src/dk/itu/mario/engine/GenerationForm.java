@@ -103,7 +103,7 @@ public class GenerationForm {
 	        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	        frame.setLocation((screenSize.width-frame.getWidth())/2, (screenSize.height-frame.getHeight())/2);
 
-	        frame.setVisible(true);
+	        //frame.setVisible(true);
 
 	        mario.start();  
 	}	
