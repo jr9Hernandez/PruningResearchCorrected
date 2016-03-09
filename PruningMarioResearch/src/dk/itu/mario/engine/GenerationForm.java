@@ -92,18 +92,18 @@ public class GenerationForm {
 		
 	  	/*---------------------to Generate screens------------------------*/
 		
-			int numElementsGlobalParamet=Integer.parseInt(args[0]);
-			//int numElementsGlobalParamet=3;
-	    	JFrame frame = new JFrame("Mario Experience Showcase");
+			//int numElementsGlobalParamet=Integer.parseInt(args[0]);
+			int numElementsGlobalParamet=3;
+	    	//JFrame frame = new JFrame("Mario Experience Showcase");
 	    	MarioComponent mario = new MarioComponent(640, 480,true," ",5,numElementsGlobalParamet);
-
+	    	/*
 	    	frame.setContentPane(mario);
 	    	frame.setResizable(false);
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frame.pack();
 
 	        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	        frame.setLocation((screenSize.width-frame.getWidth())/2, (screenSize.height-frame.getHeight())/2);
+	        frame.setLocation((screenSize.width-frame.getWidth())/2, (screenSize.height-frame.getHeight())/2);*/
 
 	        //frame.setVisible(true);
 

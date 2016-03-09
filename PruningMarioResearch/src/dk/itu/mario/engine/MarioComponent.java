@@ -41,7 +41,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		    private int width, height;
 		    private GraphicsConfiguration graphicsConfiguration;
 		    private Scene scene;
-		    private SonarSoundEngine sound;
+		    //private SonarSoundEngine sound;
 		    private boolean focused = false;
 		    private boolean useScale2x = false;
 		    private boolean isCustom = false;
@@ -71,16 +71,16 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		        setPreferredSize(size);
 		        setMinimumSize(size);
 		        setMaximumSize(size);
-
+		        /*
 		        try
 		        {
-		            sound = new SonarSoundEngine(64);
+		            //sound = new SonarSoundEngine(64);
 		        }
 		        catch (LineUnavailableException e)
 		        {
 		            e.printStackTrace();
-		            sound = new FakeSoundEngine();
-		        }
+		            //sound = new FakeSoundEngine();
+		        }*/
 		        this.setFocusable(true);
 
 		        LevelScene.bothPlayed = false;
@@ -158,34 +158,34 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		    public void run()
 		    {
 
-		        graphicsConfiguration = getGraphicsConfiguration();
+		        //graphicsConfiguration = getGraphicsConfiguration();
 
-		        Art.init(graphicsConfiguration, sound);
+		        //Art.init(graphicsConfiguration, sound);
 
-		        VolatileImage image = createVolatileImage(320, 240);
-		        Graphics g = getGraphics();
-		        Graphics og = image.getGraphics();
+		        //VolatileImage image = createVolatileImage(320, 240);
+		        //Graphics g = getGraphics();
+		        //Graphics og = image.getGraphics();
 
-		        int lastTick = -1;
-		        int renderedFrames = 0;
-		        int fps = 0;
+		        //int lastTick = -1;
+		        //int renderedFrames = 0;
+		        //int fps = 0;
 
 
-		        long startTime = System.nanoTime();
+		        //long startTime = System.nanoTime();
 
-		        float time = (System.nanoTime()- startTime)/1000000000f;
-		        float now = time;
-		        float averagePassedTime = 0;
+		        //float time = (System.nanoTime()- startTime)/1000000000f;
+		        //float now = time;
+		        //float averagePassedTime = 0;
 
-		        boolean naiveTiming = true;
+		        //boolean naiveTiming = true;
 		        if (isCustom)
 		        	toCustomGame();
 		        else
 		        toRandomGame();
 
-		        float correction = 0f;
-		        if(System.getProperty("os.name") == "Mac OS X");
-
+		        //float correction = 0f;
+		        //if(System.getProperty("os.name") == "Mac OS X");
+		        /*
 		        while (running)
 		        {
 		        	float lastTime = time;
@@ -223,7 +223,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		            }
 
 		            float alpha = (float) (now * TICKS_PER_SECOND - tick);
-		            sound.clientTick(alpha);
+		            //sound.clientTick(alpha);
 
 		            int x = (int) (Math.sin(now) * 16 + 160);
 		            int y = (int) (Math.cos(now) * 16 + 120);
@@ -269,9 +269,9 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		            catch (InterruptedException e)
 		            {
 		            }
-		        }
+		        }*/
 
-		        Art.stopMusic();
+		        //Art.stopMusic();
 		    }
 
 		    private void drawString(Graphics g, String text, int x, int y, int c)
@@ -332,7 +332,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		    	Mario.lives = 3;
 
 		    	randomLevel.init();
-		    	randomLevel.setSound(sound);
+		    	//randomLevel.setSound(sound);
 		    	scene = randomLevel;
 
 		    }
@@ -353,20 +353,20 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		    	Mario.lives = 3;
 
 		    	randomLevel.init();
-		    	randomLevel.setSound(sound);
+		    	//randomLevel.setSound(sound);
 		    	scene = randomLevel;
 
 		    }
 
 		    public void lose(){
 		        scene = new LoseScene();
-		        scene.setSound(sound);
+		        //scene.setSound(sound);
 		        scene.init();
 		    }
 
 		    public void win(){
 		        scene = new WinScene();
-		        scene.setSound(sound);
+		        //scene.setSound(sound);
 		        scene.init();
 		    }
 
