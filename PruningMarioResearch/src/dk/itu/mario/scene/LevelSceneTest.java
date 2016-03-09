@@ -43,13 +43,15 @@ import dk.itu.mario.res.ResourcesManager;
 			private boolean isCustom;
 			private String nameFile;
 			private int typeTask;
+			private int numElementsGlobalParamet;
 
 			public LevelSceneTest(GraphicsConfiguration graphicsConfiguration,
-					MarioComponent renderer, long seed, int levelDifficulty, int type,boolean isCustom,String nameFile, int typeTask){
+					MarioComponent renderer, long seed, int levelDifficulty, int type,boolean isCustom,String nameFile, int typeTask,int numElementsGlobalParamet){
 				super(graphicsConfiguration,renderer,seed,levelDifficulty,type);
 				this.isCustom = isCustom;
 				this.nameFile=nameFile;
 				this.typeTask=typeTask;
+				this.numElementsGlobalParamet=numElementsGlobalParamet;
 			}
 
 			public void init() {
@@ -128,7 +130,7 @@ import dk.itu.mario.res.ResourcesManager;
 			    	        hsObjectsScreen = new Hashtable();
 			    	        hsObjectsScreen=CreateHashTableObjectsScreen(hsObjectsScreen, objectsOfSpecificType);			    	      			    			
 			    			
-			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen);		        		
+			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,numElementsGlobalParamet);		        		
 			    			
 			        		counterIts++;
 			    			}

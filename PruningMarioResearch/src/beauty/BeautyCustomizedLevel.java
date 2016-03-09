@@ -96,11 +96,11 @@ public class BeautyCustomizedLevel extends Level{
 	    }
 		
 		//Constructor to many single screens receiving objects as parameters
-		public BeautyCustomizedLevel(int width, int height, long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen)
+		public BeautyCustomizedLevel(int width, int height, long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen,int numElementsGlobalParamet)
 	    {
 			
 	        this(width, height);
-	        creatManySearchesObjectsNLG(seed, difficulty, type,count,hsObjectsScreen);
+	        creatManySearchesObjectsNLG(seed, difficulty, type,count,hsObjectsScreen,numElementsGlobalParamet);
 	        
 	        
 	    }
@@ -118,13 +118,13 @@ public class BeautyCustomizedLevel extends Level{
 		}
 		
 		//receiving objects from NLG
-		public void generateElementsNLG(Random random, int floorTileHeight,Hashtable hsObjectsScreen)
+		public void generateElementsNLG(Random random, int floorTileHeight,Hashtable hsObjectsScreen,int numElementsGlobalParamet)
 		{
-			objElem=new ElementsToPlace(random,floorTileHeight,hsObjectsScreen,height);
+			objElem=new ElementsToPlace(random,floorTileHeight,hsObjectsScreen,height,numElementsGlobalParamet);
 			odds=objElem.getOdds();
 		}
 
-		public void creatManySearchesObjectsNLG(long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen)
+		public void creatManySearchesObjectsNLG(long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen,int numElementsGlobalParamet)
 	    {
 			mediumStraight=width-initialStraight-finalStraight;
 			lastSeed = seed;
@@ -155,7 +155,7 @@ public class BeautyCustomizedLevel extends Level{
 	        }
 	        //creating the floor of rest of the tile
 	        length +=buildStraight(initialStraight, mediumStraight, false);
-	        generateElementsNLG(random,height-floorTileHeight-1,hsObjectsScreen);
+	        generateElementsNLG(random,height-floorTileHeight-1,hsObjectsScreen,numElementsGlobalParamet);
 	        //piece with mountain
 	        //length +=buildHillStraight(length, 10);
 	        

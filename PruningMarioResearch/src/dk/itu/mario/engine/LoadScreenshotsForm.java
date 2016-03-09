@@ -55,7 +55,7 @@ public class LoadScreenshotsForm {
 			       frame.setVisible(false);
 			       }			    
 		    	frame = new JFrame("Mario Experience Showcase");
-		    	mario = new MarioComponent(640, 480,true,nameFile,3);
+		    	mario = new MarioComponent(640, 480,true,nameFile,3,0);
 		    	frame.setContentPane(mario);
 		    	frame.setResizable(false);
 		        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
