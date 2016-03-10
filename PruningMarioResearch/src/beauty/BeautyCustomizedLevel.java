@@ -326,7 +326,8 @@ public class BeautyCustomizedLevel extends Level{
 	    	
 	    	//System.out.println( "CounterStates "+objGrapB.getCounterIDs() );
 	    	
-	    	System.out.print(bestSYmmetry+","+objGrapB.getCounterIDs()+","+elapsedTime+",");
+	        long numStates=objGrapB.getCounterIDs();
+	    	System.out.print(bestSYmmetry+","+numStates+","+elapsedTime+",");
 	    	
 	    	//Method with pruning A	        
 	    	//System.out.println("With pruning");
@@ -349,7 +350,8 @@ public class BeautyCustomizedLevel extends Level{
 	    	
 	    	//System.out.println( "CounterStates "+objGrapB.getCounterIDs() );
 	        
-	    	System.out.println(bestSYmmetry+","+objGrapB.getCounterIDs()+","+elapsedTime);
+	    	numStates=objGrapB.getCounterIDs();
+	    	System.out.println(bestSYmmetry+","+numStates+","+elapsedTime);
 	    	
 	    	//Beststates=objGrapB.DepthSearchPruningAlt(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
 
