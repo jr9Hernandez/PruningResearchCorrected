@@ -120,7 +120,7 @@ public class GraphBuilder
 	private TreeSet localcurrentState;
 	//Iterator<Integer> finalListIterator;
 	
-    public GraphBuilder(int counterIDs)
+    public GraphBuilder(long counterIDs)
     {
     	bestBranches = new ArrayList<Branch>();
     	this.counterIDs=counterIDs;
