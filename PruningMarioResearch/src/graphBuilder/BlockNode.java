@@ -3,18 +3,18 @@ package graphBuilder;
 public class BlockNode {
 
 	private int typeElement;
-	private int id;
+	private long id;
 	private double x;
 	private double y;
 	private int idElement;
-	public BlockNode(int x,int y, int id, int idElementToPlace, int idElement){
+	public BlockNode(int x,int y, long id, int idElementToPlace, int idElement){
 		this.x=x;
 		this.y=y;
 		this.id=id;
 		this.typeElement=idElementToPlace;
 		this.idElement=idElement;
 	};
-	public BlockNode(double x,double y, int id, int idElementToPlace, int idElement){
+	public BlockNode(double x,double y, long id, int idElementToPlace, int idElement){
 		this.x=x;
 		this.y=y;
 		this.id=id;
@@ -45,7 +45,7 @@ public class BlockNode {
 	{
 		return y;
 	}
-	public int getID()
+	public long getID()
 	{
 		return id;
 	}
