@@ -1177,6 +1177,7 @@ public class GraphBuilder
     			if(countElements==0)
     			{
     			firstBranchPercorred=true;
+    			System.out.println("chunter");
     			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft);
     			}
     		}
@@ -1201,6 +1202,23 @@ public class GraphBuilder
     		Beststates.add(objBlockNode2);
     	}
     	}
+    	System.out.println("puttyconexao "+bestSymmetryV);
+    	Iterator<BlockNode> itSymmetry1 = Beststates.iterator();
+		while(itSymmetry1.hasNext()){
+			BlockNode elemento = itSymmetry1.next();
+			Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
+
+			double xInitial = elemento.getX();
+			double yInitial= elemento.getY();
+
+			int widthElement=element.getWidth();
+			int heigthElement=element.getHeigth()+1;
+			System.out.println("xInitial "+xInitial+" yInitial "+yInitial+" widthElement"+widthElement+" heigthElement "+heigthElement);
+		}
+		if(bestSymmetryV==3)
+		{
+			System.out.println("Summeutru ");
+		}
     	return Beststates;
     }
 	
@@ -2086,7 +2104,7 @@ public class GraphBuilder
     	Iterator<BlockNode> nombreIterator = states.iterator();
         while(nombreIterator.hasNext()){
         	BlockNode elemento = nombreIterator.next();
-        	//System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" )  / ");
+        	System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" )  / ");
         }
         
         //here we will calculate the center of mass
@@ -2106,7 +2124,7 @@ public class GraphBuilder
     	Iterator<BlockNode> nombreIterator = states.iterator();
         while(nombreIterator.hasNext()){
         	BlockNode elemento = nombreIterator.next();
-        	//System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" )  / ");
+        	System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" )  / ");
         }
         
         //here we will calculate the center of mass
@@ -2146,7 +2164,7 @@ public class GraphBuilder
     	Iterator<BlockNode> nombreIterator = states.iterator();
         while(nombreIterator.hasNext()){
         	BlockNode elemento = nombreIterator.next();
-        	//System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" )  / ");
+        	System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" )  / ");
         }
         
         //here we will calculate the center of mass
@@ -2187,7 +2205,7 @@ public class GraphBuilder
     	Iterator<BlockNode> nombreIterator = states.iterator();
         while(nombreIterator.hasNext()){
         	BlockNode elemento = nombreIterator.next();
-        	//System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" )  / ");
+        	System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" )  / ");
         }
         
         //here we will calculate the center of mass
@@ -2268,6 +2286,7 @@ public class GraphBuilder
 	
 	public void centerOfMassDepthSearchCenterFrame(ArrayList states,ElementsToPlace objElemP,double height,int floor)
 	{
+		System.out.println("llamada1");
 		boolean flagPivotFloating=false;
 		double summatoryAreasXG=0;
 		double summatoryAreasYG=0;
@@ -2300,13 +2319,13 @@ public class GraphBuilder
 	        areaG=widthElementG*heigthElementG;
 	        xG=xInitial+(widthElementG/2);
 	        yG=yInitial-(heigthElementG/2);
-	        //System.out.println(elemento.getIdElement()+"x "+xG+"y "+yG);
+	        System.out.println(elemento.getIdElement()+"x "+xG+"y "+yG);
 	        
 	        summatoryAreasG=summatoryAreasG+areaG;
 	        summatoryAreasXG=summatoryAreasXG+(areaG*(xG));
 	        summatoryAreasYG=summatoryAreasYG+(areaG*(yG));
 	        
-	        if(element.getIdElem()==0 && element.getTypeElem()==objElemP.getBlockElement() || element.getTypeElem()==objElemP.getOddsHillStraightFloat())
+	        if(element.getIdElem()==0 && (element.getTypeElem()==objElemP.getBlockElement() || element.getTypeElem()==objElemP.getOddsHillStraightFloat()))
 	        {
 	        	flagPivotFloating=true;
 	        }
@@ -2320,14 +2339,15 @@ public class GraphBuilder
 		xCenterMassGeneral=globalCenterXMass;
         yCenterMassGeneral=summatoryAreasYG/summatoryAreasG;
         
-        xCenterMassGeneral=10;
+        xCenterMassGeneral=8.5;
         yCenterMassGeneral=9.0;
         if(flagPivotFloating==true)
         {
+        	System.out.println("chimuelamos?");
         	yCenterMassGeneral=7.0;
         }
-        //System.out.println("xCenterMassG "+xCenterMassGeneral);
-        //System.out.println("yCenterMassG "+yCenterMassGeneral);
+        System.out.println("xCenterMassGC "+xCenterMassGeneral);
+        System.out.println("yCenterMassGC "+yCenterMassGeneral);
 		
 		//center of mass of Coins
 		Iterator<BlockNode> itCenterMass2 = states.iterator();
@@ -2344,7 +2364,7 @@ public class GraphBuilder
 	        areaC=widthElementC*heigthElementC;
 	        xC=xInitial+(widthElementC/2);
 	        yC=yInitial-(heigthElementC/2);
-	        //System.out.println(elemento.getIdElement()+"x "+xC+"y "+yC);
+	        System.out.println(elemento.getIdElement()+"x "+xC+"y "+yC);
 	        
 	        summatoryAreasC=summatoryAreasC+areaC;
 	        summatoryAreasXC=summatoryAreasXC+(areaC*(xC));
@@ -2368,6 +2388,7 @@ public class GraphBuilder
     
 	public void centerOfMass(ArrayList states,ElementsToPlace objElemP,double height,int floor)
 	{
+		System.out.println("llamada2");
 		boolean flagPivotFloating=false;
 		double summatoryAreasXG=0;
 		double summatoryAreasYG=0;
@@ -2885,24 +2906,25 @@ public class GraphBuilder
 
 
 		}
-		//System.out.println("gulAT "+gulATG[0]+" "+gulATG[1]+" "+gulATG[2]+" "+gulATG[3]);
-		//System.out.println("gurAT "+gurATG[0]+" "+gurATG[1]+" "+gurATG[2]+" "+gurATG[3]);
-		//System.out.println("gllAT "+gllATG[0]+" "+gllATG[1]+" "+gllATG[2]+" "+gllATG[3]);
-		//System.out.println("glrAT "+glrATG[0]+" "+glrATG[1]+" "+glrATG[2]+" "+glrATG[3]);
+		System.out.println("gulAT "+gulATG[0]+" "+gulATG[1]+" "+gulATG[2]+" "+gulATG[3]);
+		System.out.println("gurAT "+gurATG[0]+" "+gurATG[1]+" "+gurATG[2]+" "+gurATG[3]);
+		System.out.println("gllAT "+gllATG[0]+" "+gllATG[1]+" "+gllATG[2]+" "+gllATG[3]);
+		System.out.println("glrAT "+glrATG[0]+" "+glrATG[1]+" "+glrATG[2]+" "+glrATG[3]);
 		rythmValueX=SubstractionRythm(gulATG,gurATG,0)+SubstractionRythm(gllATG,glrATG,0);
 		rythmValueX=rythmValueX;
-		//System.out.println("rythmValueX "+rythmValueX);
+		System.out.println("rythmValueX "+rythmValueX);
 
 		rythmValueY=SubstractionRythm(gulATG,gurATG,1)+SubstractionRythm(gllATG,glrATG,1);
 		rythmValueY=rythmValueY;
-		//System.out.println("rythmValueY "+rythmValueY);
+		System.out.println("rythmValueY "+rythmValueY);
 
 		rythmValueA=SubstractionRythm(gulATG,gurATG,2)+SubstractionRythm(gllATG,glrATG,2);
 		rythmValueA=rythmValueA;
-		//System.out.println("rythmValueA "+rythmValueA);
+		System.out.println("rythmValueA "+rythmValueA);
 		//symmetryValueGeneral=SubstractionSymmetries(gulATG,gurATG)+SubstractionSymmetries(gllATG,glrATG);
 		//System.out.println("symmetryValue "+symmetryValueGeneral);
 		rythmValueGeneral=( Math.abs(rythmValueX)+Math.abs(rythmValueY)+Math.abs(rythmValueA) );
+		System.out.println("rythmValueGeneral "+rythmValueGeneral);
 		return rythmValueGeneral;
 	}
 	
