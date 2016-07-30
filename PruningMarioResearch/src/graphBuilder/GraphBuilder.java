@@ -2320,7 +2320,7 @@ public class GraphBuilder
 		xCenterMassGeneral=globalCenterXMass;
         yCenterMassGeneral=summatoryAreasYG/summatoryAreasG;
         
-        yCenterMassGeneral=8.5;
+        yCenterMassGeneral=9.0;
         if(flagPivotFloating==true)
         {
         	yCenterMassGeneral=7.0;
