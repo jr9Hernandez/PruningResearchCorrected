@@ -2320,10 +2320,11 @@ public class GraphBuilder
 		xCenterMassGeneral=globalCenterXMass;
         yCenterMassGeneral=summatoryAreasYG/summatoryAreasG;
         
-        yCenterMassGeneral=9.0;
+        xCenterMassGeneral=10;
+        yCenterMassGeneral=7.5;
         if(flagPivotFloating==true)
         {
-        	yCenterMassGeneral=7.0;
+        	yCenterMassGeneral=7.5;
         }
         //System.out.println("xCenterMassG "+xCenterMassGeneral);
         //System.out.println("yCenterMassG "+yCenterMassGeneral);
