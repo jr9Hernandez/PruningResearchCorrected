@@ -1202,7 +1202,7 @@ public class GraphBuilder
     		Beststates.add(objBlockNode2);
     	}
     	}
-    	//System.out.println("puttyconexao "+bestSymmetryV);
+    	/*System.out.println("puttyconexao "+bestSymmetryV);
     	Iterator<BlockNode> itSymmetry1 = Beststates.iterator();
 		while(itSymmetry1.hasNext()){
 			BlockNode elemento = itSymmetry1.next();
@@ -1218,7 +1218,7 @@ public class GraphBuilder
 		if(bestSymmetryV==3)
 		{
 			//System.out.println("Summeutru ");
-		}
+		}*/
     	return Beststates;
     }
 	
