@@ -312,7 +312,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	//Beststates=objGrapB.DepthSearchPruningAlt(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
 	    	Beststates2=objGrapB2.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8.0);
 	    	
-	    	if(objGrapB.bestSymmetryV>objGrapB2.bestSymmetryV)
+	    	if(objGrapB.bestSymmetryV<objGrapB2.bestSymmetryV)
 	    	{
 	    		double bestSYmmetry=objGrapB.bestSymmetryV;
 	    		System.out.println("bestSym "+bestSYmmetry);
