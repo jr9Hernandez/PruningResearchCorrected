@@ -47,6 +47,8 @@ public class BeautyCustomizedLevel extends Level{
 		Random random;
 		public static long lastSeed;
 		private ArrayList<BlockNode> Beststates = new ArrayList<BlockNode>();
+		private ArrayList<BlockNode> Beststates2 = new ArrayList<BlockNode>();
+		private ArrayList<BlockNode> BestGlobalstates = new ArrayList<BlockNode>();
 		private int maxScreens=100;
 		
 		private int floorTileHeight=0;
@@ -295,6 +297,7 @@ public class BeautyCustomizedLevel extends Level{
 			ArrayList<BlockNode> states = new ArrayList<BlockNode>();
 			//Building the graph in a deph way
 	    	GraphBuilder objGrapB= new GraphBuilder(1);
+	    	GraphBuilder objGrapB2= new GraphBuilder(1);
 	    	int numElements=objElem.getNumberObjects();
 	    	int numEnemies=objElem.getNumberObjectsEnemies();
 	    	int globalControlSearch=0;
@@ -305,11 +308,23 @@ public class BeautyCustomizedLevel extends Level{
 	    	//Beststates=objGrapB.relativePositionDepthSearch(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,-mediumStraight+2,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
 	    	//Beststates=objGrapB.relativeTransPositionDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem,-mediumStraight+1,mediumStraight-1,floorTileHeight,0,0,currentState,hTable);
 	    	//Beststates=objGrapB.DepthSearchCenterFrame(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
-	    	Beststates=objGrapB.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8);
+	    	Beststates=objGrapB.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8.5);
 	    	//Beststates=objGrapB.DepthSearchPruningAlt(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
+	    	Beststates2=objGrapB2.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8.0);
 	    	
-	    	double bestSYmmetry=objGrapB.bestSymmetryV;
-	    	System.out.println("bestSym "+bestSYmmetry);
+	    	if(objGrapB.bestSymmetryV>objGrapB.bestSymmetryV)
+	    	{
+	    		double bestSYmmetry=objGrapB.bestSymmetryV;
+	    		System.out.println("bestSym "+bestSYmmetry);
+	    		BestGlobalstates=Beststates;
+	    		
+	    	}
+	    	else
+	    	{
+	    		double bestSYmmetry=objGrapB2.bestSymmetryV;
+	    		System.out.println("bestSym "+bestSYmmetry);
+	    		BestGlobalstates=Beststates2;
+	    	}
 	    	
 	    	long stopTime = System.currentTimeMillis();
 	        long elapsedTime = stopTime - startTime;
@@ -327,8 +342,8 @@ public class BeautyCustomizedLevel extends Level{
 	        
 	        //here we are painting as the best branch founded
 	        
-	        System.out.println("nene "+Beststates.size());
-	        Iterator<BlockNode> nombreIterator = Beststates.iterator();
+	        System.out.println("nene "+BestGlobalstates.size());
+	        Iterator<BlockNode> nombreIterator = BestGlobalstates.iterator();
 	        while(nombreIterator.hasNext()){
 	        	BlockNode elemento = nombreIterator.next();
 	        	System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" ) - "+elemento.getType()+" "+elemento.getIdElement()+ " / ");
@@ -337,7 +352,7 @@ public class BeautyCustomizedLevel extends Level{
 	        
 	        //Here we will put the elements on the tile
 	        try {
-	        Level levelScreen=PaintElements(Beststates,this);
+	        Level levelScreen=PaintElements(BestGlobalstates,this);
 	        Screen objScreen=new Screen();
 			objScreen.SaveScreen(levelScreen,odds,objElem);
     		InformacoesTelas info = new InformacoesTelas();

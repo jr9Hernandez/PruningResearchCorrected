@@ -2130,7 +2130,7 @@ public class GraphBuilder
         //here we will calculate the center of mass
         centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
        // symmetryV=symettry1Areas(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
-        symmetryV=Rythm1Areas(states, xCenterMassGeneral, yCenterMassGeneral,objElemP );        
+        symmetryV=Rythm1AreasVertical(states, xCenterMassGeneral, yCenterMassGeneral,objElemP );        
         double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         
         if(symmetryV<bestSymmetryV)
