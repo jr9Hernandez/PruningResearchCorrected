@@ -2151,7 +2151,28 @@ public class GraphBuilder
         		bestAverageX=DistanceX;
         	   }
         }
-    	
+
+        symmetryV=Rythm1Areas(states, 8.0, yCenterMassGeneral,objElemP );        
+        DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
+        
+        if(symmetryV<bestSymmetryV)
+        {
+        		bestSymmetryV=symmetryV;
+            	Beststates= new ArrayList<BlockNode>(states);
+            	//Beststates=FormattingElementsSingle(Beststates, maxObjLeft);
+            	bestAverageX=DistanceX;
+        	
+        }
+        else if(symmetryV==bestSymmetryV )
+        {
+        	   if(DistanceX>bestAverageX)
+        	   {
+        		bestSymmetryV=symmetryV;
+        		Beststates= new ArrayList<BlockNode>(states);
+        		//Beststates=FormattingElementsSingle(Beststates, maxObjLeft);
+        		bestAverageX=DistanceX;
+        	   }
+        }
         
     			
 	}    
