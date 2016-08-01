@@ -906,9 +906,9 @@ public class GraphBuilder
     	return Beststates;
     }
     
-	public ArrayList  DepthSearchCenterFramePruning(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch)
+	public ArrayList  DepthSearchCenterFramePruning(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal)
     {    
-		
+		globalCenterXMass=centerXGlobal;
     	countElements--;
     	Elements objElem= (Elements)finalList.get(countElementsFinal-countElements-1);
     	int idElem=objElem.getIdElem();
@@ -1170,7 +1170,7 @@ public class GraphBuilder
     		}
     		if(countElements>0 && validationPruningM==false)
     		{    		    			
-    	    	DepthSearchCenterFramePruning(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1);
+    	    	DepthSearchCenterFramePruning(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal);
     		}
     		else{
     			//System.out.println("aca se debe calcular la formula");
@@ -2151,28 +2151,6 @@ public class GraphBuilder
         		bestAverageX=DistanceX;
         	   }
         }
-
-        symmetryV=Rythm1Areas(states, 8.0, yCenterMassGeneral,objElemP );        
-        DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
-        
-        if(symmetryV<bestSymmetryV)
-        {
-        		bestSymmetryV=symmetryV;
-            	Beststates= new ArrayList<BlockNode>(states);
-            	//Beststates=FormattingElementsSingle(Beststates, maxObjLeft);
-            	bestAverageX=DistanceX;
-        	
-        }
-        else if(symmetryV==bestSymmetryV )
-        {
-        	   if(DistanceX>bestAverageX)
-        	   {
-        		bestSymmetryV=symmetryV;
-        		Beststates= new ArrayList<BlockNode>(states);
-        		//Beststates=FormattingElementsSingle(Beststates, maxObjLeft);
-        		bestAverageX=DistanceX;
-        	   }
-        }
         
     			
 	}    
@@ -2360,7 +2338,7 @@ public class GraphBuilder
 		xCenterMassGeneral=globalCenterXMass;
         yCenterMassGeneral=summatoryAreasYG/summatoryAreasG;
         
-        xCenterMassGeneral=8.5;
+        //xCenterMassGeneral=8.5;
         yCenterMassGeneral=9.0;
         if(flagPivotFloating==true)
         {
