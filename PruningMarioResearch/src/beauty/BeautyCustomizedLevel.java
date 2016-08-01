@@ -1115,7 +1115,7 @@ public class BeautyCustomizedLevel extends Level{
                     	}	                    
 	        		}
             	}
-	        setSpriteTemplate(xTube, floor-heigthElement+1, new SpriteTemplate(Enemy.ENEMY_FLOWER, false));
+	        //setSpriteTemplate(xTube, floor-heigthElement+1, new SpriteTemplate(Enemy.ENEMY_FLOWER, false));
 	        return mLevel;
 	    	}
 	    
@@ -1365,7 +1365,7 @@ public class BeautyCustomizedLevel extends Level{
 	                    type = random.nextInt(3);
 	                }
 
-	                setSpriteTemplate(x, y, new SpriteTemplate(type, random.nextInt(35) < difficulty));
+	                //setSpriteTemplate(x, y, new SpriteTemplate(type, random.nextInt(35) < difficulty));
 	               enemyAdded=true;
 	            }
 	        }
@@ -1390,7 +1390,7 @@ public class BeautyCustomizedLevel extends Level{
 	                    type = random.nextInt(3);
 	                }
 
-	                setSpriteTemplate(x, y, new SpriteTemplate(type, random.nextInt(35) < difficulty));
+	                //setSpriteTemplate(x, y, new SpriteTemplate(type, random.nextInt(35) < difficulty));
 	                enemyAddedBefore=true;
 	            }
 	        }
@@ -1415,7 +1415,7 @@ public class BeautyCustomizedLevel extends Level{
 	                    type = random.nextInt(3);
 	                }
 
-	                setSpriteTemplate(x, y, new SpriteTemplate(type, random.nextInt(35) < difficulty));
+	                //setSpriteTemplate(x, y, new SpriteTemplate(type, random.nextInt(35) < difficulty));
 	               
 	            }
 	        }
@@ -1466,7 +1466,7 @@ public class BeautyCustomizedLevel extends Level{
 	            	    } 
 	                	if(flag==true)
 	                	{
-	                		setBlock(x, floor - 1, COIN);
+	                		//setBlock(x, floor - 1, COIN);
 	                	}
 	                    
 	                    //COINS++;
@@ -1570,7 +1570,7 @@ public class BeautyCustomizedLevel extends Level{
 	            	    } 
 	                	if(flag==true)
 	                	{
-	                		setBlock(x, floor - 1, COIN);
+	                		//setBlock(x, floor - 1, COIN);
 	                	}
 	                    
 	                    //COINS++;
@@ -1673,7 +1673,7 @@ public class BeautyCustomizedLevel extends Level{
 	            	    } 
 	                	if(flag==true)
 	                	{
-	                		setBlock(x, floor - 1, COIN);
+	                		//setBlock(x, floor - 1, COIN);
 	                	}
 	                    
 	                    //COINS++;
