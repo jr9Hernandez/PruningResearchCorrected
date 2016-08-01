@@ -590,7 +590,7 @@ public class GraphBuilder
         		thirdY=partialYSummatory[1];
         	}
         	
-        	partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
+        	partialSymmetry=partialSymmetry-((3*areaElement)+(3*globalCenterXMass)+(3*yCenterMassGeneral));
         }
         //System.out.println("partialSymmetry "+partialSymmetry);
         if(partialSymmetry>bestSymmetryV)
