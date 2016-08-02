@@ -2136,7 +2136,7 @@ public class GraphBuilder
         }
         else
         {
-        	symmetryV=Rythm1AreasVertical(states, xCenterMassGeneral, yCenterMassGeneral,objElemP ); 	
+        	symmetryV=Rythm1Areas(states, xCenterMassGeneral, yCenterMassGeneral,objElemP ); 	
         }
         double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         
