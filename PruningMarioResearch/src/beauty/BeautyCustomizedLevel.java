@@ -102,9 +102,10 @@ public class BeautyCustomizedLevel extends Level{
 	    {
 			
 	        this(width, height);
-	        creatManySearchesObjectsNLG(seed, difficulty, type,count,hsObjectsScreen,typeSymmetry);
 	        this.objElem=objElem;
 	        this.odds=odds;
+	        creatManySearchesObjectsNLG(seed, difficulty, type,count,hsObjectsScreen,typeSymmetry);
+	        
 	        
 	    }
 		
