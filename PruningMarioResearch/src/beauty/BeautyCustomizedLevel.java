@@ -159,7 +159,7 @@ public class BeautyCustomizedLevel extends Level{
 	        }
 	        //creating the floor of rest of the tile
 	        length +=buildStraight(initialStraight, mediumStraight, false);
-	       // generateElementsNLG(random,height-floorTileHeight-1,hsObjectsScreen);
+	        //generateElementsNLG(random,height-floorTileHeight-1,hsObjectsScreen);
 	        //piece with mountain
 	        //length +=buildHillStraight(length, 10);
 	        

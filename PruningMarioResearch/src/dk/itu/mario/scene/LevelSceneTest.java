@@ -9,6 +9,7 @@ import java.util.Random;
 
 import Metrics.Metrics;
 import beauty.BeautyCustomizedLevel;
+import beauty.Elements;
 import beauty.ElementsToPlace;
 import beauty.LoadBeautyLevel;
 import beauty.SingleElement;
@@ -133,13 +134,28 @@ import dk.itu.mario.res.ResourcesManager;
 			    	        hsObjectsScreen=CreateHashTableObjectsScreen(hsObjectsScreen, objectsOfSpecificType);			    	      			    			
 			    			
 			    	        random = new Random(newSeed);	
-			    	        generateElementsNLG(random,13,hsObjectsScreen,currentLevel.getHeight());
+			    	        generateElementsNLG(random,1,hsObjectsScreen,currentLevel.getHeight());
+			    	        
+			    	        int[] odds2 =odds.clone();
+			    	        
+			    			ElementsToPlace objElem2=objElem;
+			    			ArrayList<Elements> finalList2 = new ArrayList<Elements>();
+			    			finalList2=objElem.getFinalList();
+			        		Random random2=objElem.random;
+			        		int SizeOdds2 = objElem.SizeOdds;
+			        		int SizeOddsEnemies2 = objElem.SizeOddsEnemies;
+			        		
 			    	        
 			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,1,odds,objElem);		        		
 			    			
 			        		counterIts++;
-			        		
-			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,2,odds,objElem);		        		
+			        					        		
+			        		objElem2.finalList=finalList2;
+			        		objElem2.random=random2;
+			        		objElem2.SizeOdds=SizeOdds2;
+			        		objElem2.SizeOddsEnemies=SizeOddsEnemies2;
+			        	
+			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,2,odds2,objElem2);		        		
 			    			
 			        		counterIts++;
 			    			}
@@ -469,6 +485,7 @@ import dk.itu.mario.res.ResourcesManager;
 			//receiving objects from NLG
 			public void generateElementsNLG(Random random, int floorTileHeight,Hashtable hsObjectsScreen,int height)
 			{
+				
 				objElem=new ElementsToPlace(random,floorTileHeight,hsObjectsScreen,height);
 				odds=objElem.getOdds();
 			}

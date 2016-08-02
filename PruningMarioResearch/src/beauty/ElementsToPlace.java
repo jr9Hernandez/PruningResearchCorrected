@@ -10,10 +10,10 @@ import java.util.Random;
 
 public class ElementsToPlace { 
     //lastcom
-	Random random;
-	private int SizeOdds = 0;
-	private int SizeOddsEnemies = 0;
-	private Elements objElement; 
+	public Random random;
+	public int SizeOdds = 0;
+	public int SizeOddsEnemies = 0;
+	public Elements objElement; 
 	
 	//elements
 	//private static final int ODDS_STRAIGHT = 0;
@@ -61,7 +61,7 @@ public class ElementsToPlace {
 	
     
 	private int[] odds = new int[21];
-	private ArrayList<Elements> finalList = new ArrayList<Elements>();
+	public ArrayList<Elements> finalList = new ArrayList<Elements>();
 	
 	public ElementsToPlace(Random random, int floorTileHeight, Hashtable hsObjectsScreen,int height)
 	{ 
