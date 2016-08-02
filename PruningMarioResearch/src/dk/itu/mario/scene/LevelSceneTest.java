@@ -9,6 +9,7 @@ import java.util.Random;
 
 import Metrics.Metrics;
 import beauty.BeautyCustomizedLevel;
+import beauty.ElementsToPlace;
 import beauty.LoadBeautyLevel;
 import beauty.SingleElement;
 import beauty.SingleScreen;
@@ -43,6 +44,9 @@ import dk.itu.mario.res.ResourcesManager;
 			private boolean isCustom;
 			private String nameFile;
 			private int typeTask;
+			private int[] odds;
+			ElementsToPlace objElem;
+			Random random;
 
 			public LevelSceneTest(GraphicsConfiguration graphicsConfiguration,
 					MarioComponent renderer, long seed, int levelDifficulty, int type,boolean isCustom,String nameFile, int typeTask){
@@ -128,11 +132,14 @@ import dk.itu.mario.res.ResourcesManager;
 			    	        hsObjectsScreen = new Hashtable();
 			    	        hsObjectsScreen=CreateHashTableObjectsScreen(hsObjectsScreen, objectsOfSpecificType);			    	      			    			
 			    			
-			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,1);		        		
+			    	        random = new Random(newSeed);	
+			    	        generateElementsNLG(random,13,hsObjectsScreen,currentLevel.getHeight());
+			    	        
+			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,1,odds,objElem);		        		
 			    			
 			        		counterIts++;
 			        		
-			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,2);		        		
+			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,2,odds,objElem);		        		
 			    			
 			        		counterIts++;
 			    			}
@@ -457,6 +464,13 @@ import dk.itu.mario.res.ResourcesManager;
     	        }
 				//hsMetrics.put(key, value)
 				return hsObjectsScreen;
+			}
+			
+			//receiving objects from NLG
+			public void generateElementsNLG(Random random, int floorTileHeight,Hashtable hsObjectsScreen,int height)
+			{
+				objElem=new ElementsToPlace(random,floorTileHeight,hsObjectsScreen,height);
+				odds=objElem.getOdds();
 			}
 
 

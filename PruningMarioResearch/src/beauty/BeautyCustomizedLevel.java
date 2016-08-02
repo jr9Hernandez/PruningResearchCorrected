@@ -98,12 +98,13 @@ public class BeautyCustomizedLevel extends Level{
 	    }
 		
 		//Constructor to many single screens receiving objects as parameters
-		public BeautyCustomizedLevel(int width, int height, long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry)
+		public BeautyCustomizedLevel(int width, int height, long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry,int[] odds,ElementsToPlace objElem)
 	    {
 			
 	        this(width, height);
 	        creatManySearchesObjectsNLG(seed, difficulty, type,count,hsObjectsScreen,typeSymmetry);
-	        
+	        this.objElem=objElem;
+	        this.odds=odds;
 	        
 	    }
 		
@@ -157,7 +158,7 @@ public class BeautyCustomizedLevel extends Level{
 	        }
 	        //creating the floor of rest of the tile
 	        length +=buildStraight(initialStraight, mediumStraight, false);
-	        generateElementsNLG(random,height-floorTileHeight-1,hsObjectsScreen);
+	       // generateElementsNLG(random,height-floorTileHeight-1,hsObjectsScreen);
 	        //piece with mountain
 	        //length +=buildHillStraight(length, 10);
 	        
