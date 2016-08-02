@@ -128,7 +128,11 @@ import dk.itu.mario.res.ResourcesManager;
 			    	        hsObjectsScreen = new Hashtable();
 			    	        hsObjectsScreen=CreateHashTableObjectsScreen(hsObjectsScreen, objectsOfSpecificType);			    	      			    			
 			    			
-			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen);		        		
+			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,1);		        		
+			    			
+			        		counterIts++;
+			        		
+			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,2);		        		
 			    			
 			        		counterIts++;
 			    			}

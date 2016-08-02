@@ -98,11 +98,11 @@ public class BeautyCustomizedLevel extends Level{
 	    }
 		
 		//Constructor to many single screens receiving objects as parameters
-		public BeautyCustomizedLevel(int width, int height, long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen)
+		public BeautyCustomizedLevel(int width, int height, long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry)
 	    {
 			
 	        this(width, height);
-	        creatManySearchesObjectsNLG(seed, difficulty, type,count,hsObjectsScreen);
+	        creatManySearchesObjectsNLG(seed, difficulty, type,count,hsObjectsScreen,typeSymmetry);
 	        
 	        
 	    }
@@ -126,7 +126,7 @@ public class BeautyCustomizedLevel extends Level{
 			odds=objElem.getOdds();
 		}
 
-		public void creatManySearchesObjectsNLG(long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen)
+		public void creatManySearchesObjectsNLG(long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry)
 	    {
 			mediumStraight=width-initialStraight-finalStraight;
 			lastSeed = seed;
@@ -164,7 +164,7 @@ public class BeautyCustomizedLevel extends Level{
 	        //Placing the elements on the tile
 	        //********to generate 1 screen***********
 	        //fixWalls();
-	        CreatingBeautyContent(count);
+	        CreatingBeautyContent(count,typeSymmetry);
 	      //********to generate k screens***********
 	        //CreatingBeautyContentTopK();
 	        
@@ -219,7 +219,7 @@ public class BeautyCustomizedLevel extends Level{
 	        //Placing the elements on the tile
 	        //********to generate 1 screen***********
 	        //fixWalls();
-	        CreatingBeautyContent(count);
+	        CreatingBeautyContent(count,1);
 	      //********to generate k screens***********
 	        //CreatingBeautyContentTopK();
 	        
@@ -285,7 +285,7 @@ public class BeautyCustomizedLevel extends Level{
 	        
 	    }
 
-		private void CreatingBeautyContent(int count) { 
+		private void CreatingBeautyContent(int count,int typeSymmetry) { 
 			// TODO Auto-generated method stub
 
 	        
@@ -303,14 +303,15 @@ public class BeautyCustomizedLevel extends Level{
 	    	int globalControlSearch=0;
 	    	
 	    	long startTime = System.currentTimeMillis();
+
 	    	
 	    	//Beststates=objGrapB.basicDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem);
 	    	//Beststates=objGrapB.relativePositionDepthSearch(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,-mediumStraight+2,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
 	    	//Beststates=objGrapB.relativeTransPositionDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem,-mediumStraight+1,mediumStraight-1,floorTileHeight,0,0,currentState,hTable);
 	    	//Beststates=objGrapB.DepthSearchCenterFrame(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
-	    	Beststates=objGrapB.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,7.5);
+	    	Beststates=objGrapB.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,7.5,typeSymmetry);
 	    	//Beststates=objGrapB.DepthSearchPruningAlt(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
-	    	Beststates2=objGrapB2.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8.0);
+	    	Beststates2=objGrapB2.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8.0,typeSymmetry);
 	    	
 	    	if(objGrapB.bestSymmetryV<objGrapB2.bestSymmetryV)
 	    	{
@@ -1115,7 +1116,7 @@ public class BeautyCustomizedLevel extends Level{
                     	}	                    
 	        		}
             	}
-	        //setSpriteTemplate(xTube, floor-heigthElement+1, new SpriteTemplate(Enemy.ENEMY_FLOWER, false));
+	        setSpriteTemplate(xTube, floor-heigthElement+1, new SpriteTemplate(Enemy.ENEMY_FLOWER, false));
 	        return mLevel;
 	    	}
 	    
@@ -1365,7 +1366,7 @@ public class BeautyCustomizedLevel extends Level{
 	                    type = random.nextInt(3);
 	                }
 
-	                //setSpriteTemplate(x, y, new SpriteTemplate(type, random.nextInt(35) < difficulty));
+	                setSpriteTemplate(x, y, new SpriteTemplate(type, random.nextInt(35) < difficulty));
 	               enemyAdded=true;
 	            }
 	        }
@@ -1390,7 +1391,7 @@ public class BeautyCustomizedLevel extends Level{
 	                    type = random.nextInt(3);
 	                }
 
-	                //setSpriteTemplate(x, y, new SpriteTemplate(type, random.nextInt(35) < difficulty));
+	                setSpriteTemplate(x, y, new SpriteTemplate(type, random.nextInt(35) < difficulty));
 	                enemyAddedBefore=true;
 	            }
 	        }
@@ -1415,7 +1416,7 @@ public class BeautyCustomizedLevel extends Level{
 	                    type = random.nextInt(3);
 	                }
 
-	                //setSpriteTemplate(x, y, new SpriteTemplate(type, random.nextInt(35) < difficulty));
+	                setSpriteTemplate(x, y, new SpriteTemplate(type, random.nextInt(35) < difficulty));
 	               
 	            }
 	        }
@@ -1466,7 +1467,7 @@ public class BeautyCustomizedLevel extends Level{
 	            	    } 
 	                	if(flag==true)
 	                	{
-	                		//setBlock(x, floor - 1, COIN);
+	                		setBlock(x, floor - 1, COIN);
 	                	}
 	                    
 	                    //COINS++;
@@ -1570,7 +1571,7 @@ public class BeautyCustomizedLevel extends Level{
 	            	    } 
 	                	if(flag==true)
 	                	{
-	                		//setBlock(x, floor - 1, COIN);
+	                		setBlock(x, floor - 1, COIN);
 	                	}
 	                    
 	                    //COINS++;
@@ -1673,7 +1674,7 @@ public class BeautyCustomizedLevel extends Level{
 	            	    } 
 	                	if(flag==true)
 	                	{
-	                		//setBlock(x, floor - 1, COIN);
+	                		setBlock(x, floor - 1, COIN);
 	                	}
 	                    
 	                    //COINS++;

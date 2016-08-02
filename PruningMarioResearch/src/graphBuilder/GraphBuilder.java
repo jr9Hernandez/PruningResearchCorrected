@@ -604,7 +604,7 @@ public class GraphBuilder
         }
     }   
  
-	public ArrayList  DepthSearchPruningAlt(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch)
+	public ArrayList  DepthSearchPruningAlt(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch,int typeSymmetry)
     {    
     	
     	countElements--;
@@ -870,7 +870,7 @@ public class GraphBuilder
     		    		    		    		
     		if(countElements>0 && validationSymmetryFuture==false)
     		{    			
-    			DepthSearchPruningAlt(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1);
+    			DepthSearchPruningAlt(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,typeSymmetry);
     		}
     		else{
     			if(countElements==0)
@@ -878,7 +878,7 @@ public class GraphBuilder
     			firstBranchPercorred=true;
     			//System.out.println("aca se debe calcular la formula");
     			//System.out.println("chimol");
-    			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft);
+    			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft,typeSymmetry);
     			//System.out.println("chimol ");
     			}
     			 
@@ -906,7 +906,7 @@ public class GraphBuilder
     	return Beststates;
     }
     
-	public ArrayList  DepthSearchCenterFramePruning(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal)
+	public ArrayList  DepthSearchCenterFramePruning(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry)
     {    
 		globalCenterXMass=centerXGlobal;
     	countElements--;
@@ -1170,7 +1170,7 @@ public class GraphBuilder
     		}
     		if(countElements>0 && validationPruningM==false)
     		{    		    			
-    	    	DepthSearchCenterFramePruning(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal);
+    	    	DepthSearchCenterFramePruning(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal,typeSymmetry);
     		}
     		else{
     			//System.out.println("aca se debe calcular la formula");
@@ -1178,7 +1178,7 @@ public class GraphBuilder
     			{
     			firstBranchPercorred=true;
     			//System.out.println("chunter");
-    			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft);
+    			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft,typeSymmetry);
     			}
     		}
     		//System.out.println("Aqui deberia eliminar del array");
@@ -1224,7 +1224,7 @@ public class GraphBuilder
 	
 
     
-	public ArrayList  DepthSearchCenterFrame(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch)
+	public ArrayList  DepthSearchCenterFrame(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, int typeSymmetry)
     {    
     	
     	countElements--;
@@ -1435,11 +1435,11 @@ public class GraphBuilder
 
     		if(countElements>0)
     		{    			
-    			DepthSearchCenterFrame(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1);
+    			DepthSearchCenterFrame(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1, typeSymmetry);
     		}
     		else{
     			//System.out.println("aca se debe calcular la formula");
-    			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft);
+    			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft,typeSymmetry);
     			 
     		}
     		//System.out.println("Aqui deberia eliminar del array");
@@ -2116,7 +2116,7 @@ public class GraphBuilder
     			
 	}     
     
-    private void validateBestBranchDepthSearchCenterFrame(ArrayList states, ElementsToPlace objElemP,int height,int floor,int maxObjLeft) {
+    private void validateBestBranchDepthSearchCenterFrame(ArrayList states, ElementsToPlace objElemP,int height,int floor,int maxObjLeft, int typeSymmetry) {
 		// TODO Auto-generated method stub
     	
     	//impresion de array actual
@@ -2130,7 +2130,14 @@ public class GraphBuilder
         //here we will calculate the center of mass
         centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
        // symmetryV=symettry1Areas(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
-        symmetryV=Rythm1AreasVertical(states, xCenterMassGeneral, yCenterMassGeneral,objElemP );        
+        if(typeSymmetry==1)
+        {
+        	symmetryV=Rythm1AreasVertical(states, xCenterMassGeneral, yCenterMassGeneral,objElemP );        
+        }
+        else
+        {
+        	symmetryV=Rythm1AreasVertical(states, xCenterMassGeneral, yCenterMassGeneral,objElemP ); 	
+        }
         double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         
         if(symmetryV<bestSymmetryV)
