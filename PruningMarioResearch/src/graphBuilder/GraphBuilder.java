@@ -2533,6 +2533,9 @@ public class GraphBuilder
 	public double Rythm1AreasVertical(ArrayList states, double xCenterMassGeneral, double yCenterMassGeneral, ElementsToPlace objElemP)
 	{
 
+		XsQuadrant=new ArrayList<Double>();
+    	YsQuadrant=new ArrayList<Double>();
+    	
 		bestXs=new ArrayList<Double>();
     	bestYs=new ArrayList<Double>();
 		
@@ -3036,6 +3039,8 @@ public class GraphBuilder
 
 		bestXs=new ArrayList<Double>();
     	bestYs=new ArrayList<Double>();
+    	XsQuadrant=new ArrayList<Double>();
+    	YsQuadrant=new ArrayList<Double>();
     	
 		double [] gulAG;
 		double [] gurAG;
