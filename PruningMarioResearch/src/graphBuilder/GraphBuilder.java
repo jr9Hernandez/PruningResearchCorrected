@@ -1157,8 +1157,8 @@ public class GraphBuilder
     		BlockNode objBlockNode2=new BlockNode(indexN,indeyN,counterIDs,typeElem,idElem);
     		states.add(objBlockNode2);
     		
-    		
-    		partialSymmetry=partialSymmetry(states,objElemP,height,floorTileHeight,localMaxObjLeft,false);
+    		//partialSymmetry=partialSymmetry(states,objElemP,height,floorTileHeight,localMaxObjLeft,false);
+    		partialSymmetry=partialSymmetryNewFormula(states,objElemP,height,floorTileHeight,localMaxObjLeft,false,typeSymmetry);
     		boolean validationPruningM=false;
     		if(firstBranchPercorred==true)
     		{
@@ -2114,7 +2114,37 @@ public class GraphBuilder
     	
         return symmetryV;
     			
-	}     
+	}
+    
+    private Double partialSymmetryNewFormula(ArrayList states, ElementsToPlace objElemP,int height,int floor,int maxObjLeft,boolean futureSymmetry,int typeSymmetry) {
+		// TODO Auto-generated method stub
+    	
+    	
+    	//impresion de array actual
+    	
+    	Iterator<BlockNode> nombreIterator = states.iterator();
+        while(nombreIterator.hasNext()){
+        	BlockNode elemento = nombreIterator.next();
+        	//System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" )  / ");
+        }
+        
+        //here we will calculate the center of mass
+        centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
+        //symmetryV=symettry1Areas(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
+        //double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
+    	
+        if(typeSymmetry==1)
+        {
+        	symmetryV=Rythm1AreasVertical(states, xCenterMassGeneral, yCenterMassGeneral,objElemP );        
+        }
+        else
+        {
+        	symmetryV=Rythm1Areas(states, xCenterMassGeneral, yCenterMassGeneral,objElemP ); 	
+        }
+        
+        return symmetryV;
+    			
+	} 
     
     private void validateBestBranchDepthSearchCenterFrame(ArrayList states, ElementsToPlace objElemP,int height,int floor,int maxObjLeft, int typeSymmetry) {
 		// TODO Auto-generated method stub
