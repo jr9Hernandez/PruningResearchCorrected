@@ -2533,6 +2533,9 @@ public class GraphBuilder
 	public double Rythm1AreasVertical(ArrayList states, double xCenterMassGeneral, double yCenterMassGeneral, ElementsToPlace objElemP)
 	{
 
+		bestXs=new ArrayList<Double>();
+    	bestYs=new ArrayList<Double>();
+		
 		double [] gulAG;
 		double [] gurAG;
 		double [] gllAG;
@@ -2594,6 +2597,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
 					gulAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -2618,6 +2623,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
 					gllAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -2643,6 +2650,8 @@ public class GraphBuilder
 					//first block of the element (up left)
 					//y=(yInitial-heigthElement)+(yCenterMassGeneral-yInitial)/2;
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
 					gulAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -2661,6 +2670,8 @@ public class GraphBuilder
 
 					//second block of the element (low left)
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
 					gllAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -2687,6 +2698,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
 					gurAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -2709,6 +2722,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
 					glrAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -2733,6 +2748,8 @@ public class GraphBuilder
 
 					//first block of the element (up right)
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
 					gurAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -2752,6 +2769,8 @@ public class GraphBuilder
 
 					//second block of the element  (low right)
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
 					glrAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -2779,6 +2798,8 @@ public class GraphBuilder
 
 					//first block of the element (up left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
 					gulAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -2798,6 +2819,8 @@ public class GraphBuilder
 
 					//second block of the element (up right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
 					gurAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -2822,6 +2845,8 @@ public class GraphBuilder
 
 					//first block of the element (low left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
 					gllAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -2841,6 +2866,8 @@ public class GraphBuilder
 
 					//second block of the element (low right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
 					glrAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -2864,6 +2891,8 @@ public class GraphBuilder
 					//first block of the element (up left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
@@ -2883,6 +2912,8 @@ public class GraphBuilder
 					//second block of the element (up right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
@@ -2902,6 +2933,8 @@ public class GraphBuilder
 					//first block of the element (low left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
@@ -2921,6 +2954,8 @@ public class GraphBuilder
 					//second block of the element (low right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
@@ -3028,6 +3063,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
 					gulAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -3052,6 +3089,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
 					gllAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -3077,6 +3116,8 @@ public class GraphBuilder
 					//first block of the element (up left)
 					//y=(yInitial-heigthElement)+(yCenterMassGeneral-yInitial)/2;
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
 					gulAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -3095,6 +3136,8 @@ public class GraphBuilder
 
 					//second block of the element (low left)
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
 					gllAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -3121,6 +3164,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
 					gurAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -3143,6 +3188,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
 					glrAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -3167,6 +3214,8 @@ public class GraphBuilder
 
 					//first block of the element (up right)
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
 					gurAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -3186,6 +3235,8 @@ public class GraphBuilder
 
 					//second block of the element  (low right)
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
 					glrAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -3213,6 +3264,8 @@ public class GraphBuilder
 
 					//first block of the element (up left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
 					gulAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -3232,6 +3285,8 @@ public class GraphBuilder
 
 					//second block of the element (up right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
 					gurAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -3256,6 +3311,8 @@ public class GraphBuilder
 
 					//first block of the element (low left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
 					gllAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -3275,6 +3332,8 @@ public class GraphBuilder
 
 					//second block of the element (low right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
 					glrAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -3298,6 +3357,8 @@ public class GraphBuilder
 					//first block of the element (up left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
@@ -3317,6 +3378,8 @@ public class GraphBuilder
 					//second block of the element (up right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
@@ -3336,6 +3399,8 @@ public class GraphBuilder
 					//first block of the element (low left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
@@ -3355,6 +3420,8 @@ public class GraphBuilder
 					//second block of the element (low right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
+					XsQuadrant.add(x);
+	        		YsQuadrant.add(y);
 
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
