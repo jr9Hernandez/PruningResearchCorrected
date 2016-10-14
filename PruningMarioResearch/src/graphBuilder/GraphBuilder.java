@@ -1480,11 +1480,11 @@ public class GraphBuilder
     		boolean validationPruningM=false;
     		if(firstBranchPercorred==true)
     		{
-    			if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    			/*if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
     			{
     				//System.out.println("cambiaso");
     				validationPruningM=true;
-    			}
+    			}*/
     		}
     		if(countElements>0 && validationPruningM==false)
     		{    		    			
