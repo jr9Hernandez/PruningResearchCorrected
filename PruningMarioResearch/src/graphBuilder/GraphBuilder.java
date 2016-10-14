@@ -489,7 +489,7 @@ public class GraphBuilder
         }
     } 
 
-    public boolean  validationPruningM(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
+    public boolean  validationPruningMAll(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
     { 
     	double tamBottomFromCenter=floorTileHeight-yCenterMassGeneral;
     	double tamTopFromCenter=yCenterMassGeneral-ruleThirds;
@@ -1163,7 +1163,7 @@ public class GraphBuilder
     		boolean validationPruningM=false;
     		if(firstBranchPercorred==true)
     		{
-    			if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    			if(validationPruningMAll(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true && typeSymmetry==2)
     			{
     				//System.out.println("cambiaso");
     				validationPruningM=true;
@@ -1480,7 +1480,7 @@ public class GraphBuilder
     		boolean validationPruningM=false;
     		if(firstBranchPercorred==true)
     		{
-    			/*if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    			/*if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true && typeSymmetry==2)
     			{
     				//System.out.println("cambiaso");
     				validationPruningM=true;
@@ -1797,7 +1797,7 @@ public class GraphBuilder
     		boolean validationPruningM=false;
     		if(firstBranchPercorred==true)
     		{
-    			if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    			if(validationPruningMAll(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true && typeSymmetry==2)
     			{
     				//System.out.println("cambiaso");
     				validationPruningM=true;
@@ -2114,7 +2114,7 @@ public class GraphBuilder
     		boolean validationPruningM=false;
     		if(firstBranchPercorred==true)
     		{
-    			if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    			if(validationPruningMAll(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true && typeSymmetry==2)
     			{
     				//System.out.println("cambiaso");
     				validationPruningM=true;
@@ -2431,7 +2431,7 @@ public class GraphBuilder
     		boolean validationPruningM=false;
     		if(firstBranchPercorred==true)
     		{
-    			if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    			if(validationPruningMAll(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true && typeSymmetry==2)
     			{
     				//System.out.println("cambiaso");
     				validationPruningM=true;
@@ -2749,7 +2749,7 @@ public class GraphBuilder
 	    		boolean validationPruningM=false;
 	    		if(firstBranchPercorred==true)
 	    		{
-	    			if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+	    			if(validationPruningMAll(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
 	    			{
 	    				//System.out.println("cambiaso");
 	    				validationPruningM=true;
