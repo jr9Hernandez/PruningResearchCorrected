@@ -326,7 +326,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	System.out.println("Simetry 1-> Pruning "+objGrapB.bestSymmetryV);
 	    	System.out.println("Simetry 2-> No Pruning "+objGrapB2.bestSymmetryV);
 	    	
-	    	/*
+	    	
 	    	if(objGrapB.bestSymmetryV<objGrapB2.bestSymmetryV)
 	    	{
 	    		double bestSYmmetry=objGrapB.bestSymmetryV;
@@ -339,7 +339,7 @@ public class BeautyCustomizedLevel extends Level{
 	    		double bestSYmmetry=objGrapB2.bestSymmetryV;
 	    		System.out.println("bestSym "+bestSYmmetry);
 	    		BestGlobalstates=Beststates2;
-	    	}*/
+	    	}
 	    	
 	    	long stopTime = System.currentTimeMillis();
 	        long elapsedTime = stopTime - startTime;

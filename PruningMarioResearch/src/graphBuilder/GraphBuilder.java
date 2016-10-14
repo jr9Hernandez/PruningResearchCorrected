@@ -1593,6 +1593,7 @@ public class GraphBuilder
     	 {       
     		 int indeyN=j;
     		 
+    		 /*
     		 if(quadrant1X>quadrant2X)
     		 {
     			indexN= (maxRight-i+1);
@@ -1602,6 +1603,7 @@ public class GraphBuilder
     		 {
     			 indeyN=(height-j-1)+ruleThirds;
     		 }
+    		 */
     		 if(objElem.getIdElem()==0)
     		 {   			     			
     			 if(indexN>globalCenterXMass)

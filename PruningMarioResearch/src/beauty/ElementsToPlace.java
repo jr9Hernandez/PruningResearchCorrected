@@ -19,8 +19,8 @@ public class ElementsToPlace {
 	//private static final int ODDS_STRAIGHT = 0;
 	
 	private static final int ODDS_JUMP = 0;
-    private static final int ODDS_HILL_STRAIGHT = 2;	
-    private static final int ODDS_TUBES = 1;
+    private static final int ODDS_HILL_STRAIGHT = 1;	
+    private static final int ODDS_TUBES =2;
     private static final int ODDS_CANNONS = 3;     
     private static final int ODDS_TUBES_FLOWER=4;
 	//decorate
@@ -62,6 +62,8 @@ public class ElementsToPlace {
     
 	private int[] odds = new int[21];
 	public ArrayList<Elements> finalList = new ArrayList<Elements>();
+	public ArrayList<Elements> finalListNoOrder = new ArrayList<Elements>();
+	public ArrayList<Elements> finalListOriginal = new ArrayList<Elements>();
 	
 	public ElementsToPlace(Random random, int floorTileHeight, Hashtable hsObjectsScreen,int height)
 	{ 
@@ -298,12 +300,13 @@ public class ElementsToPlace {
         	}   		
     		
     		finalList.add(objElement);
-    		System.out.println("finalList1 "+finalList.get(i).getTypeElem() + " "+finalList.get(i).getHeigth() +" "+finalList.get(i).getWidth());
-    		
+    		//System.out.println("finalList1 "+finalList.get(i).getTypeElem() + " "+finalList.get(i).getHeigth() +" "+finalList.get(i).getWidth());
+    		finalListOriginal=new ArrayList<Elements>(finalList);
     		
         }
         SingleElement objSingleElement= new SingleElement(0, 0, "");
         finalList=objSingleElement.sortElementsbyType(finalList);
+        finalListNoOrder=new ArrayList<Elements>(finalList);
         
         ArrayList subAListElements=new ArrayList<Elements>();
         for(int i=0;i<finalList.size();i++)
@@ -329,9 +332,13 @@ public class ElementsToPlace {
 		for(int i=0;i<finalList.size();i++)
 		{
 			finalList.get(i).setIdElem(i);
-			System.out.println("tipin" + finalList.get(i).getTypeElem()+ " "+finalList.get(i).getHeigth() +" "+finalList.get(i).getWidth());
+			finalListNoOrder.get(i).setIdElem(i);
+			System.out.println("List Original" + finalListOriginal.get(i).getTypeElem()+ " "+finalListOriginal.get(i).getHeigth() +" "+finalListOriginal.get(i).getWidth());
+			System.out.println("List" + finalList.get(i).getTypeElem()+ " "+finalList.get(i).getHeigth() +" "+finalList.get(i).getWidth());
+			System.out.println("List No order areas" + finalListNoOrder.get(i).getTypeElem()+ " "+finalListNoOrder.get(i).getHeigth() +" "+finalListNoOrder.get(i).getWidth());
+			System.out.println("----");
 		}
-        
+		System.out.println("");
         
         /*for(int i=0;i<odds.length;i++)
         {
