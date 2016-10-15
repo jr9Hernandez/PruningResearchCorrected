@@ -14,6 +14,7 @@ public class ElementsToPlace {
 	public int SizeOdds = 0;
 	public int SizeOddsEnemies = 0;
 	public Elements objElement; 
+	public Elements objElement2; 
 	
 	//elements
 	//private static final int ODDS_STRAIGHT = 0;
@@ -301,16 +302,19 @@ public class ElementsToPlace {
     		
     		finalList.add(objElement);
     		//System.out.println("finalList1 "+finalList.get(i).getTypeElem() + " "+finalList.get(i).getHeigth() +" "+finalList.get(i).getWidth());
-    		finalListOriginal=new ArrayList<Elements>(finalList);
+    		//finalListOriginal=new ArrayList<Elements>(finalList);
     		
         }
         SingleElement objSingleElement= new SingleElement(0, 0, "");
         finalList=objSingleElement.sortElementsbyType(finalList);
-        finalListNoOrder=new ArrayList<Elements>(finalList);
+        finalListNoOrder=new ArrayList<Elements>();
         
         ArrayList subAListElements=new ArrayList<Elements>();
         for(int i=0;i<finalList.size();i++)
         {
+        	objElement2=new Elements();
+        	objElement2=objElement2.cloneElements(finalList.get(i), i);
+        	finalListNoOrder.add(objElement2);
         	if((finalList.get(i)).getTypeElem()>ODDS_HILL_STRAIGHT)
         	{
         		subAListElements.add(finalList.get(i));
@@ -333,7 +337,7 @@ public class ElementsToPlace {
 		{
 			finalList.get(i).setIdElem(i);
 			finalListNoOrder.get(i).setIdElem(i);
-			System.out.println("List Original" + finalListOriginal.get(i).getTypeElem()+ " "+finalListOriginal.get(i).getHeigth() +" "+finalListOriginal.get(i).getWidth());
+			//System.out.println("List Original" + finalListOriginal.get(i).getTypeElem()+ " "+finalListOriginal.get(i).getHeigth() +" "+finalListOriginal.get(i).getWidth());
 			System.out.println("List" + finalList.get(i).getTypeElem()+ " "+finalList.get(i).getHeigth() +" "+finalList.get(i).getWidth());
 			System.out.println("List No order areas" + finalListNoOrder.get(i).getTypeElem()+ " "+finalListNoOrder.get(i).getHeigth() +" "+finalListNoOrder.get(i).getWidth());
 			System.out.println("----");
