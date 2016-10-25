@@ -3922,6 +3922,15 @@ public class GraphBuilder
 		double [] gllATC=new double[4];
 		double [] glrATC=new double[4];
 
+		partialXSummatory[0]=0;
+		partialXSummatory[1]=0;
+		partialXSummatory[2]=0;
+		partialXSummatory[3]=0;
+		
+		partialYSummatory[0]=0;
+		partialYSummatory[1]=0;
+		partialYSummatory[2]=0;
+		partialYSummatory[3]=0;
 
 		double widthElement=0;
 		double heigthElement=0;
@@ -3967,6 +3976,9 @@ public class GraphBuilder
 					gulATG[3]=gulATG[3]+gulAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
+	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
 
 				}
 
@@ -3995,6 +4007,9 @@ public class GraphBuilder
 					gllATG[3]=gllATG[3]+gllAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
+	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
 
 				}
 				else
@@ -4023,6 +4038,9 @@ public class GraphBuilder
 					gulATG[3]=gulATG[3]+gulAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
+	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
 
 					//second block of the element (low left)
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -4046,6 +4064,9 @@ public class GraphBuilder
 					gllATG[3]=gllATG[3]+gllAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
+	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
 				}
 			}
 			else if(xInitial>=xCenterMassGeneral )
@@ -4076,6 +4097,9 @@ public class GraphBuilder
 					gurATG[3]=gurATG[3]+gurAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
+	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
 				}
 				//block low right
 				else if(yInitial-heigthElement>=yCenterMassGeneral)
@@ -4102,6 +4126,9 @@ public class GraphBuilder
 					glrATG[3]=glrATG[3]+glrAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
+	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
 				}
 				else
 				{
@@ -4130,6 +4157,9 @@ public class GraphBuilder
 					gurATG[3]=gurATG[3]+gurAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
+	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
 
 					//second block of the element  (low right)
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
@@ -4153,6 +4183,9 @@ public class GraphBuilder
 					glrATG[3]=glrATG[3]+glrAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
+	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
 				}
 
 			}
@@ -4184,6 +4217,9 @@ public class GraphBuilder
 					gulATG[3]=gulATG[3]+gulAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
+	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
 
 					//second block of the element (up right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -4207,6 +4243,9 @@ public class GraphBuilder
 					gurATG[3]=gurATG[3]+gurAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
+	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
 
 				}
 				else if(yInitial-heigthElement>=yCenterMassGeneral)
@@ -4235,6 +4274,9 @@ public class GraphBuilder
 					gllATG[3]=gllATG[3]+gllAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
+	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
 
 					//second block of the element (low right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -4258,6 +4300,9 @@ public class GraphBuilder
 					glrATG[3]=glrATG[3]+glrAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
+	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
 				}
 				else
 				{
@@ -4284,6 +4329,9 @@ public class GraphBuilder
 					gulATG[3]=gulATG[3]+gulAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
+	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
 
 					//second block of the element (up right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -4307,6 +4355,9 @@ public class GraphBuilder
 					gurATG[3]=gurATG[3]+gurAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
+	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
 
 					//first block of the element (low left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
@@ -4330,6 +4381,9 @@ public class GraphBuilder
 					gllATG[3]=gllATG[3]+gllAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
+	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
 
 					//second block of the element (low right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
@@ -4354,6 +4408,9 @@ public class GraphBuilder
 					glrATG[3]=glrATG[3]+glrAG[3];
 					bestXs.add(gulAG[0]);
 	        		bestYs.add(gulAG[1]);
+	        		
+	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
+	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
 				}
 			}
 
