@@ -3009,6 +3009,11 @@ public class GraphBuilder
 		partialYSummatory[1]=0;
 		partialYSummatory[2]=0;
 		partialYSummatory[3]=0;
+		
+		partialASummatory[0]=0;
+		partialASummatory[1]=0;
+		partialASummatory[2]=0;
+		partialASummatory[3]=0;
 
 		double widthElement=0;
 		double heigthElement=0;
