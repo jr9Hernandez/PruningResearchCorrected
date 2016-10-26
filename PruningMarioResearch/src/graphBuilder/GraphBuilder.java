@@ -1268,9 +1268,26 @@ public class GraphBuilder
     	
     	int quadrant1Y=0;
     	int quadrant2Y=0;
+    	
+    	int minor=0;
+    	double minorValue=10000000;
+    	
     	if(countElements!=countElementsFinal-1)
     	{
     		
+    		
+    		for(int i=0;i<partialASummatory.length;i++)
+    		{
+    			
+    			if(partialASummatory[i]<minorValue)
+    			{
+    				
+    				minorValue=partialASummatory[i];
+    				minor=i;
+    			}
+    		}
+    		
+    		/*
     		for(int i=0;i<XsQuadrant.size();i++)
     		{
     			
@@ -1282,9 +1299,8 @@ public class GraphBuilder
     			{
     				quadrant2X++;
     			}
-    		}
-    		
-    		for(int i=0;i<bestYs.size();i++)
+    		}*/
+    		/*for(int i=0;i<bestYs.size();i++)
     		{
     			if(YsQuadrant.get(i)<yCenterMassGeneral)
     			{
@@ -1294,7 +1310,7 @@ public class GraphBuilder
     			{
     				quadrant2Y++;
     			}
-    		}
+    		}*/
     		
     	}
     	
@@ -1307,7 +1323,21 @@ public class GraphBuilder
     	 {       
     		 int indeyN=j;
     		 
-    		 if(quadrant1X>quadrant2X)
+    		 if(minor==1)
+    		 {
+    			indexN= (maxRight-i+1); 
+    		 }
+    		 else if(minor==2)
+    		 {
+    			 indeyN=(height-j-1)+ruleThirds; 
+    		 }
+    		 else if(minor==3)
+    		 {
+    			 indexN= (maxRight-i+1);
+    			 indeyN=(height-j-1)+ruleThirds; 
+    		 }
+    		 
+    		 /*if(quadrant1X>quadrant2X)
     		 {
     			indexN= (maxRight-i+1);
     		 }
@@ -1315,7 +1345,7 @@ public class GraphBuilder
     		 if(quadrant1Y>quadrant2Y)
     		 {
     			 indeyN=(height-j-1)+ruleThirds;
-    		 }
+    		 }*/
     		 if(objElem.getIdElem()==0)
     		 {   			     			
     			 if(indexN>globalCenterXMass)
@@ -1511,16 +1541,15 @@ public class GraphBuilder
     		boolean validationPruningM=false;
     		if(firstBranchPercorred==true)
     		{
-    			/*if(validationPruningM(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true && typeSymmetry==2)
+    			/*if(validationPruningMAll(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true && typeSymmetry==2)
     			{
     				//System.out.println("cambiaso");
     				validationPruningM=true;
     			}*/
-
     		}
     		if(countElements>0 && validationPruningM==false)
     		{    		    			
-    			DepthSearchCenterFrameNOPruning(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal,typeSymmetry);
+    	    	DepthSearchCenterFrameNOPruning(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal,typeSymmetry);
     		}
     		else{
     			//System.out.println("aca se debe calcular la formula");
