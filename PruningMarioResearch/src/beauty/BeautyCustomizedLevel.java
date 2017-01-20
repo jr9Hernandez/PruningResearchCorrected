@@ -311,7 +311,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	int numEnemies=objElem.getNumberObjectsEnemies();
 	    	int globalControlSearch=0;
 	    	
-	    	long startTime = System.currentTimeMillis();
+	    	
 
 	    	
 	    	//Beststates=objGrapB.basicDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem);
@@ -319,12 +319,19 @@ public class BeautyCustomizedLevel extends Level{
 	    	//Beststates=objGrapB.relativeTransPositionDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem,-mediumStraight+1,mediumStraight-1,floorTileHeight,0,0,currentState,hTable);
 	    	//Beststates=objGrapB.DepthSearchCenterFrame(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
 	    	//Beststates=objGrapB.DepthSearchPruningAlt(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
+	    	long startTime = System.currentTimeMillis();
 	    	Beststates=objGrapB.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,7.5,typeSymmetry);	    	
+	    	long stopTime = System.currentTimeMillis();
+	        long elapsedTime = stopTime - startTime;
+	        System.out.println("TimeAllPruning "+elapsedTime);
+	       
+	    	
+	        startTime = System.currentTimeMillis();
 	    	Beststates2=objGrapB2.DepthSearchCenterFrameNOPruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,7.5,typeSymmetry);
+	    	stopTime = System.currentTimeMillis();
+	        elapsedTime = stopTime - startTime;
+	        System.out.println("TimeNOPruning "+elapsedTime);
 	    	
-	    	
-	    	System.out.println("Simetry 1-> Pruning "+objGrapB.bestSymmetryV);
-	    	System.out.println("Simetry 2-> No Pruning "+objGrapB2.bestSymmetryV);
 	    	
 	    	
 	    	if(objGrapB.bestSymmetryV<objGrapB2.bestSymmetryV)
@@ -341,15 +348,19 @@ public class BeautyCustomizedLevel extends Level{
 	    		BestGlobalstates=Beststates2;
 	    	}
 	    	
-	    	long stopTime = System.currentTimeMillis();
-	        long elapsedTime = stopTime - startTime;
-	        System.out.println("Time "+elapsedTime);
+	        
+	        
+	    	System.out.println("Simetry 1-> Pruning "+objGrapB.bestSymmetryV);	    	
+	    	System.out.println("Simetry 2-> No Pruning "+objGrapB2.bestSymmetryV);
+	    	
+	    	
 	    	
 	    	System.out.println( "CounterStates All Pruning "+objGrapB.getCounterIDs() );
 	    	System.out.println( "CounterStates No Pruning "+objGrapB2.getCounterIDs() );
+	    	System.out.println( "CounterStates Pruning just regOrdering"+objGrapB2.getCounterIDs() );	    		    	
 	    	System.out.println( "CounterStates Pruning without obj or reg Ordering"+objGrapB2.getCounterIDs() );
 	    	System.out.println( "CounterStates Pruning just ObjOrdering"+objGrapB2.getCounterIDs() );
-	    	System.out.println( "CounterStates Pruning just regOrdering"+objGrapB2.getCounterIDs() );
+	    	
 	        
 	        //imprimiendo los estados visitados
 	        /*

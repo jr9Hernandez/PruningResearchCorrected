@@ -1255,6 +1255,8 @@ public class GraphBuilder
     	return Beststates;
     }
 	
+	
+	//3.1) Brute-force search
 	public ArrayList  DepthSearchCenterFrameNOPruning(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry)
     {    
 		globalCenterXMass=centerXGlobal;
@@ -1601,6 +1603,7 @@ public class GraphBuilder
     	return Beststates;
     }
     
+	
 	public ArrayList  DepthSearchCenterFrame(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch,double centerXGlobal, int typeSymmetry)
     {    
     	
