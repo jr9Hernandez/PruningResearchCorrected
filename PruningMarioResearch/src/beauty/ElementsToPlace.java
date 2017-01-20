@@ -593,6 +593,11 @@ public class ElementsToPlace {
 		return finalList;
 	}
 	
+	public ArrayList getFinalListNoOrder()
+	{
+		return finalListNoOrder;
+	}
+	
     public static final int getOddsTubes() {
 		return ODDS_TUBES;
 	}
