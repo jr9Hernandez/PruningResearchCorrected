@@ -587,6 +587,11 @@ public class ElementsToPlace {
 		}
 		return 0;
 	}
+	 
+	public void setFinalList(ArrayList finalListNoOrder)
+	{
+		finalList= finalListNoOrder;
+	}
 	
 	public ArrayList getFinalList()
 	{
