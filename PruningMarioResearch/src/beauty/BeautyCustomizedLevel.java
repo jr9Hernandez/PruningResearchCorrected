@@ -48,6 +48,7 @@ public class BeautyCustomizedLevel extends Level{
 		public static long lastSeed;
 		private ArrayList<BlockNode> Beststates = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> Beststates2 = new ArrayList<BlockNode>();
+		private ArrayList<BlockNode> Beststates3a = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> Beststates3 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> Beststates4 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> Beststates5 = new ArrayList<BlockNode>();
@@ -304,6 +305,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	GraphBuilder objGrapB= new GraphBuilder(1);
 	    	GraphBuilder objGrapB2= new GraphBuilder(1);
 	    	GraphBuilder objGrapB3= new GraphBuilder(1);
+	    	GraphBuilder objGrapB3a= new GraphBuilder(1);
 	    	GraphBuilder objGrapB4= new GraphBuilder(1);
 	    	GraphBuilder objGrapB5= new GraphBuilder(1);
 	    	
@@ -334,6 +336,13 @@ public class BeautyCustomizedLevel extends Level{
 	        elapsedTime = stopTime - startTime;
 	        System.out.println("Time B&B+heuristic + object ordering "+elapsedTime);
 	       
+	        //3.3) Brute-force search - Order List
+	        startTime = System.currentTimeMillis();
+	    	Beststates3a=objGrapB3a.DepthSearchCenterFrameNoPruningNoRegionsNoObjects(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,7.5,typeSymmetry);
+	    	stopTime = System.currentTimeMillis();
+	        elapsedTime = stopTime - startTime;
+	        System.out.println("Time Brute-force search "+elapsedTime);
+	        
 	        //3.3) Brute-force search
 	        objElem.setFinalList(objElem.getFinalListNoOrder());
 	        startTime = System.currentTimeMillis();
@@ -375,6 +384,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	
 	        
 	        
+	    	System.out.println("Simetry 0-> Brute-force search order "+objGrapB3a.bestSymmetryV);	
 	    	System.out.println("Simetry 1-> Brute-force search "+objGrapB3.bestSymmetryV);	    	
 	    	System.out.println("Simetry 2-> B&B+heuristic "+objGrapB4.bestSymmetryV);
 	    	System.out.println("Simetry 3-> B&B+heuristic + object ordering "+objGrapB2.bestSymmetryV);	    	
@@ -382,7 +392,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	System.out.println("Simetry 5-> B&B+heuristic + region ordering + object ordering "+objGrapB.bestSymmetryV);
 	    	
 	    	
-	    	
+	    	System.out.println( "States 0 "+objGrapB3a.getCounterIDs() );
 	    	System.out.println( "States 1 "+objGrapB3.getCounterIDs() );
 	    	System.out.println( "States 2 "+objGrapB4.getCounterIDs() );
 	    	System.out.println( "States 3 "+objGrapB2.getCounterIDs() );	    		    	
