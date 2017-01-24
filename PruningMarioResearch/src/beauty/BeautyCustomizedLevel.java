@@ -322,37 +322,39 @@ public class BeautyCustomizedLevel extends Level{
 	    	//Beststates=objGrapB.DepthSearchCenterFrame(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
 	    	//Beststates=objGrapB.DepthSearchPruningAlt(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch);
 	    	
+	    	/*
 	    	//Pruning complete-3.1!
 	    	long startTime = System.currentTimeMillis();
 	    	Beststates=objGrapB.DepthSearchCenterFramePruningAll(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,7.5,typeSymmetry);	    	
 	    	long stopTime = System.currentTimeMillis();
 	        long elapsedTime = stopTime - startTime;
-	        System.out.println("Time Pruning complete "+elapsedTime);
+	        System.out.println("Time Pruning complete "+elapsedTime);*/
 	        
 	        //3.2) B&B+heuristic + object ordering
-	    	startTime = System.currentTimeMillis();
+	    	/*startTime = System.currentTimeMillis();
 	    	Beststates2=objGrapB2.DepthSearchCenterFramePruningOrderObjects(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,7.5,typeSymmetry);	    	
 	    	stopTime = System.currentTimeMillis();
 	        elapsedTime = stopTime - startTime;
-	        System.out.println("Time B&B+heuristic + object ordering "+elapsedTime);
+	        System.out.println("Time B&B+heuristic + object ordering "+elapsedTime);*/
 	       
+	    	/*
 	        //3.3) Brute-force search - Order List
-	        startTime = System.currentTimeMillis();
+	    	startTime = System.currentTimeMillis();
 	    	Beststates3a=objGrapB3a.DepthSearchCenterFrameNoPruningNoRegionsNoObjects(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,7.5,typeSymmetry);
 	    	stopTime = System.currentTimeMillis();
-	        elapsedTime = stopTime - startTime;
-	        System.out.println("Time Brute-force search "+elapsedTime);
+	    	elapsedTime = stopTime - startTime;
+	        System.out.println("Time Brute-force search "+elapsedTime);*/
 	        
 	        //3.3) Brute-force search
-	        objElem.setFinalList(objElem.getFinalListNoOrder());
-	        startTime = System.currentTimeMillis();
+	        //objElem.setFinalList(objElem.getFinalListNoOrder());
+	        long startTime = System.currentTimeMillis();
 	    	Beststates3=objGrapB3.DepthSearchCenterFrameNoPruningNoRegionsNoObjects(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,7.5,typeSymmetry);
-	    	stopTime = System.currentTimeMillis();
-	        elapsedTime = stopTime - startTime;
+	    	long stopTime = System.currentTimeMillis();
+	        long elapsedTime = stopTime - startTime;
 	        System.out.println("Time Brute-force search "+elapsedTime);
 	        
 	        //3.4) B&B+heuristic---
-	        objElem.setFinalList(objElem.getFinalListNoOrder());
+	        //objElem.setFinalList(objElem.getFinalListNoOrder());
 	        startTime = System.currentTimeMillis();
 	    	Beststates4=objGrapB4.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,7.5,typeSymmetry);
 	    	stopTime = System.currentTimeMillis();
@@ -360,7 +362,7 @@ public class BeautyCustomizedLevel extends Level{
 	        System.out.println("Time B&B+heuristic "+elapsedTime);
 	    	
 	        //3.5) B&B+heuristic + region ordering
-	        objElem.setFinalList(objElem.getFinalListNoOrder());
+	        //objElem.setFinalList(objElem.getFinalListNoOrder());
 	        startTime = System.currentTimeMillis();
 	    	Beststates5=objGrapB5.DepthSearchCenterFramePruningRegion(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,7.5,typeSymmetry);
 	    	stopTime = System.currentTimeMillis();
@@ -368,36 +370,36 @@ public class BeautyCustomizedLevel extends Level{
 	        System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	    	
 	    	
-	    	if(objGrapB.bestSymmetryV<objGrapB3.bestSymmetryV)
-	    	{
-	    		double bestSYmmetry=objGrapB.bestSymmetryV;
-	    		System.out.println("bestSym "+bestSYmmetry);
-	    		BestGlobalstates=Beststates;
-	    		
-	    	}
-	    	else
+	    	if(objGrapB3.bestSymmetryV<objGrapB5.bestSymmetryV)
 	    	{
 	    		double bestSYmmetry=objGrapB3.bestSymmetryV;
 	    		System.out.println("bestSym "+bestSYmmetry);
 	    		BestGlobalstates=Beststates3;
+	    		
+	    	}
+	    	else
+	    	{
+	    		double bestSYmmetry=objGrapB5.bestSymmetryV;
+	    		System.out.println("bestSym "+bestSYmmetry);
+	    		BestGlobalstates=Beststates5;
 	    	}
 	    	
 	        
 	        
-	    	System.out.println("Simetry 0-> Brute-force search order "+objGrapB3a.bestSymmetryV);	
+	    	//System.out.println("Simetry 0-> Brute-force search order "+objGrapB3a.bestSymmetryV);	
 	    	System.out.println("Simetry 1-> Brute-force search "+objGrapB3.bestSymmetryV);	    	
 	    	System.out.println("Simetry 2-> B&B+heuristic "+objGrapB4.bestSymmetryV);
-	    	System.out.println("Simetry 3-> B&B+heuristic + object ordering "+objGrapB2.bestSymmetryV);	    	
+	    	//System.out.println("Simetry 3-> B&B+heuristic + object ordering "+objGrapB2.bestSymmetryV);	    	
 	    	System.out.println("Simetry 4-> B&B+heuristic + region ordering "+objGrapB5.bestSymmetryV);
-	    	System.out.println("Simetry 5-> B&B+heuristic + region ordering + object ordering "+objGrapB.bestSymmetryV);
+	    	//System.out.println("Simetry 5-> B&B+heuristic + region ordering + object ordering "+objGrapB.bestSymmetryV);
 	    	
 	    	
-	    	System.out.println( "States 0 "+objGrapB3a.getCounterIDs() );
+	    	//System.out.println( "States 0 "+objGrapB3a.getCounterIDs() );
 	    	System.out.println( "States 1 "+objGrapB3.getCounterIDs() );
 	    	System.out.println( "States 2 "+objGrapB4.getCounterIDs() );
-	    	System.out.println( "States 3 "+objGrapB2.getCounterIDs() );	    		    	
+	    	//System.out.println( "States 3 "+objGrapB2.getCounterIDs() );	    		    	
 	    	System.out.println( "States 4 "+objGrapB5.getCounterIDs() );
-	    	System.out.println( "States 5 "+objGrapB.getCounterIDs() );
+	    	//System.out.println( "States 5 "+objGrapB.getCounterIDs() );
 	    	
 	        
 	        //imprimiendo los estados visitados

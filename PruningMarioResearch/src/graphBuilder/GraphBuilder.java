@@ -2337,7 +2337,8 @@ public class GraphBuilder
     	countElements--;
     	Elements objElem= (Elements)finalList.get(countElementsFinal-countElements-1);
     	int idElem=objElem.getIdElem();
-    	int typeElem=objElem.getTypeElem(); 
+    	int typeElem=objElem.getTypeElem();
+    	int widthElemm=objElem.getWidth();
     	
     	int quadrant1X=0;
     	int quadrant2X=0;
@@ -2399,18 +2400,57 @@ public class GraphBuilder
     	 {       
     		 int indeyN=j;
     		 
+    		 if(minor==0)
+    		 {
+       		 	if(objElem.getIdElem()==0)
+       		 	{   			     			
+       		 		if(indexN>globalCenterXMass)
+       		 		{
+       				 
+       		 			continue;
+       		 		}
+       		 	}
+    		 }
+    		 
     		 if(minor==1)
     		 {
     			indexN= (maxRight-i+1); 
+    			
+       		 	if(objElem.getIdElem()==0)
+       		 	{   			     			
+       		 		if((indexN+widthElemm)<globalCenterXMass)
+       		 		{
+       				 
+       		 			continue;
+       		 		}
+       		 	}
     		 }
     		 else if(minor==2)
     		 {
     			 indeyN=(height-j-1)+ruleThirds; 
+    			 
+        		 if(objElem.getIdElem()==0)
+           		 {   			     			
+           		 	if(indexN>globalCenterXMass)
+           		 	{
+           				 
+           		 		continue;
+           		 	}
+           		 }
     		 }
     		 else if(minor==3)
     		 {
     			 indexN= (maxRight-i+1);
-    			 indeyN=(height-j-1)+ruleThirds; 
+    			 indeyN=(height-j-1)+ruleThirds;
+    			 
+        		 if(objElem.getIdElem()==0)
+           		 {   			     			
+        		 	if((indexN+widthElemm)<globalCenterXMass)
+           		 	{
+           				 
+           		 		continue;
+           		 	}
+           		 }
     		 }
     		 
     		 /*if(quadrant1X>quadrant2X)
@@ -2422,14 +2462,7 @@ public class GraphBuilder
     		 {
     			 indeyN=(height-j-1)+ruleThirds;
     		 }*/
-    		 if(objElem.getIdElem()==0)
-    		 {   			     			
-    			 if(indexN>globalCenterXMass)
-    			 {
-    				 
-    				 continue;
-    			 }
-    		 }
+
     		 
     		 if(typeElem==objElemP.getOddsCannons() || typeElem==objElemP.getOddsTubes() || typeElem==objElemP.getTubesFlower())
     		 {    			
