@@ -2418,7 +2418,7 @@ public class GraphBuilder
     			
        		 	if(objElem.getIdElem()==0)
        		 	{   			     			
-       		 		if((indexN+widthElemm)<globalCenterXMass)
+       		 		if((indexN+widthElemm-1)<globalCenterXMass)
        		 		{
        				 
        		 			continue;
@@ -2445,7 +2445,7 @@ public class GraphBuilder
     			 
         		 if(objElem.getIdElem()==0)
            		 {   			     			
-        		 	if((indexN+widthElemm)<globalCenterXMass)
+        		 	if((indexN+widthElemm-1)<globalCenterXMass)
            		 	{
            				 
            		 		continue;
