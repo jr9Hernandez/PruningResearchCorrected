@@ -2402,55 +2402,24 @@ public class GraphBuilder
     		 
     		 if(minor==0)
     		 {
-       		 	if(objElem.getIdElem()==0)
-       		 	{   			     			
-       		 		if(indexN>globalCenterXMass)
-       		 		{
-       				 
-       		 			continue;
-       		 		}
-       		 	}
+
     		 }
     		 
     		 if(minor==1)
     		 {
     			indexN= (maxRight-i+1); 
     			
-       		 	if(objElem.getIdElem()==0)
-       		 	{   			     			
-       		 		if((indexN+widthElemm-1)<globalCenterXMass)
-       		 		{
-       				 
-       		 			continue;
-       		 		}
-       		 	}
     		 }
     		 else if(minor==2)
     		 {
     			 indeyN=(height-j-1)+ruleThirds; 
     			 
-        		 if(objElem.getIdElem()==0)
-           		 {   			     			
-           		 	if(indexN>globalCenterXMass)
-           		 	{
-           				 
-           		 		continue;
-           		 	}
-           		 }
     		 }
     		 else if(minor==3)
     		 {
     			 indexN= (maxRight-i+1);
     			 indeyN=(height-j-1)+ruleThirds;
     			 
-        		 if(objElem.getIdElem()==0)
-           		 {   			     			
-        		 	if((indexN+widthElemm-1)<globalCenterXMass)
-           		 	{
-           				 
-           		 		continue;
-           		 	}
-           		 }
     		 }
     		 
     		 /*if(quadrant1X>quadrant2X)
@@ -2462,7 +2431,14 @@ public class GraphBuilder
     		 {
     			 indeyN=(height-j-1)+ruleThirds;
     		 }*/
-
+    		 if(objElem.getIdElem()==0)
+    		 {   			     			
+    			 if(indexN>globalCenterXMass)
+    			 {
+    				 
+    				 continue;
+    			 }
+    		 }
     		 
     		 if(typeElem==objElemP.getOddsCannons() || typeElem==objElemP.getOddsTubes() || typeElem==objElemP.getTubesFlower())
     		 {    			
