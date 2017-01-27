@@ -681,67 +681,110 @@ public class GraphBuilder
         	double areaElement=(objElem.getHeigth()+1)*objElem.getWidth();
         	//int counterElements=0;
         	
+        	//First Heuristic Purposes
         	if(partialXSummatory[3]>(globalCenterXMass)-(objElem.getWidth()/2))
         	{
         		firstX=(globalCenterXMass)-(objElem.getWidth()/2);
-        		firstXSecondHeuristic= objElem.getWidth()/2;
         	}
         	else
         	{
         		firstX=partialXSummatory[3];
-        		firstXSecondHeuristic=partialXSummatory[3];
         	}
         	
         	if(partialXSummatory[2]>(globalCenterXMass)-(objElem.getWidth()/2))
         	{
         		secondX=(globalCenterXMass)-(objElem.getWidth()/2); 
-        		secondXSecondHeuristic=objElem.getWidth()/2;
         	}
         	else
         	{
         		secondX=partialXSummatory[2];
-        		secondXSecondHeuristic=partialXSummatory[2];
         	}
         	if(partialXSummatory[1]>(globalCenterXMass)-(objElem.getWidth()/2))
         	{
         		thirdX=(globalCenterXMass)-(objElem.getWidth()/2);
-        		thirdXSecondHeuristic=objElem.getWidth()/2;
         	}
         	else
         	{
         		thirdX=partialXSummatory[1];
-        		thirdXSecondHeuristic=partialXSummatory[1];
         	}
         	
         	if(partialYSummatory[3]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
         	{
         		firstY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2); 
-        		firstYSecondHeuristic=objElem.getHeigth()+1;
         	}
         	else
         	{
         		firstY=partialYSummatory[3];
-        		firstYSecondHeuristic=partialYSummatory[3];
         	}
         	
         	if(partialYSummatory[2]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
         	{
         		secondY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2);
-        		secondYSecondHeuristic=objElem.getHeigth()+1;
         	}
         	else
         	{
         		secondY=partialYSummatory[2];
-        		secondYSecondHeuristic=partialYSummatory[2];
         	}
         	if(partialYSummatory[1]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
         	{
         		thirdY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2); 
-        		thirdYSecondHeuristic=objElem.getHeigth()+1;
         	}
         	else
         	{
         		thirdY=partialYSummatory[1];
+        	}
+        	
+        	
+        	//second heuristic purposes
+        	if(partialXSummatory[3]>(objElem.getWidth()/2))
+        	{
+        		firstXSecondHeuristic= objElem.getWidth()/2;
+        	}
+        	else
+        	{
+        		firstXSecondHeuristic=partialXSummatory[3];
+        	}
+        	
+        	if(partialXSummatory[2]>(objElem.getWidth()/2))
+        	{
+        		secondXSecondHeuristic=objElem.getWidth()/2;
+        	}
+        	else
+        	{
+        		secondXSecondHeuristic=partialXSummatory[2];
+        	}
+        	if(partialXSummatory[1]>(objElem.getWidth()/2))
+        	{
+        		thirdXSecondHeuristic=objElem.getWidth()/2;
+        	}
+        	else
+        	{
+        		thirdXSecondHeuristic=partialXSummatory[1];
+        	}
+        	
+        	if(partialYSummatory[3]>((objElem.getHeigth()+1)/2))
+        	{
+        		firstYSecondHeuristic=((objElem.getHeigth()+1)/2);
+        	}
+        	else
+        	{
+        		firstYSecondHeuristic=partialYSummatory[3];
+        	}
+        	
+        	if(partialYSummatory[2]>((objElem.getHeigth()+1)/2))
+        	{
+        		secondYSecondHeuristic=((objElem.getHeigth()+1)/2);
+        	}
+        	else
+        	{
+        		secondYSecondHeuristic=partialYSummatory[2];
+        	}
+        	if(partialYSummatory[1]>((objElem.getHeigth()+1)/2))
+        	{
+        		thirdYSecondHeuristic=((objElem.getHeigth()+1)/2);
+        	}
+        	else
+        	{
         		thirdYSecondHeuristic=partialYSummatory[1];
         	}
         	
