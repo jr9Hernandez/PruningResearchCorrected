@@ -2789,7 +2789,7 @@ public class GraphBuilder
     		boolean validationPruningM=false;
     		if(firstBranchPercorred==true)
     		{
-    			if(validationPruningMAll(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true && typeSymmetry==2)
+    			if(validationPruningMAllLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true && typeSymmetry==2)
     			{
     				//System.out.println("cambiaso");
     				validationPruningM=true;
@@ -2850,7 +2850,7 @@ public class GraphBuilder
     }   
 	
 	//3.5) B&B+heuristic + region ordering + LeviHeuristic
-	public ArrayList  DepthSearchCenterFramePruningRegionLeviHeuristic(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry)
+	public ArrayList  DepthSearchCenterFramePruningLeviHeuristic(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry)
     {    
 		globalCenterXMass=centerXGlobal;
     	countElements--;
@@ -2918,7 +2918,7 @@ public class GraphBuilder
     	 for(int j=ruleThirds;j<height;j++)
     	 {       
     		 int indeyN=j;
-    		 
+    		 /*
     		 if(minor==0)
     		 {
 
@@ -2939,7 +2939,7 @@ public class GraphBuilder
     			 indexN= (maxRight-i+1);
     			 indeyN=(height-j-1)+ruleThirds;
     			 
-    		 }
+    		 }*/
     		 
     		 /*if(quadrant1X>quadrant2X)
     		 {
@@ -3153,7 +3153,7 @@ public class GraphBuilder
     		}
     		if(countElements>0 && validationPruningM==false)
     		{    		    			
-    			DepthSearchCenterFramePruningRegionLeviHeuristic(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal,typeSymmetry);
+    			DepthSearchCenterFramePruningLeviHeuristic(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal,typeSymmetry);
     		}
     		else{
     			//System.out.println("aca se debe calcular la formula");

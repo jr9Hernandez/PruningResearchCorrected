@@ -374,7 +374,7 @@ public class BeautyCustomizedLevel extends Level{
 	        //3.6) B&B+heuristic + region ordering + LeviHeuristic
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
 	        startTime = System.currentTimeMillis();
-	    	Beststates6=objGrapB6.DepthSearchCenterFramePruningRegionLeviHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
+	    	Beststates6=objGrapB6.DepthSearchCenterFramePruningLeviHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
 	    	stopTime = System.currentTimeMillis();
 	        elapsedTime = stopTime - startTime;
 	        System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
