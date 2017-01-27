@@ -52,6 +52,7 @@ public class BeautyCustomizedLevel extends Level{
 		private ArrayList<BlockNode> Beststates3 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> Beststates4 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> Beststates5 = new ArrayList<BlockNode>();
+		private ArrayList<BlockNode> Beststates6 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> BestGlobalstates = new ArrayList<BlockNode>();
 		private int maxScreens=100;
 		
@@ -308,6 +309,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	GraphBuilder objGrapB3a= new GraphBuilder(1);
 	    	GraphBuilder objGrapB4= new GraphBuilder(1);
 	    	GraphBuilder objGrapB5= new GraphBuilder(1);
+	    	GraphBuilder objGrapB6= new GraphBuilder(1);
 	    	
 	    	int numElements=objElem.getNumberObjects();
 	    	int numEnemies=objElem.getNumberObjectsEnemies();
@@ -368,6 +370,14 @@ public class BeautyCustomizedLevel extends Level{
 	    	stopTime = System.currentTimeMillis();
 	        elapsedTime = stopTime - startTime;
 	        System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
+	        
+	        //3.6) B&B+heuristic + region ordering + LeviHeuristic
+	        //objElem.setFinalList(objElem.getFinalListNoOrder());
+	        startTime = System.currentTimeMillis();
+	    	Beststates6=objGrapB6.DepthSearchCenterFramePruningRegionLeviHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
+	    	stopTime = System.currentTimeMillis();
+	        elapsedTime = stopTime - startTime;
+	        System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	    	
 	    	
 	    	if(objGrapB3.bestSymmetryV<objGrapB5.bestSymmetryV)
@@ -392,7 +402,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	//System.out.println("Simetry 3-> B&B+heuristic + object ordering "+objGrapB2.bestSymmetryV);	    	
 	    	System.out.println("Simetry 4-> B&B+heuristic + region ordering "+objGrapB5.bestSymmetryV);
 	    	//System.out.println("Simetry 5-> B&B+heuristic + region ordering + object ordering "+objGrapB.bestSymmetryV);
-	    	
+	    	System.out.println("Simetry 6-> B&B+heuristic + region ordering +newApproach "+objGrapB6.bestSymmetryV);
 	    	
 	    	//System.out.println( "States 0 "+objGrapB3a.getCounterIDs() );
 	    	System.out.println( "States 1 "+objGrapB3.getCounterIDs() );
@@ -400,6 +410,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	//System.out.println( "States 3 "+objGrapB2.getCounterIDs() );	    		    	
 	    	System.out.println( "States 4 "+objGrapB5.getCounterIDs() );
 	    	//System.out.println( "States 5 "+objGrapB.getCounterIDs() );
+	    	System.out.println( "States 6 "+objGrapB6.getCounterIDs() );
 	    	
 	        
 	        //imprimiendo los estados visitados
