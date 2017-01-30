@@ -606,6 +606,122 @@ public class GraphBuilder
         }
     }
     
+    public boolean  validationPruningMVertical(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
+    { 
+    	double tamBottomFromCenter=floorTileHeight-yCenterMassGeneral;
+    	double tamTopFromCenter=yCenterMassGeneral-ruleThirds;
+    	double maxTamFromCenter=0;
+    	if(tamBottomFromCenter>tamTopFromCenter)
+    	{
+    		maxTamFromCenter=tamBottomFromCenter;
+    	}
+    	else
+    	{
+    		maxTamFromCenter=tamTopFromCenter;
+    	}
+    	
+    	countElements=countElements-1;
+    	//Collections.sort(bestXs,Collections.reverseOrder());
+    	//Collections.sort(bestYs,Collections.reverseOrder());
+    	
+        //System.out.println("bestSymmetry "+bestSymmetryV);
+        //int sizebestXs=bestXs.size();
+        //int sizebestYs=bestYs.size();
+        
+        //int indexCounterX=0;
+        //int indexCounterY=0;
+        
+        Arrays.sort(partialXSummatory);
+        Arrays.sort(partialYSummatory);
+        
+        double firstX;
+    	double secondX;
+    	double thirdX;
+    	
+    	double firstY;
+    	double secondY;
+    	double thirdY;
+        
+        for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
+        {   
+        	firstX=0;
+        	secondX=0;
+        	thirdX=0;
+        	firstY=0;
+        	secondY=0;
+        	thirdY=0;
+        	
+        	Elements objElem= (Elements)finalList.get(i);
+        	double areaElement=(objElem.getHeigth()+1)*objElem.getWidth();
+        	//int counterElements=0;
+        	
+        	if(partialXSummatory[3]>(globalCenterXMass)-(objElem.getWidth()/2))
+        	{
+        		firstX=(globalCenterXMass)-(objElem.getWidth()/2);     		
+        	}
+        	else
+        	{
+        		firstX=partialXSummatory[3];
+        	}
+        	
+        	if(partialXSummatory[2]>(globalCenterXMass)-(objElem.getWidth()/2))
+        	{
+        		secondX=(globalCenterXMass)-(objElem.getWidth()/2);     		
+        	}
+        	else
+        	{
+        		secondX=partialXSummatory[2];
+        	}
+        	if(partialXSummatory[1]>(globalCenterXMass)-(objElem.getWidth()/2))
+        	{
+        		thirdX=(globalCenterXMass)-(objElem.getWidth()/2);     		
+        	}
+        	else
+        	{
+        		thirdX=partialXSummatory[1];
+        	}
+        	
+        	if(partialYSummatory[3]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
+        	{
+        		firstY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2);     		
+        	}
+        	else
+        	{
+        		firstY=partialYSummatory[3];
+        	}
+        	
+        	if(partialYSummatory[2]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
+        	{
+        		secondY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2);     		
+        	}
+        	else
+        	{
+        		secondY=partialYSummatory[2];
+        	}
+        	if(partialYSummatory[1]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
+        	{
+        		thirdY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2);     		
+        	}
+        	else
+        	{
+        		thirdY=partialYSummatory[1];
+        	}
+        	
+        	//partialSymmetry=partialSymmetry-((3*areaElement)+(3*globalCenterXMass)+(3*yCenterMassGeneral));
+        	partialSymmetry=partialSymmetry-((areaElement)+firstX+firstY);
+        }
+        //System.out.println("partialSymmetry "+partialSymmetry);
+        if(partialSymmetry>bestSymmetryV)
+        {
+        	
+        	return true;
+        }
+        else
+        {
+        	return false;
+        }
+    }
+    
     
     public boolean  validationPruningMAllLeviHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
     { 
@@ -800,6 +916,236 @@ public class GraphBuilder
 
         }
         
+        //System.out.println("partialSymmetry "+partialSymmetry);
+        if(partialSymmetry>bestSymmetryV)
+        {
+        	
+        	return true;
+        }
+        else
+        {
+        	return false;
+        }
+    }
+    public boolean  validationPruningMAllOldOldHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
+    { 
+    	double tamBottomFromCenter=floorTileHeight-yCenterMassGeneral;
+    	double tamTopFromCenter=yCenterMassGeneral-ruleThirds;
+    	double maxTamFromCenter=0;
+    	if(tamBottomFromCenter>tamTopFromCenter)
+    	{
+    		maxTamFromCenter=tamBottomFromCenter;
+    	}
+    	else
+    	{
+    		maxTamFromCenter=tamTopFromCenter;
+    	}
+    	
+    	countElements=countElements-1;
+    	//Collections.sort(bestXs,Collections.reverseOrder());
+    	//Collections.sort(bestYs,Collections.reverseOrder());
+    	
+        //System.out.println("bestSymmetry "+bestSymmetryV);
+        //int sizebestXs=bestXs.size();
+        //int sizebestYs=bestYs.size();
+        
+        //int indexCounterX=0;
+        //int indexCounterY=0;
+        
+        Arrays.sort(partialXSummatory);
+        Arrays.sort(partialYSummatory);
+        
+        double firstX;
+    	double secondX;
+    	double thirdX;
+    	
+    	double firstY;
+    	double secondY;
+    	double thirdY;
+        
+        for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
+        {   
+        	firstX=0;
+        	secondX=0;
+        	thirdX=0;
+        	firstY=0;
+        	secondY=0;
+        	thirdY=0;
+        	
+        	Elements objElem= (Elements)finalList.get(i);
+        	double areaElement=(objElem.getHeigth()+1)*objElem.getWidth();
+        	//int counterElements=0;
+        	
+        	if(partialXSummatory[3]>(globalCenterXMass)-(objElem.getWidth()/2))
+        	{
+        		firstX=(globalCenterXMass)-(objElem.getWidth()/2);     		
+        	}
+        	else
+        	{
+        		firstX=partialXSummatory[3];
+        	}
+        	
+        	if(partialXSummatory[2]>(globalCenterXMass)-(objElem.getWidth()/2))
+        	{
+        		secondX=(globalCenterXMass)-(objElem.getWidth()/2);     		
+        	}
+        	else
+        	{
+        		secondX=partialXSummatory[2];
+        	}
+        	if(partialXSummatory[1]>(globalCenterXMass)-(objElem.getWidth()/2))
+        	{
+        		thirdX=(globalCenterXMass)-(objElem.getWidth()/2);     		
+        	}
+        	else
+        	{
+        		thirdX=partialXSummatory[1];
+        	}
+        	
+        	if(partialYSummatory[3]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
+        	{
+        		firstY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2);     		
+        	}
+        	else
+        	{
+        		firstY=partialYSummatory[3];
+        	}
+        	
+        	if(partialYSummatory[2]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
+        	{
+        		secondY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2);     		
+        	}
+        	else
+        	{
+        		secondY=partialYSummatory[2];
+        	}
+        	if(partialYSummatory[1]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
+        	{
+        		thirdY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2);     		
+        	}
+        	else
+        	{
+        		thirdY=partialYSummatory[1];
+        	}
+        	
+        	partialSymmetry=partialSymmetry-((3*areaElement)+(3*globalCenterXMass)+(3*yCenterMassGeneral));
+        	//partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
+        }
+        //System.out.println("partialSymmetry "+partialSymmetry);
+        if(partialSymmetry>bestSymmetryV)
+        {
+        	
+        	return true;
+        }
+        else
+        {
+        	return false;
+        }
+    }
+    public boolean  validationPruningMVerticalOldOldHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
+    { 
+    	double tamBottomFromCenter=floorTileHeight-yCenterMassGeneral;
+    	double tamTopFromCenter=yCenterMassGeneral-ruleThirds;
+    	double maxTamFromCenter=0;
+    	if(tamBottomFromCenter>tamTopFromCenter)
+    	{
+    		maxTamFromCenter=tamBottomFromCenter;
+    	}
+    	else
+    	{
+    		maxTamFromCenter=tamTopFromCenter;
+    	}
+    	
+    	countElements=countElements-1;
+    	//Collections.sort(bestXs,Collections.reverseOrder());
+    	//Collections.sort(bestYs,Collections.reverseOrder());
+    	
+        //System.out.println("bestSymmetry "+bestSymmetryV);
+        //int sizebestXs=bestXs.size();
+        //int sizebestYs=bestYs.size();
+        
+        //int indexCounterX=0;
+        //int indexCounterY=0;
+        
+        Arrays.sort(partialXSummatory);
+        Arrays.sort(partialYSummatory);
+        
+        double firstX;
+    	double secondX;
+    	double thirdX;
+    	
+    	double firstY;
+    	double secondY;
+    	double thirdY;
+        
+        for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
+        {   
+        	firstX=0;
+        	secondX=0;
+        	thirdX=0;
+        	firstY=0;
+        	secondY=0;
+        	thirdY=0;
+        	
+        	Elements objElem= (Elements)finalList.get(i);
+        	double areaElement=(objElem.getHeigth()+1)*objElem.getWidth();
+        	//int counterElements=0;
+        	
+        	if(partialXSummatory[3]>(globalCenterXMass)-(objElem.getWidth()/2))
+        	{
+        		firstX=(globalCenterXMass)-(objElem.getWidth()/2);     		
+        	}
+        	else
+        	{
+        		firstX=partialXSummatory[3];
+        	}
+        	
+        	if(partialXSummatory[2]>(globalCenterXMass)-(objElem.getWidth()/2))
+        	{
+        		secondX=(globalCenterXMass)-(objElem.getWidth()/2);     		
+        	}
+        	else
+        	{
+        		secondX=partialXSummatory[2];
+        	}
+        	if(partialXSummatory[1]>(globalCenterXMass)-(objElem.getWidth()/2))
+        	{
+        		thirdX=(globalCenterXMass)-(objElem.getWidth()/2);     		
+        	}
+        	else
+        	{
+        		thirdX=partialXSummatory[1];
+        	}
+        	
+        	if(partialYSummatory[3]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
+        	{
+        		firstY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2);     		
+        	}
+        	else
+        	{
+        		firstY=partialYSummatory[3];
+        	}
+        	
+        	if(partialYSummatory[2]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
+        	{
+        		secondY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2);     		
+        	}
+        	else
+        	{
+        		secondY=partialYSummatory[2];
+        	}
+        	if(partialYSummatory[1]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
+        	{
+        		thirdY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2);     		
+        	}
+        	else
+        	{
+        		thirdY=partialYSummatory[1];
+        	}
+        	
+        	partialSymmetry=partialSymmetry-((areaElement)+(globalCenterXMass)+(yCenterMassGeneral));
+        	//partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
+        }
         //System.out.println("partialSymmetry "+partialSymmetry);
         if(partialSymmetry>bestSymmetryV)
         {
@@ -2189,7 +2535,7 @@ public class GraphBuilder
     	return Beststates;
     }
 	
-	//3.4) B&B+heuristic + region ordering + oldHeuristic ---
+	//3.4) B&B+heuristic + oldHeuristic ---
 	public ArrayList  DepthSearchCenterFramePruning(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry)
     {    
 		globalCenterXMass=centerXGlobal;
@@ -2211,7 +2557,7 @@ public class GraphBuilder
     	{
     		
     		
-    		for(int i=0;i<partialASummatory.length;i++)
+    		/*for(int i=0;i<partialASummatory.length;i++)
     		{
     			
     			if(partialASummatory[i]<minorValue)
@@ -2220,7 +2566,7 @@ public class GraphBuilder
     				minorValue=partialASummatory[i];
     				minor=i;
     			}
-    		}
+    		}*/
     		
     		/*
     		for(int i=0;i<XsQuadrant.size();i++)
@@ -2258,7 +2604,7 @@ public class GraphBuilder
     	 {       
     		 int indeyN=j;
     		 
-    		 if(minor==1)
+    		/* if(minor==1)
     		 {
     			indexN= (maxRight-i+1); 
     		 }
@@ -2270,7 +2616,7 @@ public class GraphBuilder
     		 {
     			 indexN= (maxRight-i+1);
     			 indeyN=(height-j-1)+ruleThirds; 
-    		 }
+    		 }*/
     		 
     		 /*if(quadrant1X>quadrant2X)
     		 {
@@ -2476,15 +2822,384 @@ public class GraphBuilder
     		boolean validationPruningM=false;
     		if(firstBranchPercorred==true)
     		{
-    			if(validationPruningMAll(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true && typeSymmetry==2)
+    			if(typeSymmetry==2)
     			{
-    				//System.out.println("cambiaso");
-    				validationPruningM=true;
+    				if(validationPruningMAll(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    				{
+    					//System.out.println("cambiaso");
+    					validationPruningM=true;
+    				}
+    			}
+    			else if(typeSymmetry==1)
+    			{
+    				if(validationPruningMVertical(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    				{
+    					//System.out.println("cambiaso");
+    					validationPruningM=true;
+    				}
     			}
     		}
     		if(countElements>0 && validationPruningM==false)
     		{    		    			
     			DepthSearchCenterFramePruning(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal,typeSymmetry);
+    		}
+    		else{
+    			//System.out.println("aca se debe calcular la formula");
+    			if(countElements==0)
+    			{
+    			firstBranchPercorred=true;
+    			//System.out.println("chunter");
+    			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft,typeSymmetry);
+    			}
+    		}
+    		//System.out.println("Aqui deberia eliminar del array");
+    		states.remove(states.size() - 1);
+    		 
+    	 }
+    	}
+    	
+    	//putting enemies
+    	if(globalControlSearch==0)
+    	{
+    	for(int i=0;i<numEnemies;i++)
+    	{
+    		countElements--;
+        	Elements objElemEnem= (Elements)finalList.get(countElementsFinal+i);
+        	int idElemEnem=objElemEnem.getIdElem();
+        	int typeElemEnem=objElemEnem.getTypeElem(); 
+        	
+        	counterIDs=counterIDs+1;
+    		BlockNode objBlockNode2=new BlockNode(RandomCoordenateGenerator(random,0,width-1),RandomCoordenateGenerator(random,0,floorTileHeight),counterIDs,typeElemEnem,idElemEnem);
+    		Beststates.add(objBlockNode2);
+    	}
+    	}
+    	/*System.out.println("puttyconexao "+bestSymmetryV);
+    	Iterator<BlockNode> itSymmetry1 = Beststates.iterator();
+		while(itSymmetry1.hasNext()){
+			BlockNode elemento = itSymmetry1.next();
+			Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
+
+			double xInitial = elemento.getX();
+			double yInitial= elemento.getY();
+
+			int widthElement=element.getWidth();
+			int heigthElement=element.getHeigth()+1;
+			//System.out.println("xInitial "+xInitial+" yInitial "+yInitial+" widthElement"+widthElement+" heigthElement "+heigthElement);
+		}
+		if(bestSymmetryV==3)
+		{
+			//System.out.println("Summeutru ");
+		}*/
+    	return Beststates;
+    }  
+	
+	//3.7) B&B+oldold heuristic + oldoldHeuristic ---
+	public ArrayList  DepthSearchCenterFramePruningOldOldHeuristic(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry)
+    {    
+		globalCenterXMass=centerXGlobal;
+    	countElements--;
+    	Elements objElem= (Elements)finalList.get(countElementsFinal-countElements-1);
+    	int idElem=objElem.getIdElem();
+    	int typeElem=objElem.getTypeElem(); 
+    	
+    	int quadrant1X=0;
+    	int quadrant2X=0;
+    	
+    	int quadrant1Y=0;
+    	int quadrant2Y=0;
+    	
+    	int minor=0;
+    	double minorValue=10000000;
+    	
+    	if(countElements!=countElementsFinal-1)
+    	{
+    		
+    		
+    		/*for(int i=0;i<partialASummatory.length;i++)
+    		{
+    			
+    			if(partialASummatory[i]<minorValue)
+    			{
+    				
+    				minorValue=partialASummatory[i];
+    				minor=i;
+    			}
+    		}*/
+    		
+    		/*
+    		for(int i=0;i<XsQuadrant.size();i++)
+    		{
+    			
+    			if(XsQuadrant.get(i)<globalCenterXMass)
+    			{
+    				quadrant1X++;
+    			}
+    			else
+    			{
+    				quadrant2X++;
+    			}
+    		}*/
+    		/*for(int i=0;i<bestYs.size();i++)
+    		{
+    			if(YsQuadrant.get(i)<yCenterMassGeneral)
+    			{
+    				quadrant1Y++;
+    			}
+    			else
+    			{
+    				quadrant2Y++;
+    			}
+    		}*/
+    		
+    	}
+    	
+    	int ruleThirds=(height/3);
+    	
+    	for(int i=maxLeft;i<=maxRight;i++)
+    	{
+    	 int indexN=i;
+    	 for(int j=ruleThirds;j<height;j++)
+    	 {       
+    		 int indeyN=j;
+    		 
+    		/* if(minor==1)
+    		 {
+    			indexN= (maxRight-i+1); 
+    		 }
+    		 else if(minor==2)
+    		 {
+    			 indeyN=(height-j-1)+ruleThirds; 
+    		 }
+    		 else if(minor==3)
+    		 {
+    			 indexN= (maxRight-i+1);
+    			 indeyN=(height-j-1)+ruleThirds; 
+    		 }*/
+    		 
+    		 /*if(quadrant1X>quadrant2X)
+    		 {
+    			indexN= (maxRight-i+1);
+    		 }
+    		 
+    		 if(quadrant1Y>quadrant2Y)
+    		 {
+    			 indeyN=(height-j-1)+ruleThirds;
+    		 }*/
+    		 if(objElem.getIdElem()==0)
+    		 {   			     			
+    			 if(indexN>globalCenterXMass)
+    			 {
+    				 
+    				 continue;
+    			 }
+    		 }
+    		 
+    		 if(typeElem==objElemP.getOddsCannons() || typeElem==objElemP.getOddsTubes() || typeElem==objElemP.getTubesFlower())
+    		 {    			
+    			if(objConstraints.ConstraintsOverlaid(states, indexN, indeyN, finalList,objElemP)==false)
+     		 	{
+     			 	
+    				//System.out.println("falseadoo");
+     			 	continue;
+     		 	}
+    			else if(objElem.getWidth()==1 && objConstraints.ConstraintsMinWidth(states, indexN, indeyN, finalList,objElemP)==false)
+      			{
+      				continue;
+      			}
+    			else if(objConstraints.ConstraintsWidthMaxTileRelative(states, indexN, indeyN, finalList, objElem.getWidth(),maxRight)==false)
+    			{ 
+    				
+    				continue;
+    			}
+    			else if(objConstraints.ConstraintsHeightMaxTileRelative(states, indexN, indeyN, finalList, objElem.getHeigth(),maxRight)==false)
+    			{ 
+    				
+    				continue;
+    			}
+    			else if(objConstraints.ConstraintsFloorRelative(states, indexN, indeyN, finalList,floorTileHeight,objElemP)==false)
+    			{ 
+    				
+    				continue;
+    			}
+    			else if(objConstraints.ConstraintsMinSpace(states, indexN, indeyN, finalList,objElemP)==false)
+     		 	{
+     			 	
+    				//System.out.println("falseadoo");
+     			 	continue;
+     		 	}
+    		 }
+    		 else if( typeElem==objElemP.getOddsHillStraightFloat())
+    		 {
+    			 if(objConstraints.ConstraintsOverlaid(states, indexN, indeyN, finalList,objElemP)==false)
+        		 	{
+        			 	
+       				//System.out.println("falseadoo");
+        			 	continue;
+        		 	}
+     			else if(objConstraints.ConstraintsWidthMaxTileRelative(states, indexN, indeyN, finalList, objElem.getWidth(),maxRight)==false)
+      			{ 
+      				
+      				continue;
+      			}
+     			else if(objConstraints.ConstraintsHeightMaxTileRelative(states, indexN, indeyN, finalList, objElem.getHeigth(),maxRight)==false)
+     			{ 
+     				
+     				continue;
+     			}
+     			 else if(objConstraints.ConstraintsFloorFloatingsHillsRelative(states, indexN, indeyN, finalList,floorTileHeight,objElemP)==false)
+      			{ 
+      				
+      				continue;
+      			}
+     			 else if(objConstraints.ConstraintsMinSpaceHillFloat(states, indexN, indeyN, finalList,objElemP,floorTileHeight)==false)
+       		 	{
+       			 	
+      				//System.out.println("falseadoo");
+       			 	continue;
+       		 	}
+     			 /*if(objConstraints.ConstraintsPosibleGoalJump(i, j)==false)
+     			 {
+     				 continue;
+     			 }*/   			 
+    		 }
+    		 else if(typeElem==objElemP.getBlockElement() || typeElem==objElemP.getCoins() || typeElem==objElemP.getBlockBlue() || typeElem==objElemP.getBlockWood() || typeElem==objElemP.getSmallTube() || typeElem==objElemP.getWood() )
+    		 {
+    			 if(objConstraints.ConstraintsOverlaid(states, indexN, indeyN, finalList,objElemP)==false)
+       		 	{
+       			 	
+      				//System.out.println("falseadoo");
+       			 	continue;
+       		 	}
+    			else if(objConstraints.ConstraintsWidthMaxTileRelative(states, indexN, indeyN, finalList, objElem.getWidth(),maxRight)==false)
+     			{ 
+     				
+     				continue;
+     			}
+    			else if(objConstraints.ConstraintsHeightMaxTileRelative(states, indexN, indeyN, finalList, objElem.getHeigth(),maxRight)==false)
+    			{ 
+    				
+    				continue;
+    			}
+    			 else if(objConstraints.ConstraintsFloorFloatingsRelative(states, indexN, indeyN, finalList,floorTileHeight,objElemP)==false)
+     			{ 
+     				
+     				continue;
+     			}
+    			 else if(objConstraints.ConstraintsMinSpaceFloat(states, indexN, indeyN, finalList,objElemP,floorTileHeight)==false && (typeElem==objElemP.getBlockElement() || typeElem==objElemP.getBlockBlue() || typeElem==objElemP.getBlockWood() || typeElem==objElemP.getSmallTube() || typeElem==objElemP.getWood()))
+      		 	{
+      			 	
+     				//System.out.println("falseadoo");
+      			 	continue;
+      		 	}
+    			 else if(objConstraints.ConstraintsMinSpaceCoins(states, indexN, indeyN, finalList,objElemP)==false && typeElem==objElemP.getCoins())
+        		 	{
+        			 	
+       				//System.out.println("falseadoo");
+        			 	continue;
+        		 	}
+    			 /*if(objConstraints.ConstraintsPosibleGoalJump(i, j)==false)
+    			 {
+    				 continue;
+    			 }*/
+    		 }
+    		 else if(typeElem==objElemP.getOddsJump())
+    		 {
+    			
+    			if(objConstraints.ConstraintsWidthMaxTileRelative(states, indexN, indeyN, finalList, objElem.getWidth(),maxRight)==false)
+     			{ 
+     				
+     				continue;
+     			}
+    			 else if(objConstraints.ConstraintsFloorGapsRelative(indexN, indeyN)==false)
+     			{ 
+     				
+     				continue;
+     			}
+    			 else if(objConstraints.ConstraintsMinSpace(states, indexN, indeyN, finalList,objElemP)==false)
+      		 	{
+      			 	
+     				//System.out.println("falseadoo");
+      			 	continue;
+      		 	}
+    			
+    			 /*if(objConstraints.ConstraintsPosibleGoalJump(i, j)==false)
+    			 {
+    				 continue;
+    			 }*/
+    		 }
+    		 else if(typeElem==objElemP.getOddsHillStraight())
+    		 {
+    			 if(objConstraints.ConstraintsOverlaidHills(states, indexN, indeyN, finalList, objElemP)==false)
+      		 	{      			 	
+     				//System.out.println("falseadoo");
+      			 	continue;
+      		 	}
+    			 else if(objConstraints.ConstraintsWidthMaxTileRelative(states, indexN, indeyN, finalList, objElem.getWidth(),maxRight)==false)
+      			{ 
+      				
+      				continue;
+      			}
+    			 else if(objConstraints.ConstraintsHeightMaxTileRelative(states, indexN, indeyN, finalList, objElem.getHeigth(),maxRight)==false)
+     			{ 
+     				
+     				continue;
+     			}
+    			 else if(objConstraints.ConstraintsFloorRelative(states, indexN, indeyN, finalList,floorTileHeight,objElemP)==false)
+     			{ 
+     				
+     				continue;
+     			}
+    			 else if(objConstraints.ConstraintsMinSpaceHills(states, indexN, indeyN, finalList,objElemP)==false)
+      		 	{
+      			 	
+     				//System.out.println("falseadoo");
+      			 	continue;
+      		 	}
+    		 }
+    		 else if(typeElem==objElemP.getEnemyRedKoopa() || typeElem==objElemP.getEnemyGreenKoopa() || typeElem==objElemP.getEnemyGoomba() || typeElem==objElemP.getEnemySpiky() || typeElem==objElemP.getEnemyFlower() || typeElem==objElemP.getEnemyArmoredTurtle() || typeElem==objElemP.getEnemyJumpFlower() || typeElem==objElemP.getEnemyCannonBall() || typeElem==objElemP.getEnemyChompFlower())
+    		 {
+     			if(objConstraints.ConstraintsOverlaidHills(states, indexN, indeyN, finalList,objElemP)==false)
+     		 	{
+     			 	
+    				//System.out.println("falseadoo");
+     			 	continue;
+     		 	}
+    			else if(objConstraints.ConstraintsFloorEnemiesRelative(states, indexN, indeyN, finalList,floorTileHeight,objElemP)==false)
+    			{ 
+    				
+    				continue;
+    			}
+    		 }
+    		 
+    		counterIDs=counterIDs+1;
+    		BlockNode objBlockNode2=new BlockNode(indexN,indeyN,counterIDs,typeElem,idElem);
+    		states.add(objBlockNode2);
+    		
+    		//partialSymmetry=partialSymmetry(states,objElemP,height,floorTileHeight,localMaxObjLeft,false);
+    		partialSymmetry=partialSymmetryNewFormula(states,objElemP,height,floorTileHeight,localMaxObjLeft,false,typeSymmetry);
+    		boolean validationPruningM=false;
+    		if(firstBranchPercorred==true)
+    		{
+    			if(typeSymmetry==2)
+    			{
+    				if(validationPruningMAllOldOldHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    				{
+    					//System.out.println("cambiaso");
+    					validationPruningM=true;
+    				}
+    			}
+    			else if(typeSymmetry==1)
+    			{
+    				if(validationPruningMVerticalOldOldHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    				{
+    					//System.out.println("cambiaso");
+    					validationPruningM=true;
+    				}
+    			}
+    		}
+    		if(countElements>0 && validationPruningM==false)
+    		{    		    			
+    			DepthSearchCenterFramePruningOldOldHeuristic(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal,typeSymmetry);
     		}
     		else{
     			//System.out.println("aca se debe calcular la formula");
@@ -2832,10 +3547,21 @@ public class GraphBuilder
     		boolean validationPruningM=false;
     		if(firstBranchPercorred==true)
     		{
-    			if(validationPruningMAllLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true && typeSymmetry==2)
+    			if(typeSymmetry==2)
     			{
-    				//System.out.println("cambiaso");
-    				validationPruningM=true;
+    				if(validationPruningMAllLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    				{
+    					//System.out.println("cambiaso");
+    					validationPruningM=true;
+    				}
+    			}
+    			else if(typeSymmetry==1)
+    			{
+    				if(validationPruningMVertical(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    				{
+    					//System.out.println("cambiaso");
+    					validationPruningM=true;
+    				}
     			}
     		}
     		if(countElements>0 && validationPruningM==false)
@@ -3188,10 +3914,21 @@ public class GraphBuilder
     		boolean validationPruningM=false;
     		if(firstBranchPercorred==true)
     		{
-    			if(validationPruningMAllLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true && typeSymmetry==2)
+    			if(typeSymmetry==2)
     			{
-    				//System.out.println("cambiaso");
-    				validationPruningM=true;
+    				if(validationPruningMAllLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    				{
+    					//System.out.println("cambiaso");
+    					validationPruningM=true;
+    				}
+    			}
+    			else if(typeSymmetry==1)
+    			{
+    				if(validationPruningMVertical(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    				{
+    					//System.out.println("cambiaso");
+    					validationPruningM=true;
+    				}
     			}
     		}
     		if(countElements>0 && validationPruningM==false)

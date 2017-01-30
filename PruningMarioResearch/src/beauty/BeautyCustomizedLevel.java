@@ -53,6 +53,7 @@ public class BeautyCustomizedLevel extends Level{
 		private ArrayList<BlockNode> Beststates4 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> Beststates5 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> Beststates6 = new ArrayList<BlockNode>();
+		private ArrayList<BlockNode> Beststates7 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> BestGlobalstates = new ArrayList<BlockNode>();
 		private int maxScreens=100;
 		
@@ -310,6 +311,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	GraphBuilder objGrapB4= new GraphBuilder(1);
 	    	GraphBuilder objGrapB5= new GraphBuilder(1);
 	    	GraphBuilder objGrapB6= new GraphBuilder(1);
+	    	GraphBuilder objGrapB7= new GraphBuilder(1);
 	    	
 	    	int numElements=objElem.getNumberObjects();
 	    	int numEnemies=objElem.getNumberObjectsEnemies();
@@ -355,7 +357,7 @@ public class BeautyCustomizedLevel extends Level{
 	        long elapsedTime = stopTime - startTime;
 	        System.out.println("Time Brute-force search "+elapsedTime);
 	        
-	        //3.4) B&B+heuristic + region ordering + oldHeuristic ---
+	        //3.4) B&Bheuristic + region ordering + oldHeuristic ---
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
 	        startTime = System.currentTimeMillis();
 	    	Beststates4=objGrapB4.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
@@ -375,6 +377,14 @@ public class BeautyCustomizedLevel extends Level{
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
 	        startTime = System.currentTimeMillis();
 	    	Beststates6=objGrapB6.DepthSearchCenterFramePruningLeviHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
+	    	stopTime = System.currentTimeMillis();
+	        elapsedTime = stopTime - startTime;
+	        System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
+	        
+	        //3.7) B&B+heuristic +  LeviHeuristic
+	        //objElem.setFinalList(objElem.getFinalListNoOrder());
+	        startTime = System.currentTimeMillis();
+	    	Beststates7=objGrapB7.DepthSearchCenterFramePruningOldOldHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
 	    	stopTime = System.currentTimeMillis();
 	        elapsedTime = stopTime - startTime;
 	        System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
@@ -398,11 +408,12 @@ public class BeautyCustomizedLevel extends Level{
 	        
 	    	//System.out.println("Simetry 0-> Brute-force search order "+objGrapB3a.bestSymmetryV);	
 	    	System.out.println("Simetry 1-> Brute-force search "+objGrapB3.bestSymmetryV);	    	
-	    	System.out.println("Simetry 2-> B&B+regions+oldheuristic "+objGrapB4.bestSymmetryV);
+	    	System.out.println("Simetry 2-> B&B+oldheuristic "+objGrapB4.bestSymmetryV);
 	    	//System.out.println("Simetry 3-> B&B+heuristic + object ordering "+objGrapB2.bestSymmetryV);	    	
 	    	System.out.println("Simetry 4-> B&B+ region + leviheuristic"+objGrapB5.bestSymmetryV);
 	    	//System.out.println("Simetry 5-> B&B+heuristic + region ordering + object ordering "+objGrapB.bestSymmetryV);
 	    	System.out.println("Simetry 6-> B&B+heuristic + leviheuristic "+objGrapB6.bestSymmetryV);
+	    	System.out.println("Simetry 7-> B&B+oldoldheuristic "+objGrapB7.bestSymmetryV);
 	    	
 	    	//System.out.println( "States 0 "+objGrapB3a.getCounterIDs() );
 	    	System.out.println( "States 1 "+objGrapB3.getCounterIDs() );
@@ -411,6 +422,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	System.out.println( "States 4 "+objGrapB5.getCounterIDs() );
 	    	//System.out.println( "States 5 "+objGrapB.getCounterIDs() );
 	    	System.out.println( "States 6 "+objGrapB6.getCounterIDs() );
+	    	System.out.println( "States 7 "+objGrapB7.getCounterIDs() );
 	    	
 	        
 	        //imprimiendo los estados visitados
