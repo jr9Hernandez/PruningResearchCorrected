@@ -357,7 +357,7 @@ public class BeautyCustomizedLevel extends Level{
 	        long elapsedTime = stopTime - startTime;
 	        System.out.println("Time Brute-force search "+elapsedTime);
 	        
-	        //3.4) B&Bheuristic + region ordering + oldHeuristic ---
+	        //3.4) B&Bheuristic + oldHeuristic ---
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
 	        startTime = System.currentTimeMillis();
 	    	Beststates4=objGrapB4.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
