@@ -2211,7 +2211,7 @@ public class GraphBuilder
     	{
     		
     		
-    		/*for(int i=0;i<partialASummatory.length;i++)
+    		for(int i=0;i<partialASummatory.length;i++)
     		{
     			
     			if(partialASummatory[i]<minorValue)
@@ -2220,7 +2220,7 @@ public class GraphBuilder
     				minorValue=partialASummatory[i];
     				minor=i;
     			}
-    		}*/
+    		}
     		
     		/*
     		for(int i=0;i<XsQuadrant.size();i++)
