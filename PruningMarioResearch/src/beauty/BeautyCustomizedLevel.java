@@ -355,7 +355,7 @@ public class BeautyCustomizedLevel extends Level{
 	        long elapsedTime = stopTime - startTime;
 	        System.out.println("Time Brute-force search "+elapsedTime);
 	        
-	        //3.4) B&B+heuristic---
+	        //3.4) B&B+heuristic + region ordering + oldHeuristic ---
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
 	        startTime = System.currentTimeMillis();
 	    	Beststates4=objGrapB4.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
@@ -363,7 +363,7 @@ public class BeautyCustomizedLevel extends Level{
 	        elapsedTime = stopTime - startTime;
 	        System.out.println("Time B&B+heuristic "+elapsedTime);
 	    	
-	        //3.5) B&B+heuristic + region ordering
+	        //3.5) B&B+heuristic + region ordering + LeviHeuristic
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
 	        startTime = System.currentTimeMillis();
 	    	Beststates5=objGrapB5.DepthSearchCenterFramePruningRegion(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
@@ -371,7 +371,7 @@ public class BeautyCustomizedLevel extends Level{
 	        elapsedTime = stopTime - startTime;
 	        System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	        
-	        //3.6) B&B+heuristic + region ordering + LeviHeuristic
+	        //3.6) B&B+heuristic +  LeviHeuristic
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
 	        startTime = System.currentTimeMillis();
 	    	Beststates6=objGrapB6.DepthSearchCenterFramePruningLeviHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);

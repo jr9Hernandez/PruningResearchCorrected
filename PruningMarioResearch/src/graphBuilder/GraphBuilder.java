@@ -2258,7 +2258,7 @@ public class GraphBuilder
     	 {       
     		 int indeyN=j;
     		 
-    		 /*if(minor==1)
+    		 if(minor==1)
     		 {
     			indexN= (maxRight-i+1); 
     		 }
@@ -2270,7 +2270,7 @@ public class GraphBuilder
     		 {
     			 indexN= (maxRight-i+1);
     			 indeyN=(height-j-1)+ruleThirds; 
-    		 }*/
+    		 }
     		 
     		 /*if(quadrant1X>quadrant2X)
     		 {
