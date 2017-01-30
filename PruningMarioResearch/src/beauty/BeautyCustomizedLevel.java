@@ -398,11 +398,11 @@ public class BeautyCustomizedLevel extends Level{
 	        
 	    	//System.out.println("Simetry 0-> Brute-force search order "+objGrapB3a.bestSymmetryV);	
 	    	System.out.println("Simetry 1-> Brute-force search "+objGrapB3.bestSymmetryV);	    	
-	    	System.out.println("Simetry 2-> B&B+heuristic "+objGrapB4.bestSymmetryV);
+	    	System.out.println("Simetry 2-> B&B+regions+oldheuristic "+objGrapB4.bestSymmetryV);
 	    	//System.out.println("Simetry 3-> B&B+heuristic + object ordering "+objGrapB2.bestSymmetryV);	    	
-	    	System.out.println("Simetry 4-> B&B+heuristic + region ordering "+objGrapB5.bestSymmetryV);
+	    	System.out.println("Simetry 4-> B&B+ region + leviheuristic"+objGrapB5.bestSymmetryV);
 	    	//System.out.println("Simetry 5-> B&B+heuristic + region ordering + object ordering "+objGrapB.bestSymmetryV);
-	    	System.out.println("Simetry 6-> B&B+heuristic + region ordering +newApproach "+objGrapB6.bestSymmetryV);
+	    	System.out.println("Simetry 6-> B&B+heuristic + leviheuristic "+objGrapB6.bestSymmetryV);
 	    	
 	    	//System.out.println( "States 0 "+objGrapB3a.getCounterIDs() );
 	    	System.out.println( "States 1 "+objGrapB3.getCounterIDs() );

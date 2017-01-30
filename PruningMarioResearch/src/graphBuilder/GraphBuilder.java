@@ -2189,7 +2189,7 @@ public class GraphBuilder
     	return Beststates;
     }
 	
-	//3.4) B&B+heuristic---
+	//3.4) B&B+heuristic + region ordering + oldHeuristic ---
 	public ArrayList  DepthSearchCenterFramePruning(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry)
     {    
 		globalCenterXMass=centerXGlobal;
@@ -2536,7 +2536,7 @@ public class GraphBuilder
     	return Beststates;
     }   
 	
-	//3.5) B&B+heuristic + region ordering
+	//3.5) B&B+heuristic + region ordering + LeviHeuristic
 	public ArrayList  DepthSearchCenterFramePruningRegion(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry)
     {    
 		globalCenterXMass=centerXGlobal;
@@ -2892,7 +2892,7 @@ public class GraphBuilder
     	return Beststates;
     }   
 	
-	//3.5) B&B+heuristic + region ordering + LeviHeuristic
+	//3.6)  B&B+heuristic +  LeviHeuristic
 	public ArrayList  DepthSearchCenterFramePruningLeviHeuristic(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry)
     {    
 		globalCenterXMass=centerXGlobal;
