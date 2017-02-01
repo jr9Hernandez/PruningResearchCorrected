@@ -4065,7 +4065,7 @@ public class GraphBuilder
     			}
     			else if(typeSymmetry==1)
     			{
-    				if(validationPruningMVertical(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    				if(validationPruningMVerticalLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
     				{
     					//System.out.println("cambiaso");
     					validationPruningM=true;
