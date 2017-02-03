@@ -48,13 +48,15 @@ import dk.itu.mario.res.ResourcesManager;
 			private int[] odds;
 			ElementsToPlace objElem;
 			Random random;
+			private int numElementsGlobalParamet;
 
 			public LevelSceneTest(GraphicsConfiguration graphicsConfiguration,
-					MarioComponent renderer, long seed, int levelDifficulty, int type,boolean isCustom,String nameFile, int typeTask){
+					MarioComponent renderer, long seed, int levelDifficulty, int type,boolean isCustom,String nameFile, int typeTask,int numElementsGlobalParamet){
 				super(graphicsConfiguration,renderer,seed,levelDifficulty,type);
 				this.isCustom = isCustom;
 				this.nameFile=nameFile;
 				this.typeTask=typeTask;
+				this.numElementsGlobalParamet=numElementsGlobalParamet;
 			}
 
 			public void init() {
@@ -134,7 +136,7 @@ import dk.itu.mario.res.ResourcesManager;
 			    	        hsObjectsScreen=CreateHashTableObjectsScreen(hsObjectsScreen, objectsOfSpecificType);			    	      			    			
 			    			
 			    	        random = new Random(newSeed);	
-			    	        generateElementsNLG(random,1,hsObjectsScreen,currentLevel.getHeight());
+			    	        generateElementsNLG(random,1,hsObjectsScreen,currentLevel.getHeight(),numElementsGlobalParamet);
 			    	        
 			    	        int[] odds2 =odds.clone();
 			    	        
@@ -146,7 +148,7 @@ import dk.itu.mario.res.ResourcesManager;
 			        		int SizeOddsEnemies2 = objElem.SizeOddsEnemies;
 			        		
 			    	        
-			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,1,odds,objElem);		        		
+			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,1,odds,objElem,numElementsGlobalParamet);		        		
 			    			
 			        		counterIts++;
 			        					        		
@@ -155,7 +157,7 @@ import dk.itu.mario.res.ResourcesManager;
 			        		objElem2.SizeOdds=SizeOdds2;
 			        		objElem2.SizeOddsEnemies=SizeOddsEnemies2;
 			        	
-			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,2,odds2,objElem2);		        		
+			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,2,odds2,objElem2,numElementsGlobalParamet);		        		
 			    			
 			        		counterIts++;
 			    			}
@@ -483,10 +485,10 @@ import dk.itu.mario.res.ResourcesManager;
 			}
 			
 			//receiving objects from NLG
-			public void generateElementsNLG(Random random, int floorTileHeight,Hashtable hsObjectsScreen,int height)
+			public void generateElementsNLG(Random random, int floorTileHeight,Hashtable hsObjectsScreen,int height,int numElementsGlobalParamet)
 			{
 				
-				objElem=new ElementsToPlace(random,floorTileHeight,hsObjectsScreen,height);
+				objElem=new ElementsToPlace(random,floorTileHeight,hsObjectsScreen,height,numElementsGlobalParamet);
 				odds=objElem.getOdds();
 			}
 

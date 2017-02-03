@@ -66,7 +66,7 @@ public class ElementsToPlace {
 	public ArrayList<Elements> finalListNoOrder = new ArrayList<Elements>();
 	public ArrayList<Elements> finalListOriginal = new ArrayList<Elements>();
 	
-	public ElementsToPlace(Random random, int floorTileHeight, Hashtable hsObjectsScreen,int height)
+	public ElementsToPlace(Random random, int floorTileHeight, Hashtable hsObjectsScreen,int height,int numElementsGlobalParamet)
 	{ 
 		this.random=random;
 		//odds[ODDS_STRAIGHT] = 0;
@@ -101,6 +101,7 @@ public class ElementsToPlace {
         
 
         //generation of number of objects
+        System.out.println("o numero escolhido "+numElementsGlobalParamet);
         int numberInScreen =5+random.nextInt(1);
         for(int i=0;i<numberInScreen;i++)
         {

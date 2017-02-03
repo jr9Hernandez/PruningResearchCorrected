@@ -47,12 +47,13 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		    private boolean isCustom = false;
 		    private String nameFile;
 		    private int typeTask;
+		    private int numElementsGlobalParamet;
 
 		    private Scale2x scale2x = new Scale2x(320, 240);
 
 		    private double openTime;
 
-		    public MarioComponent(int width, int height,boolean isCustomized,String nameFile,int typeTask){
+		    public MarioComponent(int width, int height,boolean isCustomized,String nameFile,int typeTask, int numElementsGlobalParamet){
 		    	addFocusListener(this);
 		    	addMouseListener(this);
 		    	addKeyListener(this);
@@ -64,6 +65,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		        this.isCustom = isCustomized;
 		        this.nameFile=nameFile;
 		        this.typeTask=typeTask;
+		        this.numElementsGlobalParamet=numElementsGlobalParamet;
 
 		        Dimension size = new Dimension(width, height);
 		        setPreferredSize(size);
@@ -322,7 +324,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		     * Part of the fun increaser
 		     */
 		    public void toRandomGame(){
-		    	randomLevel = new LevelSceneTest(graphicsConfiguration,this,new Random().nextLong(),0,0,false,nameFile,1);
+		    	randomLevel = new LevelSceneTest(graphicsConfiguration,this,new Random().nextLong(),0,0,false,nameFile,1,numElementsGlobalParamet);
 
 		    	Mario.fire = false;
 		    	Mario.large = false;
@@ -339,7 +341,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 
 		    	if(typeTask==1 || typeTask==2 || typeTask==5)
 		    	{
-		    	randomLevel = new LevelSceneTest(graphicsConfiguration,this,new Random().nextLong(),0,0,true,nameFile,typeTask);
+		    	randomLevel = new LevelSceneTest(graphicsConfiguration,this,new Random().nextLong(),0,0,true,nameFile,typeTask,numElementsGlobalParamet);
 		    	}
 		    	if(typeTask==3 || typeTask==4)
 		    	{
