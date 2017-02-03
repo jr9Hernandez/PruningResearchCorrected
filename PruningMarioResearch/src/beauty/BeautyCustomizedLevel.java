@@ -450,7 +450,7 @@ public class BeautyCustomizedLevel extends Level{
 	        
 	        
 	        //Here we will put the elements on the tile
-	        try {
+	        /*try {
 	        Level levelScreen=PaintElements(BestGlobalstates,this);
 	        Screen objScreen=new Screen();
 			objScreen.SaveScreen(levelScreen,odds,objElem);
@@ -468,7 +468,7 @@ public class BeautyCustomizedLevel extends Level{
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 		}
 	
 		private void CreatingBeautyContentTopK() { 
@@ -516,7 +516,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	//Just here to implement the n screens!
 	        for(int i=0;i<maxScreens;i++)
 	        {//block from Lelis and Reis (>class GeradorDeFasses)
-	        	try {
+/*	        	try {
 	        		Level levelScreen=PaintElements(((Branch)bestBranches.get(i)).getStates(),this.clone());					
 					Screen objScreen=new Screen();
 					objScreen.SaveScreen(levelScreen,odds,objElem);
@@ -526,7 +526,7 @@ public class BeautyCustomizedLevel extends Level{
 			        info = info.carregaInfoTela("infoTela");
 					info.setOutrasVariaveis(0, 0); // Salva outras informacoes da Tela
 					info.salvaInfoTela("infoTela", info);					
-//					copiador.copy("" + i, "Screens/");
+					copiador.copy("" + i, "Screens/");
 					
 				} catch (CloneNotSupportedException e) {
 					// TODO Auto-generated catch block
@@ -537,7 +537,7 @@ public class BeautyCustomizedLevel extends Level{
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				}*/
 	        }
 	        
 			

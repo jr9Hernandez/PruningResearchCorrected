@@ -25,8 +25,8 @@ public class Screen {
 		//width = 89;
 		//level = new Level(width, 15);
 		//level = createLevelTela(seed, difficulty, type);
-        salvaTela(level, "tela");
-        salvaInfoTela(level,odds,objElem);
+        //salvaTela(level, "tela");
+        //salvaInfoTela(level,odds,objElem);
         //fixWalls();
         
 	}
@@ -66,7 +66,7 @@ private void salvaInfoTela(Level level, int [] odds, ElementsToPlace objElem){
         for(int i = 0; i < level.tam_spritePrimitivo; i++)
         	info.addInimigo(level.spritePrimitivo[i]);        
         
-        try {
+        /*try {
 			info.salvaInfoTela("infoTela", info);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -74,7 +74,7 @@ private void salvaInfoTela(Level level, int [] odds, ElementsToPlace objElem){
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
     	
     }
 }
