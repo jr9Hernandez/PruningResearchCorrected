@@ -460,7 +460,7 @@ public class BeautyCustomizedLevel extends Level{
 	        info = info.carregaInfoTela("infoTela");
 			info.setOutrasVariaveis(0, 0); // Salva outras informacoes da Tela
 			info.salvaInfoTela("infoTela", info);					
-			copiador.copy("" + count, "Screens/");
+			//copiador.copy("" + count, "Screens/");
 			
 	        }  catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
