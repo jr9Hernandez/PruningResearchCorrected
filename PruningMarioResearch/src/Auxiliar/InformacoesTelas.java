@@ -231,13 +231,13 @@ public class InformacoesTelas implements Serializable{
 	 * Imprime a lista de inimigos, seu tipo(alado ou nao) e a posição
 	 */
 	public void listaInimigos(){
-		System.out.println("LISTA DE INIMIGOS");
+		//System.out.println("LISTA DE INIMIGOS");
 		SpriteTemplatePrimitivo inimigo;
 		//for(int i=0; i< lista_inimigos.length; i++){
 			//inimigo = lista_inimigos[i];
 		for(int i=0; i< listadeinimigos.size(); i++){
 			inimigo = listadeinimigos.get(i);
-			System.out.println("\tPosicao:\n\t\tx: " + inimigo.getX() + "\ty: " + inimigo.getY());
+			//System.out.println("\tPosicao:\n\t\tx: " + inimigo.getX() + "\ty: " + inimigo.getY());
 		}
 	}
 

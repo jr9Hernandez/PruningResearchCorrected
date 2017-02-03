@@ -75,7 +75,7 @@ import dk.itu.mario.res.ResourcesManager;
 		    
 		    			
 		        		//********mthod for load and print beauty screens*******//
-		        		System.out.println("Hamlet"+typeTask);
+		        		//System.out.println("Hamlet"+typeTask);
 		    			if(typeTask==3)
 		    			{
 		        		currentLevel = new LoadBeautyLevel(84, 15, levelSeed, levelDifficulty,levelType,nameFile);
@@ -117,7 +117,7 @@ import dk.itu.mario.res.ResourcesManager;
 		    			Iterator<SingleScreen> nombreIterator = metricsList.iterator();
 		    	        while(nombreIterator.hasNext()){
 		    	        	SingleScreen elemento = nombreIterator.next();
-		    	        	System.out.print(elemento.getNameScreen()+"("+elemento.getValueMetric()+" "+elemento.getValueMetricNormalized()+" )  / ");
+		    	        	//System.out.print(elemento.getNameScreen()+"("+elemento.getValueMetric()+" "+elemento.getValueMetricNormalized()+" )  / ");
 		    	        }
 		    	        
 		    	        Normalization(metricsList, minMetricDiff, maxMetricDiff);
@@ -321,7 +321,7 @@ import dk.itu.mario.res.ResourcesManager;
     	        	normalizedValue= (1+ (elemento.getValueMetric()-minValueMetric)*(maxScale-minScale)/(maxValueMetric-minValueMetric));
     	        	normalizedValue=round(normalizedValue);
     	        	elemento.setValueMetricNormalized((int)normalizedValue);   	    
-    	        	System.out.print(elemento.getNameScreen()+"("+elemento.getValueMetric()+" "+elemento.getValueMetricNormalized()+" )  / ");
+    	        	//System.out.print(elemento.getNameScreen()+"("+elemento.getValueMetric()+" "+elemento.getValueMetricNormalized()+" )  / ");
     	        }
 				
 				return metricsList;
