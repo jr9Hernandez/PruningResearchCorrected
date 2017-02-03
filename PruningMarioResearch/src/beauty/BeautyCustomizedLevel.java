@@ -104,13 +104,13 @@ public class BeautyCustomizedLevel extends Level{
 	    }
 		
 		//Constructor to many single screens receiving objects as parameters
-		public BeautyCustomizedLevel(int width, int height, long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry,int[] odds,ElementsToPlace objElem,int numElementsGlobalParamet)
+		public BeautyCustomizedLevel(int width, int height, long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry,int[] odds,ElementsToPlace objElem)
 	    {
 			
 	        this(width, height);
 	        this.objElem=objElem;
 	        this.odds=odds;
-	        creatManySearchesObjectsNLG(seed, difficulty, type,count,hsObjectsScreen,typeSymmetry,numElementsGlobalParamet);
+	        creatManySearchesObjectsNLG(seed, difficulty, type,count,hsObjectsScreen,typeSymmetry);
 	        System.out.println("constructorcorrect");
 	        
 	    }
@@ -134,7 +134,7 @@ public class BeautyCustomizedLevel extends Level{
 			odds=objElem.getOdds();
 		}
 
-		public void creatManySearchesObjectsNLG(long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry, int numElementsGlobalParamet)
+		public void creatManySearchesObjectsNLG(long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry)
 	    {
 			mediumStraight=width-initialStraight-finalStraight;
 			lastSeed = seed;
