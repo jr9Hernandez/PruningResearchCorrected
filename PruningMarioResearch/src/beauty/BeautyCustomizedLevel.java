@@ -526,7 +526,7 @@ public class BeautyCustomizedLevel extends Level{
 			        info = info.carregaInfoTela("infoTela");
 					info.setOutrasVariaveis(0, 0); // Salva outras informacoes da Tela
 					info.salvaInfoTela("infoTela", info);					
-					copiador.copy("" + i, "Screens/");
+//					copiador.copy("" + i, "Screens/");
 					
 				} catch (CloneNotSupportedException e) {
 					// TODO Auto-generated catch block
