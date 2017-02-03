@@ -66,7 +66,7 @@ import dk.itu.mario.level.Level;
 public class GraphBuilder
 {
 
-	private int counterIDs;
+	private long counterIDs;
 	private int counterBranches;
 	private ArrayList<BlockNode> Beststates;
 	private ArrayList<BlockNode> Worststates;
@@ -121,7 +121,7 @@ public class GraphBuilder
 	private TreeSet localcurrentState;
 	//Iterator<Integer> finalListIterator;
 	
-    public GraphBuilder(int counterIDs)
+    public GraphBuilder(long counterIDs)
     {
     	bestBranches = new ArrayList<Branch>();
     	this.counterIDs=counterIDs;
@@ -383,7 +383,7 @@ public class GraphBuilder
     public boolean  validationSymmetryFuture(   int countElements, int countElementsFinal,ArrayList statesCopy, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry,int floorTileHeight,int height)
     { 
     	
-    	int counterIDsCopy=counterIDs;
+    	long counterIDsCopy=counterIDs;
     	countElements=countElements-1;
     	//Collections.sort(bestXs,Collections.reverseOrder());
     	//Collections.sort(bestYs,Collections.reverseOrder());
@@ -8430,7 +8430,7 @@ public class GraphBuilder
 		return summatory;
 	}
 	
-	public int getCounterIDs()
+	public long getCounterIDs()
     {
     	return counterIDs;
     }
