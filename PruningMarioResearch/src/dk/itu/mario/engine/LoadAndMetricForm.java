@@ -71,7 +71,7 @@ public class LoadAndMetricForm {
 		/*---------------------to load------------------------*/
 
 			//System.out.println("en siberia");
-			String nameFile="tela"+counterNames;
+			/*String nameFile="tela"+counterNames;
 		       			    
 	    	frame = new JFrame("Mario Experience Showcase");
 	    	mario = new MarioComponent(640, 480,true,"",4,1);
@@ -84,7 +84,7 @@ public class LoadAndMetricForm {
 	        frame.setLocation((screenSize.width-frame.getWidth())/2, (screenSize.height-frame.getHeight())/2);
 
 	        frame.setVisible(true);
-	        mario.start();   
+	        mario.start();   */
 	       
 		
 	  	

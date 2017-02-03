@@ -101,7 +101,7 @@ public class ElementsToPlace {
         
 
         //generation of number of objects
-        System.out.println("o numero escolhido "+numElementsGlobalParamet);
+        //System.out.println("o numero escolhido "+numElementsGlobalParamet);
         int numberInScreen =5+random.nextInt(1);
         for(int i=0;i<numberInScreen;i++)
         {
@@ -252,7 +252,7 @@ public class ElementsToPlace {
 
         	} while (listObjects.isEmpty());
         	
-        	System.out.println("finalmenteseleccionado "+item.getTypeElement()+" "+item.getHeigth()+" "+item.getWidth());
+        	//System.out.println("finalmenteseleccionado "+item.getTypeElement()+" "+item.getHeigth()+" "+item.getWidth());
         	objElement = new Elements();
     		objElement.setIdElem(i);
     		objElement.setTypeElem(typeElementSelected);
@@ -339,11 +339,11 @@ public class ElementsToPlace {
 			finalList.get(i).setIdElem(i);
 			finalListNoOrder.get(i).setIdElem(i);
 			//System.out.println("List Original" + finalListOriginal.get(i).getTypeElem()+ " "+finalListOriginal.get(i).getHeigth() +" "+finalListOriginal.get(i).getWidth());
-			System.out.println("List" + finalList.get(i).getTypeElem()+ " "+finalList.get(i).getHeigth() +" "+finalList.get(i).getWidth());
-			System.out.println("List No order areas" + finalListNoOrder.get(i).getTypeElem()+ " "+finalListNoOrder.get(i).getHeigth() +" "+finalListNoOrder.get(i).getWidth());
-			System.out.println("----");
+			//System.out.println("List" + finalList.get(i).getTypeElem()+ " "+finalList.get(i).getHeigth() +" "+finalList.get(i).getWidth());
+			//System.out.println("List No order areas" + finalListNoOrder.get(i).getTypeElem()+ " "+finalListNoOrder.get(i).getHeigth() +" "+finalListNoOrder.get(i).getWidth());
+			//System.out.println("----");
 		}
-		System.out.println("");
+		//System.out.println("");
         
         /*for(int i=0;i<odds.length;i++)
         {

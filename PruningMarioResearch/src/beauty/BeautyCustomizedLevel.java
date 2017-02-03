@@ -111,7 +111,7 @@ public class BeautyCustomizedLevel extends Level{
 	        this.objElem=objElem;
 	        this.odds=odds;
 	        creatManySearchesObjectsNLG(seed, difficulty, type,count,hsObjectsScreen,typeSymmetry);
-	        System.out.println("constructorcorrect");
+	        //System.out.println("constructorcorrect");
 	        
 	    }
 		
@@ -130,7 +130,7 @@ public class BeautyCustomizedLevel extends Level{
 		//receiving objects from NLG
 		public void generateElementsNLG(Random random, int floorTileHeight,Hashtable hsObjectsScreen)
 		{
-			System.out.println("iscalled");
+			//System.out.println("iscalled");
 			objElem=new ElementsToPlace(random,floorTileHeight,hsObjectsScreen,height,1);
 			odds=objElem.getOdds();
 		}
@@ -394,14 +394,14 @@ public class BeautyCustomizedLevel extends Level{
 	    	if(objGrapB3.bestSymmetryV<objGrapB5.bestSymmetryV)
 	    	{
 	    		double bestSYmmetry=objGrapB3.bestSymmetryV;
-	    		System.out.println("bestSym "+bestSYmmetry);
+	    		//System.out.println("bestSym "+bestSYmmetry);
 	    		BestGlobalstates=Beststates3;
 	    		
 	    	}
 	    	else
 	    	{
 	    		double bestSYmmetry=objGrapB5.bestSymmetryV;
-	    		System.out.println("bestSym "+bestSYmmetry);
+	    		//System.out.println("bestSym "+bestSYmmetry);
 	    		BestGlobalstates=Beststates5;
 	    	}
 	    	
@@ -436,11 +436,11 @@ public class BeautyCustomizedLevel extends Level{
 	        
 	        //here we are painting as the best branch founded
 	        
-	        System.out.println("nene "+BestGlobalstates.size());
+	        //System.out.println("nene "+BestGlobalstates.size());
 	        Iterator<BlockNode> nombreIterator = BestGlobalstates.iterator();
 	        while(nombreIterator.hasNext()){
 	        	BlockNode elemento = nombreIterator.next();
-	        	System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" ) - "+elemento.getType()+" "+elemento.getIdElement()+ " / ");
+	        	//System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" ) - "+elemento.getType()+" "+elemento.getIdElement()+ " / ");
 	        }
 	        
 	        
@@ -488,7 +488,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	Branch objBranch=new Branch();
 	    	//bestBranches=objBranch.sortBranches(bestBranches);
 	    	
-	    	System.out.print( "CounterStates"+objGrapB.getCounterIDs() );
+	    	//System.out.print( "CounterStates"+objGrapB.getCounterIDs() );
 	        
 	        //imprimiendo los estados visitados
 	        /*
@@ -503,7 +503,7 @@ public class BeautyCustomizedLevel extends Level{
 	        Iterator<Branch> nombreIterator = bestBranches.iterator();
 	        while(nombreIterator.hasNext()){
 	        	Branch elemento = nombreIterator.next();
-	        	System.out.print(elemento.getHeuristicValue()+ " / ");
+	        	//System.out.print(elemento.getHeuristicValue()+ " / ");
 	        }
 	        
 	        
@@ -1443,7 +1443,7 @@ public class BeautyCustomizedLevel extends Level{
 	    private boolean addEnemyLine(int x0, int x1, int y)
 	    {
 	    	boolean enemyAdded=false;
-	    	System.out.println("difficulty "+difficulty);
+	    	//System.out.println("difficulty "+difficulty);
 	        for (int x = x0; x < x1; x++)
 	        {
 	            if (random.nextInt(35) < difficulty + 1)
@@ -1468,7 +1468,7 @@ public class BeautyCustomizedLevel extends Level{
 	    private boolean addEnemyLineMountains(int x0, int x1, int y)
 	    {
 	    	boolean enemyAddedBefore=false;
-	    	System.out.println("difficulty "+difficulty);
+	    	//System.out.println("difficulty "+difficulty);
 	        for (int x = x0; x < x1; x++)
 	        {
 	            if (random.nextInt(20) < difficulty + 1)
@@ -1493,7 +1493,7 @@ public class BeautyCustomizedLevel extends Level{
 	    
 	    private void addEnemyLineBlocks(int x0, int x1, int y)
 	    {
-	    	System.out.println("difficulty "+difficulty);
+	    	//System.out.println("difficulty "+difficulty);
 	        for (int x = x0; x < x1; x++)
 	        {
 	            if (random.nextInt(15) < difficulty + 1)

@@ -48,7 +48,7 @@ public class CopiaArquivos {
             if (file.isDirectory())  
                 copyAll(file,new File(destino+"\\"+ file.getName()),overwrite);  
             else{  
-                System.out.println("Copiando arquivo: "+file.getName());  
+                //System.out.println("Copiando arquivo: "+file.getName());  
                 copy(file, new File(destino+"\\"+file.getName()),overwrite);  
             }  
         }  
@@ -66,7 +66,7 @@ public class CopiaArquivos {
         File copiaTela = new File("telasEinfo/Telas/tela" + nome);  
         File copiaInfoTela = new File("telasEinfo/InfoTelas/info" + nome);
         
-        System.out.println("Copiando aquivos...");
+        //System.out.println("Copiando aquivos...");
         //Salva a Tela
         FileInputStream fisOrigemTela = new FileInputStream(tela);  
         FileOutputStream fisDestinoTela = new FileOutputStream(copiaTela);  
@@ -85,7 +85,7 @@ public class CopiaArquivos {
         fisOrigemTela.close();    
         fisDestinoTela.close();
         
-        System.out.println("Finalizado!!!");
+        //System.out.println("Finalizado!!!");
     }
     
     
@@ -102,7 +102,7 @@ public class CopiaArquivos {
         File copiaTela = new File(diretorio + "/Telas/tela" + nome);  
         File copiaInfoTela = new File(diretorio + "/InfoTelas/info" + nome);
         
-        System.out.println("Copiando aquivos...");
+        //System.out.println("Copiando aquivos...");
         //Salva a Tela
         FileInputStream fisOrigemTela = new FileInputStream(tela);  
         FileOutputStream fisDestinoTela = new FileOutputStream(copiaTela);  
@@ -121,7 +121,7 @@ public class CopiaArquivos {
         fisOrigemTela.close();    
         fisDestinoTela.close();
         
-        System.out.println("Finalizado!!!");
+        //System.out.println("Finalizado!!!");
     }
     
     /**

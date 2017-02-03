@@ -129,7 +129,7 @@ import dk.itu.mario.res.ResourcesManager;
 		    				Iterator<SingleElement> nombreIterator = objectsOfSpecificType.iterator();
 			    	        while(nombreIterator.hasNext()){
 			    	        	SingleElement elemento = nombreIterator.next();
-			    	        	System.out.println(elemento.getTypeElement());
+			    	        	//System.out.println(elemento.getTypeElement());
 			    	        }
 			    	        
 			    	        hsObjectsScreen = new Hashtable();
@@ -188,7 +188,8 @@ import dk.itu.mario.res.ResourcesManager;
 		    			}
 		    			
 		    			}
-		    			
+		    			//finish program to avoid problems with GUI in the cluster.
+		    	    	System.exit(0);
 
 		        		//********mthod for load and print beauty screens*******//
 		    			
@@ -432,7 +433,7 @@ import dk.itu.mario.res.ResourcesManager;
     	        	SingleScreen elemento = nombreIterator.next();
     	        	normalizedValue= (int)(1+ (elemento.getValueMetric()-minValueMetric)*(maxScale-minScale)/(maxValueMetric-minValueMetric));
     	        	elemento.setValueMetricNormalized(normalizedValue);   	    
-    	        	System.out.print(elemento.getNameScreen()+"("+elemento.getValueMetric()+" "+elemento.getValueMetricNormalized()+" )  / ");
+    	        	//System.out.print(elemento.getNameScreen()+"("+elemento.getValueMetric()+" "+elemento.getValueMetricNormalized()+" )  / ");
     	        }
 				
 				return metricsList;

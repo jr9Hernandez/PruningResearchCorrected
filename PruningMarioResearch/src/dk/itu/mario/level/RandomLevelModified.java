@@ -942,7 +942,7 @@ public class RandomLevelModified extends Level{
 	    public void additionElementToList(String type,int heigth, int width)
 	    {
 	    	SingleElement objSingleElement=new SingleElement(heigth-1,width,type);
-	    	System.out.println("SIngleElement "+objSingleElement.getHeigth()+" "+objSingleElement.getWidth()+" "+objSingleElement.getTypeElement());
+	    	//System.out.println("SIngleElement "+objSingleElement.getHeigth()+" "+objSingleElement.getWidth()+" "+objSingleElement.getTypeElement());
 			objectsOfSpecificType.add(objSingleElement);
 	    }
 

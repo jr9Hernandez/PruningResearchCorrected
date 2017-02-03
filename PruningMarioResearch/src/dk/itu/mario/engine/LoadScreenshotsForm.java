@@ -26,7 +26,7 @@ public class LoadScreenshotsForm {
 	static ArrayList metrics;
 	public static void main(String[] args)
      {			
-			/*---------------------to load and print------------------------*/
+		/*	
 			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 			Timer timer = new Timer();
 			timer.schedule(new TimerTask() {
@@ -68,7 +68,7 @@ public class LoadScreenshotsForm {
 		        mario.start();   
 		        counterNames++;
 			}
-        	}, 3000,3000); 
+        	}, 3000,3000); */
 			
 		/*---------------------to load------------------------*/
 
@@ -107,7 +107,7 @@ public class LoadScreenshotsForm {
 
 	        frame.setVisible(true);
 
-	        mario.start();  */
+	        mario.start();  */ 
 	}	
 
 }
