@@ -128,9 +128,10 @@ public class BeautyCustomizedLevel extends Level{
 		}
 		
 		//receiving objects from NLG
-		public void generateElementsNLG(Random random, int floorTileHeight,Hashtable hsObjectsScreen,int numElementsGlobalParamet)
+		public void generateElementsNLG(Random random, int floorTileHeight,Hashtable hsObjectsScreen)
 		{
-			objElem=new ElementsToPlace(random,floorTileHeight,hsObjectsScreen,height,numElementsGlobalParamet);
+			System.out.println("iscalled");
+			objElem=new ElementsToPlace(random,floorTileHeight,hsObjectsScreen,height,1);
 			odds=objElem.getOdds();
 		}
 
