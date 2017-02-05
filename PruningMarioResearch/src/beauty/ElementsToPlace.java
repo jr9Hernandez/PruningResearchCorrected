@@ -102,7 +102,8 @@ public class ElementsToPlace {
 
         //generation of number of objects
         //System.out.println("o numero escolhido "+numElementsGlobalParamet);
-        int numberInScreen =5+random.nextInt(1);
+        //int numberInScreen =5+random.nextInt(1);
+        int numberInScreen =numElementsGlobalParamet;
         for(int i=0;i<numberInScreen;i++)
         {
             ArrayList listObjects=new ArrayList<SingleElement> ();
