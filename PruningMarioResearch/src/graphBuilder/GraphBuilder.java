@@ -2612,16 +2612,16 @@ public class GraphBuilder
     		states.add(objBlockNode2);
     		
     		//partialSymmetry=partialSymmetry(states,objElemP,height,floorTileHeight,localMaxObjLeft,false);
-    		partialSymmetry=partialSymmetryNewFormula(states,objElemP,height,floorTileHeight,localMaxObjLeft,false,typeSymmetry);
+    		//partialSymmetry=partialSymmetryNewFormula(states,objElemP,height,floorTileHeight,localMaxObjLeft,false,typeSymmetry);
     		boolean validationPruningM=false;
-    		if(firstBranchPercorred==true)
+    		/*if(firstBranchPercorred==true)
     		{
-    			/*if(validationPruningMAll(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true && typeSymmetry==2)
+    			if(validationPruningMAll(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true && typeSymmetry==2)
     			{
     				//System.out.println("cambiaso");
     				validationPruningM=true;
-    			}*/
-    		}
+    			}
+    		}*/
     		if(countElements>0 && validationPruningM==false)
     		{    		    			
     			DepthSearchCenterFrameNoPruningNoRegionsNoObjects(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal,typeSymmetry);
@@ -2642,7 +2642,7 @@ public class GraphBuilder
     	}
     	
     	//putting enemies
-    	if(globalControlSearch==0)
+    	/*if(globalControlSearch==0)
     	{
     	for(int i=0;i<numEnemies;i++)
     	{
@@ -2655,7 +2655,7 @@ public class GraphBuilder
     		BlockNode objBlockNode2=new BlockNode(RandomCoordenateGenerator(random,0,width-1),RandomCoordenateGenerator(random,0,floorTileHeight),counterIDs,typeElemEnem,idElemEnem);
     		Beststates.add(objBlockNode2);
     	}
-    	}
+    	}*/
     	/*System.out.println("puttyconexao "+bestSymmetryV);
     	Iterator<BlockNode> itSymmetry1 = Beststates.iterator();
 		while(itSymmetry1.hasNext()){
@@ -3000,7 +3000,7 @@ public class GraphBuilder
     	}
     	
     	//putting enemies
-    	if(globalControlSearch==0)
+    	/*if(globalControlSearch==0)
     	{
     	for(int i=0;i<numEnemies;i++)
     	{
@@ -3013,7 +3013,7 @@ public class GraphBuilder
     		BlockNode objBlockNode2=new BlockNode(RandomCoordenateGenerator(random,0,width-1),RandomCoordenateGenerator(random,0,floorTileHeight),counterIDs,typeElemEnem,idElemEnem);
     		Beststates.add(objBlockNode2);
     	}
-    	}
+    	}*/
     	/*System.out.println("puttyconexao "+bestSymmetryV);
     	Iterator<BlockNode> itSymmetry1 = Beststates.iterator();
 		while(itSymmetry1.hasNext()){
@@ -3725,7 +3725,7 @@ public class GraphBuilder
     	}
     	
     	//putting enemies
-    	if(globalControlSearch==0)
+    	/*if(globalControlSearch==0)
     	{
     	for(int i=0;i<numEnemies;i++)
     	{
@@ -3738,7 +3738,7 @@ public class GraphBuilder
     		BlockNode objBlockNode2=new BlockNode(RandomCoordenateGenerator(random,0,width-1),RandomCoordenateGenerator(random,0,floorTileHeight),counterIDs,typeElemEnem,idElemEnem);
     		Beststates.add(objBlockNode2);
     	}
-    	}
+    	}*/
     	/*System.out.println("puttyconexao "+bestSymmetryV);
     	Iterator<BlockNode> itSymmetry1 = Beststates.iterator();
 		while(itSymmetry1.hasNext()){
@@ -3767,7 +3767,7 @@ public class GraphBuilder
     	Elements objElem= (Elements)finalList.get(countElementsFinal-countElements-1);
     	int idElem=objElem.getIdElem();
     	int typeElem=objElem.getTypeElem();
-    	int widthElemm=objElem.getWidth();
+    	//int widthElemm=objElem.getWidth();
     	
     	int quadrant1X=0;
     	int quadrant2X=0;
@@ -4092,7 +4092,7 @@ public class GraphBuilder
     	}
     	
     	//putting enemies
-    	if(globalControlSearch==0)
+    	/*if(globalControlSearch==0)
     	{
     	for(int i=0;i<numEnemies;i++)
     	{
@@ -4105,7 +4105,7 @@ public class GraphBuilder
     		BlockNode objBlockNode2=new BlockNode(RandomCoordenateGenerator(random,0,width-1),RandomCoordenateGenerator(random,0,floorTileHeight),counterIDs,typeElemEnem,idElemEnem);
     		Beststates.add(objBlockNode2);
     	}
-    	}
+    	}*/
     	/*System.out.println("puttyconexao "+bestSymmetryV);
     	Iterator<BlockNode> itSymmetry1 = Beststates.iterator();
 		while(itSymmetry1.hasNext()){
