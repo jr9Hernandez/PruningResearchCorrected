@@ -3358,7 +3358,7 @@ public class GraphBuilder
     	}
     	
     	//putting enemies
-    	if(globalControlSearch==0)
+    	/*if(globalControlSearch==0)
     	{
     	for(int i=0;i<numEnemies;i++)
     	{
@@ -3371,7 +3371,7 @@ public class GraphBuilder
     		BlockNode objBlockNode2=new BlockNode(RandomCoordenateGenerator(random,0,width-1),RandomCoordenateGenerator(random,0,floorTileHeight),counterIDs,typeElemEnem,idElemEnem);
     		Beststates.add(objBlockNode2);
     	}
-    	}
+    	}*/
     	/*System.out.println("puttyconexao "+bestSymmetryV);
     	Iterator<BlockNode> itSymmetry1 = Beststates.iterator();
 		while(itSymmetry1.hasNext()){
