@@ -323,6 +323,15 @@ public class BeautyCustomizedLevel extends Level{
 	    	long time3=0;
 	    	long time4=0;
 	    	long time5=0;
+	    	
+	    	long startTime=0;
+	    	long stopTime=0;
+	    	
+	    	long sum3=0;
+	    	long sum4=0;
+	    	long sum5=0;
+	    	long sum6=0;
+	    	long sum7=0;
 
 	    	
 	    	//Beststates=objGrapB.basicDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem);
@@ -356,42 +365,67 @@ public class BeautyCustomizedLevel extends Level{
 	        
 	        //3.3) Brute-force search
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
-	        long startTime = System.currentTimeMillis();
-	    	Beststates3=objGrapB3.DepthSearchCenterFrameNoPruningNoRegionsNoObjects(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
-	    	long stopTime = System.currentTimeMillis();
-	        time3 = stopTime - startTime;
+	    	for(int i=0; i<100; i++)
+	    	{
+	    		startTime = System.currentTimeMillis();
+	    		Beststates3=objGrapB3.DepthSearchCenterFrameNoPruningNoRegionsNoObjects(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
+	    		stopTime = System.currentTimeMillis();
+	    		time3 = stopTime - startTime;
+	    		sum3=sum3+time3;
+	    	}
+	    	time3=sum3/time3;
 	        //System.out.println("Time Brute-force search "+elapsedTime);
 	        
 	        //3.4) B&Bheuristic + oldHeuristic ---
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
-	        startTime = System.currentTimeMillis();
-	    	Beststates4=objGrapB4.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
-	    	stopTime = System.currentTimeMillis();
-	    	time4 = stopTime - startTime;
+	    	for(int i=0;i<100;i++)
+	    	{
+	    		startTime = System.currentTimeMillis();
+	    		Beststates4=objGrapB4.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
+	    		stopTime = System.currentTimeMillis();
+	    		time4 = stopTime - startTime;
+	    		sum4=sum4+time4;
+	    	}
+	    	time4=sum4/time4;
 	        //System.out.println("Time B&B+heuristic "+elapsedTime);
 	    	
 	        //3.5) B&B+heuristic + region ordering + LeviHeuristic
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
-	        startTime = System.currentTimeMillis();
-	    	Beststates5=objGrapB5.DepthSearchCenterFramePruningRegion(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
-	    	stopTime = System.currentTimeMillis();
-	    	time5 = stopTime - startTime;
+	    	for(int i=0;i<100;i++)
+	    	{
+	    		startTime = System.currentTimeMillis();
+	    		Beststates5=objGrapB5.DepthSearchCenterFramePruningRegion(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
+	    		stopTime = System.currentTimeMillis();
+	    		time5 = stopTime - startTime;
+	    		sum5=sum5+time5;
+	    	}
+	    	time5=sum5/time5;
 	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	        
 	        //3.6) B&B+heuristic +  LeviHeuristic
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
-	        startTime = System.currentTimeMillis();
-	    	Beststates6=objGrapB6.DepthSearchCenterFramePruningLeviHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
-	    	stopTime = System.currentTimeMillis();
-	    	time6 = stopTime - startTime;
+	    	for(int i=0;i<100;i++)
+	    	{
+	    		startTime = System.currentTimeMillis();
+	    		Beststates6=objGrapB6.DepthSearchCenterFramePruningLeviHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
+	    		stopTime = System.currentTimeMillis();
+	    		time6 = stopTime - startTime;
+	    		sum6=sum6+time6;
+	    	}
+	    	time6=sum6/time6;
 	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	        
 	        //3.7) B&B+heuristic +  oldoldheuristic
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
-	        startTime = System.currentTimeMillis();
-	    	Beststates7=objGrapB7.DepthSearchCenterFramePruningOldOldHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
-	    	stopTime = System.currentTimeMillis();
-	    	time7 = stopTime - startTime;
+	    	for(int i=0;i<100;i++)
+	    	{
+	    		startTime = System.currentTimeMillis();
+	    		Beststates7=objGrapB7.DepthSearchCenterFramePruningOldOldHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
+	    		stopTime = System.currentTimeMillis();
+	    		time7 = stopTime - startTime;
+	    		sum7=sum7+time7;
+	    	}
+	    	time7=sum7/time7;
 	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	    	
 	    	
