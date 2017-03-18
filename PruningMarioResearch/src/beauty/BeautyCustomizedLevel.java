@@ -378,7 +378,7 @@ public class BeautyCustomizedLevel extends Level{
 	        
 	        //3.4) B&Bheuristic + oldHeuristic ---
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
-	    	for(int i=0;i<100;i++)
+	    	/*for(int i=0;i<100;i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
 	    		Beststates4=objGrapB4.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
@@ -386,7 +386,7 @@ public class BeautyCustomizedLevel extends Level{
 	    		time4 = stopTime - startTime;
 	    		sum4=sum4+time4;
 	    	}
-	    	time4=sum4/time4;
+	    	time4=sum4/time4;*/
 	        //System.out.println("Time B&B+heuristic "+elapsedTime);
 	    	
 	        //3.5) B&B+heuristic + region ordering + LeviHeuristic
@@ -463,7 +463,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	//System.out.println( "States 6 "+objGrapB6.getCounterIDs() );
 	    	//System.out.println( "States 7 "+objGrapB7.getCounterIDs() );
 	    	
-	    	System.out.print(objGrapB3.bestSymmetryV+" "+time3+" "+objGrapB3.getCounterIDs()+" "+objGrapB7.bestSymmetryV+" "+time7+" "+objGrapB7.getCounterIDs()+" "+objGrapB4.bestSymmetryV+" "+time4+" "+objGrapB4.getCounterIDs()+" "+objGrapB6.bestSymmetryV+" "+time6+" "+objGrapB6.getCounterIDs()+" "+objGrapB5.bestSymmetryV+" "+time5+" "+objGrapB5.getCounterIDs()+" ");
+	    	System.out.print(objGrapB3.bestSymmetryV+" "+time3+" "+objGrapB3.getCounterIDs()+" "+objGrapB7.bestSymmetryV+" "+time7+" "+objGrapB7.getCounterIDs()+" "+objGrapB6.bestSymmetryV+" "+time6+" "+objGrapB6.getCounterIDs()+" "+objGrapB5.bestSymmetryV+" "+time5+" "+objGrapB5.getCounterIDs()+" ");
 	        
 	        //imprimiendo los estados visitados
 	        /*
