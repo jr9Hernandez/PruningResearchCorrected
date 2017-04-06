@@ -54,6 +54,7 @@ public class BeautyCustomizedLevel extends Level{
 		private ArrayList<BlockNode> Beststates5 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> Beststates6 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> Beststates7 = new ArrayList<BlockNode>();
+		private ArrayList<BlockNode> Beststates8 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> BestGlobalstates = new ArrayList<BlockNode>();
 		private int maxScreens=100;
 		
@@ -313,6 +314,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	GraphBuilder objGrapB5= new GraphBuilder(1);
 	    	GraphBuilder objGrapB6= new GraphBuilder(1);
 	    	GraphBuilder objGrapB7= new GraphBuilder(1);
+	    	GraphBuilder objGrapB8= new GraphBuilder(1);
 	    	
 	    	int numElements=objElem.getNumberObjects();
 	    	int numEnemies=objElem.getNumberObjectsEnemies();
@@ -323,6 +325,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	long time3=0;
 	    	long time4=0;
 	    	long time5=0;
+	    	long time8=0;
 	    	
 	    	long startTime=0;
 	    	long stopTime=0;
@@ -332,6 +335,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	long sum5=0;
 	    	long sum6=0;
 	    	long sum7=0;
+	    	long sum8=0;
 
 	    	
 	    	//Beststates=objGrapB.basicDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem);
@@ -375,9 +379,22 @@ public class BeautyCustomizedLevel extends Level{
 	    	}
 	    	//time4=sum4/time4;
 	        //System.out.println("Time B&B+heuristic "+elapsedTime);
+	    	
+	        //3.8) B&B+heuristic +  Leviheuristic + Region and object Ordering
+	        //objElem.setFinalList(objElem.getFinalListNoOrder());
+	    	for(int i=0;i<10;i++)
+	    	{
+	    		startTime = System.currentTimeMillis();
+	    		Beststates8=objGrapB8.DepthSearchCenterFrameNoPruningNoRegionsNoObjects(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
+	    		stopTime = System.currentTimeMillis();
+	    		time8 = stopTime - startTime;
+	    		sum8=sum8+time8;
+	    	}
+	    	time8=sum8/10;
+	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	        
 	        //3.3) Brute-force search
-	        //objElem.setFinalList(objElem.getFinalListNoOrder());
+	        objElem.setFinalList(objElem.getFinalListNoOrder());
 	    	for(int i=0; i<10; i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
@@ -390,7 +407,7 @@ public class BeautyCustomizedLevel extends Level{
 	        //System.out.println("Time Brute-force search "+elapsedTime);
 	    	
 	        //3.5) B&B+heuristic + region ordering + LeviHeuristic
-	        //objElem.setFinalList(objElem.getFinalListNoOrder());
+	        objElem.setFinalList(objElem.getFinalListNoOrder());
 	    	for(int i=0;i<10;i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
@@ -403,7 +420,7 @@ public class BeautyCustomizedLevel extends Level{
 	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	        
 	        //3.6) B&B+heuristic +  LeviHeuristic
-	        //objElem.setFinalList(objElem.getFinalListNoOrder());
+	        objElem.setFinalList(objElem.getFinalListNoOrder());
 	    	for(int i=0;i<10;i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
@@ -416,7 +433,7 @@ public class BeautyCustomizedLevel extends Level{
 	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	        
 	        //3.7) B&B+heuristic +  oldoldheuristic
-	        //objElem.setFinalList(objElem.getFinalListNoOrder());
+	        objElem.setFinalList(objElem.getFinalListNoOrder());
 	    	for(int i=0;i<10;i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
@@ -427,6 +444,8 @@ public class BeautyCustomizedLevel extends Level{
 	    	}
 	    	time7=sum7/10;
 	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
+	    	
+
 	    	
 	    	
 	    	if(objGrapB3.bestSymmetryV<objGrapB5.bestSymmetryV)
