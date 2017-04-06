@@ -267,7 +267,7 @@ public class ElementsToPlace {
         		objElement.setHeigth(GenerateHeight(objElement.getTypeElem(),floorTileHeight));
         		objElement.setWidth(item.getWidth()); 
         	}
-        	else if(typeElementSelected==ODDS_HILL_STRAIGHT)
+        	/*else if(typeElementSelected==ODDS_HILL_STRAIGHT)
         	{
         		if( (floorTileHeight-item.getHeigth())>(height/3)+1 )
         		{
@@ -295,7 +295,7 @@ public class ElementsToPlace {
         				}
         			}
         		}
-        	}
+        	}*/
         	else
         	{
         		objElement.setHeigth(item.getHeigth());
@@ -308,24 +308,25 @@ public class ElementsToPlace {
     		
         }
         SingleElement objSingleElement= new SingleElement(0, 0, "");
-        finalList=objSingleElement.sortElementsbyType(finalList);
+        //finalList=objSingleElement.sortElementsbyType(finalList);
         finalListNoOrder=new ArrayList<Elements>();
         
-        ArrayList subAListElements=new ArrayList<Elements>();
+        //ArrayList subAListElements=new ArrayList<Elements>();
         for(int i=0;i<finalList.size();i++)
         {
         	objElement2=new Elements();
         	objElement2=objElement2.cloneElements(finalList.get(i), i);
         	finalListNoOrder.add(objElement2);
-        	if((finalList.get(i)).getTypeElem()>ODDS_HILL_STRAIGHT)
+        	/*if((finalList.get(i)).getTypeElem()>ODDS_HILL_STRAIGHT)
         	{
         		subAListElements.add(finalList.get(i));
-        	}
+        	}*/
         }
-        subAListElements=objSingleElement.sortElementsbyAreas(subAListElements);
-        Collections.reverse(subAListElements);
-        subAListElements=objSingleElement.sortElementsbyType(subAListElements);
-        int counterPartial=0;
+        finalList=objSingleElement.sortElementsbyAreas(finalList);
+        //subAListElements=objSingleElement.sortElementsbyAreas(subAListElements);
+        Collections.reverse(finalList);
+        //subAListElements=objSingleElement.sortElementsbyType(subAListElements);
+        /*int counterPartial=0;
         for(int i=0;i<finalList.size();i++)
         {
         	if((finalList.get(i)).getTypeElem()>ODDS_HILL_STRAIGHT)
@@ -333,7 +334,7 @@ public class ElementsToPlace {
         		finalList.set(i, (Elements)subAListElements.get(counterPartial));
         		counterPartial=counterPartial+1;
         	}
-        }
+        }*/
         
 		for(int i=0;i<finalList.size();i++)
 		{
