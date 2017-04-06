@@ -3392,7 +3392,7 @@ public class GraphBuilder
     	return Beststates;
     }   
 	
-	//3.5) B&B+heuristic + region ordering + LeviHeuristic + objectsordering
+	//3.8) B&B+heuristic + region ordering + LeviHeuristic + objectsordering
 	public ArrayList  DepthSearchCenterFramePruningRegionObjects(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry)
     {    
 		globalCenterXMass=centerXGlobal;
