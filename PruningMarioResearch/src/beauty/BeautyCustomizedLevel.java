@@ -385,7 +385,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	for(int i=0;i<5;i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
-	    		Beststates8=objGrapB8.DepthSearchCenterFrameNoPruningNoRegionsNoObjects(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
+	    		Beststates8=objGrapB8.DepthSearchCenterFramePruningRegionObjects(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
 	    		stopTime = System.currentTimeMillis();
 	    		time8 = stopTime - startTime;
 	    		sum8=sum8+time8;
@@ -411,7 +411,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	for(int i=0;i<5;i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
-	    		Beststates5=objGrapB5.DepthSearchCenterFramePruningRegionObjects(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
+	    		Beststates5=objGrapB5.DepthSearchCenterFramePruningRegion(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
 	    		stopTime = System.currentTimeMillis();
 	    		time5 = stopTime - startTime;
 	    		sum5=sum5+time5;
