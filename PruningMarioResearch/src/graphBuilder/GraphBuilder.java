@@ -910,7 +910,7 @@ public class GraphBuilder
         	XC2=2*firstXSecondHeuristic+2*secondXSecondHeuristic+thirdXSecondHeuristic;
         	YC2=2*firstYSecondHeuristic+2*secondYSecondHeuristic+thirdYSecondHeuristic;
         	
-        	partialSymmetry=partialSymmetry-((3*areaElement)+(Math.max(XC1, XC2))+(Math.max(YC1, YC2)));
+        	partialSymmetry=partialSymmetry-((3*areaElement)+(Math.max(XC1, XC2))+(Math.max(YC1, YC2)))*(1.5);
         	//firstheuristicCandidate=firstheuristicCandidate+((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         	//secondheuristicCandidate=secondheuristicCandidate+((3*areaElement)+(2*firstX)+(2*secondX)+thirdX+firstY+secondY+thirdY);
 
@@ -1050,7 +1050,7 @@ public class GraphBuilder
         	XC2=2*firstXSecondHeuristic;
         	YC2=2*firstYSecondHeuristic;
         	
-        	partialSymmetry=partialSymmetry-((areaElement)+(Math.max(XC1, XC2))+(Math.max(YC1, YC2)));
+        	partialSymmetry=partialSymmetry-((areaElement)+(Math.max(XC1, XC2))+(Math.max(YC1, YC2)))*(1.5);
         	//firstheuristicCandidate=firstheuristicCandidate+((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         	//secondheuristicCandidate=secondheuristicCandidate+((3*areaElement)+(2*firstX)+(2*secondX)+thirdX+firstY+secondY+thirdY);
 
@@ -1169,7 +1169,7 @@ public class GraphBuilder
         		thirdY=partialYSummatory[1];
         	}
         	
-        	partialSymmetry=partialSymmetry-((3*areaElement)+(3*globalCenterXMass)+(3*yCenterMassGeneral));
+        	partialSymmetry=partialSymmetry-((3*areaElement)+(3*globalCenterXMass)+(3*yCenterMassGeneral))*(1.5);
         	//partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         }
         //System.out.println("partialSymmetry "+partialSymmetry);
@@ -1284,7 +1284,7 @@ public class GraphBuilder
         		thirdY=partialYSummatory[1];
         	}
         	
-        	partialSymmetry=partialSymmetry-((areaElement)+(globalCenterXMass)+(yCenterMassGeneral));
+        	partialSymmetry=partialSymmetry-((areaElement)+(globalCenterXMass)+(yCenterMassGeneral))*(1.5);
         	//partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         }
         //System.out.println("partialSymmetry "+partialSymmetry);
