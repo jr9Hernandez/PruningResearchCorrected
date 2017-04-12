@@ -94,9 +94,9 @@ public class GenerationForm {
 		
 			//int numElementsGlobalParamet=Integer.parseInt(args[0]);
 	    	//JFrame frame = new JFrame("Mario Experience Showcase");
-	    	MarioComponent mario = new MarioComponent(640, 480,true," ",5,4);
+	    	MarioComponent mario = new MarioComponent(640, 480,true," ",5,6);
 	    	System.out.println("");
-	    	System.out.print(4+" ");
+	    	System.out.print(6+" ");
 	    	/*
 	    	frame.setContentPane(mario);
 	    	frame.setResizable(false);
