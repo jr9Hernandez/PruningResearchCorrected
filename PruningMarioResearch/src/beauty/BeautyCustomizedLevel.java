@@ -5,11 +5,14 @@ import graphBuilder.Branch;
 import graphBuilder.GraphBuilder;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Random;
-import java.util.TreeSet; 
+import java.util.TreeSet;
+
+import javax.annotation.processing.RoundEnvironment;
 
 import dk.itu.mario.MarioInterface.Constraints;
 import dk.itu.mario.MarioInterface.GamePlay;
@@ -318,20 +321,20 @@ public class BeautyCustomizedLevel extends Level{
 	    	int numEnemies=objElem.getNumberObjectsEnemies();
 	    	int globalControlSearch=0;
 	    	
-	    	long time6=0;
-	    	long time7=0;
-	    	long time3=0;
-	    	long time4=0;
-	    	long time5=0;
+	    	double time6=0;
+	    	double time7=0;
+	    	double time3=0;
+	    	double time4=0;
+	    	double time5=0;
 	    	
-	    	long startTime=0;
-	    	long stopTime=0;
+	    	double startTime=0;
+	    	double stopTime=0;
 	    	
-	    	long sum3=0;
-	    	long sum4=0;
-	    	long sum5=0;
-	    	long sum6=0;
-	    	long sum7=0;
+	    	double sum3=0;
+	    	double sum4=0;
+	    	double sum5=0;
+	    	double sum6=0;
+	    	double sum7=0;
 
 	    	
 	    	//Beststates=objGrapB.basicDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem);
@@ -463,7 +466,24 @@ public class BeautyCustomizedLevel extends Level{
 	    	//System.out.println( "States 6 "+objGrapB6.getCounterIDs() );
 	    	//System.out.println( "States 7 "+objGrapB7.getCounterIDs() );
 	    	
-	    	System.out.print(objGrapB3.bestSymmetryV+" "+time3+" "+objGrapB3.getCounterIDs()+" "+objGrapB7.bestSymmetryV+" "+time7+" "+objGrapB7.getCounterIDs()+" "+objGrapB6.bestSymmetryV+" "+time6+" "+objGrapB6.getCounterIDs()+" "+objGrapB5.bestSymmetryV+" "+time5+" "+objGrapB5.getCounterIDs()+" ");
+	    	double TimeRate7=time3/time7;
+	    	double TimeRate6=time3/time6;
+	    	double TimeRate5=time3/time5;
+	    	
+	    	TimeRate7=round(TimeRate7,2);
+	    	TimeRate6=round(TimeRate6,2);
+	    	TimeRate5=round(TimeRate5,2);
+	    	
+	    	double NodesRate7=(double)objGrapB3.getCounterIDs()/(double)objGrapB7.getCounterIDs();
+	    	double NodesRate6=(double)objGrapB3.getCounterIDs()/(double)objGrapB6.getCounterIDs();
+	    	double NodesRate5=(double)objGrapB3.getCounterIDs()/(double)objGrapB5.getCounterIDs();
+	    	
+	    	NodesRate7=round(NodesRate7,2);
+	    	NodesRate6=round(NodesRate6,2);
+	    	NodesRate5=round(NodesRate5,2);
+
+	    	
+	    	System.out.print(objGrapB3.bestSymmetryV+" "+time3+" "+((objGrapB3.getCounterIDs())/5)+" "+objGrapB7.bestSymmetryV+" "+time7+" "+((objGrapB7.getCounterIDs())/5)+" "+TimeRate7+" "+NodesRate7+" "+objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs())/5)+" "+TimeRate6+" "+NodesRate6+" "+objGrapB5.bestSymmetryV+" "+time5+" "+((objGrapB5.getCounterIDs())/5)+" "+TimeRate5+" "+NodesRate5+" ");
 	        
 	        //imprimiendo los estados visitados
 	        /*
@@ -1864,5 +1884,12 @@ public class BeautyCustomizedLevel extends Level{
 	            
 	        }*/
 	    }
-	  
+	    public static double round(double value, int places) {
+	        if (places < 0) throw new IllegalArgumentException();
+
+	        long factor = (long) Math.pow(10, places);
+	        value = value * factor;
+	        long tmp = Math.round(value);
+	        return (double) tmp / factor;
+	    }
 }
