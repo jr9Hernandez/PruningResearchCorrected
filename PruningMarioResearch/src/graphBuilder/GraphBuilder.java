@@ -723,7 +723,7 @@ public class GraphBuilder
     }
     
     
-    public boolean  validationPruningMAllLeviHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
+    public double  validationPruningMAllLeviHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
     { 
     	double firstheuristicCandidate=0;
     	double secondheuristicCandidate=0;
@@ -911,25 +911,26 @@ public class GraphBuilder
         	YC2=2*firstYSecondHeuristic+2*secondYSecondHeuristic+thirdYSecondHeuristic;
         	
         	partialSymmetry=partialSymmetry-((3*areaElement)+(Math.max(XC1, XC2))+(Math.max(YC1, YC2)));
-        	partialSymmetry=partialSymmetry*1.5;
+        	partialSymmetry=partialSymmetry;
         	//firstheuristicCandidate=firstheuristicCandidate+((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         	//secondheuristicCandidate=secondheuristicCandidate+((3*areaElement)+(2*firstX)+(2*secondX)+thirdX+firstY+secondY+thirdY);
 
         }
         
+        return partialSymmetry;
         //System.out.println("partialSymmetry "+partialSymmetry);
-        if(partialSymmetry>bestSymmetryV)
-        {
-        	
-        	return true;
-        }
-        else
-        {
-        	return false;
-        }
+//        if(partialSymmetry>bestSymmetryV)
+//        {
+//        	
+//        	return true;
+//        }
+//        else
+//        {
+//        	return false;
+//        }
     }
     
-    public boolean  validationPruningMVerticalLeviHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
+    public double  validationPruningMVerticalLeviHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
     { 
     	double firstheuristicCandidate=0;
     	double secondheuristicCandidate=0;
@@ -1052,22 +1053,24 @@ public class GraphBuilder
         	YC2=2*firstYSecondHeuristic;
         	
         	partialSymmetry=partialSymmetry-((areaElement)+(Math.max(XC1, XC2))+(Math.max(YC1, YC2)));
-        	partialSymmetry=partialSymmetry*(1.5);
+        	partialSymmetry=partialSymmetry;
         	//firstheuristicCandidate=firstheuristicCandidate+((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         	//secondheuristicCandidate=secondheuristicCandidate+((3*areaElement)+(2*firstX)+(2*secondX)+thirdX+firstY+secondY+thirdY);
 
         }
         
+        return partialSymmetry;
         //System.out.println("partialSymmetry "+partialSymmetry);
-        if(partialSymmetry>bestSymmetryV)
-        {
-        	
-        	return true;
-        }
-        else
-        {
-        	return false;
-        }
+//        if(partialSymmetry>bestSymmetryV)
+//        {
+//        	
+//        	return true;
+//        }
+//        else
+//        {
+//        	return false;
+//        }
+       
     }
     
     public boolean  validationPruningMAllOldOldHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
@@ -3694,7 +3697,7 @@ public class GraphBuilder
     		{
     			if(typeSymmetry==2)
     			{
-    				if(validationPruningMAllLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    				if(validationPruningMAllLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)>0)
     				{
     					//System.out.println("cambiaso");
     					validationPruningM=true;
@@ -3702,7 +3705,7 @@ public class GraphBuilder
     			}
     			else if(typeSymmetry==1)
     			{
-    				if(validationPruningMVerticalLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    				if(validationPruningMVerticalLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)>0)
     				{
     					//System.out.println("cambiaso");
     					validationPruningM=true;
@@ -3764,7 +3767,7 @@ public class GraphBuilder
     }   
 	
 	//3.6)  B&B+heuristic +  LeviHeuristic
-	public ArrayList  DepthSearchCenterFramePruningLeviHeuristic(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry)
+	public double  DepthSearchCenterFramePruningLeviHeuristic(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry)
     {    
 		globalCenterXMass=centerXGlobal;
     	countElements--;
@@ -4057,28 +4060,33 @@ public class GraphBuilder
     		//partialSymmetry=partialSymmetry(states,objElemP,height,floorTileHeight,localMaxObjLeft,false);
     		partialSymmetry=partialSymmetryNewFormula(states,objElemP,height,floorTileHeight,localMaxObjLeft,false,typeSymmetry);
     		boolean validationPruningM=false;
+    		double valuePruning=0;
     		if(firstBranchPercorred==true)
     		{
     			if(typeSymmetry==2)
     			{
-    				if(validationPruningMAllLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
-    				{
-    					//System.out.println("cambiaso");
-    					validationPruningM=true;
-    				}
+    				valuePruning=validationPruningMAllLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds);
+//    				{
+//    					//System.out.println("cambiaso");
+//    					validationPruningM=true;
+//    				}
     			}
     			else if(typeSymmetry==1)
     			{
-    				if(validationPruningMVerticalLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
-    				{
-    					//System.out.println("cambiaso");
-    					validationPruningM=true;
-    				}
+    				valuePruning=validationPruningMVerticalLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds);
+//    				{
+//    					//System.out.println("cambiaso");
+//    					validationPruningM=true;
+//    				}
     			}
     		}
     		if(countElements>0 && validationPruningM==false)
     		{    		    			
-    			DepthSearchCenterFramePruningLeviHeuristic(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal,typeSymmetry);
+    			double valueOptimalSubTree=DepthSearchCenterFramePruningLeviHeuristic(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal,typeSymmetry);
+    			if(valueOptimalSubTree<valuePruning)
+    			{
+    				System.out.println("inadmisivel!!");
+    			}
     		}
     		else{
     			//System.out.println("aca se debe calcular la formula");
@@ -4127,7 +4135,7 @@ public class GraphBuilder
 		{
 			//System.out.println("Summeutru ");
 		}*/
-    	return Beststates;
+    	return bestSymmetryV;
     }   
 	
 	public ArrayList  DepthSearchCenterFrame(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch,double centerXGlobal, int typeSymmetry)
