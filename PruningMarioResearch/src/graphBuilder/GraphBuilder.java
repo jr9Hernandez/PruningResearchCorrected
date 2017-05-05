@@ -824,26 +824,26 @@ public class GraphBuilder
         		thirdX=partialXSummatory[1];
         	}
         	
-        	if(partialYSummatory[3]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
+        	if(partialYSummatory[3]>(yCenterMassGeneral)-((objElem.getHeigth()+1)/2))
         	{
-        		firstY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2); 
+        		firstY=(yCenterMassGeneral)-((objElem.getHeigth()+1)/2); 
         	}
         	else
         	{
         		firstY=partialYSummatory[3];
         	}
         	
-        	if(partialYSummatory[2]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
+        	if(partialYSummatory[2]>(yCenterMassGeneral)-((objElem.getHeigth()+1)/2))
         	{
-        		secondY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2);
+        		secondY=(yCenterMassGeneral)-((objElem.getHeigth()+1)/2);
         	}
         	else
         	{
         		secondY=partialYSummatory[2];
         	}
-        	if(partialYSummatory[1]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
+        	if(partialYSummatory[1]>(yCenterMassGeneral)-((objElem.getHeigth()+1)/2))
         	{
-        		thirdY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2); 
+        		thirdY=(yCenterMassGeneral)-((objElem.getHeigth()+1)/2); 
         	}
         	else
         	{
@@ -910,7 +910,7 @@ public class GraphBuilder
         	XC2=2*firstXSecondHeuristic+2*secondXSecondHeuristic+thirdXSecondHeuristic;
         	YC2=2*firstYSecondHeuristic+2*secondYSecondHeuristic+thirdYSecondHeuristic;
         	
-        	partialSymmetry=partialSymmetry-((3*areaElement)+(Math.max(XC1, XC2))+(Math.max(YC1, YC2)));
+        	partialSymmetry=partialSymmetry-((3*areaElement)+(Math.max(XC1, XC1))+(Math.max(YC1, YC1)));
         	partialSymmetry=partialSymmetry;
         	//firstheuristicCandidate=firstheuristicCandidate+((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         	//secondheuristicCandidate=secondheuristicCandidate+((3*areaElement)+(2*firstX)+(2*secondX)+thirdX+firstY+secondY+thirdY);
@@ -5390,11 +5390,11 @@ public class GraphBuilder
         yCenterMassGeneral=summatoryAreasYG/summatoryAreasG;
         
         //xCenterMassGeneral=8.5;
-        yCenterMassGeneral=9.0;
+        yCenterMassGeneral=7.5;
         if(flagPivotFloating==true)
         {
         	
-        	yCenterMassGeneral=7.0;
+        	yCenterMassGeneral=7.5;
         }
         //System.out.println("xCenterMassGC "+xCenterMassGeneral);
         //System.out.println("yCenterMassGC "+yCenterMassGeneral);

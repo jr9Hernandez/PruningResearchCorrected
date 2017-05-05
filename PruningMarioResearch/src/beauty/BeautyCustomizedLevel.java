@@ -404,6 +404,8 @@ public class BeautyCustomizedLevel extends Level{
 	        
 	        //3.6) B&B+heuristic +  LeviHeuristic
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
+	    	System.out.println("largura "+mediumStraight);
+	    	System.out.println("Altura "+height);
 	    	for(int i=0;i<1;i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
