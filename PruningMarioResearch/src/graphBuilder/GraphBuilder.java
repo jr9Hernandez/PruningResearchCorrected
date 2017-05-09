@@ -73,8 +73,8 @@ public class GraphBuilder
 	private Branch BeststatesObj;
 	private Branch WorststatesObj;
 	private ArrayList bestBranches;
-	private double xCenterMassGeneral;
-	private double yCenterMassGeneral;
+	private double xCenterMassGeneral=8;
+	private double yCenterMassGeneral=7.5;
 	private double xCenterMassCoins;
 	private double yCenterMassCoins;
 	private double symmetryV;
@@ -5121,7 +5121,7 @@ public class GraphBuilder
         }
         
         //here we will calculate the center of mass
-        centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
+        //centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
         symmetryV=symettry1Areas(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         //double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
     	
@@ -5142,7 +5142,7 @@ public class GraphBuilder
         }
         
         //here we will calculate the center of mass
-        centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
+        //centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
         //symmetryV=symettry1Areas(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         //double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
     	
@@ -5171,7 +5171,7 @@ public class GraphBuilder
         }
         
         //here we will calculate the center of mass
-        centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
+        //centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
        // symmetryV=symettry1Areas(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         if(typeSymmetry==1)
         {
@@ -5218,7 +5218,7 @@ public class GraphBuilder
         }
         
         //here we will calculate the center of mass
-        centerOfMass(states,objElemP,height,floor);
+        //centerOfMass(states,objElemP,height,floor);
         symmetryV=symettry1Areas(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         double DistanceX=distanceBetweenX(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         
@@ -5259,7 +5259,7 @@ public class GraphBuilder
         }
         
         //here we will calculate the center of mass
-        centerOfMass(states,objElemP,height,floor);
+        //centerOfMass(states,objElemP,height,floor);
         symmetryV=symettry1Areas(states, objElemP, xCenterMassGeneral, yCenterMassGeneral,xCenterMassCoins, yCenterMassCoins);
         
       //creating object Branch
