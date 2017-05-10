@@ -81,7 +81,7 @@ public class GraphBuilder
 	public double bestSymmetryV=9999999;
 	private double worstSymmetryV=0;
 	private double bestAverageX=0;
-	private double globalCenterXMass=7.5;
+	private double globalCenterXMass=8.0;
 	private double partialSymmetry;
 	private double [] partialHeight=new double [4];
 	private double [] partialWidth=new double [4];
@@ -3832,7 +3832,7 @@ public class GraphBuilder
     		
     	}
     	
-    	int ruleThirds=(height/3);
+    	int ruleThirds=0;
     	
     	for(int i=maxLeft;i<=maxRight;i++)
     	{
@@ -4123,6 +4123,7 @@ public class GraphBuilder
     		if(bestSymettrySubTree<valuePruningFather)
     		{
     			System.out.println("inadmisivel!! "+valuePruningFather+" "+bestSymettrySubTree);
+    			
     		}
     	}
     	//putting enemies
