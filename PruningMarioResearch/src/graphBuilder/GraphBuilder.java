@@ -910,7 +910,7 @@ public class GraphBuilder
         	XC2=2*firstXSecondHeuristic+2*secondXSecondHeuristic+thirdXSecondHeuristic;
         	YC2=2*firstYSecondHeuristic+2*secondYSecondHeuristic+thirdYSecondHeuristic;
         	
-        	partialSymmetry=partialSymmetry-((3*areaElement)+(Math.max(XC1, XC1))+(Math.max(YC1, YC1)));
+        	partialSymmetry=partialSymmetry-((3*areaElement)+(Math.max(XC1, XC2))+(Math.max(YC1, YC2)));
         	partialSymmetry=partialSymmetry;
         	//firstheuristicCandidate=firstheuristicCandidate+((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         	//secondheuristicCandidate=secondheuristicCandidate+((3*areaElement)+(2*firstX)+(2*secondX)+thirdX+firstY+secondY+thirdY);
