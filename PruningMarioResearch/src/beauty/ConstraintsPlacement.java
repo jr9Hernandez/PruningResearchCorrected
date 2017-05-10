@@ -77,10 +77,10 @@ public class ConstraintsPlacement {
 			
 			int xElement = (int)state.getX();
 	        int floor= (int)state.getY();
-	        int widthElement=element.getWidth();
-	        int heigthElement=element.getHeigth();
-	        int xElemMax=xElement+(widthElement-1);
-	        int yElemMax=floor-(heigthElement);
+	        double widthElement=(double)element.getWidth();
+	        double heigthElement=(double)element.getHeigth();
+	        double xElemMax=(double)xElement+(widthElement-1);
+	        double yElemMax=(double)floor-(heigthElement);
 	        
 	        /*System.out.print(" idElement"+state.getIdElement());
 	        System.out.print(" xElement"+xElement);
@@ -400,8 +400,8 @@ public class ConstraintsPlacement {
 			
 			int xElement = (int)state.getX();
 	        int floor= (int)state.getY();
-	        int widthElement=element.getWidth();
-	        int heigthElement=element.getHeigth();
+	        double widthElement=(double)element.getWidth();
+	        double heigthElement=(double)element.getHeigth();
 	        
 	        
 	        
@@ -547,8 +547,8 @@ public class ConstraintsPlacement {
 					
 					int xElement = (int)state.getX();
 			        int floor= (int)state.getY();
-			        int widthElement=element.getWidth();
-			        int heigthElement=element.getHeigth();
+			        double widthElement=(double)element.getWidth();
+			        double heigthElement=(double)element.getHeigth();
 			        
 			        
 			        
@@ -617,8 +617,8 @@ public class ConstraintsPlacement {
 			
 			int xElement = (int)state.getX();
 	        int floor= (int)state.getY();
-	        int widthElement=element.getWidth();
-	        int heigthElement=element.getHeigth();
+	        double widthElement=(double)element.getWidth();
+	        double heigthElement=(double)element.getHeigth();
 	        
 	        
 	        
@@ -686,8 +686,8 @@ public class ConstraintsPlacement {
 			
 			int xElement = (int)state.getX();
 	        int floor= (int)state.getY();
-	        int widthElement=element.getWidth();
-	        int heigthElement=element.getHeigth();
+	        double widthElement=(double)element.getWidth();
+	        double heigthElement=(double)element.getHeigth();
 	        
 	        
 	        
@@ -735,8 +735,8 @@ public class ConstraintsPlacement {
 					
 					int xElement = (int)state.getX();
 			        int floor= (int)state.getY();
-			        int widthElement=element.getWidth();
-			        int heigthElement=element.getHeigth();
+			        double widthElement=(double)element.getWidth();
+			        double heigthElement=(double)element.getHeigth();
 			        
 			        
 			        

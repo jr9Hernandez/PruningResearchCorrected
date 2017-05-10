@@ -794,56 +794,56 @@ public class GraphBuilder
         	thirdYSecondHeuristic=0;
         	
         	Elements objElem= (Elements)finalList.get(i);
-        	double areaElement=(objElem.getHeigth()+1)*objElem.getWidth();
+        	double areaElement=((double)objElem.getHeigth()+1)*(double)objElem.getWidth();
         	//int counterElements=0;
         	
         	//First Heuristic Purposes
-        	if(partialXSummatory[3]>(globalCenterXMass)-(objElem.getWidth()/2))
+        	if(partialXSummatory[3]>(globalCenterXMass)-((double)objElem.getWidth()/2))
         	{
-        		firstX=(globalCenterXMass)-(objElem.getWidth()/2);
+        		firstX=(globalCenterXMass)-((double)objElem.getWidth()/2);
         	}
         	else
         	{
         		firstX=partialXSummatory[3];
         	}
         	
-        	if(partialXSummatory[2]>(globalCenterXMass)-(objElem.getWidth()/2))
+        	if(partialXSummatory[2]>(globalCenterXMass)-((double)objElem.getWidth()/2))
         	{
-        		secondX=(globalCenterXMass)-(objElem.getWidth()/2); 
+        		secondX=(globalCenterXMass)-((double)objElem.getWidth()/2); 
         	}
         	else
         	{
         		secondX=partialXSummatory[2];
         	}
-        	if(partialXSummatory[1]>(globalCenterXMass)-(objElem.getWidth()/2))
+        	if(partialXSummatory[1]>(globalCenterXMass)-((double)objElem.getWidth()/2))
         	{
-        		thirdX=(globalCenterXMass)-(objElem.getWidth()/2);
+        		thirdX=(globalCenterXMass)-((double)objElem.getWidth()/2);
         	}
         	else
         	{
         		thirdX=partialXSummatory[1];
         	}
         	
-        	if(partialYSummatory[3]>(yCenterMassGeneral)-((objElem.getHeigth()+1)/2))
+        	if(partialYSummatory[3]>(yCenterMassGeneral)-(((double)objElem.getHeigth()+1)/2))
         	{
-        		firstY=(yCenterMassGeneral)-((objElem.getHeigth()+1)/2); 
+        		firstY=(yCenterMassGeneral)-(((double)objElem.getHeigth()+1)/2); 
         	}
         	else
         	{
         		firstY=partialYSummatory[3];
         	}
         	
-        	if(partialYSummatory[2]>(yCenterMassGeneral)-((objElem.getHeigth()+1)/2))
+        	if(partialYSummatory[2]>(yCenterMassGeneral)-(((double)objElem.getHeigth()+1)/2))
         	{
-        		secondY=(yCenterMassGeneral)-((objElem.getHeigth()+1)/2);
+        		secondY=(yCenterMassGeneral)-(((double)objElem.getHeigth()+1)/2);
         	}
         	else
         	{
         		secondY=partialYSummatory[2];
         	}
-        	if(partialYSummatory[1]>(yCenterMassGeneral)-((objElem.getHeigth()+1)/2))
+        	if(partialYSummatory[1]>(yCenterMassGeneral)-(((double)objElem.getHeigth()+1)/2))
         	{
-        		thirdY=(yCenterMassGeneral)-((objElem.getHeigth()+1)/2); 
+        		thirdY=(yCenterMassGeneral)-(((double)objElem.getHeigth()+1)/2); 
         	}
         	else
         	{
@@ -852,52 +852,52 @@ public class GraphBuilder
         	
         	
         	//second heuristic purposes
-        	if(partialXSummatory[3]>(objElem.getWidth()/2))
+        	if(partialXSummatory[3]>((double)objElem.getWidth()/2))
         	{
-        		firstXSecondHeuristic= objElem.getWidth()/2;
+        		firstXSecondHeuristic= (double)objElem.getWidth()/2;
         	}
         	else
         	{
         		firstXSecondHeuristic=partialXSummatory[3];
         	}
         	
-        	if(partialXSummatory[2]>(objElem.getWidth()/2))
+        	if(partialXSummatory[2]>((double)objElem.getWidth()/2))
         	{
-        		secondXSecondHeuristic=objElem.getWidth()/2;
+        		secondXSecondHeuristic=(double)objElem.getWidth()/2;
         	}
         	else
         	{
         		secondXSecondHeuristic=partialXSummatory[2];
         	}
-        	if(partialXSummatory[1]>(objElem.getWidth()/2))
+        	if(partialXSummatory[1]>((double)objElem.getWidth()/2))
         	{
-        		thirdXSecondHeuristic=objElem.getWidth()/2;
+        		thirdXSecondHeuristic=(double)objElem.getWidth()/2;
         	}
         	else
         	{
         		thirdXSecondHeuristic=partialXSummatory[1];
         	}
         	
-        	if(partialYSummatory[3]>((objElem.getHeigth()+1)/2))
+        	if(partialYSummatory[3]>(((double)objElem.getHeigth()+1)/2))
         	{
-        		firstYSecondHeuristic=((objElem.getHeigth()+1)/2);
+        		firstYSecondHeuristic=(((double)objElem.getHeigth()+1)/2);
         	}
         	else
         	{
         		firstYSecondHeuristic=partialYSummatory[3];
         	}
         	
-        	if(partialYSummatory[2]>((objElem.getHeigth()+1)/2))
+        	if(partialYSummatory[2]>(((double)objElem.getHeigth()+1)/2))
         	{
-        		secondYSecondHeuristic=((objElem.getHeigth()+1)/2);
+        		secondYSecondHeuristic=(((double)objElem.getHeigth()+1)/2);
         	}
         	else
         	{
         		secondYSecondHeuristic=partialYSummatory[2];
         	}
-        	if(partialYSummatory[1]>((objElem.getHeigth()+1)/2))
+        	if(partialYSummatory[1]>(((double)objElem.getHeigth()+1)/2))
         	{
-        		thirdYSecondHeuristic=((objElem.getHeigth()+1)/2);
+        		thirdYSecondHeuristic=(((double)objElem.getHeigth()+1)/2);
         	}
         	else
         	{
@@ -1001,22 +1001,22 @@ public class GraphBuilder
         	thirdYSecondHeuristic=0;
         	
         	Elements objElem= (Elements)finalList.get(i);
-        	double areaElement=(objElem.getHeigth()+1)*objElem.getWidth();
+        	double areaElement=((double)objElem.getHeigth()+1)*(double)objElem.getWidth();
         	//int counterElements=0;
         	
         	//First Heuristic Purposes
-        	if(partialXSummatory[3]>(globalCenterXMass)-(objElem.getWidth()/2))
+        	if(partialXSummatory[3]>(globalCenterXMass)-((double)objElem.getWidth()/2))
         	{
-        		firstX=(globalCenterXMass)-(objElem.getWidth()/2);
+        		firstX=(globalCenterXMass)-((double)objElem.getWidth()/2);
         	}
         	else
         	{
         		firstX=partialXSummatory[3];
         	}
         	
-        	if(partialYSummatory[3]>(maxTamFromCenter)-((objElem.getHeigth()+1)/2))
+        	if(partialYSummatory[3]>(maxTamFromCenter)-(((double)objElem.getHeigth()+1)/2))
         	{
-        		firstY=(maxTamFromCenter)-((objElem.getHeigth()+1)/2); 
+        		firstY=(maxTamFromCenter)-(((double)objElem.getHeigth()+1)/2); 
         	}
         	else
         	{
@@ -1026,18 +1026,18 @@ public class GraphBuilder
         	
         	
         	//second heuristic purposes
-        	if(partialXSummatory[3]>(objElem.getWidth()/2))
+        	if(partialXSummatory[3]>((double)objElem.getWidth()/2))
         	{
-        		firstXSecondHeuristic= objElem.getWidth()/2;
+        		firstXSecondHeuristic= (double)objElem.getWidth()/2;
         	}
         	else
         	{
         		firstXSecondHeuristic=partialXSummatory[3];
         	}
         	
-        	if(partialYSummatory[3]>((objElem.getHeigth()+1)/2))
+        	if(partialYSummatory[3]>(((double)objElem.getHeigth()+1)/2))
         	{
-        		firstYSecondHeuristic=((objElem.getHeigth()+1)/2);
+        		firstYSecondHeuristic=(((double)objElem.getHeigth()+1)/2);
         	}
         	else
         	{
@@ -5310,8 +5310,8 @@ public class GraphBuilder
 			
 			double xInitial = elemento.getX();
 	        double yInitial= elemento.getY();
-	        widthElement=element.getWidth();
-	        heigthElement=element.getHeigth()+1;
+	        widthElement=(double)element.getWidth();
+	        heigthElement=(double)element.getHeigth()+1;
 	        
 	        int xMid=(int)((xInitial+widthElement)/2);
 	        Iterator<BlockNode> itPlaces = states.iterator();
@@ -5322,8 +5322,8 @@ public class GraphBuilder
 				
 				double xInitialN = elementoN.getX();
 		        double yInitialN= elementoN.getY();
-		        widthElementN=elementN.getWidth();
-		        heigthElementN=elementN.getHeigth()+1;
+		        widthElementN=(double)elementN.getWidth();
+		        heigthElementN=(double)elementN.getHeigth()+1;
 		        int xMidN=(int)((xInitialN+widthElementN)/2);
 	        	averageXDistance=averageXDistance+Math.abs(xMid-xMidN);
 	        
@@ -5617,8 +5617,8 @@ public class GraphBuilder
 			double xInitial = elemento.getX();
 			double yInitial= elemento.getY();
 
-			widthElement=element.getWidth();
-			heigthElement=element.getHeigth()+1;
+			widthElement=(double)element.getWidth();
+			heigthElement=(double)element.getHeigth()+1;
 
 
 			if((xInitial+widthElement)<=xCenterMassGeneral )
@@ -6214,8 +6214,8 @@ public class GraphBuilder
 			double xInitial = elemento.getX();
 			double yInitial= elemento.getY();
 
-			widthElement=element.getWidth();
-			heigthElement=element.getHeigth()+1;
+			widthElement=(double)element.getWidth();
+			heigthElement=(double)element.getHeigth()+1;
 
 
 			if((xInitial+widthElement)<=xCenterMassGeneral )
