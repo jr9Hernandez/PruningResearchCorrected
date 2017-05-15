@@ -3872,14 +3872,14 @@ public class GraphBuilder
     		 {
     			 indeyN=(height-j-1)+ruleThirds;
     		 }*/
-    		 if(objElem.getIdElem()==0)
-    		 {   			     			
-    			 if(indexN>globalCenterXMass)
-    			 {
-    				 
-    				 continue;
-    			 }
-    		 }
+//    		 if(objElem.getIdElem()==0)
+//    		 {   			     			
+//    			 if(indexN>globalCenterXMass)
+//    			 {
+//    				 
+//    				 continue;
+//    			 }
+//    		 }
     		 
     		 if(typeElem==objElemP.getOddsCannons() || typeElem==objElemP.getOddsTubes() || typeElem==objElemP.getTubesFlower())
     		 {    			
