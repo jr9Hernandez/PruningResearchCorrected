@@ -409,7 +409,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	for(int i=0;i<1;i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
-	    		double C=objGrapB6.DepthSearchCenterFramePruningLeviHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,1,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry,999999999);
+	    		double C=objGrapB6.DepthSearchCenterFramePruningLeviHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry,999999999);
 	    		stopTime = System.currentTimeMillis();
 	    		time6 = stopTime - startTime;
 	    		sum6=sum6+time6;

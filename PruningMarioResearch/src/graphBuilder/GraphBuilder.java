@@ -74,7 +74,7 @@ public class GraphBuilder
 	private Branch WorststatesObj;
 	private ArrayList bestBranches;
 	private double xCenterMassGeneral=8;
-	private double yCenterMassGeneral=7.5;
+	private double yCenterMassGeneral=6.5;
 	private double xCenterMassCoins;
 	private double yCenterMassCoins;
 	private double symmetryV;
@@ -738,7 +738,7 @@ public class GraphBuilder
     	{
     		maxTamFromCenter=tamTopFromCenter;
     	}
-    	
+    	maxTamFromCenter=7.5;
     	countElements=countElements-1;
     	//Collections.sort(bestXs,Collections.reverseOrder());
     	//Collections.sort(bestYs,Collections.reverseOrder());
@@ -945,7 +945,7 @@ public class GraphBuilder
     	{
     		maxTamFromCenter=tamTopFromCenter;
     	}
-    	
+    	maxTamFromCenter=7.5;
     	countElements=countElements-1;
     	//Collections.sort(bestXs,Collections.reverseOrder());
     	//Collections.sort(bestYs,Collections.reverseOrder());
