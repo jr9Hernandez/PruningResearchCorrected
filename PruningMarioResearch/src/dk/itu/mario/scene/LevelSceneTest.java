@@ -148,7 +148,7 @@ import dk.itu.mario.res.ResourcesManager;
 			        		int SizeOddsEnemies2 = objElem.SizeOddsEnemies;
 			        		
 			    	        
-			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,2,odds,objElem);		        		
+			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,1,odds,objElem);		        		
 			    			
 			        		counterIts++;
 			        					        		
