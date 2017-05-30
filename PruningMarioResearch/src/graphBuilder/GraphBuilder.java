@@ -774,10 +774,12 @@ public class GraphBuilder
     	double XC1=0;
     	double XC2=0;
     	double XC3=0;
+    	double XC4=0;
     	
     	double YC1=0;
     	double YC2=0;
     	double YC3=0;
+    	double YC4=0;
         
         for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
         {   
@@ -799,7 +801,7 @@ public class GraphBuilder
         	double areaElement=((double)objElem.getHeigth()+1)*(double)objElem.getWidth();
         	//int counterElements=0;
         	
-        	//First Heuristic Purposes
+        	//Fourth Heuristic Purposes
         	if(partialXSummatory[3]>(globalCenterXMass)-((double)objElem.getWidth()/2))
         	{
         		firstX=(globalCenterXMass)-((double)objElem.getWidth()/2);
@@ -817,14 +819,14 @@ public class GraphBuilder
         	{
         		secondX=partialXSummatory[2];
         	}
-        	if(partialXSummatory[1]>(globalCenterXMass)-((double)objElem.getWidth()/2))
-        	{
-        		thirdX=(globalCenterXMass)-((double)objElem.getWidth()/2);
-        	}
-        	else
-        	{
-        		thirdX=partialXSummatory[1];
-        	}
+//        	if(partialXSummatory[1]>(globalCenterXMass)-((double)objElem.getWidth()/2))
+//        	{
+//        		thirdX=(globalCenterXMass)-((double)objElem.getWidth()/2);
+//        	}
+//        	else
+//        	{
+//        		thirdX=partialXSummatory[1];
+//        	}
         	
         	if(partialYSummatory[3]>(7.5)-(((double)objElem.getHeigth()+1)/2))
         	{
@@ -843,14 +845,14 @@ public class GraphBuilder
         	{
         		secondY=partialYSummatory[2];
         	}
-        	if(partialYSummatory[1]>(7.5)-(((double)objElem.getHeigth()+1)/2))
-        	{
-        		thirdY=(7.5)-(((double)objElem.getHeigth()+1)/2); 
-        	}
-        	else
-        	{
-        		thirdY=partialYSummatory[1];
-        	}
+//        	if(partialYSummatory[1]>(7.5)-(((double)objElem.getHeigth()+1)/2))
+//        	{
+//        		thirdY=(7.5)-(((double)objElem.getHeigth()+1)/2); 
+//        	}
+//        	else
+//        	{
+//        		thirdY=partialYSummatory[1];
+//        	}
         	
         	
         	//second heuristic purposes
@@ -906,13 +908,13 @@ public class GraphBuilder
         		thirdYSecondHeuristic=partialYSummatory[1];
         	}
         	
-        	XC1=firstX+secondX+thirdX;
-        	YC1=firstY+secondY+thirdY;
+        	XC4=2*firstX+2*secondX;
+        	YC4=2*firstY+2*secondY;
         	
         	XC2=2*firstXSecondHeuristic+2*secondXSecondHeuristic+thirdXSecondHeuristic;
         	YC2=2*firstYSecondHeuristic+2*secondYSecondHeuristic+thirdYSecondHeuristic;
         	
-        	partialSymmetry=partialSymmetry-((3*areaElement)+(Math.max(XC1, XC2))+(Math.max(YC1, YC2)));
+        	partialSymmetry=partialSymmetry-((3*areaElement)+(Math.max(XC4, XC2))+(Math.max(YC4, YC2)));
         	partialSymmetry=partialSymmetry;
         	//firstheuristicCandidate=firstheuristicCandidate+((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         	//secondheuristicCandidate=secondheuristicCandidate+((3*areaElement)+(2*firstX)+(2*secondX)+thirdX+firstY+secondY+thirdY);
@@ -981,10 +983,12 @@ public class GraphBuilder
     	double XC1=0;
     	double XC2=0;
     	double XC3=0;
+    	double XC4=0;
     	
     	double YC1=0;
     	double YC2=0;
     	double YC3=0;
+    	double YC4=0;
         
         for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
         {   
@@ -1009,7 +1013,7 @@ public class GraphBuilder
         	//System.out.println("area "+areaElement);
         	//int counterElements=0;
         	
-        	//First Heuristic Purposes
+        	//Fourth Heuristic Purposes
         	if(partialXSummatory[3]>(globalCenterXMass)-((double)objElem.getWidth()/2))
         	{
         		firstX=(globalCenterXMass)-((double)objElem.getWidth()/2);
@@ -1018,6 +1022,16 @@ public class GraphBuilder
         	else
         	{
         		firstX=partialXSummatory[3];
+        		//System.out.println("firstX2 "+firstX);
+        	}
+        	if(partialXSummatory[2]>(globalCenterXMass)-((double)objElem.getWidth()/2))
+        	{
+        		secondX=(globalCenterXMass)-((double)objElem.getWidth()/2);
+        		//System.out.println("firstX1 "+firstX);
+        	}
+        	else
+        	{
+        		secondX=partialXSummatory[2];
         		//System.out.println("firstX2 "+firstX);
         	}
         	
@@ -1032,6 +1046,18 @@ public class GraphBuilder
         		firstY=partialYSummatory[3];
         		//System.out.println("firstY2 "+firstY);
         	}
+        	if(partialYSummatory[2]>(maxTamFromCenter)-(((double)objElem.getHeigth()+1)/2))
+        	{
+        		secondY=(maxTamFromCenter)-(((double)objElem.getHeigth()+1)/2); 
+        		//System.out.println("firstY1 "+firstY);
+        	}
+        	else
+        	{
+        		
+        		firstY=partialYSummatory[2];
+        		//System.out.println("firstY2 "+firstY);
+        	}
+
         	
         	
         	
@@ -1060,13 +1086,13 @@ public class GraphBuilder
         	
 
         	
-        	XC1=firstX;
-        	YC1=firstY;
+        	XC4=2*firstX;
+        	YC4=2*firstY;
         	
-        	XC2=2*firstXSecondHeuristic;
-        	YC2=2*firstYSecondHeuristic;
+        	XC3=2*firstXSecondHeuristic;
+        	YC3=2*firstYSecondHeuristic;
         	
-        	partialSymmetry=partialSymmetry-((areaElement)+(Math.max(XC1, XC2))+(Math.max(YC1, YC2)));
+        	partialSymmetry=partialSymmetry-((areaElement)+(Math.max(XC3, XC4))+(Math.max(YC3, YC4)));
         	partialSymmetry=partialSymmetry;
         	//firstheuristicCandidate=firstheuristicCandidate+((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         	//secondheuristicCandidate=secondheuristicCandidate+((3*areaElement)+(2*firstX)+(2*secondX)+thirdX+firstY+secondY+thirdY);
