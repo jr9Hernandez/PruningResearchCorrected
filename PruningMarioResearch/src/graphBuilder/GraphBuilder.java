@@ -1054,7 +1054,7 @@ public class GraphBuilder
         	else
         	{
         		
-        		firstY=partialYSummatory[2];
+        		secondY=partialYSummatory[2];
         		//System.out.println("firstY2 "+firstY);
         	}
 
@@ -1086,8 +1086,8 @@ public class GraphBuilder
         	
 
         	
-        	XC4=2*firstX;
-        	YC4=2*firstY;
+        	XC4=firstX+secondX;
+        	YC4=firstY+secondY;
         	
         	XC3=2*firstXSecondHeuristic;
         	YC3=2*firstYSecondHeuristic;
