@@ -725,7 +725,7 @@ public class GraphBuilder
     }
     
     
-    public double  validationPruningMAllLeviHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
+    public boolean  validationPruningMAllLeviHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
     { 
     	double firstheuristicCandidate=0;
     	double secondheuristicCandidate=0;
@@ -921,20 +921,19 @@ public class GraphBuilder
 
         }
         
-        return partialSymmetry;
         //System.out.println("partialSymmetry "+partialSymmetry);
-//        if(partialSymmetry>bestSymmetryV)
-//        {
-//        	
-//        	return true;
-//        }
-//        else
-//        {
-//        	return false;
-//        }
+        if(partialSymmetry>bestSymmetryV)
+        {
+        	
+        	return true;
+        }
+        else
+        {
+        	return false;
+        }
     }
     
-    public double  validationPruningMVerticalLeviHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
+    public boolean  validationPruningMVerticalLeviHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
     { 
     	double firstheuristicCandidate=0;
     	double secondheuristicCandidate=0;
@@ -1099,21 +1098,20 @@ public class GraphBuilder
 
         }
        
-        return partialSymmetry;
         //System.out.println("partialSymmetry "+partialSymmetry);
-//        if(partialSymmetry>bestSymmetryV)
-//        {
-//        	
-//        	return true;
-//        }
-//        else
-//        {
-//        	return false;
-//        }
+        if(partialSymmetry>bestSymmetryV)
+        {
+        	
+        	return true;
+        }
+        else
+        {
+        	return false;
+        }
        
     }
     
-    public double  validationPruningMAllOldOldHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
+    public boolean  validationPruningMAllOldOldHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
     { 
     	double tamBottomFromCenter=floorTileHeight-yCenterMassGeneral;
     	double tamTopFromCenter=yCenterMassGeneral-ruleThirds;
@@ -1219,18 +1217,17 @@ public class GraphBuilder
         	//partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         }
         //System.out.println("partialSymmetry "+partialSymmetry);
-//        if(partialSymmetry>bestSymmetryV)
-//        {
-//        	
-//        	return true;
-//        }
-//        else
-//        {
-//        	return false;
-//        }
-        return partialSymmetry;
+        if(partialSymmetry>bestSymmetryV)
+        {
+        	
+        	return true;
+        }
+        else
+        {
+        	return false;
+        }
     }
-    public double validationPruningMVerticalOldOldHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
+    public boolean validationPruningMVerticalOldOldHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
     { 
     	double tamBottomFromCenter=floorTileHeight-yCenterMassGeneral;
     	double tamTopFromCenter=yCenterMassGeneral-ruleThirds;
@@ -1336,16 +1333,15 @@ public class GraphBuilder
         	//partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         }
         //System.out.println("partialSymmetry "+partialSymmetry);
-//        if(partialSymmetry>bestSymmetryV)
-//        {
-//        	
-//        	return true;
-//        }
-//        else
-//        {
-//        	return false;
-//        }
-        return partialSymmetry;
+        if(partialSymmetry>bestSymmetryV)
+        {
+        	
+        	return true;
+        }
+        else
+        {
+        	return false;
+        }
     }
  
 	public ArrayList  DepthSearchPruningAlt(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch,int typeSymmetry)
@@ -3372,7 +3368,7 @@ public class GraphBuilder
     		{
     			if(typeSymmetry==2)
     			{
-    				if(validationPruningMAllOldOldHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)>1)
+    				if(validationPruningMAllOldOldHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
     				{
     					//System.out.println("cambiaso");
     					validationPruningM=true;
@@ -3380,7 +3376,7 @@ public class GraphBuilder
     			}
     			else if(typeSymmetry==1)
     			{
-    				if(validationPruningMVerticalOldOldHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)>1)
+    				if(validationPruningMVerticalOldOldHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
     				{
     					//System.out.println("cambiaso");
     					validationPruningM=true;
@@ -3739,7 +3735,7 @@ public class GraphBuilder
     		{
     			if(typeSymmetry==2)
     			{
-    				if(validationPruningMAllLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)>0)
+    				if(validationPruningMAllLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
     				{
     					//System.out.println("cambiaso");
     					validationPruningM=true;
@@ -3747,7 +3743,7 @@ public class GraphBuilder
     			}
     			else if(typeSymmetry==1)
     			{
-    				if(validationPruningMVerticalLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)>0)
+    				if(validationPruningMVerticalLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
     				{
     					//System.out.println("cambiaso");
     					validationPruningM=true;
@@ -3809,11 +3805,11 @@ public class GraphBuilder
     }   
 	
 	//3.6)  B&B+heuristic +  LeviHeuristic
-	public double  DepthSearchCenterFramePruningLeviHeuristic(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry, double valuePruningFather)
+	public ArrayList  DepthSearchCenterFramePruningLeviHeuristic(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry)
     {    
-		ArrayList<BlockNode> BestStatesSaved = new ArrayList<BlockNode>();
-		double bestSymettrySubTree=99999999;
-		double valuePruning=0;
+//		ArrayList<BlockNode> BestStatesSaved = new ArrayList<BlockNode>();
+//		double bestSymettrySubTree=99999999;
+//		double valuePruning=0;
 		
 		globalCenterXMass=centerXGlobal;
     	countElements--;
@@ -4102,40 +4098,35 @@ public class GraphBuilder
     		counterIDs=counterIDs+1;
     		BlockNode objBlockNode2=new BlockNode(indexN,indeyN,counterIDs,typeElem,idElem);
     		states.add(objBlockNode2);
-    		double optimalSubtree=999999999;
+    		//double optimalSubtree=999999999;
     		
     		//partialSymmetry=partialSymmetry(states,objElemP,height,floorTileHeight,localMaxObjLeft,false);
     		partialSymmetry=partialSymmetryNewFormula(states,objElemP,height,floorTileHeight,localMaxObjLeft,false,typeSymmetry);
     		boolean validationPruningM=false;
-    		valuePruning=0;
+    		//valuePruning=0;
     		if(firstBranchPercorred==true)
     		{
     			if(typeSymmetry==2)
     			{
-    				valuePruning=validationPruningMAllLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds);
-//    				{
+    				if(validationPruningMAllLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    				{
 //    					//System.out.println("cambiaso");
-//    					validationPruningM=true;
-//    				}
+    					validationPruningM=true;
+    				}
     			}
     			else if(typeSymmetry==1)
     			{
-    				valuePruning=validationPruningMVerticalLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds);
-//    				{
+    				if(validationPruningMVerticalLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
+    				{
 //    					//System.out.println("cambiaso");
-//    					validationPruningM=true;
-//    				}
+    					validationPruningM=true;
+    				}
     			}
     		}
     		if(countElements>0 && validationPruningM==false)
-    		{    		    			
-    			double runSymettrySubTree=DepthSearchCenterFramePruningLeviHeuristic(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal,typeSymmetry,valuePruning);    			
+    		{   
     			
-    			if(runSymettrySubTree<bestSymettrySubTree)
-    			{
-    				bestSymettrySubTree=runSymettrySubTree;
-    				BestStatesSaved = new ArrayList<BlockNode>(states);
-    			}
+    			DepthSearchCenterFramePruningLeviHeuristic(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal,typeSymmetry);
     			
 
     		}
@@ -4143,15 +4134,10 @@ public class GraphBuilder
     			//System.out.println("aca se debe calcular la formula");
     			if(countElements==0)
     			{
-    				firstBranchPercorred=true;
-    				//System.out.println("chunter");
-    				optimalSubtree=validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft,typeSymmetry);
-    				
-        	       	if(optimalSubtree<bestSymettrySubTree)
-        	       	{
-        	       		bestSymettrySubTree=optimalSubtree;
-        	       		BestStatesSaved = new ArrayList<BlockNode>(states);
-        	       	}
+        			firstBranchPercorred=true;
+        			//System.out.println("chunter");
+        			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft,typeSymmetry);
+
     			}
     			
     		}
@@ -4161,50 +4147,51 @@ public class GraphBuilder
     	 }
 
     	}
-    	if(valuePruningFather!=999999999)
-    	{
-    		if(bestSymettrySubTree<valuePruningFather)
-    		{
-    			System.out.println("inadmisivel!! "+valuePruningFather+" "+bestSymettrySubTree);
-    			//System.out.println("----");
-    			Iterator<BlockNode> itCenterMass = states.iterator();
-    			while(itCenterMass.hasNext()){
-    				BlockNode elemento = itCenterMass.next();
-    				Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
-    				double xInitial = elemento.getX();
-    		        double yInitial= elemento.getY();
-    		        double widthElementG=(double)element.getWidth();
-    		        double heigthElementG=(double)element.getHeigth()+1;
-    		        double typeElementG=(double)element.getTypeElem();
-    		        //System.out.println("xInitial "+xInitial+" yInitial"+yInitial+" widthElementG "+widthElementG+" heigthElementG "+heigthElementG+" typeElementG: "+typeElementG);
-    		        
-
-    			}
-		        partialSymmetry=partialSymmetryNewFormula(states,objElemP,height,floorTileHeight,localMaxObjLeft,false,typeSymmetry);
-		        valuePruning=validationPruningMAllLeviHeuristic(countElements+1, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds);
-		        
-		        //System.out.println("partialSymmetry "+partialSymmetry+" valuePruning"+valuePruning);
-		        //System.out.println("----");
-		        
-		        //System.out.println("Prove of the violation");
-    			Iterator<BlockNode> itCenterMass2 = BestStatesSaved.iterator();
-    			while(itCenterMass2.hasNext()){
-    				BlockNode elemento = itCenterMass2.next();
-    				Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
-    				double xInitial = elemento.getX();
-    		        double yInitial= elemento.getY();
-    		        double widthElementG=(double)element.getWidth();
-    		        double heigthElementG=(double)element.getHeigth()+1;
-    		        double typeElementG=(double)element.getTypeElem();
-    		        //System.out.println("xInitial "+xInitial+" yInitial"+yInitial+" widthElementG "+widthElementG+" heigthElementG "+heigthElementG+" typeElementG: "+typeElementG);
-
-    			}  
-		        partialSymmetry=partialSymmetryNewFormula(BestStatesSaved,objElemP,height,floorTileHeight,localMaxObjLeft,false,typeSymmetry);
-		        //System.out.println("Symmetry violating"+partialSymmetry);
-		        //System.out.println("sacan");
-    			
-    		}
-    	}
+//    	if(valuePruningFather!=999999999)
+//    	{
+//    		if(bestSymettrySubTree<valuePruningFather)
+//    		{
+//    			System.out.println("inadmisivel!! "+valuePruningFather+" "+bestSymettrySubTree);
+//    			//System.out.println("----");
+//    			Iterator<BlockNode> itCenterMass = states.iterator();
+//    			while(itCenterMass.hasNext()){
+//    				BlockNode elemento = itCenterMass.next();
+//    				Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
+//    				double xInitial = elemento.getX();
+//    		        double yInitial= elemento.getY();
+//    		        double widthElementG=(double)element.getWidth();
+//    		        double heigthElementG=(double)element.getHeigth()+1;
+//    		        double typeElementG=(double)element.getTypeElem();
+//    		        //System.out.println("xInitial "+xInitial+" yInitial"+yInitial+" widthElementG "+widthElementG+" heigthElementG "+heigthElementG+" typeElementG: "+typeElementG);
+//    		        
+//
+//    			}
+//		        partialSymmetry=partialSymmetryNewFormula(states,objElemP,height,floorTileHeight,localMaxObjLeft,false,typeSymmetry);
+//		        valuePruning=validationPruningMAllLeviHeuristic(countElements+1, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds);
+//		        
+//		        //System.out.println("partialSymmetry "+partialSymmetry+" valuePruning"+valuePruning);
+//		        //System.out.println("----");
+//		        
+//		        //System.out.println("Prove of the violation");
+//    			Iterator<BlockNode> itCenterMass2 = BestStatesSaved.iterator();
+//    			while(itCenterMass2.hasNext()){
+//    				BlockNode elemento = itCenterMass2.next();
+//    				Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
+//    				double xInitial = elemento.getX();
+//    		        double yInitial= elemento.getY();
+//    		        double widthElementG=(double)element.getWidth();
+//    		        double heigthElementG=(double)element.getHeigth()+1;
+//    		        double typeElementG=(double)element.getTypeElem();
+//    		        //System.out.println("xInitial "+xInitial+" yInitial"+yInitial+" widthElementG "+widthElementG+" heigthElementG "+heigthElementG+" typeElementG: "+typeElementG);
+//
+//    			}  
+//		        partialSymmetry=partialSymmetryNewFormula(BestStatesSaved,objElemP,height,floorTileHeight,localMaxObjLeft,false,typeSymmetry);
+//		        //System.out.println("Symmetry violating"+partialSymmetry);
+//		        //System.out.println("sacan");
+//    			
+//    		}
+//    	}
+    	
     	//putting enemies
     	/*if(globalControlSearch==0)
     	{
@@ -4237,7 +4224,7 @@ public class GraphBuilder
 		{
 			//System.out.println("Summeutru ");
 		}*/
-    	return bestSymettrySubTree;
+    	return Beststates;
     }   
 	
 	public ArrayList  DepthSearchCenterFrame(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch,double centerXGlobal, int typeSymmetry)
@@ -5239,7 +5226,7 @@ public class GraphBuilder
     			
 	} 
     
-    private double validateBestBranchDepthSearchCenterFrame(ArrayList states, ElementsToPlace objElemP,int height,int floor,int maxObjLeft, int typeSymmetry) {
+    private void validateBestBranchDepthSearchCenterFrame(ArrayList states, ElementsToPlace objElemP,int height,int floor,int maxObjLeft, int typeSymmetry) {
 		// TODO Auto-generated method stub
     	
     	//impresion de array actual
@@ -5281,7 +5268,6 @@ public class GraphBuilder
         		bestAverageX=DistanceX;
         	   }
         }
-        return symmetryV;
         
     			
 	}    
