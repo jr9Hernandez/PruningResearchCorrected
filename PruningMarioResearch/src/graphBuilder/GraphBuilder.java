@@ -1214,7 +1214,7 @@ public class GraphBuilder
         		thirdY=partialYSummatory[1];
         	}
         	
-        	partialSymmetry=partialSymmetry-((3*areaElement)+(3*globalCenterXMass)+(3*yCenterMassGeneral));
+        	partialSymmetry=partialSymmetry-((3*areaElement)+(4*globalCenterXMass)+(4*yCenterMassGeneral));
         	partialSymmetry=partialSymmetry;
         	//partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         }
@@ -1331,7 +1331,7 @@ public class GraphBuilder
         		thirdY=partialYSummatory[1];
         	}
         	
-        	partialSymmetry=partialSymmetry-((areaElement)+(globalCenterXMass)+(yCenterMassGeneral));
+        	partialSymmetry=partialSymmetry-((areaElement)+(2*globalCenterXMass)+(2*yCenterMassGeneral));
         	partialSymmetry=partialSymmetry;
         	//partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         }
