@@ -915,7 +915,7 @@ public class GraphBuilder
         	YC2=2*firstYSecondHeuristic+2*secondYSecondHeuristic+thirdYSecondHeuristic;
         	
         	partialSymmetry=partialSymmetry-((3*areaElement)+(Math.max(XC4, XC2))+(Math.max(YC4, YC2)));
-        	partialSymmetry=partialSymmetry;
+        	partialSymmetry=partialSymmetry*1;
         	//firstheuristicCandidate=firstheuristicCandidate+((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         	//secondheuristicCandidate=secondheuristicCandidate+((3*areaElement)+(2*firstX)+(2*secondX)+thirdX+firstY+secondY+thirdY);
 
@@ -1092,7 +1092,7 @@ public class GraphBuilder
         	YC3=2*firstYSecondHeuristic;
         	
         	partialSymmetry=partialSymmetry-((areaElement)+(Math.max(XC3, XC4))+(Math.max(YC3, YC4)));
-        	partialSymmetry=partialSymmetry;
+        	partialSymmetry=partialSymmetry*1;
         	//firstheuristicCandidate=firstheuristicCandidate+((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         	//secondheuristicCandidate=secondheuristicCandidate+((3*areaElement)+(2*firstX)+(2*secondX)+thirdX+firstY+secondY+thirdY);
 
@@ -1213,7 +1213,7 @@ public class GraphBuilder
         	}
         	
         	partialSymmetry=partialSymmetry-((3*areaElement)+(4*globalCenterXMass)+(4*yCenterMassGeneral));
-        	partialSymmetry=partialSymmetry;
+        	partialSymmetry=partialSymmetry*1;
         	//partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         }
         //System.out.println("partialSymmetry "+partialSymmetry);
@@ -1329,7 +1329,7 @@ public class GraphBuilder
         	}
         	
         	partialSymmetry=partialSymmetry-((areaElement)+(2*globalCenterXMass)+(2*yCenterMassGeneral));
-        	partialSymmetry=partialSymmetry;
+        	partialSymmetry=partialSymmetry*1;
         	//partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         }
         //System.out.println("partialSymmetry "+partialSymmetry);
