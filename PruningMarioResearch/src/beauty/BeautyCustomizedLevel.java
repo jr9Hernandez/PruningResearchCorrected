@@ -485,7 +485,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	NodesRate5=round(NodesRate5,2);
 
 	    	
-	    	System.out.print(objGrapB3.bestSymmetryV+" "+time3+" "+((objGrapB3.getCounterIDs())/5)+" "+objGrapB7.bestSymmetryV+" "+time7+" "+((objGrapB7.getCounterIDs())/5)+" "+TimeRate7+" "+NodesRate7+" "+objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs())/5)+" "+TimeRate6+" "+NodesRate6+" "+objGrapB5.bestSymmetryV+" "+time5+" "+((objGrapB5.getCounterIDs())/5)+" "+TimeRate5+" "+NodesRate5+" ");
+	    	System.out.print(objGrapB3.bestSymmetryV+" "+time3+" "+((objGrapB3.getCounterIDs()))+" "+objGrapB7.bestSymmetryV+" "+time7+" "+((objGrapB7.getCounterIDs()))+" "+TimeRate7+" "+NodesRate7+" "+objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs()))+" "+TimeRate6+" "+NodesRate6+" "+objGrapB5.bestSymmetryV+" "+time5+" "+((objGrapB5.getCounterIDs()))+" "+TimeRate5+" "+NodesRate5+" ");
 	        
 	        //imprimiendo los estados visitados
 	        /*
