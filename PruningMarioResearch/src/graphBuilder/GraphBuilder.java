@@ -724,8 +724,7 @@ public class GraphBuilder
         }
     }
     
-    
-    public double  validationPruningMAllLeviHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
+    public boolean  validationPruningMAllLeviHeuristicAlt(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
     { 
     	double firstheuristicCandidate=0;
     	double secondheuristicCandidate=0;
@@ -921,6 +920,392 @@ public class GraphBuilder
 
         }
         
+        //System.out.println("partialSymmetry "+partialSymmetry);
+        if(partialSymmetry>bestSymmetryV)
+        {
+        	
+        	return true;
+        }
+        else
+        {
+        	return false;
+        }
+    }
+    
+    public boolean  validationPruningMVerticalLeviHeuristicAlt(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
+    { 
+    	double firstheuristicCandidate=0;
+    	double secondheuristicCandidate=0;
+    	double tamBottomFromCenter=floorTileHeight-yCenterMassGeneral;
+    	double tamTopFromCenter=yCenterMassGeneral-ruleThirds;
+    	double maxTamFromCenter=0;
+    	if(tamBottomFromCenter>tamTopFromCenter)
+    	{
+    		maxTamFromCenter=tamBottomFromCenter;
+    	}
+    	else
+    	{
+    		maxTamFromCenter=tamTopFromCenter;
+    	}
+    	maxTamFromCenter=7.5;
+    	countElements=countElements-1;
+    	//Collections.sort(bestXs,Collections.reverseOrder());
+    	//Collections.sort(bestYs,Collections.reverseOrder());
+    	
+        //System.out.println("bestSymmetry "+bestSymmetryV);
+        //int sizebestXs=bestXs.size();
+        //int sizebestYs=bestYs.size();
+        
+        //int indexCounterX=0;
+        //int indexCounterY=0;
+        
+        Arrays.sort(partialXSummatory);
+        Arrays.sort(partialYSummatory);
+        
+        double firstX;
+    	double secondX;
+    	double thirdX;
+    	
+    	double firstY;
+    	double secondY;
+    	double thirdY;
+    	
+        double firstXSecondHeuristic;
+    	double secondXSecondHeuristic;
+    	double thirdXSecondHeuristic;
+    	
+    	double firstYSecondHeuristic;
+    	double secondYSecondHeuristic;
+    	double thirdYSecondHeuristic;
+    	
+    	double XC1=0;
+    	double XC2=0;
+    	double XC3=0;
+    	double XC4=0;
+    	
+    	double YC1=0;
+    	double YC2=0;
+    	double YC3=0;
+    	double YC4=0;
+        
+        for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
+        {   
+        	firstX=0;
+        	secondX=0;
+        	thirdX=0;
+        	firstY=0;
+        	secondY=0;
+        	thirdY=0;
+        	
+        	firstXSecondHeuristic=0;
+        	secondXSecondHeuristic=0;
+        	thirdXSecondHeuristic=0;
+        	firstYSecondHeuristic=0;
+        	secondYSecondHeuristic=0;
+        	thirdYSecondHeuristic=0;
+        	
+        	Elements objElem= (Elements)finalList.get(i);
+        	double areaElement=((double)objElem.getHeigth()+1)*(double)objElem.getWidth();
+        	//System.out.println("width "+(double)objElem.getWidth());
+        	//System.out.println("height "+(double)objElem.getHeigth());
+        	//System.out.println("area "+areaElement);
+        	//int counterElements=0;
+        	
+        	//Fourth Heuristic Purposes
+        	if(partialXSummatory[3]>(globalCenterXMass)-((double)objElem.getWidth()/2))
+        	{
+        		firstX=(globalCenterXMass)-((double)objElem.getWidth()/2);
+        		//System.out.println("firstX1 "+firstX);
+        	}
+        	else
+        	{
+        		firstX=partialXSummatory[3];
+        		//System.out.println("firstX2 "+firstX);
+        	}
+        	if(partialXSummatory[2]>(globalCenterXMass)-((double)objElem.getWidth()/2))
+        	{
+        		secondX=(globalCenterXMass)-((double)objElem.getWidth()/2);
+        		//System.out.println("firstX1 "+firstX);
+        	}
+        	else
+        	{
+        		secondX=partialXSummatory[2];
+        		//System.out.println("firstX2 "+firstX);
+        	}
+        	
+        	if(partialYSummatory[3]>(maxTamFromCenter)-(((double)objElem.getHeigth()+1)/2))
+        	{
+        		firstY=(maxTamFromCenter)-(((double)objElem.getHeigth()+1)/2); 
+        		//System.out.println("firstY1 "+firstY);
+        	}
+        	else
+        	{
+        		
+        		firstY=partialYSummatory[3];
+        		//System.out.println("firstY2 "+firstY);
+        	}
+        	if(partialYSummatory[2]>(maxTamFromCenter)-(((double)objElem.getHeigth()+1)/2))
+        	{
+        		secondY=(maxTamFromCenter)-(((double)objElem.getHeigth()+1)/2); 
+        		//System.out.println("firstY1 "+firstY);
+        	}
+        	else
+        	{
+        		
+        		secondY=partialYSummatory[2];
+        		//System.out.println("firstY2 "+firstY);
+        	}
+
+        	
+        	
+        	
+        	//second heuristic purposes
+        	if(partialXSummatory[3]>((double)objElem.getWidth()/2))
+        	{
+        		firstXSecondHeuristic= (double)objElem.getWidth()/2;
+        		//System.out.println("firstXSecondHeuristic1 "+firstXSecondHeuristic);
+        	}
+        	else
+        	{
+        		firstXSecondHeuristic=partialXSummatory[3];
+        		//System.out.println("firstXSecondHeuristic2 "+firstXSecondHeuristic);
+        	}
+        	
+        	if(partialYSummatory[3]>(((double)objElem.getHeigth()+1)/2))
+        	{
+        		firstYSecondHeuristic=(((double)objElem.getHeigth()+1)/2);
+        		//System.out.println("firstYSecondHeuristic1 "+firstYSecondHeuristic);
+        	}
+        	else
+        	{
+        		firstYSecondHeuristic=partialYSummatory[3];
+        		//System.out.println("firstYSecondHeuristic2 "+firstYSecondHeuristic);
+        	}
+        	
+
+        	
+        	XC4=firstX+secondX;
+        	YC4=firstY+secondY;
+        	
+        	XC3=2*firstXSecondHeuristic;
+        	YC3=2*firstYSecondHeuristic;
+        	
+        	partialSymmetry=partialSymmetry-((areaElement)+(Math.max(XC3, XC4))+(Math.max(YC3, YC4)));
+        	partialSymmetry=partialSymmetry*3;
+        	//firstheuristicCandidate=firstheuristicCandidate+((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
+        	//secondheuristicCandidate=secondheuristicCandidate+((3*areaElement)+(2*firstX)+(2*secondX)+thirdX+firstY+secondY+thirdY);
+
+        }
+       
+        //System.out.println("partialSymmetry "+partialSymmetry);
+        if(partialSymmetry>bestSymmetryV)
+        {
+        	
+        	return true;
+        }
+        else
+        {
+        	return false;
+        }
+       
+    }
+    
+    public double  validationPruningMAllLeviHeuristic(   int countElements, int countElementsFinal,ArrayList states, ArrayList finalList, ElementsToPlace objElemP,  Random random, double partialSymmetry, int floorTileHeight, int ruleThirds)
+    { 
+    	double firstheuristicCandidate=0;
+    	double secondheuristicCandidate=0;
+    	double tamBottomFromCenter=floorTileHeight-yCenterMassGeneral;
+    	double tamTopFromCenter=yCenterMassGeneral-ruleThirds;
+    	double maxTamFromCenter=0;
+    	if(tamBottomFromCenter>tamTopFromCenter)
+    	{
+    		maxTamFromCenter=tamBottomFromCenter;
+    	}
+    	else
+    	{
+    		maxTamFromCenter=tamTopFromCenter;
+    	}
+    	maxTamFromCenter=7.5;
+    	countElements=countElements-1;
+    	//Collections.sort(bestXs,Collections.reverseOrder());
+    	//Collections.sort(bestYs,Collections.reverseOrder());
+    	
+        //System.out.println("bestSymmetry "+bestSymmetryV);
+        //int sizebestXs=bestXs.size();
+        //int sizebestYs=bestYs.size();
+        
+        //int indexCounterX=0;
+        //int indexCounterY=0;
+        
+        Arrays.sort(partialXSummatory);
+        Arrays.sort(partialYSummatory);
+        
+        double firstX;
+    	double secondX;
+    	double thirdX;
+    	
+    	double firstY;
+    	double secondY;
+    	double thirdY;
+    	
+        double firstXSecondHeuristic;
+    	double secondXSecondHeuristic;
+    	double thirdXSecondHeuristic;
+    	
+    	double firstYSecondHeuristic;
+    	double secondYSecondHeuristic;
+    	double thirdYSecondHeuristic;
+    	
+    	double XC1=0;
+    	double XC2=0;
+    	double XC3=0;
+    	double XC4=0;
+    	
+    	double YC1=0;
+    	double YC2=0;
+    	double YC3=0;
+    	double YC4=0;
+        
+        for(int i=countElementsFinal-countElements-1;i<countElementsFinal;i++)
+        {   
+        	firstX=0;
+        	secondX=0;
+        	thirdX=0;
+        	firstY=0;
+        	secondY=0;
+        	thirdY=0;
+        	
+        	firstXSecondHeuristic=0;
+        	secondXSecondHeuristic=0;
+        	thirdXSecondHeuristic=0;
+        	firstYSecondHeuristic=0;
+        	secondYSecondHeuristic=0;
+        	thirdYSecondHeuristic=0;
+        	
+        	Elements objElem= (Elements)finalList.get(i);
+        	double areaElement=((double)objElem.getHeigth()+1)*(double)objElem.getWidth();
+        	//int counterElements=0;
+        	
+        	//Fourth Heuristic Purposes
+        	if(partialXSummatory[3]>(globalCenterXMass)-((double)objElem.getWidth()/2))
+        	{
+        		firstX=(globalCenterXMass)-((double)objElem.getWidth()/2);
+        	}
+        	else
+        	{
+        		firstX=partialXSummatory[3];
+        	}
+        	
+        	if(partialXSummatory[2]>(globalCenterXMass)-((double)objElem.getWidth()/2))
+        	{
+        		secondX=(globalCenterXMass)-((double)objElem.getWidth()/2); 
+        	}
+        	else
+        	{
+        		secondX=partialXSummatory[2];
+        	}
+//        	if(partialXSummatory[1]>(globalCenterXMass)-((double)objElem.getWidth()/2))
+//        	{
+//        		thirdX=(globalCenterXMass)-((double)objElem.getWidth()/2);
+//        	}
+//        	else
+//        	{
+//        		thirdX=partialXSummatory[1];
+//        	}
+        	
+        	if(partialYSummatory[3]>(7.5)-(((double)objElem.getHeigth()+1)/2))
+        	{
+        		firstY=(7.5)-(((double)objElem.getHeigth()+1)/2); 
+        	}
+        	else
+        	{
+        		firstY=partialYSummatory[3];
+        	}
+        	
+        	if(partialYSummatory[2]>(7.5)-(((double)objElem.getHeigth()+1)/2))
+        	{
+        		secondY=(7.5)-(((double)objElem.getHeigth()+1)/2);
+        	}
+        	else
+        	{
+        		secondY=partialYSummatory[2];
+        	}
+//        	if(partialYSummatory[1]>(7.5)-(((double)objElem.getHeigth()+1)/2))
+//        	{
+//        		thirdY=(7.5)-(((double)objElem.getHeigth()+1)/2); 
+//        	}
+//        	else
+//        	{
+//        		thirdY=partialYSummatory[1];
+//        	}
+        	
+        	
+        	//second heuristic purposes
+        	if(partialXSummatory[3]>((double)objElem.getWidth()/2))
+        	{
+        		firstXSecondHeuristic= (double)objElem.getWidth()/2;
+        	}
+        	else
+        	{
+        		firstXSecondHeuristic=partialXSummatory[3];
+        	}
+        	
+        	if(partialXSummatory[2]>((double)objElem.getWidth()/2))
+        	{
+        		secondXSecondHeuristic=(double)objElem.getWidth()/2;
+        	}
+        	else
+        	{
+        		secondXSecondHeuristic=partialXSummatory[2];
+        	}
+        	if(partialXSummatory[1]>((double)objElem.getWidth()/2))
+        	{
+        		thirdXSecondHeuristic=(double)objElem.getWidth()/2;
+        	}
+        	else
+        	{
+        		thirdXSecondHeuristic=partialXSummatory[1];
+        	}
+        	
+        	if(partialYSummatory[3]>(((double)objElem.getHeigth()+1)/2))
+        	{
+        		firstYSecondHeuristic=(((double)objElem.getHeigth()+1)/2);
+        	}
+        	else
+        	{
+        		firstYSecondHeuristic=partialYSummatory[3];
+        	}
+        	
+        	if(partialYSummatory[2]>(((double)objElem.getHeigth()+1)/2))
+        	{
+        		secondYSecondHeuristic=(((double)objElem.getHeigth()+1)/2);
+        	}
+        	else
+        	{
+        		secondYSecondHeuristic=partialYSummatory[2];
+        	}
+        	if(partialYSummatory[1]>(((double)objElem.getHeigth()+1)/2))
+        	{
+        		thirdYSecondHeuristic=(((double)objElem.getHeigth()+1)/2);
+        	}
+        	else
+        	{
+        		thirdYSecondHeuristic=partialYSummatory[1];
+        	}
+        	
+        	XC4=2*firstX+2*secondX;
+        	YC4=2*firstY+2*secondY;
+        	
+        	XC2=2*firstXSecondHeuristic+2*secondXSecondHeuristic+thirdXSecondHeuristic;
+        	YC2=2*firstYSecondHeuristic+2*secondYSecondHeuristic+thirdYSecondHeuristic;
+        	
+        	partialSymmetry=partialSymmetry-((3*areaElement)+(Math.max(XC4, XC2))+(Math.max(YC4, YC2)));
+        	partialSymmetry=partialSymmetry*1;
+        	//firstheuristicCandidate=firstheuristicCandidate+((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
+        	//secondheuristicCandidate=secondheuristicCandidate+((3*areaElement)+(2*firstX)+(2*secondX)+thirdX+firstY+secondY+thirdY);
+
+        }
+        
         return partialSymmetry;
         //System.out.println("partialSymmetry "+partialSymmetry);
 //        if(partialSymmetry>bestSymmetryV)
@@ -1093,7 +1478,7 @@ public class GraphBuilder
         	YC3=2*firstYSecondHeuristic;
         	
         	partialSymmetry=partialSymmetry-((areaElement)+(Math.max(XC3, XC4))+(Math.max(YC3, YC4)));
-        	partialSymmetry=partialSymmetry*3;
+        	partialSymmetry=partialSymmetry*1;
         	//firstheuristicCandidate=firstheuristicCandidate+((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         	//secondheuristicCandidate=secondheuristicCandidate+((3*areaElement)+(2*firstX)+(2*secondX)+thirdX+firstY+secondY+thirdY);
 
@@ -3446,12 +3831,16 @@ public class GraphBuilder
 	//3.5) B&B+heuristic + region ordering + LeviHeuristic
 	public ArrayList  DepthSearchCenterFramePruningRegion(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry)
     {    
+//		ArrayList<BlockNode> BestStatesSaved = new ArrayList<BlockNode>();
+//		double bestSymettrySubTree=99999999;
+//		double valuePruning=0;
+		
 		globalCenterXMass=centerXGlobal;
     	countElements--;
     	Elements objElem= (Elements)finalList.get(countElementsFinal-countElements-1);
     	int idElem=objElem.getIdElem();
     	int typeElem=objElem.getTypeElem();
-    	int widthElemm=objElem.getWidth();
+    	//int widthElemm=objElem.getWidth();
     	
     	int quadrant1X=0;
     	int quadrant2X=0;
@@ -3504,7 +3893,6 @@ public class GraphBuilder
     		
     	}
     	
-    	//int ruleThirds=(height/3);
     	int ruleThirds=0;
     	
     	for(int i=maxLeft;i<=maxRight;i++)
@@ -3513,7 +3901,7 @@ public class GraphBuilder
     	 for(int j=ruleThirds;j<height;j++)
     	 {       
     		 int indeyN=j;
-    		 
+    		 /*
     		 if(minor==0)
     		 {
 
@@ -3534,7 +3922,7 @@ public class GraphBuilder
     			 indexN= (maxRight-i+1);
     			 indeyN=(height-j-1)+ruleThirds;
     			 
-    		 }
+    		 }*/
     		 
     		 /*if(quadrant1X>quadrant2X)
     		 {
@@ -3734,47 +4122,99 @@ public class GraphBuilder
     		counterIDs=counterIDs+1;
     		BlockNode objBlockNode2=new BlockNode(indexN,indeyN,counterIDs,typeElem,idElem);
     		states.add(objBlockNode2);
+    		//double optimalSubtree=999999999;
     		
     		//partialSymmetry=partialSymmetry(states,objElemP,height,floorTileHeight,localMaxObjLeft,false);
     		partialSymmetry=partialSymmetryNewFormula(states,objElemP,height,floorTileHeight,localMaxObjLeft,false,typeSymmetry);
     		boolean validationPruningM=false;
+    		//valuePruning=0;
     		if(firstBranchPercorred==true)
     		{
     			if(typeSymmetry==2)
     			{
-    				if(validationPruningMAllLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)>0)
+    				if(validationPruningMAllLeviHeuristicAlt(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
     				{
-    					//System.out.println("cambiaso");
+//    					//System.out.println("cambiaso");
     					validationPruningM=true;
     				}
     			}
     			else if(typeSymmetry==1)
     			{
-    				if(validationPruningMVerticalLeviHeuristic(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)>0)
+    				if(validationPruningMVerticalLeviHeuristicAlt(countElements, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds)==true)
     				{
-    					//System.out.println("cambiaso");
+//    					//System.out.println("cambiaso");
     					validationPruningM=true;
     				}
     			}
     		}
     		if(countElements>0 && validationPruningM==false)
-    		{    		    			
+    		{   
+    			
     			DepthSearchCenterFramePruningRegion(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal,typeSymmetry);
+    			
+
     		}
     		else{
     			//System.out.println("aca se debe calcular la formula");
     			if(countElements==0)
     			{
-    			firstBranchPercorred=true;
-    			//System.out.println("chunter");
-    			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft,typeSymmetry);
+        			firstBranchPercorred=true;
+        			//System.out.println("chunter");
+        			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft,typeSymmetry);
+
     			}
+    			
     		}
     		//System.out.println("Aqui deberia eliminar del array");
     		states.remove(states.size() - 1);
     		 
     	 }
+
     	}
+//    	if(valuePruningFather!=999999999)
+//    	{
+//    		if(bestSymettrySubTree<valuePruningFather)
+//    		{
+//    			System.out.println("inadmisivel!! "+valuePruningFather+" "+bestSymettrySubTree);
+//    			//System.out.println("----");
+//    			Iterator<BlockNode> itCenterMass = states.iterator();
+//    			while(itCenterMass.hasNext()){
+//    				BlockNode elemento = itCenterMass.next();
+//    				Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
+//    				double xInitial = elemento.getX();
+//    		        double yInitial= elemento.getY();
+//    		        double widthElementG=(double)element.getWidth();
+//    		        double heigthElementG=(double)element.getHeigth()+1;
+//    		        double typeElementG=(double)element.getTypeElem();
+//    		        //System.out.println("xInitial "+xInitial+" yInitial"+yInitial+" widthElementG "+widthElementG+" heigthElementG "+heigthElementG+" typeElementG: "+typeElementG);
+//    		        
+//
+//    			}
+//		        partialSymmetry=partialSymmetryNewFormula(states,objElemP,height,floorTileHeight,localMaxObjLeft,false,typeSymmetry);
+//		        valuePruning=validationPruningMAllLeviHeuristic(countElements+1, countElementsFinal, states,finalList, objElemP, random,partialSymmetry,floorTileHeight,ruleThirds);
+//		        
+//		        //System.out.println("partialSymmetry "+partialSymmetry+" valuePruning"+valuePruning);
+//		        //System.out.println("----");
+//		        
+//		        //System.out.println("Prove of the violation");
+//    			Iterator<BlockNode> itCenterMass2 = BestStatesSaved.iterator();
+//    			while(itCenterMass2.hasNext()){
+//    				BlockNode elemento = itCenterMass2.next();
+//    				Elements element=(Elements)objElemP.getFinalList().get(elemento.getIdElement());
+//    				double xInitial = elemento.getX();
+//    		        double yInitial= elemento.getY();
+//    		        double widthElementG=(double)element.getWidth();
+//    		        double heigthElementG=(double)element.getHeigth()+1;
+//    		        double typeElementG=(double)element.getTypeElem();
+//    		        //System.out.println("xInitial "+xInitial+" yInitial"+yInitial+" widthElementG "+widthElementG+" heigthElementG "+heigthElementG+" typeElementG: "+typeElementG);
+//
+//    			}  
+//		        partialSymmetry=partialSymmetryNewFormula(BestStatesSaved,objElemP,height,floorTileHeight,localMaxObjLeft,false,typeSymmetry);
+//		        //System.out.println("Symmetry violating"+partialSymmetry);
+//		        //System.out.println("sacan");
+//    			
+//    		}
+//    	}
     	
     	//putting enemies
     	/*if(globalControlSearch==0)
