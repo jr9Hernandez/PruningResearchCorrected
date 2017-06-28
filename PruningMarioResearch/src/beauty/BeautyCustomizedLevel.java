@@ -397,7 +397,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	for(int i=0;i<1;i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
-	    		Beststates5=objGrapB5.DepthSearchCenterFramePruningRegion(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
+	    		Beststates5=objGrapB5.DepthSearchCenterFramePruningRegion(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry,1,0,false);
 	    		stopTime = System.currentTimeMillis();
 	    		time5 = stopTime - startTime;
 	    		sum5=sum5+time5;
@@ -426,7 +426,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	for(int i=0;i<1;i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
-	    		Beststates7=objGrapB7.DepthSearchCenterFramePruningRegion(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
+	    		Beststates7=objGrapB7.DepthSearchCenterFramePruningRegion(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry,2,objGrapB5.bestSymmetryV,false);
 	    		stopTime = System.currentTimeMillis();
 	    		time7 = stopTime - startTime;
 	    		sum7=sum7+time7;
@@ -491,7 +491,7 @@ public class BeautyCustomizedLevel extends Level{
 	        
 	    	
 	    	//Teste Final
-	    	if(objGrapB7.bestSymmetryV>(3*(objGrapB3.bestSymmetryV)))
+	    	if(objGrapB5.bestSymmetryV>(3*(objGrapB3.bestSymmetryV)))
 	    	{
 	    		System.out.println("aca violate :) ");
 	    	}

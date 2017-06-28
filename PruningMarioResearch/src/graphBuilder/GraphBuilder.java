@@ -3829,7 +3829,7 @@ public class GraphBuilder
     }   
 	
 	//3.5) B&B+heuristic + region ordering + LeviHeuristic
-	public ArrayList  DepthSearchCenterFramePruningRegion(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry)
+	public ArrayList  DepthSearchCenterFramePruningRegion(int width,int height,   int countElements, int countElementsFinal,ArrayList states, ConstraintsPlacement objConstraints, ArrayList finalList, ElementsToPlace objElemP,int maxLeft, int maxRight,int floorTileHeight, int maxObjLeft, int maxObjRight, int numEnemies, Random random, int globalControlSearch, double centerXGlobal,int typeSymmetry,int typeteste, double bestacumulative,boolean flagValidation)
     {    
 //		ArrayList<BlockNode> BestStatesSaved = new ArrayList<BlockNode>();
 //		double bestSymettrySubTree=99999999;
@@ -4136,6 +4136,11 @@ public class GraphBuilder
     				{
 //    					//System.out.println("cambiaso");
     					validationPruningM=true;
+    					if(typeteste==2)
+    					{
+    						validationPruningM=false;
+    						flagValidation=true;
+    					}
     				}
     			}
     			else if(typeSymmetry==1)
@@ -4144,13 +4149,18 @@ public class GraphBuilder
     				{
 //    					//System.out.println("cambiaso");
     					validationPruningM=true;
+    					if(typeteste==2)
+    					{
+    						validationPruningM=false;
+    						flagValidation=true;
+    					}
     				}
     			}
     		}
     		if(countElements>0 && validationPruningM==false)
     		{   
     			
-    			DepthSearchCenterFramePruningRegion(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal,typeSymmetry);
+    			DepthSearchCenterFramePruningRegion(width,height, countElements,countElementsFinal,states,objConstraints,finalList,objElemP,maxLeft,maxRight,floorTileHeight,localMaxObjLeft,localMaxObjRight,numEnemies,random,globalControlSearch+1,centerXGlobal,typeSymmetry,typeteste,bestacumulative,flagValidation);
     			
 
     		}
@@ -4160,8 +4170,14 @@ public class GraphBuilder
     			{
         			firstBranchPercorred=true;
         			//System.out.println("chunter");
-        			validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft,typeSymmetry);
-
+        			double val=validateBestBranchDepthSearchCenterFrame(states,objElemP,height,floorTileHeight,localMaxObjLeft,typeSymmetry);
+        			if(flagValidation==true)
+        			{
+        				if(val<bestacumulative)
+        				{
+        					System.out.println("franciscano "+val+ "chapultepec "+bestacumulative);
+        				}
+        			}
     			}
     			
     		}
