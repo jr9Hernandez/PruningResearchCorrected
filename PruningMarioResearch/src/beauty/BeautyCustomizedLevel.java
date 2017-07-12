@@ -440,7 +440,7 @@ public class BeautyCustomizedLevel extends Level{
 	    		System.out.println("Alerta Comando brute "+objGrapB3.bestSymmetryV);
 	    		System.out.println("Alerta Comando brute "+objGrapB6.bestSymmetryV);
 
-	    		for(int i=0;i<5;i++)
+	    		for(int i=0;i<4;i++)
 	    		{
 	    			
 	    	        Elements element=(Elements)objElem.getFinalList().get(Beststates3.get(i).getIdElement());
@@ -449,7 +449,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	        System.out.println("fala "+Beststates3.get(i).getType()+" "+widthElement+" "+heigthElement);
 	    		}
 	    		System.out.println("simon");
-	    		for(int i=0;i<5;i++)
+	    		for(int i=0;i<4;i++)
 	    		{
 	    	        Elements element=(Elements)objElem.getFinalList().get(Beststates6.get(i).getIdElement());
 	    	        int widthElement=element.getWidth();
@@ -457,7 +457,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	        System.out.println("fala "+Beststates6.get(i).getType()+" "+widthElement+" "+heigthElement);
 	    		}
 	    		
-	    		Beststates8=objGrapB8.DepthSearchCenterFramePruningLeviHeuristicLeviTest(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry,Beststates6);
+	    		Beststates8=objGrapB8.DepthSearchCenterFramePruningLeviHeuristicLeviTest(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry,Beststates3);
 	    		System.out.println("Repitis for comparision "+objGrapB8.bestSymmetryV);
 	    	}
 	    	
