@@ -57,6 +57,7 @@ public class BeautyCustomizedLevel extends Level{
 		private ArrayList<BlockNode> Beststates5 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> Beststates6 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> Beststates7 = new ArrayList<BlockNode>();
+		private ArrayList<BlockNode> Beststates8 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> BestGlobalstates = new ArrayList<BlockNode>();
 		private int maxScreens=100;
 		
@@ -316,6 +317,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	GraphBuilder objGrapB5= new GraphBuilder(1);
 	    	GraphBuilder objGrapB6= new GraphBuilder(1);
 	    	GraphBuilder objGrapB7= new GraphBuilder(1);
+	    	GraphBuilder objGrapB8= new GraphBuilder(1);
 	    	
 	    	int numElements=objElem.getNumberObjects();
 	    	int numEnemies=objElem.getNumberObjectsEnemies();
@@ -431,7 +433,33 @@ public class BeautyCustomizedLevel extends Level{
 	    		sum7=sum7+time7;
 	    	}
 	    	time7=sum7;
-	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
+	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);   	
+	    	
+	    	if(objGrapB6.bestSymmetryV>(objGrapB3.bestSymmetryV*3))
+	    	{
+	    		System.out.println("Alerta Comando brute "+objGrapB3.bestSymmetryV);
+	    		System.out.println("Alerta Comando brute "+objGrapB6.bestSymmetryV);
+
+	    		for(int i=0;i<5;i++)
+	    		{
+	    			
+	    	        Elements element=(Elements)objElem.getFinalList().get(Beststates3.get(i).getIdElement());
+	    	        int widthElement=element.getWidth();
+	    	        int heigthElement=element.getHeigth();
+	    	        System.out.println("fala "+Beststates3.get(i).getType()+" "+widthElement+" "+heigthElement);
+	    		}
+	    		System.out.println("simon");
+	    		for(int i=0;i<5;i++)
+	    		{
+	    	        Elements element=(Elements)objElem.getFinalList().get(Beststates6.get(i).getIdElement());
+	    	        int widthElement=element.getWidth();
+	    	        int heigthElement=element.getHeigth();
+	    	        System.out.println("fala "+Beststates6.get(i).getType()+" "+widthElement+" "+heigthElement);
+	    		}
+	    		
+	    		Beststates8=objGrapB8.DepthSearchCenterFramePruningLeviHeuristicLeviTest(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry,Beststates6);
+	    		System.out.println("Repitis for comparision "+objGrapB8.bestSymmetryV);
+	    	}
 	    	
 	    	
 	    	if(objGrapB3.bestSymmetryV<objGrapB5.bestSymmetryV)
