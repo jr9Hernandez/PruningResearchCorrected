@@ -48,12 +48,13 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		    private String nameFile;
 		    private int typeTask;
 		    private int numElementsGlobalParamet;
+		    private int wParamether;
 
 		    private Scale2x scale2x = new Scale2x(320, 240);
 
 		    private double openTime;
 
-		    public MarioComponent(int width, int height,boolean isCustomized,String nameFile,int typeTask, int numElementsGlobalParamet){
+		    public MarioComponent(int width, int height,boolean isCustomized,String nameFile,int typeTask, int numElementsGlobalParamet,int wParamether){
 		    	addFocusListener(this);
 		    	addMouseListener(this);
 		    	addKeyListener(this);
@@ -66,6 +67,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		        this.nameFile=nameFile;
 		        this.typeTask=typeTask;
 		        this.numElementsGlobalParamet=numElementsGlobalParamet;
+		        this.wParamether=wParamether;
 
 		        Dimension size = new Dimension(width, height);
 		        setPreferredSize(size);
@@ -324,7 +326,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		     * Part of the fun increaser
 		     */
 		    public void toRandomGame(){
-		    	randomLevel = new LevelSceneTest(graphicsConfiguration,this,new Random().nextLong(),0,0,false,nameFile,1,numElementsGlobalParamet);
+		    	randomLevel = new LevelSceneTest(graphicsConfiguration,this,new Random().nextLong(),0,0,false,nameFile,1,numElementsGlobalParamet,wParamether);
 
 		    	Mario.fire = false;
 		    	Mario.large = false;
@@ -341,7 +343,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 
 		    	if(typeTask==1 || typeTask==2 || typeTask==5)
 		    	{
-		    	randomLevel = new LevelSceneTest(graphicsConfiguration,this,new Random().nextLong(),0,0,true,nameFile,typeTask,numElementsGlobalParamet);
+		    	randomLevel = new LevelSceneTest(graphicsConfiguration,this,new Random().nextLong(),0,0,true,nameFile,typeTask,numElementsGlobalParamet,wParamether);
 		    	}
 		    	if(typeTask==3 || typeTask==4)
 		    	{

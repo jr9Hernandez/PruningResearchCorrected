@@ -122,6 +122,7 @@ public class GraphBuilder
 	
 	private TreeSet localcurrentState;
 	//Iterator<Integer> finalListIterator;
+	private int wParamether;
 	
     public GraphBuilder(long counterIDs)
     {
@@ -920,7 +921,7 @@ public class GraphBuilder
         	//secondheuristicCandidate=secondheuristicCandidate+((3*areaElement)+(2*firstX)+(2*secondX)+thirdX+firstY+secondY+thirdY);
 
         }
-        partialSymmetry=partialSymmetry*1;
+        partialSymmetry=partialSymmetry*wParamether;
         //System.out.println("partialSymmetry "+partialSymmetry);
         if(partialSymmetry>bestSymmetryV)
         {
@@ -1097,7 +1098,7 @@ public class GraphBuilder
         	//secondheuristicCandidate=secondheuristicCandidate+((3*areaElement)+(2*firstX)+(2*secondX)+thirdX+firstY+secondY+thirdY);
 
         }
-        partialSymmetry=partialSymmetry*1;
+        partialSymmetry=partialSymmetry*wParamether;
         //System.out.println("partialSymmetry "+partialSymmetry);
         if(partialSymmetry>bestSymmetryV)
         {
@@ -1217,7 +1218,7 @@ public class GraphBuilder
         	//partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         }
         //System.out.println("partialSymmetry "+partialSymmetry);
-        partialSymmetry=partialSymmetry*1;
+        partialSymmetry=partialSymmetry*wParamether;
         if(partialSymmetry>bestSymmetryV)
         {
         	
@@ -1334,7 +1335,7 @@ public class GraphBuilder
         	//partialSymmetry=partialSymmetry-((3*areaElement)+firstX+secondX+thirdX+firstY+secondY+thirdY);
         }
         //System.out.println("partialSymmetry "+partialSymmetry);
-        partialSymmetry=partialSymmetry*1;
+        partialSymmetry=partialSymmetry*wParamether;
         if(partialSymmetry>bestSymmetryV)
         {
         	
@@ -8590,6 +8591,10 @@ public class GraphBuilder
     public int RandomCoordenateGenerator(Random random, int maxLef,int  maxRi)
     {
     	return maxLef+random.nextInt(maxRi-maxLef);
+    }
+    public void setWparamether(int wParamether)
+    {
+    	this.wParamether=wParamether;
     }
 }
 

@@ -70,6 +70,8 @@ public class BeautyCustomizedLevel extends Level{
 	    
 		TreeSet<String> currentState = new TreeSet<String>();
 		Hashtable hTable = new Hashtable();
+		
+		private int wParamether;
 	
 		public BeautyCustomizedLevel(int width, int height)
 	    {
@@ -107,12 +109,13 @@ public class BeautyCustomizedLevel extends Level{
 	    }
 		
 		//Constructor to many single screens receiving objects as parameters
-		public BeautyCustomizedLevel(int width, int height, long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry,int[] odds,ElementsToPlace objElem)
+		public BeautyCustomizedLevel(int width, int height, long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry,int[] odds,ElementsToPlace objElem, int wParamether)
 	    {
 			
 	        this(width, height);
 	        this.objElem=objElem;
 	        this.odds=odds;
+	        this.wParamether=wParamether;
 	        creatManySearchesObjectsNLG(seed, difficulty, type,count,hsObjectsScreen,typeSymmetry);
 	        //System.out.println("constructorcorrect");
 	        
@@ -316,6 +319,15 @@ public class BeautyCustomizedLevel extends Level{
 	    	GraphBuilder objGrapB5= new GraphBuilder(1);
 	    	GraphBuilder objGrapB6= new GraphBuilder(1);
 	    	GraphBuilder objGrapB7= new GraphBuilder(1);
+	    	
+	    	objGrapB.setWparamether(wParamether);
+	    	objGrapB2.setWparamether(wParamether);
+	    	objGrapB3.setWparamether(wParamether);
+	    	objGrapB3a.setWparamether(wParamether);
+	    	objGrapB4.setWparamether(wParamether);
+	    	objGrapB5.setWparamether(wParamether);
+	    	objGrapB6.setWparamether(wParamether);
+	    	objGrapB7.setWparamether(wParamether);
 	    	
 	    	int numElements=objElem.getNumberObjects();
 	    	int numEnemies=objElem.getNumberObjectsEnemies();

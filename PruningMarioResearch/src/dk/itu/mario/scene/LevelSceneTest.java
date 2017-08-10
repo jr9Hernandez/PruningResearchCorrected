@@ -49,14 +49,16 @@ import dk.itu.mario.res.ResourcesManager;
 			ElementsToPlace objElem;
 			Random random;
 			private int numElementsGlobalParamet;
+			private int wParamether;
 
 			public LevelSceneTest(GraphicsConfiguration graphicsConfiguration,
-					MarioComponent renderer, long seed, int levelDifficulty, int type,boolean isCustom,String nameFile, int typeTask,int numElementsGlobalParamet){
+					MarioComponent renderer, long seed, int levelDifficulty, int type,boolean isCustom,String nameFile, int typeTask,int numElementsGlobalParamet,int wParamether){
 				super(graphicsConfiguration,renderer,seed,levelDifficulty,type);
 				this.isCustom = isCustom;
 				this.nameFile=nameFile;
 				this.typeTask=typeTask;
 				this.numElementsGlobalParamet=numElementsGlobalParamet;
+				this.wParamether=wParamether;
 			}
 
 			public void init() {
@@ -136,6 +138,7 @@ import dk.itu.mario.res.ResourcesManager;
 			    	        hsObjectsScreen=CreateHashTableObjectsScreen(hsObjectsScreen, objectsOfSpecificType);			    	      			    			
 			    			
 			    	        random = new Random(newSeed);	
+			    	        
 			    	        generateElementsNLG(random,1,hsObjectsScreen,currentLevel.getHeight(),numElementsGlobalParamet);
 			    	        
 			    	        int[] odds2 =odds.clone();
@@ -148,7 +151,7 @@ import dk.itu.mario.res.ResourcesManager;
 			        		int SizeOddsEnemies2 = objElem.SizeOddsEnemies;
 			        		
 			    	        
-			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,1,odds,objElem);		        		
+			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,1,odds,objElem,wParamether);		        		
 			    			
 			        		counterIts++;
 			        					        		
@@ -157,7 +160,7 @@ import dk.itu.mario.res.ResourcesManager;
 			        		objElem2.SizeOdds=SizeOdds2;
 			        		objElem2.SizeOddsEnemies=SizeOddsEnemies2;
 			        	
-			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,2,odds2,objElem2);		        		
+			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,2,odds2,objElem2,wParamether);		        		
 			    			
 			        		counterIts++;
 			    			}
