@@ -71,7 +71,7 @@ public class BeautyCustomizedLevel extends Level{
 		TreeSet<String> currentState = new TreeSet<String>();
 		Hashtable hTable = new Hashtable();
 		
-		private int wParamether;
+		private double wParamether;
 	
 		public BeautyCustomizedLevel(int width, int height)
 	    {
@@ -109,7 +109,7 @@ public class BeautyCustomizedLevel extends Level{
 	    }
 		
 		//Constructor to many single screens receiving objects as parameters
-		public BeautyCustomizedLevel(int width, int height, long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry,int[] odds,ElementsToPlace objElem, int wParamether)
+		public BeautyCustomizedLevel(int width, int height, long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry,int[] odds,ElementsToPlace objElem, double wParamether)
 	    {
 			
 	        this(width, height);

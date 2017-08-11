@@ -49,10 +49,10 @@ import dk.itu.mario.res.ResourcesManager;
 			ElementsToPlace objElem;
 			Random random;
 			private int numElementsGlobalParamet;
-			private int wParamether;
+			private double wParamether;
 
 			public LevelSceneTest(GraphicsConfiguration graphicsConfiguration,
-					MarioComponent renderer, long seed, int levelDifficulty, int type,boolean isCustom,String nameFile, int typeTask,int numElementsGlobalParamet,int wParamether){
+					MarioComponent renderer, long seed, int levelDifficulty, int type,boolean isCustom,String nameFile, int typeTask,int numElementsGlobalParamet,double wParamether){
 				super(graphicsConfiguration,renderer,seed,levelDifficulty,type);
 				this.isCustom = isCustom;
 				this.nameFile=nameFile;

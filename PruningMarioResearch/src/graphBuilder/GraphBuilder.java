@@ -122,7 +122,7 @@ public class GraphBuilder
 	
 	private TreeSet localcurrentState;
 	//Iterator<Integer> finalListIterator;
-	private int wParamether;
+	private double wParamether;
 	
     public GraphBuilder(long counterIDs)
     {
@@ -8592,7 +8592,7 @@ public class GraphBuilder
     {
     	return maxLef+random.nextInt(maxRi-maxLef);
     }
-    public void setWparamether(int wParamether)
+    public void setWparamether(double wParamether)
     {
     	this.wParamether=wParamether;
     }

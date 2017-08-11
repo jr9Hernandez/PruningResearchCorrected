@@ -48,13 +48,13 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		    private String nameFile;
 		    private int typeTask;
 		    private int numElementsGlobalParamet;
-		    private int wParamether;
+		    private double wParamether;
 
 		    private Scale2x scale2x = new Scale2x(320, 240);
 
 		    private double openTime;
 
-		    public MarioComponent(int width, int height,boolean isCustomized,String nameFile,int typeTask, int numElementsGlobalParamet,int wParamether){
+		    public MarioComponent(int width, int height,boolean isCustomized,String nameFile,int typeTask, int numElementsGlobalParamet,double wParamether){
 		    	addFocusListener(this);
 		    	addMouseListener(this);
 		    	addKeyListener(this);
