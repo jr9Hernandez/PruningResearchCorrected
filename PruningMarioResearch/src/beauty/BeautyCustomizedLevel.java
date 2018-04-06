@@ -109,14 +109,14 @@ public class BeautyCustomizedLevel extends Level{
 	    }
 		
 		//Constructor to many single screens receiving objects as parameters
-		public BeautyCustomizedLevel(int width, int height, long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry,int[] odds,ElementsToPlace objElem, double wParamether)
+		public BeautyCustomizedLevel(int width, int height, long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry,int[] odds,ElementsToPlace objElem, double wParamether, int methodSearch)
 	    {
 			
 	        this(width, height);
 	        this.objElem=objElem;
 	        this.odds=odds;
 	        this.wParamether=wParamether;
-	        creatManySearchesObjectsNLG(seed, difficulty, type,count,hsObjectsScreen,typeSymmetry);
+	        creatManySearchesObjectsNLG(seed, difficulty, type,count,hsObjectsScreen,typeSymmetry,methodSearch);
 	        //System.out.println("constructorcorrect");
 	        
 	    }
@@ -141,7 +141,7 @@ public class BeautyCustomizedLevel extends Level{
 			odds=objElem.getOdds();
 		}
 
-		public void creatManySearchesObjectsNLG(long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry)
+		public void creatManySearchesObjectsNLG(long seed, int difficulty, int type,int count, Hashtable hsObjectsScreen, int typeSymmetry,int methodSearch)
 	    {
 			mediumStraight=width-initialStraight-finalStraight;
 			lastSeed = seed;
@@ -179,7 +179,7 @@ public class BeautyCustomizedLevel extends Level{
 	        //Placing the elements on the tile
 	        //********to generate 1 screen***********
 	        //fixWalls();
-	        CreatingBeautyContent(count,typeSymmetry);
+	        CreatingBeautyContent(count,typeSymmetry,methodSearch);
 	      //********to generate k screens***********
 	        //CreatingBeautyContentTopK();
 	        
@@ -234,7 +234,7 @@ public class BeautyCustomizedLevel extends Level{
 	        //Placing the elements on the tile
 	        //********to generate 1 screen***********
 	        //fixWalls();
-	        CreatingBeautyContent(count,1);
+	        CreatingBeautyContent(count,1,1);
 	      //********to generate k screens***********
 	        //CreatingBeautyContentTopK();
 	        
@@ -300,7 +300,7 @@ public class BeautyCustomizedLevel extends Level{
 	        
 	    }
 
-		private void CreatingBeautyContent(int count,int typeSymmetry) { 
+		private void CreatingBeautyContent(int count,int typeSymmetry, int methodSearch) { 
 			// TODO Auto-generated method stub
 
 	        
@@ -380,69 +380,81 @@ public class BeautyCustomizedLevel extends Level{
 	    	
 	        //3.4) B&Bheuristic + oldHeuristic ---
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
-	    	for(int i=0;i<1;i++)
+	    	/*if(methodSearch==4)
 	    	{
 	    		startTime = System.currentTimeMillis();
 	    		Beststates4=objGrapB4.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
 	    		stopTime = System.currentTimeMillis();
 	    		time4 = stopTime - startTime;
 	    		//sum4=sum4+time4;
-	    	}
+	    	}*/
 	    	//time4=sum4/time4;
 	        //System.out.println("Time B&B+heuristic "+elapsedTime);
 	        
 	        //3.3) Brute-force search
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
-	    	for(int i=0; i<1; i++)
+	    	if(methodSearch==3)
 	    	{
 	    		startTime = System.currentTimeMillis();
 	    		Beststates3=objGrapB3.DepthSearchCenterFrameNoPruningNoRegionsNoObjects(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
 	    		stopTime = System.currentTimeMillis();
 	    		time3 = stopTime - startTime;
-	    		sum3=sum3+time3;
+	    		round(time3,2);
+	    		double nodes3=round((double)objGrapB3.getCounterIDs(),2);
+	    		System.out.print(objGrapB3.bestSymmetryV+" "+time3+" "+((objGrapB3.getCounterIDs())));
+	    		//sum3=sum3+time3;
 	    	}
-	    	time3=sum3;
+	    	//time3=sum3;
 	        //System.out.println("Time Brute-force search "+elapsedTime);
 	    	
 	        //3.5) B&B+heuristic + region ordering + LeviHeuristic
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
-	    	for(int i=0;i<1;i++)
+	    	if(methodSearch==5)
 	    	{
 	    		startTime = System.currentTimeMillis();
 	    		Beststates5=objGrapB5.DepthSearchCenterFramePruningRegion(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
 	    		stopTime = System.currentTimeMillis();
 	    		time5 = stopTime - startTime;
-	    		sum5=sum5+time5;
+	    		round(time5,2);
+	    		double nodes5=round((double)objGrapB5.getCounterIDs(),2);
+	    		System.out.print(objGrapB5.bestSymmetryV+" "+time5+" "+((objGrapB5.getCounterIDs())));
+	    		//sum5=sum5+time5;
 	    	}
-	    	time5=sum5;
+	    	//time5=sum5;
 	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	        
 	        //3.6) B&B+heuristic +  LeviHeuristic
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
 	    	//System.out.println("largura "+mediumStraight);
 	    	//System.out.println("Altura "+height);
-	    	for(int i=0;i<1;i++)
+	    	if(methodSearch==6)
 	    	{
 	    		startTime = System.currentTimeMillis();
 	    		Beststates6=objGrapB6.DepthSearchCenterFramePruningLeviHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
 	    		stopTime = System.currentTimeMillis();
 	    		time6 = stopTime - startTime;
-	    		sum6=sum6+time6;
+	    		round(time6,2);
+	    		double nodes6=round((double)objGrapB3.getCounterIDs(),2);
+	    		System.out.print(objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs())));
+	    		//sum6=sum6+time6;
 	    	}
-	    	time6=sum6;
+	    	//time6=sum6;
 	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	        
 	        //3.7) B&B+heuristic +  oldoldheuristic
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
-	    	for(int i=0;i<1;i++)
+	    	if(methodSearch==7)
 	    	{
 	    		startTime = System.currentTimeMillis();
 	    		Beststates7=objGrapB7.DepthSearchCenterFramePruningOldOldHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
 	    		stopTime = System.currentTimeMillis();
 	    		time7 = stopTime - startTime;
-	    		sum7=sum7+time7;
+	    		round(time7,2);
+	    		double nodes7=round((double)objGrapB3.getCounterIDs(),2);
+	    		System.out.print(objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs())));
+	    		//sum7=sum7+time7;
 	    	}
-	    	time7=sum7;
+	    	//time7=sum7;
 	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	    	
 	    	
@@ -497,8 +509,9 @@ public class BeautyCustomizedLevel extends Level{
 	    	NodesRate5=round(NodesRate5,2);
 
 	    	
-	    	System.out.print(objGrapB3.bestSymmetryV+" "+time3+" "+((objGrapB3.getCounterIDs()))+" "+objGrapB7.bestSymmetryV+" "+time7+" "+((objGrapB7.getCounterIDs()))+" "+TimeRate7+" "+NodesRate7+" "+objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs()))+" "+TimeRate6+" "+NodesRate6+" "+objGrapB5.bestSymmetryV+" "+time5+" "+((objGrapB5.getCounterIDs()))+" "+TimeRate5+" "+NodesRate5+" ");
-	        
+	    	//System.out.print(objGrapB3.bestSymmetryV+" "+time3+" "+((objGrapB3.getCounterIDs()))+" "+objGrapB7.bestSymmetryV+" "+time7+" "+((objGrapB7.getCounterIDs()))+" "+TimeRate7+" "+NodesRate7+" "+objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs()))+" "+TimeRate6+" "+NodesRate6+" "+objGrapB5.bestSymmetryV+" "+time5+" "+((objGrapB5.getCounterIDs()))+" "+TimeRate5+" "+NodesRate5+" ");
+	    	
+
 	        //imprimiendo los estados visitados
 	        /*
 	        Iterator<BlockNode> nombreIterator = states.iterator();
