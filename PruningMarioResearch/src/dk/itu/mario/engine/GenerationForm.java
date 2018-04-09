@@ -92,13 +92,14 @@ public class GenerationForm {
 		
 	  	/*---------------------to Generate screens------------------------*/
 		
-			int numElementsGlobalParamet=Integer.parseInt(args[0]); 
-			double wParamether=Double.parseDouble(args[1]);
-			int methodSearch=Integer.parseInt(args[2]);
+			int numElementsGlobalParamet=5; 
+			double wParamether=1;
+			int methodSearch=3;
+			long seedM=4545;
 	    	//JFrame frame = new JFrame("Mario Experience Showcase");
-	    	MarioComponent mario = new MarioComponent(640, 480,true," ",5,numElementsGlobalParamet,wParamether,methodSearch);
+	    	MarioComponent mario = new MarioComponent(640, 480,true," ",5,numElementsGlobalParamet,wParamether,methodSearch,seedM);
 	    	System.out.println("");
-	    	System.out.print(numElementsGlobalParamet+" "+wParamether+" ");
+	    	System.out.println(numElementsGlobalParamet+" "+wParamether+" ");
 	    	/*
 	    	frame.setContentPane(mario);
 	    	frame.setResizable(false);

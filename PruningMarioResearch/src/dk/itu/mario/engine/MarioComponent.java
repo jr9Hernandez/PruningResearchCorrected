@@ -50,12 +50,13 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		    private int numElementsGlobalParamet;
 		    private int methodSearch;
 		    private double wParamether;
+		    private long seedM;
 
 		    private Scale2x scale2x = new Scale2x(320, 240);
 
 		    private double openTime;
 
-		    public MarioComponent(int width, int height,boolean isCustomized,String nameFile,int typeTask, int numElementsGlobalParamet,double wParamether, int methodSearch){
+		    public MarioComponent(int width, int height,boolean isCustomized,String nameFile,int typeTask, int numElementsGlobalParamet,double wParamether, int methodSearch, long seedM){
 		    	addFocusListener(this);
 		    	addMouseListener(this);
 		    	addKeyListener(this);
@@ -70,6 +71,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		        this.numElementsGlobalParamet=numElementsGlobalParamet;
 		        this.wParamether=wParamether;
 		        this.methodSearch=methodSearch;
+		        this.seedM=seedM;
 
 		        Dimension size = new Dimension(width, height);
 		        setPreferredSize(size);
@@ -328,7 +330,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		     * Part of the fun increaser
 		     */
 		    public void toRandomGame(){
-		    	randomLevel = new LevelSceneTest(graphicsConfiguration,this,new Random().nextLong(),0,0,false,nameFile,1,numElementsGlobalParamet,wParamether,methodSearch);
+		    	randomLevel = new LevelSceneTest(graphicsConfiguration,this,new Random().nextLong(),0,0,false,nameFile,1,numElementsGlobalParamet,wParamether,methodSearch,seedM);
 
 		    	Mario.fire = false;
 		    	Mario.large = false;
@@ -345,7 +347,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 
 		    	if(typeTask==1 || typeTask==2 || typeTask==5)
 		    	{
-		    	randomLevel = new LevelSceneTest(graphicsConfiguration,this,new Random().nextLong(),0,0,true,nameFile,typeTask,numElementsGlobalParamet,wParamether,methodSearch);
+		    	randomLevel = new LevelSceneTest(graphicsConfiguration,this,new Random().nextLong(),0,0,true,nameFile,typeTask,numElementsGlobalParamet,wParamether,methodSearch,seedM);
 		    	}
 		    	if(typeTask==3 || typeTask==4)
 		    	{

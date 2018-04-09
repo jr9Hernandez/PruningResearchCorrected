@@ -401,7 +401,7 @@ public class BeautyCustomizedLevel extends Level{
 	    		time3 = stopTime - startTime;
 	    		round(time3,2);
 	    		double nodes3=round((double)objGrapB3.getCounterIDs(),2);
-	    		System.out.print(objGrapB3.bestSymmetryV+" "+time3+" "+((objGrapB3.getCounterIDs())));
+	    		System.out.println(objGrapB3.bestSymmetryV+" "+time3+" "+((objGrapB3.getCounterIDs())));
 	    		//sum3=sum3+time3;
 	    	}
 	    	//time3=sum3;
@@ -417,7 +417,7 @@ public class BeautyCustomizedLevel extends Level{
 	    		time5 = stopTime - startTime;
 	    		round(time5,2);
 	    		double nodes5=round((double)objGrapB5.getCounterIDs(),2);
-	    		System.out.print(objGrapB5.bestSymmetryV+" "+time5+" "+((objGrapB5.getCounterIDs())));
+	    		System.out.println(objGrapB5.bestSymmetryV+" "+time5+" "+((objGrapB5.getCounterIDs())));
 	    		//sum5=sum5+time5;
 	    	}
 	    	//time5=sum5;
@@ -435,7 +435,7 @@ public class BeautyCustomizedLevel extends Level{
 	    		time6 = stopTime - startTime;
 	    		round(time6,2);
 	    		double nodes6=round((double)objGrapB3.getCounterIDs(),2);
-	    		System.out.print(objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs())));
+	    		System.out.println(objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs())));
 	    		//sum6=sum6+time6;
 	    	}
 	    	//time6=sum6;
@@ -451,7 +451,7 @@ public class BeautyCustomizedLevel extends Level{
 	    		time7 = stopTime - startTime;
 	    		round(time7,2);
 	    		double nodes7=round((double)objGrapB3.getCounterIDs(),2);
-	    		System.out.print(objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs())));
+	    		System.out.println(objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs())));
 	    		//sum7=sum7+time7;
 	    	}
 	    	//time7=sum7;

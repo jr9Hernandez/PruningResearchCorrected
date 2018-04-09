@@ -955,11 +955,11 @@ public class RandomLevelModified extends Level{
 	    	//Largura m�nima da plataforma tem de ser de 3: 1 para bloco superior e 1 para bloco inferior e um para o meio
 	    	int length = x1 - x0; //Comprimento da plataforma
 
-	    	Random rand = new Random();
+	    	//Random rand = new Random();
 	    	int x_aux_plataforma = 0;
 	    	if(length > 3){
-		    	if(rand.nextInt(4) != 0){
-		    		x_aux_plataforma = rand.nextInt(length - 3);
+		    	if(random.nextInt(4) != 0){
+		    		x_aux_plataforma = random.nextInt(length - 3);
 		    		if(x_aux_plataforma > 3)
 		    			x_aux_plataforma = 3;
 		    		x0 += x_aux_plataforma;
@@ -970,8 +970,8 @@ public class RandomLevelModified extends Level{
 	    	}
 	    	
 	    	if(length > 3){
-		    	if(rand.nextInt(4) != 0){
-		    		x_aux_plataforma = rand.nextInt(length - 3);
+		    	if(random.nextInt(4) != 0){
+		    		x_aux_plataforma = random.nextInt(length - 3);
 		    		if(x_aux_plataforma > 3)
 		    			x_aux_plataforma = 3;
 		    		x1 -= x_aux_plataforma;
@@ -992,10 +992,10 @@ public class RandomLevelModified extends Level{
 	    		
 	    		if(max_plataforma >= 2){
 	    			
-	    			int y = rand.nextInt(max_plataforma - 1);
+	    			int y = random.nextInt(max_plataforma - 1);
 	    			max_plataforma = y + 2;
 	    			
-	    			int type_block = rand.nextInt(4);
+	    			int type_block = random.nextInt(4);
 		    		byte block = 0;
 		    		switch (type_block) {
 					case 0:
@@ -1052,10 +1052,10 @@ public class RandomLevelModified extends Level{
 	    				x1 -= 2;
 	    			}
 	    			
-	    			int y = rand.nextInt(max_plataforma - 1);
+	    			int y = random.nextInt(max_plataforma - 1);
 	    			max_plataforma = 2 + y;
 	    			
-	    			int type_block = rand.nextInt(4);
+	    			int type_block = random.nextInt(4);
 		    		byte block = 0;
 		    		switch (type_block) {
 					case 0:
@@ -1103,14 +1103,14 @@ public class RandomLevelModified extends Level{
 	    	
 	    	    	
 	    	int begin_platform = 3; 
-	    	begin_platform -= rand.nextInt(2);
+	    	begin_platform -= random.nextInt(2);
 	    	int aux = max_plataforma - 4;
-	    	begin_platform += rand.nextInt(aux);
+	    	begin_platform += random.nextInt(aux);
 	    	
 	    	if(begin_platform > max_plataforma - 3)
 	    		begin_platform = max_plataforma - 3;
 	    	    	
-	    	int widthPlatform = rand.nextInt(max_plataforma - begin_platform);
+	    	int widthPlatform = random.nextInt(max_plataforma - begin_platform);
 	    	if(widthPlatform < 3)
 	    		widthPlatform = 3;    	    	
 	    	
@@ -1118,9 +1118,9 @@ public class RandomLevelModified extends Level{
 	    	//System.out.println("Contruindo uma plataforma entre " + x0 +" e  "+ x1 + " com comprimento " + length +
 	    		//	". Onde o y_MAX � " + max_plataforma +  " de lagura " + widthPlatform + " a partir de " + begin_platform);
 	    	
-	    	if(rand.nextInt(4) == 3){
-				int y = rand.nextInt(widthPlatform) + begin_platform;
-				int type_block = rand.nextInt(4);
+	    	if(random.nextInt(4) == 3){
+				int y = random.nextInt(widthPlatform) + begin_platform;
+				int type_block = random.nextInt(4);
 	    		byte block = 0;
 	    		switch (type_block) {
 				case 0:

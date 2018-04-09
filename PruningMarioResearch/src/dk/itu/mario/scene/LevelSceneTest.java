@@ -51,9 +51,10 @@ import dk.itu.mario.res.ResourcesManager;
 			private int numElementsGlobalParamet;
 			private double wParamether;
 			private int methodSearch;
+			private long seedM;
 
 			public LevelSceneTest(GraphicsConfiguration graphicsConfiguration,
-					MarioComponent renderer, long seed, int levelDifficulty, int type,boolean isCustom,String nameFile, int typeTask,int numElementsGlobalParamet,double wParamether, int methodSearch){
+					MarioComponent renderer, long seed, int levelDifficulty, int type,boolean isCustom,String nameFile, int typeTask,int numElementsGlobalParamet,double wParamether, int methodSearch, long seedM){
 				super(graphicsConfiguration,renderer,seed,levelDifficulty,type);
 				this.isCustom = isCustom;
 				this.nameFile=nameFile;
@@ -61,6 +62,7 @@ import dk.itu.mario.res.ResourcesManager;
 				this.numElementsGlobalParamet=numElementsGlobalParamet;
 				this.wParamether=wParamether;
 				this.methodSearch=methodSearch;
+				this.seedM=seedM;
 			}
 
 			public void init() {
@@ -126,7 +128,7 @@ import dk.itu.mario.res.ResourcesManager;
 		    				for(int i=0;i<1;i++)
 			    			{
 		    				ArrayList objectsOfSpecificType=new ArrayList<SingleElement>();	
-		    				Long newSeed=new Random().nextLong();
+		    				long newSeed=seedM;
 		    				currentLevel = new RandomLevelModified(320, 15, newSeed, 1,levelType,objectsOfSpecificType);
 		    				//System.out.println("tamArray"+objectsOfSpecificType.size());
 		    				
@@ -139,7 +141,7 @@ import dk.itu.mario.res.ResourcesManager;
 			    	        hsObjectsScreen = new Hashtable();
 			    	        hsObjectsScreen=CreateHashTableObjectsScreen(hsObjectsScreen, objectsOfSpecificType);			    	      			    			
 			    			
-			    	        random = new Random(newSeed);	
+			    	        random = new Random(seedM);	
 			    	        
 			    	        generateElementsNLG(random,1,hsObjectsScreen,currentLevel.getHeight(),numElementsGlobalParamet);
 			    	        

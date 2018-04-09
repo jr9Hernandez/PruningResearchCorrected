@@ -119,9 +119,9 @@ public class ElementsToPlace {
         		if(hsObjectsScreen.containsKey("Mountain"))
         		{
         		listObjects=(ArrayList<SingleElement>) hsObjectsScreen.get("Mountain");
-        		Random randomGenerator=new Random();
+        		//Random randomGenerator=new Random();
         		
-        		int index = randomGenerator.nextInt(listObjects.size());
+        		int index = random.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=ODDS_HILL_STRAIGHT;
             	odds[ODDS_HILL_STRAIGHT] = odds[ODDS_HILL_STRAIGHT]+1;
@@ -133,9 +133,9 @@ public class ElementsToPlace {
         		if(hsObjectsScreen.containsKey("Tube"))
         		{
         		listObjects=(ArrayList<SingleElement>) hsObjectsScreen.get("Tube");
-        		Random randomGenerator=new Random();
+        		//Random randomGenerator=new Random();
         		
-        		int index = randomGenerator.nextInt(listObjects.size());
+        		int index = random.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=ODDS_TUBES;
             	odds[ODDS_TUBES] = odds[ODDS_TUBES]+1;
@@ -146,9 +146,9 @@ public class ElementsToPlace {
         		if(hsObjectsScreen.containsKey("Gap"))
         		{
         		listObjects=(ArrayList<SingleElement>) hsObjectsScreen.get("Gap");
-        		Random randomGenerator=new Random();
+        		//Random randomGenerator=new Random();
         		
-        		int index = randomGenerator.nextInt(listObjects.size());
+        		int index = random.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=ODDS_JUMP;
             	odds[ODDS_JUMP] = odds[ODDS_JUMP]+1;
@@ -156,13 +156,13 @@ public class ElementsToPlace {
         	}
         	else if(typeElement<8)
         	{
-        		Random randoml=new Random();
-        		if(hsObjectsScreen.containsKey("Canion") && (randoml.nextInt(3)==0))
+        		//Random randoml=new Random();
+        		if(hsObjectsScreen.containsKey("Canion") && (random.nextInt(3)==0))
         		{
         		listObjects=(ArrayList<SingleElement>) hsObjectsScreen.get("Canion");
-        		Random randomGenerator=new Random();
+        		//Random randomGenerator=new Random();
         		
-        		int index = randomGenerator.nextInt(listObjects.size());
+        		int index = random.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=ODDS_CANNONS;
             	odds[ODDS_CANNONS] = odds[ODDS_CANNONS]+1;
@@ -173,9 +173,9 @@ public class ElementsToPlace {
         		if(hsObjectsScreen.containsKey("Block"))
         		{
         		listObjects=(ArrayList<SingleElement>) hsObjectsScreen.get("Block");
-        		Random randomGenerator=new Random();
+        		//Random randomGenerator=new Random();
         		
-        		int index = randomGenerator.nextInt(listObjects.size());
+        		int index = random.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=BLOCK_ELEMENT;
             	odds[BLOCK_ELEMENT] = odds[BLOCK_ELEMENT]+1;
@@ -186,9 +186,9 @@ public class ElementsToPlace {
         		if(hsObjectsScreen.containsKey("TubeFlower"))
         		{
         		listObjects=(ArrayList<SingleElement>) hsObjectsScreen.get("TubeFlower");
-        		Random randomGenerator=new Random();
+        		//Random randomGenerator=new Random();
         		
-        		int index = randomGenerator.nextInt(listObjects.size());
+        		int index = random.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=ODDS_TUBES_FLOWER;
             	odds[ODDS_TUBES_FLOWER] = odds[ODDS_TUBES_FLOWER]+1;
@@ -199,9 +199,9 @@ public class ElementsToPlace {
         		if(hsObjectsScreen.containsKey("MountainFloat"))
         		{
         		listObjects=(ArrayList<SingleElement>) hsObjectsScreen.get("MountainFloat");
-        		Random randomGenerator=new Random();
+        		//Random randomGenerator=new Random();
         		
-        		int index = randomGenerator.nextInt(listObjects.size());
+        		int index = random.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=ODDS_HILL_STRAIGHT_FLOAT;
             	odds[ODDS_HILL_STRAIGHT_FLOAT] = odds[ODDS_HILL_STRAIGHT_FLOAT]+1;
@@ -215,9 +215,9 @@ public class ElementsToPlace {
         			if(hsObjectsScreen.containsKey("Wood"))
         			{
         				listObjects=(ArrayList<SingleElement>) hsObjectsScreen.get("Wood");
-        				Random randomGenerator=new Random();
+        				//Random randomGenerator=new Random();
         		
-        				int index = randomGenerator.nextInt(listObjects.size());
+        				int index = random.nextInt(listObjects.size());
         				item = (SingleElement) listObjects.get(index);
         				typeElementSelected=WOOD;
         				odds[WOOD] = odds[WOOD]+1;
@@ -227,9 +227,9 @@ public class ElementsToPlace {
         			if(hsObjectsScreen.containsKey("TubeSmall"))
             		{
             		listObjects=(ArrayList<SingleElement>) hsObjectsScreen.get("TubeSmall");
-            		Random randomGenerator=new Random();
+            		//Random randomGenerator=new Random();
             		
-            		int index = randomGenerator.nextInt(listObjects.size());
+            		int index = random.nextInt(listObjects.size());
             		item = (SingleElement) listObjects.get(index);
                 	typeElementSelected=SMALL_TUBE;
                 	odds[SMALL_TUBE] = odds[SMALL_TUBE]+1;
@@ -242,9 +242,9 @@ public class ElementsToPlace {
         		if(hsObjectsScreen.containsKey("BlockWood"))
         		{
         		listObjects=(ArrayList<SingleElement>) hsObjectsScreen.get("BlockWood");
-        		Random randomGenerator=new Random();
+        		//Random randomGenerator=new Random();
         		
-        		int index = randomGenerator.nextInt(listObjects.size());
+        		int index = random.nextInt(listObjects.size());
         		item = (SingleElement) listObjects.get(index);
             	typeElementSelected=BLOCK_WOOD;
             	odds[BLOCK_WOOD] = odds[BLOCK_WOOD]+1;
