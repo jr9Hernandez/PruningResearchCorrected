@@ -3450,7 +3450,7 @@ public class GraphBuilder
     	Elements objElem= (Elements)finalList.get(countElementsFinal-countElements-1);
     	int idElem=objElem.getIdElem();
     	int typeElem=objElem.getTypeElem();
-    	int widthElemm=objElem.getWidth();
+    	//int widthElemm=objElem.getWidth();
     	
     	int quadrant1X=0;
     	int quadrant2X=0;
@@ -3837,16 +3837,16 @@ public class GraphBuilder
     	{
     		
     		
-    		for(int i=0;i<partialASummatory.length;i++)
-    		{
-    			
-    			if(partialASummatory[i]<minorValue)
-    			{
-    				
-    				minorValue=partialASummatory[i];
-    				minor=i;
-    			}
-    		}
+//    		for(int i=0;i<partialASummatory.length;i++)
+//    		{
+//    			
+//    			if(partialASummatory[i]<minorValue)
+//    			{
+//    				
+//    				minorValue=partialASummatory[i];
+//    				minor=i;
+//    			}
+//    		}
     		
     		/*
     		for(int i=0;i<XsQuadrant.size();i++)
