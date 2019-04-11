@@ -15,6 +15,7 @@ import beauty.SingleScreen;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -93,9 +94,11 @@ public class GenerationForm {
 	  	/*---------------------to Generate screens------------------------*/
 		
 			int numElementsGlobalParamet=5; 
-			double wParamether=1;
+			double wParamether=3;
 			int methodSearch=3;
-			long seedM=4545;
+			Random rand = new Random();
+			long seedM = -2011069996;
+			System.out.println("seed "+seedM);
 	    	//JFrame frame = new JFrame("Mario Experience Showcase");
 	    	MarioComponent mario = new MarioComponent(640, 480,true," ",5,numElementsGlobalParamet,wParamether,methodSearch,seedM);
 	    	System.out.println("");

@@ -380,81 +380,85 @@ public class BeautyCustomizedLevel extends Level{
 	    	
 	        //3.4) B&Bheuristic + oldHeuristic ---
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
-	    	/*if(methodSearch==4)
+	    	for(int i=0;i<1;i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
 	    		Beststates4=objGrapB4.DepthSearchCenterFramePruning(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
 	    		stopTime = System.currentTimeMillis();
 	    		time4 = stopTime - startTime;
 	    		//sum4=sum4+time4;
-	    	}*/
+	    	}
 	    	//time4=sum4/time4;
 	        //System.out.println("Time B&B+heuristic "+elapsedTime);
 	        
 	        //3.3) Brute-force search
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
-	    	if(methodSearch==3)
+	    	for(int i=0;i<5;i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
 	    		Beststates3=objGrapB3.DepthSearchCenterFrameNoPruningNoRegionsNoObjects(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
 	    		stopTime = System.currentTimeMillis();
 	    		time3 = stopTime - startTime;
-	    		round(time3,2);
-	    		double nodes3=round((double)objGrapB3.getCounterIDs(),2);
-	    		System.out.println(objGrapB3.bestSymmetryV+" "+time3+" "+((objGrapB3.getCounterIDs())));
-	    		//sum3=sum3+time3;
+//	    		round(time3,2);
+//	    		double nodes3=round((double)objGrapB3.getCounterIDs(),2);
+//	    		System.out.println(objGrapB3.bestSymmetryV+" "+time3+" "+((objGrapB3.getCounterIDs())));
+	    		sum3=sum3+time3;
 	    	}
-	    	//time3=sum3;
+	    	time3=sum3/5;
+	    	time3=round(time3,2);
 	        //System.out.println("Time Brute-force search "+elapsedTime);
 	    	
 	        //3.5) B&B+heuristic + region ordering + LeviHeuristic
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
-	    	if(methodSearch==5)
+	    	for(int i=0;i<5;i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
 	    		Beststates5=objGrapB5.DepthSearchCenterFramePruningRegion(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
 	    		stopTime = System.currentTimeMillis();
 	    		time5 = stopTime - startTime;
-	    		round(time5,2);
-	    		double nodes5=round((double)objGrapB5.getCounterIDs(),2);
-	    		System.out.println(objGrapB5.bestSymmetryV+" "+time5+" "+((objGrapB5.getCounterIDs())));
-	    		//sum5=sum5+time5;
+//	    		round(time5,2);
+//	    		double nodes5=round((double)objGrapB5.getCounterIDs(),2);
+//	    		System.out.println(objGrapB5.bestSymmetryV+" "+time5+" "+((objGrapB5.getCounterIDs())));
+	    		sum5=sum5+time5;
 	    	}
-	    	//time5=sum5;
+	    	time5=sum5/5;
+	    	time5=round(time5,2);
 	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	        
 	        //3.6) B&B+heuristic +  LeviHeuristic
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
 	    	//System.out.println("largura "+mediumStraight);
 	    	//System.out.println("Altura "+height);
-	    	if(methodSearch==6)
+	    	for(int i=0;i<5;i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
 	    		Beststates6=objGrapB6.DepthSearchCenterFramePruningLeviHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
 	    		stopTime = System.currentTimeMillis();
 	    		time6 = stopTime - startTime;
-	    		round(time6,2);
-	    		double nodes6=round((double)objGrapB3.getCounterIDs(),2);
-	    		System.out.println(objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs())));
-	    		//sum6=sum6+time6;
+//	    		round(time6,2);
+//	    		double nodes6=round((double)objGrapB3.getCounterIDs(),2);
+//	    		System.out.println(objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs())));
+	    		sum6=sum6+time6;
 	    	}
-	    	//time6=sum6;
+	    	time6=sum6/5;
+	    	time6=round(time6,2);
 	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	        
 	        //3.7) B&B+heuristic +  oldoldheuristic
 	        //objElem.setFinalList(objElem.getFinalListNoOrder());
-	    	if(methodSearch==7)
+	    	for(int i=0;i<5;i++)
 	    	{
 	    		startTime = System.currentTimeMillis();
 	    		Beststates7=objGrapB7.DepthSearchCenterFramePruningOldOldHeuristic(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
 	    		stopTime = System.currentTimeMillis();
 	    		time7 = stopTime - startTime;
-	    		round(time7,2);
-	    		double nodes7=round((double)objGrapB3.getCounterIDs(),2);
-	    		System.out.println(objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs())));
-	    		//sum7=sum7+time7;
+//	    		round(time7,2);
+//	    		double nodes7=round((double)objGrapB3.getCounterIDs(),2);
+//	    		System.out.println(objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs())));
+	    		sum7=sum7+time7;
 	    	}
-	    	//time7=sum7;
+	    	time7=sum7/5;
+	    	time7=round(time7,2);
 	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	    	
 	    	
@@ -509,7 +513,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	NodesRate5=round(NodesRate5,2);
 
 	    	
-	    	//System.out.print(objGrapB3.bestSymmetryV+" "+time3+" "+((objGrapB3.getCounterIDs()))+" "+objGrapB7.bestSymmetryV+" "+time7+" "+((objGrapB7.getCounterIDs()))+" "+TimeRate7+" "+NodesRate7+" "+objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs()))+" "+TimeRate6+" "+NodesRate6+" "+objGrapB5.bestSymmetryV+" "+time5+" "+((objGrapB5.getCounterIDs()))+" "+TimeRate5+" "+NodesRate5+" ");
+	    	System.out.print(objGrapB3.bestSymmetryV+" "+time3+" "+((objGrapB3.getCounterIDs()))+" "+objGrapB7.bestSymmetryV+" "+time7+" "+((objGrapB7.getCounterIDs()))+" "+TimeRate7+" "+NodesRate7+" "+objGrapB6.bestSymmetryV+" "+time6+" "+((objGrapB6.getCounterIDs()))+" "+TimeRate6+" "+NodesRate6+" "+objGrapB5.bestSymmetryV+" "+time5+" "+((objGrapB5.getCounterIDs()))+" "+TimeRate5+" "+NodesRate5+" ");
 	    	
 
 	        //imprimiendo los estados visitados

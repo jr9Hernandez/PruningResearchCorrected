@@ -3450,7 +3450,7 @@ public class GraphBuilder
     	Elements objElem= (Elements)finalList.get(countElementsFinal-countElements-1);
     	int idElem=objElem.getIdElem();
     	int typeElem=objElem.getTypeElem();
-    	int widthElemm=objElem.getWidth();
+    	//int widthElemm=objElem.getWidth();
     	
     	int quadrant1X=0;
     	int quadrant2X=0;
@@ -3837,16 +3837,16 @@ public class GraphBuilder
     	{
     		
     		
-    		for(int i=0;i<partialASummatory.length;i++)
-    		{
-    			
-    			if(partialASummatory[i]<minorValue)
-    			{
-    				
-    				minorValue=partialASummatory[i];
-    				minor=i;
-    			}
-    		}
+//    		for(int i=0;i<partialASummatory.length;i++)
+//    		{
+//    			
+//    			if(partialASummatory[i]<minorValue)
+//    			{
+//    				
+//    				minorValue=partialASummatory[i];
+//    				minor=i;
+//    			}
+//    		}
     		
     		/*
     		for(int i=0;i<XsQuadrant.size();i++)
@@ -5237,11 +5237,11 @@ public class GraphBuilder
     	
     	//impresion de array actual
     	
-    	Iterator<BlockNode> nombreIterator = states.iterator();
-        while(nombreIterator.hasNext()){
-        	BlockNode elemento = nombreIterator.next();
-        	//System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" )  / ");
-        }
+//    	Iterator<BlockNode> nombreIterator = states.iterator();
+//        while(nombreIterator.hasNext()){
+//        	BlockNode elemento = nombreIterator.next();
+//        	//System.out.print(elemento.getID()+"("+elemento.getX()+" "+elemento.getY()+" )  / ");
+//        }
         
         //here we will calculate the center of mass
         //centerOfMassDepthSearchCenterFrame(states,objElemP,height,floor);
@@ -5619,11 +5619,11 @@ public class GraphBuilder
 	public double Rythm1AreasVertical(ArrayList states, double xCenterMassGeneral, double yCenterMassGeneral, ElementsToPlace objElemP)
 	{
 
-		XsQuadrant=new ArrayList<Double>();
-    	YsQuadrant=new ArrayList<Double>();
-    	
-		bestXs=new ArrayList<Double>();
-    	bestYs=new ArrayList<Double>();
+//		XsQuadrant=new ArrayList<Double>();
+//    	YsQuadrant=new ArrayList<Double>();
+//    	
+//		bestXs=new ArrayList<Double>();
+//    	bestYs=new ArrayList<Double>();
 		
 		double [] gulAG;
 		double [] gurAG;
@@ -5700,8 +5700,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
 					gulAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -5718,8 +5718,8 @@ public class GraphBuilder
 					gulAG[3]=0;
 					gulATG[2]=gulATG[2]+gulAG[2];
 					gulATG[3]=gulATG[3]+gulAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
@@ -5733,8 +5733,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
 					gllAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -5751,8 +5751,8 @@ public class GraphBuilder
 					gllAG[3]=0;
 					gllATG[2]=gllATG[2]+gllAG[2];
 					gllATG[3]=gllATG[3]+gllAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
@@ -5767,8 +5767,8 @@ public class GraphBuilder
 					//first block of the element (up left)
 					//y=(yInitial-heigthElement)+(yCenterMassGeneral-yInitial)/2;
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
 					gulAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -5784,8 +5784,8 @@ public class GraphBuilder
 					gulAG[3]=0;
 					gulATG[2]=gulATG[2]+gulAG[2];
 					gulATG[3]=gulATG[3]+gulAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
@@ -5794,8 +5794,8 @@ public class GraphBuilder
 
 					//second block of the element (low left)
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
 					gllAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -5812,8 +5812,8 @@ public class GraphBuilder
 					gllAG[3]=0;
 					gllATG[2]=gllATG[2]+gllAG[2];
 					gllATG[3]=gllATG[3]+gllAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
@@ -5829,8 +5829,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
 					gurAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -5847,8 +5847,8 @@ public class GraphBuilder
 					gurAG[3]=0;
 					gurATG[2]=gurATG[2]+gurAG[2];
 					gurATG[3]=gurATG[3]+gurAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
@@ -5860,8 +5860,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
 					glrAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -5878,8 +5878,8 @@ public class GraphBuilder
 					glrAG[3]=0;
 					glrATG[2]=glrATG[2]+glrAG[2];
 					glrATG[3]=glrATG[3]+glrAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
@@ -5893,8 +5893,8 @@ public class GraphBuilder
 
 					//first block of the element (up right)
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
 					gurAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -5911,8 +5911,8 @@ public class GraphBuilder
 					gurAG[3]=0;
 					gurATG[2]=gurATG[2]+gurAG[2];
 					gurATG[3]=gurATG[3]+gurAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
@@ -5921,8 +5921,8 @@ public class GraphBuilder
 
 					//second block of the element  (low right)
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
 					glrAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -5939,8 +5939,8 @@ public class GraphBuilder
 					glrAG[3]=0;
 					glrATG[2]=glrATG[2]+glrAG[2];
 					glrATG[3]=glrATG[3]+glrAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
@@ -5957,8 +5957,8 @@ public class GraphBuilder
 
 					//first block of the element (up left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
 					gulAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -5975,8 +5975,8 @@ public class GraphBuilder
 					gulAG[3]=0;
 					gulATG[2]=gulATG[2]+gulAG[2];
 					gulATG[3]=gulATG[3]+gulAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
@@ -5985,8 +5985,8 @@ public class GraphBuilder
 
 					//second block of the element (up right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
 					gurAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -6003,8 +6003,8 @@ public class GraphBuilder
 					gurAG[3]=0;
 					gurATG[2]=gurATG[2]+gurAG[2];
 					gurATG[3]=gurATG[3]+gurAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
@@ -6018,8 +6018,8 @@ public class GraphBuilder
 
 					//first block of the element (low left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
 					gllAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -6036,8 +6036,8 @@ public class GraphBuilder
 					gllAG[3]=0;
 					gllATG[2]=gllATG[2]+gllAG[2];
 					gllATG[3]=gllATG[3]+gllAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
@@ -6046,8 +6046,8 @@ public class GraphBuilder
 
 					//second block of the element (low right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
 					glrAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -6064,8 +6064,8 @@ public class GraphBuilder
 					glrAG[3]=0;
 					glrATG[2]=glrATG[2]+glrAG[2];
 					glrATG[3]=glrATG[3]+glrAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
@@ -6078,8 +6078,8 @@ public class GraphBuilder
 					//first block of the element (up left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
@@ -6095,8 +6095,8 @@ public class GraphBuilder
 					gulAG[3]=0;
 					gulATG[2]=gulATG[2]+gulAG[2];
 					gulATG[3]=gulATG[3]+gulAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
@@ -6106,8 +6106,8 @@ public class GraphBuilder
 					//second block of the element (up right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
@@ -6123,8 +6123,8 @@ public class GraphBuilder
 					gurAG[3]=0;
 					gurATG[2]=gurATG[2]+gurAG[2];
 					gurATG[3]=gurATG[3]+gurAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
@@ -6134,8 +6134,8 @@ public class GraphBuilder
 					//first block of the element (low left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
@@ -6151,8 +6151,8 @@ public class GraphBuilder
 					gllAG[3]=0;
 					gllATG[2]=gllATG[2]+gllAG[2];
 					gllATG[3]=gllATG[3]+gllAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
@@ -6162,8 +6162,8 @@ public class GraphBuilder
 					//second block of the element (low right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
@@ -6180,8 +6180,8 @@ public class GraphBuilder
 					glrAG[3]=0;
 					glrATG[2]=glrATG[2]+glrAG[2];
 					glrATG[3]=glrATG[3]+glrAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
@@ -6216,11 +6216,11 @@ public class GraphBuilder
 	
 	public double Rythm1Areas(ArrayList states, double xCenterMassGeneral, double yCenterMassGeneral, ElementsToPlace objElemP)
 	{
-
-		bestXs=new ArrayList<Double>();
-    	bestYs=new ArrayList<Double>();
-    	XsQuadrant=new ArrayList<Double>();
-    	YsQuadrant=new ArrayList<Double>();
+//
+//		bestXs=new ArrayList<Double>();
+//    	bestYs=new ArrayList<Double>();
+//    	XsQuadrant=new ArrayList<Double>();
+//    	YsQuadrant=new ArrayList<Double>();
     	
 		double [] gulAG;
 		double [] gurAG;
@@ -6297,8 +6297,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
 					gulAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -6315,8 +6315,8 @@ public class GraphBuilder
 					gulAG[3]=0;
 					gulATG[2]=gulATG[2]+gulAG[2];
 					gulATG[3]=gulATG[3]+gulAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
@@ -6330,8 +6330,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
 					gllAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -6348,8 +6348,8 @@ public class GraphBuilder
 					gllAG[3]=0;
 					gllATG[2]=gllATG[2]+gllAG[2];
 					gllATG[3]=gllATG[3]+gllAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
@@ -6364,8 +6364,8 @@ public class GraphBuilder
 					//first block of the element (up left)
 					//y=(yInitial-heigthElement)+(yCenterMassGeneral-yInitial)/2;
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
 					gulAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -6381,8 +6381,8 @@ public class GraphBuilder
 					gulAG[3]=0;
 					gulATG[2]=gulATG[2]+gulAG[2];
 					gulATG[3]=gulATG[3]+gulAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
@@ -6391,8 +6391,8 @@ public class GraphBuilder
 
 					//second block of the element (low left)
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
 					gllAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -6409,8 +6409,8 @@ public class GraphBuilder
 					gllAG[3]=0;
 					gllATG[2]=gllATG[2]+gllAG[2];
 					gllATG[3]=gllATG[3]+gllAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
@@ -6426,8 +6426,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
 					gurAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -6444,8 +6444,8 @@ public class GraphBuilder
 					gurAG[3]=0;
 					gurATG[2]=gurATG[2]+gurAG[2];
 					gurATG[3]=gurATG[3]+gurAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
@@ -6457,8 +6457,8 @@ public class GraphBuilder
 				{
 					x=xInitial+(widthElement/2);
 					y=yInitial-(heigthElement/2);
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
 					glrAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -6475,8 +6475,8 @@ public class GraphBuilder
 					glrAG[3]=0;
 					glrATG[2]=glrATG[2]+glrAG[2];
 					glrATG[3]=glrATG[3]+glrAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
@@ -6490,8 +6490,8 @@ public class GraphBuilder
 
 					//first block of the element (up right)
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
 					gurAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -6508,8 +6508,8 @@ public class GraphBuilder
 					gurAG[3]=0;
 					gurATG[2]=gurATG[2]+gurAG[2];
 					gurATG[3]=gurATG[3]+gurAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
@@ -6518,8 +6518,8 @@ public class GraphBuilder
 
 					//second block of the element  (low right)
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
 					glrAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -6536,8 +6536,8 @@ public class GraphBuilder
 					glrAG[3]=0;
 					glrATG[2]=glrATG[2]+glrAG[2];
 					glrATG[3]=glrATG[3]+glrAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
@@ -6554,8 +6554,8 @@ public class GraphBuilder
 
 					//first block of the element (up left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
 					gulAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -6572,8 +6572,8 @@ public class GraphBuilder
 					gulAG[3]=0;
 					gulATG[2]=gulATG[2]+gulAG[2];
 					gulATG[3]=gulATG[3]+gulAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
@@ -6582,8 +6582,8 @@ public class GraphBuilder
 
 					//second block of the element (up right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
 					gurAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -6600,8 +6600,8 @@ public class GraphBuilder
 					gurAG[3]=0;
 					gurATG[2]=gurATG[2]+gurAG[2];
 					gurATG[3]=gurATG[3]+gurAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
@@ -6615,8 +6615,8 @@ public class GraphBuilder
 
 					//first block of the element (low left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
 					gllAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -6633,8 +6633,8 @@ public class GraphBuilder
 					gllAG[3]=0;
 					gllATG[2]=gllATG[2]+gllAG[2];
 					gllATG[3]=gllATG[3]+gllAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
@@ -6643,8 +6643,8 @@ public class GraphBuilder
 
 					//second block of the element (low right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
 					glrAG[1]=Math.abs(y-yCenterMassGeneral);
@@ -6661,8 +6661,8 @@ public class GraphBuilder
 					glrAG[3]=0;
 					glrATG[2]=glrATG[2]+glrAG[2];
 					glrATG[3]=glrATG[3]+glrAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
@@ -6675,8 +6675,8 @@ public class GraphBuilder
 					//first block of the element (up left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 
 					gulAG[0]=Math.abs(x-xCenterMassGeneral);
 					gulATG[0]=gulATG[0]+gulAG[0];
@@ -6692,8 +6692,8 @@ public class GraphBuilder
 					gulAG[3]=0;
 					gulATG[2]=gulATG[2]+gulAG[2];
 					gulATG[3]=gulATG[3]+gulAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[0]=partialXSummatory[0]+(gulAG[0]);
 	        		partialYSummatory[0]=partialYSummatory[0]+(gulAG[1]);
@@ -6703,8 +6703,8 @@ public class GraphBuilder
 					//second block of the element (up right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
 					y=(yInitial-heigthElement)+(yCenterMassGeneral-(yInitial-heigthElement))/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 
 					gurAG[0]=Math.abs(x-xCenterMassGeneral);
 					gurATG[0]=gurATG[0]+gurAG[0];
@@ -6720,8 +6720,8 @@ public class GraphBuilder
 					gurAG[3]=0;
 					gurATG[2]=gurATG[2]+gurAG[2];
 					gurATG[3]=gurATG[3]+gurAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[1]=partialXSummatory[1]+(gurAG[0]);
 	        		partialYSummatory[1]=partialYSummatory[1]+(gurAG[1]);
@@ -6731,8 +6731,8 @@ public class GraphBuilder
 					//first block of the element (low left)
 					x=(xInitial+(xCenterMassGeneral-xInitial)/2);
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 
 					gllAG[0]=Math.abs(x-xCenterMassGeneral);
 					gllATG[0]=gllATG[0]+gllAG[0];
@@ -6748,8 +6748,8 @@ public class GraphBuilder
 					gllAG[3]=0;
 					gllATG[2]=gllATG[2]+gllAG[2];
 					gllATG[3]=gllATG[3]+gllAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[2]=partialXSummatory[2]+(gllAG[0]);
 	        		partialYSummatory[2]=partialYSummatory[2]+(gllAG[1]);
@@ -6759,8 +6759,8 @@ public class GraphBuilder
 					//second block of the element (low right)
 					x=(xInitial+widthElement)-((xInitial+widthElement)-xCenterMassGeneral)/2;
 					y=yInitial-(yInitial-yCenterMassGeneral)/2;
-					XsQuadrant.add(x);
-	        		YsQuadrant.add(y);
+//					XsQuadrant.add(x);
+//	        		YsQuadrant.add(y);
 
 					glrAG[0]=Math.abs(x-xCenterMassGeneral);
 					glrATG[0]=glrATG[0]+glrAG[0];
@@ -6777,8 +6777,8 @@ public class GraphBuilder
 					glrAG[3]=0;
 					glrATG[2]=glrATG[2]+glrAG[2];
 					glrATG[3]=glrATG[3]+glrAG[3];
-					bestXs.add(gulAG[0]);
-	        		bestYs.add(gulAG[1]);
+//					bestXs.add(gulAG[0]);
+//	        		bestYs.add(gulAG[1]);
 	        		
 	        		partialXSummatory[3]=partialXSummatory[3]+(glrAG[0]);
 	        		partialYSummatory[3]=partialYSummatory[3]+(glrAG[1]);
