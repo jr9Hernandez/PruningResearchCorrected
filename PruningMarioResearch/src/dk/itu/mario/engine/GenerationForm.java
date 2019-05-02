@@ -99,11 +99,11 @@ public class GenerationForm {
 			Random rand = new Random();
 			long seedM = -2011069996;
 			System.out.println("seed "+seedM);
-	    	//JFrame frame = new JFrame("Mario Experience Showcase");
+	    	JFrame frame = new JFrame("Mario Experience Showcase");
 	    	MarioComponent mario = new MarioComponent(640, 480,true," ",5,numElementsGlobalParamet,wParamether,methodSearch,seedM);
 	    	System.out.println("");
 	    	System.out.println(numElementsGlobalParamet+" "+wParamether+" ");
-	    	/*
+	    	
 	    	frame.setContentPane(mario);
 	    	frame.setResizable(false);
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -113,7 +113,7 @@ public class GenerationForm {
 	        frame.setLocation((screenSize.width-frame.getWidth())/2, (screenSize.height-frame.getHeight())/2);
 
 	        frame.setVisible(true);
-	    	 */
+	    	
 	        mario.start();  
 	}	
 
