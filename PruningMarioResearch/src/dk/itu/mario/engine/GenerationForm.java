@@ -94,10 +94,10 @@ public class GenerationForm {
 	  	/*---------------------to Generate screens------------------------*/
 		
 			int numElementsGlobalParamet=4; 
-			double wParamether=3;
+			double wParamether=1;
 			int methodSearch=3;
 			Random rand = new Random();
-			long seedM = rand.nextLong();
+			long seedM = rand.nextInt();
 			System.out.println("seed "+seedM);
 	    	JFrame frame = new JFrame("Mario Experience Showcase");
 	    	MarioComponent mario = new MarioComponent(640, 480,true," ",5,numElementsGlobalParamet,wParamether,methodSearch,seedM);

@@ -155,7 +155,7 @@ import dk.itu.mario.res.ResourcesManager;
 			        		int SizeOddsEnemies2 = objElem.SizeOddsEnemies;
 			        		
 			    	        
-			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,1,odds,objElem,wParamether,methodSearch);		        		
+			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 2,levelType,counterIts,hsObjectsScreen,1,odds,objElem,wParamether,methodSearch);		        		
 			    			
 			        		counterIts++;
 			        					        		
@@ -164,7 +164,7 @@ import dk.itu.mario.res.ResourcesManager;
 			        		objElem2.SizeOdds=SizeOdds2;
 			        		objElem2.SizeOddsEnemies=SizeOddsEnemies2;
 			        	
-			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 1,levelType,counterIts,hsObjectsScreen,2,odds2,objElem2,wParamether,methodSearch);		        		
+			        		currentLevel = new BeautyCustomizedLevel(84, 15, newSeed, 2,levelType,counterIts,hsObjectsScreen,2,odds2,objElem2,wParamether,methodSearch);		        		
 			    			
 			        		counterIts++;
 			    			}
@@ -196,7 +196,7 @@ import dk.itu.mario.res.ResourcesManager;
 		    			
 		    			}
 		    			//finish program to avoid problems with GUI in the cluster.
-		    	    	System.exit(0);
+		    	    	//System.exit(0);
 
 		        		//********mthod for load and print beauty screens*******//
 		    			

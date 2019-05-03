@@ -476,7 +476,7 @@ public class BeautyCustomizedLevel extends Level{
 //	    		BestGlobalstates=Beststates5;
 //	    	}
 	    	
-	    	BestGlobalstates=Beststates6;
+	    	BestGlobalstates=Beststates5;
 	        
 	        
 	    	//**System.out.println("Simetry 0-> Brute-force search order "+objGrapB3a.bestSymmetryV);	
@@ -1031,8 +1031,8 @@ public class BeautyCustomizedLevel extends Level{
 	        		
 	        		}
             }
-	        boolean enemyAddedBefore=addEnemyLineMountains(xCoin + 1, xCoin + widthElement - 1, floor-heigthElement - 1);
-	        decorateMountainsFloat(xCoin , xCoin + widthElement , floor-heigthElement - 1,enemyAddedBefore,finalListElements,states);
+	        //boolean enemyAddedBefore=addEnemyLineMountains(xCoin + 1, xCoin + widthElement - 1, floor-heigthElement - 1);
+	        //decorateMountainsFloat(xCoin , xCoin + widthElement , floor-heigthElement - 1,enemyAddedBefore,finalListElements,states);
 	        return mLevel;
 	    }
 	    
@@ -1124,8 +1124,8 @@ public class BeautyCustomizedLevel extends Level{
 	        		}
 	        		}
             }
-	        boolean enemyAddedBefore=addEnemyLineMountains(xJump + 1, xJump + widthElement - 1, floor-heigthElement - 1);
-	        decorateMountains(xJump , xJump + widthElement , floor-heigthElement - 1, finalListElements, states,enemyAddedBefore);
+	        //boolean enemyAddedBefore=addEnemyLineMountains(xJump + 1, xJump + widthElement - 1, floor-heigthElement - 1);
+	        //decorateMountains(xJump , xJump + widthElement , floor-heigthElement - 1, finalListElements, states,enemyAddedBefore);
 	    	return mLevel;
 	    }
 	    
@@ -1436,7 +1436,7 @@ public class BeautyCustomizedLevel extends Level{
                     }
                 }
             }*/
-	           addEnemyLineBlocks(xBlock + 1, xBlock + widthElement - 1, floor-heigthElement - 1);
+	           //addEnemyLineBlocks(xBlock + 1, xBlock + widthElement - 1, floor-heigthElement - 1);
 	           return mLevel;
 	    }
 	    
@@ -1480,7 +1480,7 @@ public class BeautyCustomizedLevel extends Level{
 	        	   mLevel.setBlock(x, floor, (byte) 12);
 	            }
         
-	           decorate(xBlock , xBlock + widthElement , floor-heigthElement - 1,finalListElements, states);
+	           //decorate(xBlock , xBlock + widthElement , floor-heigthElement - 1,finalListElements, states);
 	           return mLevel;
 	    }
 	    private Level buildWood(BlockNode elemento, Level mLevel)
