@@ -26,8 +26,8 @@ public class LoadScreenshotsForm {
 	static ArrayList metrics;
 	public static void main(String[] args)
      {			
-		/*	
-			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+			
+			final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 			Timer timer = new Timer();
 			timer.schedule(new TimerTask() {
 			@Override
@@ -55,7 +55,7 @@ public class LoadScreenshotsForm {
 			       frame.setVisible(false);
 			       }			    
 		    	frame = new JFrame("Mario Experience Showcase");
-		    	mario = new MarioComponent(640, 480,true,nameFile,3,1);
+		    	mario = new MarioComponent(640, 480,true,nameFile,3,1,0,0,0);
 		    	frame.setContentPane(mario);
 		    	frame.setResizable(false);
 		        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -68,7 +68,7 @@ public class LoadScreenshotsForm {
 		        mario.start();   
 		        counterNames++;
 			}
-        	}, 3000,3000); */
+        	}, 3000,3000); 
 			
 		/*---------------------to load------------------------*/
 

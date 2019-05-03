@@ -93,7 +93,7 @@ public class GenerationForm {
 		
 	  	/*---------------------to Generate screens------------------------*/
 		
-			int numElementsGlobalParamet=5; 
+			int numElementsGlobalParamet=6; 
 			double wParamether=3;
 			int methodSearch=3;
 			Random rand = new Random();

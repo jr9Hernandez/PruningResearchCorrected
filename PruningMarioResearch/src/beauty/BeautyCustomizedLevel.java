@@ -462,20 +462,21 @@ public class BeautyCustomizedLevel extends Level{
 	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	    	
 	    	
-	    	if(objGrapB3.bestSymmetryV<objGrapB5.bestSymmetryV)
-	    	{
-	    		double bestSYmmetry=objGrapB3.bestSymmetryV;
-	    		//System.out.println("bestSym "+bestSYmmetry);
-	    		BestGlobalstates=Beststates3;
-	    		
-	    	}
-	    	else
-	    	{
-	    		double bestSYmmetry=objGrapB5.bestSymmetryV;
-	    		//System.out.println("bestSym "+bestSYmmetry);
-	    		BestGlobalstates=Beststates5;
-	    	}
+//	    	if(objGrapB3.bestSymmetryV<objGrapB5.bestSymmetryV)
+//	    	{
+//	    		double bestSYmmetry=objGrapB3.bestSymmetryV;
+//	    		//System.out.println("bestSym "+bestSYmmetry);
+//	    		BestGlobalstates=Beststates3;
+//	    		
+//	    	}
+//	    	else
+//	    	{
+//	    		double bestSYmmetry=objGrapB5.bestSymmetryV;
+//	    		//System.out.println("bestSym "+bestSYmmetry);
+//	    		BestGlobalstates=Beststates5;
+//	    	}
 	    	
+	    	BestGlobalstates=Beststates6;
 	        
 	        
 	    	//**System.out.println("Simetry 0-> Brute-force search order "+objGrapB3a.bestSymmetryV);	
@@ -535,7 +536,7 @@ public class BeautyCustomizedLevel extends Level{
 	        
 	        
 	        //Here we will put the elements on the tile
-	        /*try {
+	        try {
 	        Level levelScreen=PaintElements(BestGlobalstates,this);
 	        Screen objScreen=new Screen();
 			objScreen.SaveScreen(levelScreen,odds,objElem);
@@ -545,7 +546,7 @@ public class BeautyCustomizedLevel extends Level{
 	        info = info.carregaInfoTela("infoTela");
 			info.setOutrasVariaveis(0, 0); // Salva outras informacoes da Tela
 			info.salvaInfoTela("infoTela", info);					
-			//copiador.copy("" + count, "Screens/");
+			copiador.copy("" + count, "Screens/");
 			
 	        }  catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -553,7 +554,7 @@ public class BeautyCustomizedLevel extends Level{
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}*/
+			}
 		}
 	
 		private void CreatingBeautyContentTopK() { 
