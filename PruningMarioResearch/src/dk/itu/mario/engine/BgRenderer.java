@@ -85,7 +85,19 @@ public class BgRenderer
             for (int y = yTileStart; y <= yTileEnd; y++)
             {
                 int b = level.getBlock(x, y) & 0xff;
-                g.drawImage(Art.bg[b % 8][b / 8], (x << 5) - xCam, (y << 5) - yCam-16, null);
+                if(y==0)
+                {
+                	g.drawImage(Art.bg[4][0], (x << 5) - xCam, (y << 5) - yCam-16, null);
+                }
+                else if(y==1)
+                {
+                	g.drawImage(Art.bg[4][1], (x << 5) - xCam, (y << 5) - yCam-16, null);
+                }
+                else
+                {
+                	g.drawImage(Art.bg[4][2], (x << 5) - xCam, (y << 5) - yCam-16, null);
+                }
+                //g.drawImage(Art.bg[b % 8][b / 8], (x << 5) - xCam, (y << 5) - yCam-16, null);
             }
         }
     }

@@ -57,6 +57,7 @@ public class BeautyCustomizedLevel extends Level{
 		private ArrayList<BlockNode> Beststates5 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> Beststates6 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> Beststates7 = new ArrayList<BlockNode>();
+		private ArrayList<BlockNode> Beststates8 = new ArrayList<BlockNode>();
 		private ArrayList<BlockNode> BestGlobalstates = new ArrayList<BlockNode>();
 		private int maxScreens=100;
 		
@@ -319,6 +320,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	GraphBuilder objGrapB5= new GraphBuilder(1);
 	    	GraphBuilder objGrapB6= new GraphBuilder(1);
 	    	GraphBuilder objGrapB7= new GraphBuilder(1);
+	    	GraphBuilder objGrapB8= new GraphBuilder(1);
 	    	
 	    	objGrapB.setWparamether(wParamether);
 	    	objGrapB2.setWparamether(wParamether);
@@ -328,6 +330,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	objGrapB5.setWparamether(wParamether);
 	    	objGrapB6.setWparamether(wParamether);
 	    	objGrapB7.setWparamether(wParamether);
+	    	objGrapB8.setWparamether(wParamether);
 	    	
 	    	int numElements=objElem.getNumberObjects();
 	    	int numEnemies=objElem.getNumberObjectsEnemies();
@@ -338,6 +341,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	double time3=0;
 	    	double time4=0;
 	    	double time5=0;
+	    	double time8=0;
 	    	
 	    	double startTime=0;
 	    	double stopTime=0;
@@ -347,6 +351,7 @@ public class BeautyCustomizedLevel extends Level{
 	    	double sum5=0;
 	    	double sum6=0;
 	    	double sum7=0;
+	    	double sum8=0;
 
 	    	
 	    	//Beststates=objGrapB.basicDepthSearch(mediumStraight,height,numElements,numElements,states,objConstraints, objElem.getFinalList(),objElem);
@@ -462,6 +467,24 @@ public class BeautyCustomizedLevel extends Level{
 	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
 	    	
 	    	
+	        //X)RANDOM 
+	        //objElem.setFinalList(objElem.getFinalListNoOrder());
+	    	for(int i=0;i<1;i++)
+	    	{
+	    		startTime = System.currentTimeMillis();
+	    		Beststates8=objGrapB8.DepthSearchCenterFramePruningLeviHeuristicRandom(mediumStraight,height,numElements-numEnemies,numElements-numEnemies,states,objConstraints, objElem.getFinalList(),objElem,0,mediumStraight-2,floorTileHeight,0,0,numEnemies,random,globalControlSearch,8,typeSymmetry);
+	    		stopTime = System.currentTimeMillis();
+	    		time8 = stopTime - startTime;
+//	    		round(time5,2);
+//	    		double nodes5=round((double)objGrapB5.getCounterIDs(),2);
+//	    		System.out.println(objGrapB5.bestSymmetryV+" "+time5+" "+((objGrapB5.getCounterIDs())));
+	    		sum8=sum8+time8;
+	    	}
+	    	time8=sum8/1;
+	    	time8=round(time5,2);
+	        //System.out.println("Time B&B+heuristic + region ordering "+elapsedTime);
+	    	
+	    	
 //	    	if(objGrapB3.bestSymmetryV<objGrapB5.bestSymmetryV)
 //	    	{
 //	    		double bestSYmmetry=objGrapB3.bestSymmetryV;
@@ -476,7 +499,7 @@ public class BeautyCustomizedLevel extends Level{
 //	    		BestGlobalstates=Beststates5;
 //	    	}
 	    	
-	    	BestGlobalstates=Beststates5;
+	    	BestGlobalstates=Beststates8;
 	        
 	        
 	    	//**System.out.println("Simetry 0-> Brute-force search order "+objGrapB3a.bestSymmetryV);	

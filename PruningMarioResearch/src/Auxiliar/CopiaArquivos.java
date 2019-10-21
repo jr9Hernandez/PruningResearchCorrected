@@ -95,6 +95,7 @@ public class CopiaArquivos {
      * @param diretorio: diretório da tela
      * @throws IOException
      */
+    //current method
     public void copy(String nome, String diretorio) throws IOException{  
     	File tela = new File("tela");  
         File infoTela = new File("infoTela");
@@ -146,7 +147,7 @@ public class CopiaArquivos {
         	nomeDestino = numero;
         
         File copiaTela = new File(diretorioDestino + "/Telas/tela" + nomeDestino);  
-        File copiaInfoTela = new File(diretorioDestino + "/InfoTelas/info" + nomeDestino);
+        File copiaInfoTela = new File(diretorioDestino + "/InfoTelas/infoo" + nomeDestino);
         
         //System.out.println("Copiando aquivos...");
         //Salva a Tela
